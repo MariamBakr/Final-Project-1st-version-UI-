@@ -7,6 +7,10 @@ import { NgbModule , NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { LatestNewsComponent } from './latest-news/latest-news.component';
+import { CounterComponent } from './counter/counter.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -14,12 +18,17 @@ import { LoginComponent } from './login/login.component';
     NavbarComponent,
     RegisterComponent,
     LoginComponent,
+    LatestNewsComponent,
+    CounterComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    CarouselModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

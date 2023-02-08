@@ -1,0 +1,38 @@
+
+<div class="mt-5 row justify-content-center">
+    <p class="fs-1 col-12 text-center">LATEST NEWS</p>
+    <p class="col-5 text-center text-muted">
+        But I must explain to you how all this mistaken idea 
+        of denouncing pleasure and praising pain was born
+         and I will give you a complete account</p>
+</div>
+<div class="title-border mx-auto mb-5"></div>
+
+<!-- ///////////////////////////////////// the owl carousel-->
+
+<div class="container my-5">
+
+  
+    <owl-carousel-o [options]="customOptions">
+      
+    <ng-container *ngFor="let slide of slides">
+      <ng-template carouselSlide [id]="slide.id">
+        <div class="row">
+          <div class="col-lg-6 col-md-5 col-sm-8">
+            <img [src]="slide.img" [id]="slide.id" class="image img-fluid">
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-8 block">
+            <p><span class="fs-3">{{slide.Daydate}}</span>{{slide.MonthDate}}</p>
+            <a class="startBright text-decoration-none" href="#"> {{slide.anchor}}</a>
+            <p class="text-muted">{{slide.text}}</p>
+            <a href="#" class="text-muted">READ MORE</a>
+        </div>
+        
+        </div>
+        
+      </ng-template>
+    </ng-container>
+      
+    </owl-carousel-o>
+    </div>
+
