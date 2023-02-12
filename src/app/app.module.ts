@@ -11,6 +11,8 @@ import { LatestNewsComponent } from './latest-news/latest-news.component';
 import { CounterComponent } from './counter/counter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { PurchaseHistoryComponent } from './purchase-history/purchase-history.component';
+import { HomePageCarouselComponent } from './home-page-carousel/home-page-carousel.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     LoginComponent,
     LatestNewsComponent,
     CounterComponent,
+    PurchaseHistoryComponent,
+
+    HomePageCarouselComponent,
 
   ],
   imports: [
@@ -28,7 +33,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NgbModule,
     NgbCarouselModule,
     CarouselModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

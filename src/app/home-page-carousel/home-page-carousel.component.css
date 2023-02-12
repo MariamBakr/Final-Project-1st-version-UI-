@@ -1,0 +1,10 @@
+.carousel-wrapper{
+  width:100%;
+  height: 70vh;
+  position: relative;
+  overflow: hidden;
+}
+.carousel-wrapper img{
+  height:100%;
+  width:100%;
+}
