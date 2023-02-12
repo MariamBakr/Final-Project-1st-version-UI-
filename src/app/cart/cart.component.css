@@ -1,0 +1,83 @@
+@media(max-width:1000px){
+    table{
+        overflow-x: auto !important;
+        width: 100% !important;
+      }
+}
+
+@media(max-width:1200px) and (min-width:992px){
+    .cartBtn{
+        margin-top: 1rem;
+    }
+}
+
+@media(max-width:991px) and (min-width:771px){
+    .cartBtn{
+        margin-top: 1rem;
+    }
+    .contBtn{
+        margin-top: 1rem;
+    }
+}
+
+@media(max-width:770px){
+    .contBtn{
+        width: 100% !important;
+        margin-top: 1rem;
+    }
+    .cartBtn{
+        width: 100% !important;
+        margin-top: 1rem;
+    }
+}
+
+#background{
+    background-image: url("../../assets/countdown2_bg.jpg");
+    background-size: 100% 100%;
+    height: 20rem;
+}
+
+#layout{
+    background-color: rgba(0, 0, 0, 0.47);
+    height: 20rem;
+}
+
+.title-border{
+    display: block;
+    width: 5rem;
+    height: 1px;
+    background-color: #e4c7a2;
+}
+
+.navigation{
+    font-size: 1.5rem;
+}
+
+.navigation:hover{
+    color:#e4c7a2 !important;
+    text-decoration:none !important;
+}
+
+thead{
+    background-color: #e4c7a2;
+}
+
+.cartBtn:hover{
+    
+    background-color: black;
+    color: #e4c7a2;
+}
+
+.contBtn:hover{
+    background-color: #e4c7a2;
+    color: white;
+    border-color: #e4c7a2 !important;
+}
+
+.form-control{
+    display: inline;
+}
+
+  .d-flex{
+    flex-wrap: wrap !important;
+  } 

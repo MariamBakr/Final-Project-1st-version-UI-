@@ -1,25 +1,12 @@
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
-<div class="container">
-  <ngb-carousel [interval]="5000" [pauseOnHover]="false" >
-    <ng-template ngbSlide *ngFor="let image of images">
-      <div class="carousel-wrapper text-center">
-        <img src="{{image.src}}" alt="">
-      </div>
-      <div class="carousel-caption">
-        <div class="row">
-          <div class="col-xl-3 col-lg-3 col-md-5 text-white ">
-            <span>New Packaging</span>
-            <h2>PaperBoard</h2>
-            <p>{{image.caption}}</p>
-            <button type="button" class="btn btn-dark ">Discover More</button>
-          </div>
-        </div>
-      </div>
-    </ng-template>
-  </ngb-carousel>
-  </div>
+
+
   <app-counter></app-counter>
+  <app-home-page-carousel></app-home-page-carousel>
+  <app-purchase-history></app-purchase-history>
   <app-latest-news></app-latest-news>
   <app-card></app-card>
-  
+
+  <app-single-product></app-single-product>
+
