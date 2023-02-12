@@ -11,6 +11,7 @@ import { LatestNewsComponent } from './latest-news/latest-news.component';
 import { CounterComponent } from './counter/counter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     LoginComponent,
     LatestNewsComponent,
     CounterComponent,
+    CardComponent,
+
 
   ],
   imports: [
