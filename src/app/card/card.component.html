@@ -1,37 +1,40 @@
-<div class="container m-5">
+<div class="feature-headline section-heading text-center">
+    <h2>featured product</h2>
+    <p>Mirum est notare quam littera gothica, quam nunc putamus parum claram</p>
+</div>
+
+
+<div class="container mt-5">
     <div class="icon-left-right">
         <!-- icon-left -->
-        <div data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-            <div class="icon-right" aria-hidden="true">
-                <i class="fa-solid fa-circle-right"></i>
 
-            </div>
-            <span class="visually-hidden">Previous</span>
+        <div class="icon-right" aria-hidden="true">
+            <i class="fa-solid fa-circle-right"></i>
+
         </div>
+
 
         <!-- icon-right -->
-        <div class="" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
 
-            <div class="icon-left" aria-hidden="true">
-                <i class="fa-solid fa-circle-left"></i>
-            </div>
-
-
-
-            <span class="visually-hidden">Next</span>
+        <div class="icon-left" aria-hidden="true">
+            <i class="fa-solid fa-circle-left"></i>
         </div>
 
 
-        <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false"
-            data-bs-interval="false">
+        <owl-carousel-o [options]="customOptions">
 
-            <div class="row flex-nowrap justify-content-between move-crad-butn ">
-                <!-- card 1-->
-                <div class="carousel-item active">
+            <ng-container *ngFor="let slide of slides">
 
-                    <div class="owl-wrapper  col-3">
-                        <div class="owl-item" style="width: 241px;">
-                            <div class="custom-col">
+                <ng-template carouselSlide id="slide.id">
+
+                    <!-- /////// -->
+
+
+                    <!-- card 1-->
+                    <div class="row justify-content-center move-crad-butn  X">
+                        <div class="owl-wrapper">
+                            <div class="owl-item m-5">
+
                                 <div class="single-product">
 
                                     <!--product(star-name-price)  -->
@@ -131,461 +134,41 @@
                                         <a href="#">add to cart</a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
+                            </div>
+
+                        </div>
                     </div>
 
-                </div>
-
-                <!-- card 2-->
-
-                <div class="carousel-item ">
-                    <div class="owl-wrapper  col-3">
-                        <div class="owl-item" style="width: 241px;">
-                            <div class="custom-col">
-                                <div class="single-product">
-
-                                    <!--product(star-name-price)  -->
-                                    <div class="product-details">
-
-                                        <!-- star -->
-                                        <div class="ratings no-rating row">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- product-name -->
-                                        <div class="product-name">
-                                            <h3><a href="#">Fusce aliquam</a></h3>
-                                        </div>
-
-                                        <!-- price-box -->
-                                        <div class="price-box">
-                                            <span class="old-price">$170.00</span>
-                                            <span class="new-price">$155.00</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- image -->
-                                    <div class="product-img">
-
-                                        <span class="sale-text">sale</span>
-
-                                        <a href="#">
-                                            <img class="primary-img"
-                                                src="https://htmldemo.net/expert/expert/assets/images/product/1_5.webp"
-                                                alt="">
-
-                                            <img class="secondary-img"
-                                                src="https://htmldemo.net/expert/expert/assets/images/product/22_1.webp"
-                                                alt="">
-                                        </a>
-
-                                        <div class="add-action">
-                                            <ul>
-                                                <!-- tooltip 1 -->
-                                                <li class="heart">
-                                                    <div id="tooltip1" role="tooltip">
-                                                        ADD To Wishlist
-                                                        <div id="arrow1" data-popper-arrow></div>
-                                                    </div>
-
-                                                    <a href="#" id="ankr1" aria-describedby="tooltip">
-                                                        <i class="fa-regular fa-heart"></i>
-                                                    </a>
-                                                </li>
-                                                <!-- tooltip 2 -->
-                                                <li class="refresh">
-
-
-                                                    <div id="tooltip2" role="tooltip">
-                                                        Compare
-                                                        <div id="arrow2" data-popper-arrow></div>
-                                                    </div>
-
-
-                                                    <a href="#" data-bs-tooltip="tooltip" aria-label="Compare"
-                                                        data-bs-original-title="Compare">
-                                                        <i class="fa fa-refresh"></i>
-                                                    </a>
-                                                </li>
-
-
-                                                <!-- Button trigger modal -->
-
-                                                <!-- tooltip 3 -->
-                                                <li class="quickview eye">
-                                                    <div id="tooltip3" role="tooltip">
-                                                        Quick view
-                                                        <div id="arrow3" data-popper-arrow></div>
-                                                    </div>
-
-
-
-
-                                                    <a href="#" title="Quick view" data-bs-toggle="modal"
-                                                        data-bs-target="#productModal">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <!-- button -->
-                                    <div class="add-to-cart">
-                                        <a href="#">add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- card 3-->
-                <div class="carousel-item">
-                    <div class="owl-wrapper  col-3">
-                        <div class="owl-item" style="width: 241px;">
-                            <div class="custom-col">
-                                <div class="single-product">
-
-                                    <!--product(star-name-price)  -->
-                                    <div class="product-details">
-
-                                        <!-- star -->
-                                        <div class="ratings no-rating row">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- product-name -->
-                                        <div class="product-name">
-                                            <h3><a href="#">Fusce aliquam</a></h3>
-                                        </div>
-
-                                        <!-- price-box -->
-                                        <div class="price-box">
-                                            <span class="old-price">$170.00</span>
-                                            <span class="new-price">$155.00</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- image -->
-                                    <div class="product-img">
-
-                                        <span class="sale-text">sale</span>
-
-                                        <a href="#">
-                                            <img class="primary-img"
-                                                src="https://htmldemo.net/expert/expert/assets/images/product/1_5.webp"
-                                                alt="">
-
-                                            <img class="secondary-img"
-                                                src="https://htmldemo.net/expert/expert/assets/images/product/22_1.webp"
-                                                alt="">
-                                        </a>
-
-                                        <div class="add-action">
-                                            <ul>
-                                                <!-- tooltip 1 -->
-                                                <li class="heart">
-                                                    <div id="tooltip1" role="tooltip">
-                                                        ADD To Wishlist
-                                                        <div id="arrow1" data-popper-arrow></div>
-                                                    </div>
-
-                                                    <a href="#" id="ankr1" aria-describedby="tooltip">
-                                                        <i class="fa-regular fa-heart"></i>
-                                                    </a>
-                                                </li>
-                                                <!-- tooltip 2 -->
-                                                <li class="refresh">
-
-
-                                                    <div id="tooltip2" role="tooltip">
-                                                        Compare
-                                                        <div id="arrow2" data-popper-arrow></div>
-                                                    </div>
-
-
-                                                    <a href="#" data-bs-tooltip="tooltip" aria-label="Compare"
-                                                        data-bs-original-title="Compare">
-                                                        <i class="fa fa-refresh"></i>
-                                                    </a>
-                                                </li>
-
-
-                                                <!-- Button trigger modal -->
-
-                                                <!-- tooltip 3 -->
-                                                <li class="quickview eye">
-                                                    <div id="tooltip3" role="tooltip">
-                                                        Quick view
-                                                        <div id="arrow3" data-popper-arrow></div>
-                                                    </div>
-
-
-
-
-                                                    <a href="#" title="Quick view" data-bs-toggle="modal"
-                                                        data-bs-target="#productModal">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <!-- button -->
-                                    <div class="add-to-cart">
-                                        <a href="#">add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <!-- card 4-->
-                <div class="carousel-item">
-                    <div class="owl-wrapper  col-3">
-                        <div class="owl-item" style="width: 241px;">
-                            <div class="custom-col">
-                                <div class="single-product">
-
-                                    <!--product(star-name-price)  -->
-                                    <div class="product-details">
-
-                                        <!-- star -->
-                                        <div class="ratings no-rating row">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- product-name -->
-                                        <div class="product-name">
-                                            <h3><a href="#">Fusce aliquam</a></h3>
-                                        </div>
-
-                                        <!-- price-box -->
-                                        <div class="price-box">
-                                            <span class="old-price">$170.00</span>
-                                            <span class="new-price">$155.00</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- image -->
-                                    <div class="product-img">
-
-                                        <span class="sale-text">sale</span>
-
-                                        <a href="#">
-                                            <img class="primary-img"
-                                                src="https://htmldemo.net/expert/expert/assets/images/product/1_5.webp"
-                                                alt="">
-
-                                            <img class="secondary-img"
-                                                src="https://htmldemo.net/expert/expert/assets/images/product/22_1.webp"
-                                                alt="">
-                                        </a>
-
-                                        <div class="add-action">
-                                            <ul>
-                                                <!-- tooltip 1 -->
-                                                <li class="heart">
-                                                    <div id="tooltip1" role="tooltip">
-                                                        ADD To Wishlist
-                                                        <div id="arrow1" data-popper-arrow></div>
-                                                    </div>
-
-                                                    <a href="#" id="ankr1" aria-describedby="tooltip">
-                                                        <i class="fa-regular fa-heart"></i>
-                                                    </a>
-                                                </li>
-                                                <!-- tooltip 2 -->
-                                                <li class="refresh">
-
-
-                                                    <div id="tooltip2" role="tooltip">
-                                                        Compare
-                                                        <div id="arrow2" data-popper-arrow></div>
-                                                    </div>
-
-
-                                                    <a href="#" data-bs-tooltip="tooltip" aria-label="Compare"
-                                                        data-bs-original-title="Compare">
-                                                        <i class="fa fa-refresh"></i>
-                                                    </a>
-                                                </li>
-
-
-                                                <!-- Button trigger modal -->
-
-                                                <!-- tooltip 3 -->
-                                                <li class="quickview eye">
-                                                    <div id="tooltip3" role="tooltip">
-                                                        Quick view
-                                                        <div id="arrow3" data-popper-arrow></div>
-                                                    </div>
-
-
-
-
-                                                    <a href="#" title="Quick view" data-bs-toggle="modal"
-                                                        data-bs-target="#productModal">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <!-- button -->
-                                    <div class="add-to-cart">
-                                        <a href="#">add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <!-- card 5-->
-                <div class="carousel-item">
-                    <div class="owl-wrapper  col-3">
-                        <div class="owl-item" style="width: 241px;">
-                            <div class="custom-col">
-                                <div class="single-product">
-
-                                    <!--product(star-name-price)  -->
-                                    <div class="product-details">
-
-                                        <!-- star -->
-                                        <div class="ratings no-rating row">
-                                            <ul>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                                <li><i class="fa-solid fa-star"></i></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- product-name -->
-                                        <div class="product-name">
-                                            <h3><a href="#">Fusce aliquam</a></h3>
-                                        </div>
-
-                                        <!-- price-box -->
-                                        <div class="price-box">
-                                            <span class="old-price">$170.00</span>
-                                            <span class="new-price">$155.00</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- image -->
-                                    <div class="product-img">
-
-                                        <span class="sale-text">sale</span>
-
-                                        <a href="#">
-                                            <img class="primary-img"
-                                                src="https://htmldemo.net/expert/expert/assets/images/product/1_5.webp"
-                                                alt="">
-
-                                            <img class="secondary-img"
-                                                src="https://htmldemo.net/expert/expert/assets/images/product/22_1.webp"
-                                                alt="">
-                                        </a>
-
-                                        <div class="add-action">
-                                            <ul>
-                                                <!-- tooltip 1 -->
-                                                <li class="heart">
-                                                    <div id="tooltip1" role="tooltip">
-                                                        ADD To Wishlist
-                                                        <div id="arrow1" data-popper-arrow></div>
-                                                    </div>
-
-                                                    <a href="#" id="ankr1" aria-describedby="tooltip">
-                                                        <i class="fa-regular fa-heart"></i>
-                                                    </a>
-                                                </li>
-                                                <!-- tooltip 2 -->
-                                                <li class="refresh">
-
-
-                                                    <div id="tooltip2" role="tooltip">
-                                                        Compare
-                                                        <div id="arrow2" data-popper-arrow></div>
-                                                    </div>
-
-
-                                                    <a href="#" data-bs-tooltip="tooltip" aria-label="Compare"
-                                                        data-bs-original-title="Compare">
-                                                        <i class="fa fa-refresh"></i>
-                                                    </a>
-                                                </li>
-
-
-                                                <!-- Button trigger modal -->
-
-                                                <!-- tooltip 3 -->
-                                                <li class="quickview eye">
-                                                    <div id="tooltip3" role="tooltip">
-                                                        Quick view
-                                                        <div id="arrow3" data-popper-arrow></div>
-                                                    </div>
-
-
-
-
-                                                    <a href="#" title="Quick view" data-bs-toggle="modal"
-                                                        data-bs-target="#productModal">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <!-- button -->
-                                    <div class="add-to-cart">
-                                        <a href="#">add to cart</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-            </div>
-
-        </div>
+
+
+
+
+                    <!-- card 2-->
+
+
+
+                    <!-- card 3-->
+
+
+                    <!-- card 4-->
+
+
+                    <!-- card 5-->
+
+
+
+
+
+
+
+                </ng-template>
+
+
+            </ng-container>
+
+        </owl-carousel-o>
+
     </div>
 </div>
 
