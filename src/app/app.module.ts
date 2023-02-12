@@ -20,6 +20,8 @@ import { SingleProductComponent } from './single-product/single-product.componen
 import { PurchaseHistoryComponent } from './purchase-history/purchase-history.component';
 import { HomePageCarouselComponent } from './home-page-carousel/home-page-carousel.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { FooterComponent } from './footer/footer.component';
     PurchaseHistoryComponent,
     HomePageCarouselComponent,
     FooterComponent,
+    HomepageComponent,
+    NotfoundComponent,
 
   ],
   imports: [
