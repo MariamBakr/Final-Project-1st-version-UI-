@@ -2,17 +2,18 @@
 
 
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark " style="height:10vh ;">
     <div class="container-fluid">
 
-
       <!-- Website_Name + Logo -->
-      <div>
-        <a class="navbar-brand" href="#">Navbar</a>
-        <img src="" alt="">
+      <div class="position-relative d-flex align-items-center" style="bottom: 0.6rem;">
+        <img class="ms-3  rounded-3 position-relative" style="top: 0.5rem; width: 3.5rem;" src="../../assets/BrandLogo.jpeg" alt="">
+        <a  class="navbar-brand position-relative" style="top: 0.6rem; left: 0.6rem; font-size: 1.5rem; color: rgba(0, 208, 0, 0.915);" href="#"><i class="fa-solid fa-i"></i></a>
+        <a  class="navbar-brand position-relative" style="top: 0.8rem; right: 0.2rem; font-size: 1rem; color: rgba(0, 208, 0, 0.915);" href="#"><i class="fa-solid fa-m"></i></a>
+        <a  class="navbar-brand position-relative brandName" style="top: 0.6rem; font-size: 1.5rem; right: 0.7rem;" href="#">Home</a>
       </div>
 
-      <!--  -->
+      <!-- Home , Products , About , Page , Shop , Blog & Contact -->
       <div>
         
         <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,16 +99,14 @@
             </ul>
         </div>
       </div>
-      <!-- Search Form -->
-      <div>
-            <form class="d-flex" role="search">
-                <input style="height:4vh;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button style="height:4vh; padding-top: 0.1rem ;" class="search_btn btn btn-outline-light text-white" type="submit">Search</button>
-            </form>
-            
-      </div>
-      <!-- LogIn & LonOut -->
-      <div  >
+
+
+      
+      <!-- Search , LogIn , Register & LonOut -->
+      <div   class="position-relative" style="right: 1.5rem;">
+        <!-- Search Icon -->
+        <a class="me-5 text-light " style="font-size: 1.3rem;" routerLink="filter"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+        <!-- LogIn , Register & LonOut -->
         <a class=" text-white text-decoration-none me-3 " routerLink="login">Login</a>
         <a class=" text-white text-decoration-none me-3 " routerLink="register">Register</a>
         <a class=" text-white text-decoration-none " href="#">Logout</a>    

@@ -1,0 +1,165 @@
+<!-- header -->
+<div id="background">
+    <div id="layout">
+        <!-- headline -->
+        <div class="text-center pt-5">
+            <h1 class="text-light pt-5">CHECKOUT</h1>
+        </div>
+        <!-- border -->
+        <div class="title-border mx-auto mb-4 mt-4"></div>
+        <!-- text -->
+        <div class="text-center text-light">
+            <a href="#" class="text-decoration-none text-light navigation">Home</a> - 
+            <a href="#" class="text-decoration-none text-light navigation">Checkout</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-5">
+    <!--------------------------------------- cards section -------------------------------->
+    <div class="row justify-content-lg-between justify-content-md-center justify-content-sm-center">
+        <!-- first card -->
+        <div class="col-lg-5 col-md-8 col-sm-10 couponCard">
+            <div class="col-12">
+                <h3 class="fw-normal mt-3">COUPON CODE</h3>
+                <div class="title-border mb-4"></div>
+            </div>
+            <p class="col-12 text-muted">Enter your coupon code if you have one</p>
+            <input type="text" placeholder="coupon code" class="col-12 form-control rounded-0">
+            <button class="btn btn-dark col-5 rounded-0 my-4 ms-3 couponBtn">APPLY COUPON</button>
+        </div>
+
+        <!-- second card -->
+        <div class="col-lg-5 col-md-8 col-sm-10 mt-lg-0 mt-md-4 mt-sm-4 couponCard">
+            <div class="col-12">
+                <h3 class="fw-normal mt-3">CART TOTAL</h3>
+                <div class="title-border mb-4"></div>
+            </div>
+            <div class="row justify-content-between">
+                <p class="col-2">SUBTOTAL</p>
+                <p class="col-2 me-3 priceTotal">$515.00</p>
+            </div>
+            <div class="row justify-content-between">
+                <p class="col-3">GRANDTOTAL</p>
+                <h4 class="col-3 fw-normal me-2 priceTotal" id="grandTotal">$515.00</h4>
+            </div>
+            <button class="btn btn-dark col-5 rounded-0 my-4 ms-3 couponBtn">APPLY COUPON</button>
+        </div>
+    </div>
+    <!---------------------------------------------------- checkout section ---------------------------------->
+
+    <div class="row justify-content-between mt-5">
+
+        <!-- data inputs -->
+        <div class="col-lg-6 col-md-12 col-sm-12">
+        <form>
+            <div class="col-12">
+                <h3 class="fw-normal mt-3">BILLING DETAILS</h3>
+                <div class="title-border mb-4"></div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6 INPUT">
+                    <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control rounded-0" id="firstName">
+                </div>
+                <div class="col-6 INPUT">
+                    <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control rounded-0" id="lastName">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="compName" class="form-label">Company Name</label>
+                <input type="text" class="form-control rounded-0" id="compName">
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
+                <input type="text" class="form-control rounded-0 mb-4" id="address" placeholder="street address">
+                <input type="text" class="form-control rounded-0" id="address"
+                    placeholder="Apartment, suite, unit, etc. (optional)">
+            </div>
+            <div class="mb-3">
+                <label for="town" class="form-label">Town/City <span class="text-danger">*</span></label>
+                <select class="form-control mb-3" id="town">
+                    <option value="">Choose City</option>
+                    <option *ngFor="let city of city" [ngValue]="city">{{ city }}</option>
+                  </select>
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" value="EGYPT" class="form-control rounded-0" id="country" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="postCode" class="form-label">Postcode/Zip <span class="text-danger">*</span></label>
+                <input type="text" class="form-control rounded-0" id="postCode">
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6 INPUT">
+                    <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control rounded-0" id="phone">
+                </div>
+                <div class="col-6 INPUT">
+                    <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control rounded-0" id="email">
+                </div>
+            </div>
+            <div class="form-check mb-5">
+                <input class="form-check-input" type="checkbox" value="" id="createAccount">
+                <label class="form-check-label text-muted" for="createAccount">Create an account?</label>
+            </div>
+            <div class="col-12">
+                <h3 class="fw-normal mt-3">ADDITIONAL INFORMATION</h3>
+                <div class="title-border mb-4"></div>
+            </div>
+            <div class="mb-3">
+                <label for="orderNotes" class="form-label">Order notes</label>
+                <textarea class="form-control rounded-0" id="orderNotes" rows="5"
+                    placeholder="Note about your order, eg.special notes for delivery"></textarea>
+            </div>
+
+        </form>
+    </div>
+    <!-- checkout details -->
+    <div class="col-lg-5 col-md-12 col-sm-12 ">
+        <table class="w-100 mb-5 mt-3">
+            <thead class="border-bottom">
+                <th class=""><h4 class="fw-normal">PRODUCT</h4></th>
+                <th class="text-end"><h4 class="fw-normal">TOTAL</h4></th>
+            </thead>
+            <tbody>
+                <tr class="border-bottom align-items-center my-3">
+                    <td class="">Crackle Plates</td>
+                    <td class="text-end">$44</td>
+                </tr>
+                <tr class="border-bottom">
+                    <td class=""><h4 class="fw-normal">SUBTOTAL</h4></td>
+                    <td class="text-end">$44</td>
+                </tr>
+                <tr class="">
+                    <td class=""><h4 class="fw-normal">TOTAL</h4></td>
+                    <td class="text-end">$44</td>
+                </tr>
+            </tbody>
+        </table>
+        <h5 class="fw-normal mb-4">CHECK PAYMENT</h5>
+        <p class="text-muted">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+
+        <div class="row justify-content-between mt-4">
+            <div class="col-2 mt-2" id="paypal">
+                PAYPAL
+            </div>
+            <div class="col-4">
+                <img src="../../assets/paypal.png">
+            </div>
+            <div class="col-5 mt-2">
+                <a href="#" class="text-decoration-none text-muted" id="paypalLink">What is Paypal?</a>
+            </div>
+        </div>
+
+        <div class="mt-4 text-end">
+            <button class="btn btn-dark rounded-0 ">PROCEED TO PAYPAL</button>
+        </div>
+        
+    </div>
+</div>
+</div>
