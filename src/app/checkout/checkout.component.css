@@ -1,0 +1,78 @@
+@media(max-width:576px){
+    .couponCard{
+        margin-top: 2rem !important;
+        width: 80% !important;
+        margin: 0 auto;
+    }
+    .priceTotal{
+        /* font-size: 1rem; */
+        width: 100%;
+    }
+    .INPUT{
+        width: 100% !important;
+    }
+    .couponBtn{
+        width: 80%;
+    }
+}
+
+@media(max-width:250px){
+    #paypal{
+        display: none;
+    }
+}
+
+@media(max-width:375px){
+    #paypalLink{
+        display: none;
+    }
+}
+
+#background{
+    background-image: url("../../assets/countdown2_bg.jpg");
+    background-size: 100% 100%;
+    height: 20rem;
+}
+
+#layout{
+    background-color: rgba(0, 0, 0, 0.47);
+    height: 20rem;
+}
+
+.title-border{
+    display: block;
+    width: 6rem;
+    height: 1px;
+    background-color: #e4c7a2;
+}
+
+.couponCard{
+    border-top: 10px #e4c7a2 solid;
+    background-color: #eef1f8;
+}
+
+#grandTotal{
+    color: #fe6968;
+}
+
+tr{
+    height: 4rem;
+}
+
+a:hover{
+    text-decoration: underline !important;
+}
+
+.btn:hover{
+    background-color: #e4c7a2;
+    border-color: #e4c7a2;
+    color: black;
+}
+.navigation{
+    font-size: 1.5rem;
+}
+
+.navigation:hover{
+    color:#e4c7a2 !important;
+    text-decoration:none !important;
+}

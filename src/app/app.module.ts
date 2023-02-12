@@ -12,6 +12,9 @@ import { CounterComponent } from './counter/counter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CardComponent } from './card/card.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { CardComponent } from './card/card.component';
     LatestNewsComponent,
     CounterComponent,
     CardComponent,
+    CartComponent,
+    CheckoutComponent,
 
 
   ],
@@ -31,7 +36,9 @@ import { CardComponent } from './card/card.component';
     NgbModule,
     NgbCarouselModule,
     CarouselModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
