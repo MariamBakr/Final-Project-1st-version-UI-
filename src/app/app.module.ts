@@ -19,6 +19,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SingleProductComponent } from './single-product/single-product.component';
 import { PurchaseHistoryComponent } from './purchase-history/purchase-history.component';
 import { HomePageCarouselComponent } from './home-page-carousel/home-page-carousel.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { HomePageCarouselComponent } from './home-page-carousel/home-page-carous
     SingleProductComponent,
     PurchaseHistoryComponent,
     HomePageCarouselComponent,
+    HomepageComponent,
+    NotfoundComponent,
 
   ],
   imports: [
