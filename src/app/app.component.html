@@ -1,6 +1,8 @@
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
+
 <div class="container">
+
   <ngb-carousel [interval]="5000" [pauseOnHover]="false" >
     <ng-template ngbSlide *ngFor="let image of images">
       <div class="carousel-wrapper text-center">

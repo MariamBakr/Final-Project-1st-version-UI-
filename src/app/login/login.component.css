@@ -1,0 +1,57 @@
+@media (max-width: 1100px){
+    .divContainRemindMe{
+        flex-direction: column;
+        
+        
+    }
+
+   
+
+}
+
+
+@media (max-width: 925px){
+    .brdrInLoginWith{
+    display: none;       
+        
+    }
+    .orLoginwith{
+        position: relative;
+        left: 2.5rem !important;
+    }
+}
+
+
+@media (max-width: 835px){
+    .rightSecForRegister{
+        display: none;
+        
+    }
+
+    .haventAnAccount{
+        display: block !important;
+        display: flex !important;
+        margin-left:3rem ;
+    }
+    .leftSecForLogin{
+        width: 50% !important;
+    }
+    .orLoginwith{
+        /* position: relative; */
+        left: 25% !important;
+    }
+    .hrOverLoginWith{
+        display: block !important;
+    }
+}
+/* @media (max-width: 1000px){
+    .mainDiv{
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+
+    
+
+} */
+
