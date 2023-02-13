@@ -14,6 +14,9 @@ import { RegisterComponent } from './register/register.component';
 import { FilterComponent } from './filter/filter.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CardComponent } from './card/card.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,8 +25,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LoginComponent,
     LatestNewsComponent,
     CounterComponent,
-    RegisterComponent,
-    FilterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -31,11 +33,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NgbModule,
     NgbCarouselModule,
     CarouselModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    NgxSliderModule,
-    FontAwesomeModule
-    ],
+    BrowserAnimationsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
