@@ -9,7 +9,6 @@ import { LatestNewsComponent } from './latest-news/latest-news.component';
 import { CounterComponent } from './counter/counter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { FilterComponent } from './filter/filter.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
@@ -25,6 +24,10 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     LoginComponent,
     LatestNewsComponent,
     CounterComponent,
+    CardComponent,
+    CheckoutComponent,
+    FilterComponent,
+    RegisterComponent
 
   ],
   imports: [
@@ -33,7 +36,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     NgbModule,
     NgbCarouselModule,
     CarouselModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    NgxSliderModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
