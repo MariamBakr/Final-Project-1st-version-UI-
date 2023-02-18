@@ -22,6 +22,7 @@ import { HomePageCarouselComponent } from './home-page-carousel/home-page-carous
 import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { VendorFindJobComponent } from './vendor-find-job/vendor-find-job.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     FooterComponent,
     HomepageComponent,
     NotfoundComponent,
+    VendorFindJobComponent,
 
   ],
   imports: [
