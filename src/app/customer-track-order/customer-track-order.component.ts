@@ -1,11 +1,13 @@
+
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-counter',
-  templateUrl: './counter.component.html',
-  styleUrls: ['./counter.component.css']
+  selector: 'app-customer-track-order',
+  templateUrl: './customer-track-order.component.html',
+  styleUrls: ['./customer-track-order.component.css']
 })
-export class CounterComponent {
+export class CustomerTrackOrderComponent {
+
   date: any;
   now: any;
   targetDate: any = new Date(2023, 10, 1);
@@ -25,6 +27,7 @@ export class CounterComponent {
     'November',
     'December',
   ];
+  //
 
   @ViewChild('weeks', { static: true })
   weeks!: ElementRef;
@@ -45,8 +48,26 @@ export class CounterComponent {
 
       !isNaN(this.days.nativeElement.innerText)
         ? (this.days.nativeElement.innerText = Math.floor(this.difference%7))
-        : (this.days.nativeElement.innerHTML = `<img src="https://i.gifer.com/VAyR.gif" />`);
-    }, 1000);
+        : (this.days.nativeElement.innerText =  "Order has been deliverd");
+
+        // if(this.days.nativeElement.innerText<=0){
+        //   console.log("days")
+        //   if(this.hours.nativeElement.innerText<=0){
+        //     console.log("hours")
+        //     if(this.minutes.nativeElement.innerText<=0){
+        //       console.log("minutes")
+        //       this.days.nativeElement.innerText =  "Order has been deliverd";
+
+        //     }
+        //   }
+
+        // }
+        // else{this.days.nativeElement.innerText = Math.floor(this.difference%7)}
+
+
+    }
+
+    ,1000);
   }
 
   tickTock() {
@@ -59,3 +80,4 @@ export class CounterComponent {
     this.seconds.nativeElement.innerText = 60 - this.date.getSeconds();
   }
 }
+

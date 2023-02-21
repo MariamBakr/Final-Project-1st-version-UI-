@@ -1,0 +1,217 @@
+
+
+
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li style="color: #798545;" class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
+            <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Customer</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Customer Profile</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="../../assets/profile.jpg" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">Customer Name</h5>
+            <p class="text-muted mb-1">Product Manger @ </p>
+            <div class = "Vendor-rating">
+                <span><i style="color: goldenrod;" class = "fas fa-star"></i></span>
+                <span><i  style="color: goldenrod;"  class = "fas fa-star"></i></span>
+                <span><i  style="color: goldenrod;"  class = "fas fa-star"></i></span>
+                <span><i style="color: goldenrod;"  class = "fas fa-star"></i></span>
+                <span><i style="color: goldenrod;"  class = "fas fa-star-half-alt"></i></span>
+                <span class="fs-5 text-body "></span>
+                <br><br>
+            </div>
+            <div class="d-flex justify-content-center mb-2">
+
+
+<!-- Button trigger modal -->
+<button  style="background-color: #798545;" type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Edit Profile
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">My Profile</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form class="row g-3">
+                <div class="col-md-4">
+                  <label for="validationServer01" class="form-label">First name</label>
+                  <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationServer02" class="form-label">Last name</label>
+                  <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
+                  <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationServerUsername" class="form-label">Username</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                    <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+                    <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                      Please choose a username.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationServer03" class="form-label">City</label>
+                  <input type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required>
+                  <div id="validationServer03Feedback" class="invalid-feedback">
+                    Please provide a valid city.
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <label for="validationServer04" class="form-label">State</label>
+                  <select class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option>...</option>
+                  </select>
+                  <div id="validationServer04Feedback" class="invalid-feedback">
+                    Please select a valid state.
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <label for="validationServer05" class="form-label">Zip</label>
+                  <input type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+                  <div id="validationServer05Feedback" class="invalid-feedback">
+                    Please provide a valid zip.
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                    <label class="form-check-label" for="invalidCheck3">
+                      Agree to terms and conditions
+                    </label>
+                    <div id="invalidCheck3Feedback" class="invalid-feedback">
+                      You must agree before submitting.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-primary" type="submit">Submit form</button>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+              <!-- <button type="button" class="btn btn-outline-primary ms-1">Show</button> -->
+            </div>
+          </div>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+            <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Full Name</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">Johnatan Smith</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Email</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">example@example.com</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Phone</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">(097) 234-5678</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Mobile</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">(098) 765-4321</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <p class="mb-0">Address</p>
+                  </div>
+                  <div class="col-sm-9">
+                    <p class="text-muted mb-0">Bay Area</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                      <p class="mb-0"></p>
+                    </div>
+                    <div class="col-sm-9">
+                      <p class="text-muted mb-0">San Francisco, CA</p>
+                    </div>
+                  </div>
+
+
+              </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <!-- <div class="card mb-4"> -->
+            <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                  <ul class="nav nav-pills nav-fill">
+                      <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#">My Cart</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">My Wish List</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="OrderTrack.html">My Orders</a>
+                      </li>
+
+                    </ul>
+                </div>
+              </div>
+        </div>
+
+        </div>
+      </div>
+    <!-- </div> -->
+  <!-- </div> -->
+</section>
+
+
+
+

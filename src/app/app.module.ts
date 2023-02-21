@@ -25,6 +25,15 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { VendorOrdersMarketComponent } from './vendor-orders-market/vendor-orders-market.component';
 import { CustomerMonitorJobsComponent } from './customer-monitor-jobs/customer-monitor-jobs.component';
 
+import { CustomerProfileComponent } from './customer-edit-profile/customer-profile.component';
+import { CustomerComponent } from './customer/customer.component';
+import { VendorEditProfileComponent } from './vendor-edit-profile/vendor-edit-profile.component';
+import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
+import { CustomerTrackOrderComponent } from './customer-track-order/customer-track-order.component';
+import { VendorFindJobComponent } from './vendor-find-job/vendor-find-job.component';
+import { CustomerCreateCustomOrderComponent } from './customer-create-custom-order/customer-create-custom-order.component';
+
+
 @NgModule({
   declarations: [
     FilterComponent,
@@ -44,6 +53,16 @@ import { CustomerMonitorJobsComponent } from './customer-monitor-jobs/customer-m
     NotfoundComponent,
     VendorOrdersMarketComponent,
     CustomerMonitorJobsComponent,
+
+    CustomerProfileComponent,
+    CustomerComponent,
+    VendorEditProfileComponent,
+    VendorProfileComponent,
+    CustomerTrackOrderComponent,
+
+    VendorFindJobComponent,
+    CustomerCreateCustomOrderComponent,
+
 
   ],
   imports: [
