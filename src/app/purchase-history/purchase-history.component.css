@@ -1,4 +1,12 @@
 ngb-rating{
-  color: rgb(255, 204, 0);
-  font-size: 30px;
+  color:#798545;
+  font-size: 25px;
+}
+.modal-header {
+  border-bottom: 0 none;
+}
+
+.modal-footer {
+  border-top: 0 none;
+  justify-content: center;
 }

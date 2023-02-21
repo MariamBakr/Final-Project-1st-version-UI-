@@ -1,0 +1,73 @@
+@media (max-width:992px) {
+    .cards{
+        width: 100% !important;
+    }
+}
+
+@media (max-width:576px){ 
+    .row{
+        margin: 0 0;
+    }
+}
+@media (max-width:540px){ 
+    .clientName{
+        width:100% !important;
+    }
+}
+
+@media (max-width:445px){
+
+    .img-circle{
+        width: 6rem !important;
+        height: 4rem !important;
+    }
+   
+}
+
+@media(max-width:410px){
+    .jobDescription{
+        width: 100% !important;
+    }
+    .jobImage{
+        width:5rem !important;
+        height: 5rem !important;
+        margin-left: -4rem;
+    }
+    .SeeDetailsBtn{
+        margin-top: 2rem;
+    }
+    .clientName{
+        width: 100% !important;
+    }
+}
+
+@media(max-width:300px){
+    .clientData{
+        width: 100% !important;
+    }
+}
+
+.col-12{
+    cursor: pointer;
+}
+
+.img-circle{
+    border-radius: 50%;
+    width:6rem;
+    height:4rem
+}
+
+.cards{
+    border-top: 10px #e4c7a2 solid;
+    border-bottom: 10px #e4c7a2 solid;
+}
+
+/* #jobDescription{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+
+

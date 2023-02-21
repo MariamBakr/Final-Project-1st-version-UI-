@@ -22,11 +22,15 @@ import { HomePageCarouselComponent } from './home-page-carousel/home-page-carous
 import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+<<<<<<< HEAD
 import { CustomerProfileComponent } from './customer-edit-profile/customer-profile.component';
 import { CustomerComponent } from './customer/customer.component';
 import { VendorEditProfileComponent } from './vendor-edit-profile/vendor-edit-profile.component';
 import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
 import { CustomerTrackOrderComponent } from './customer-track-order/customer-track-order.component';
+=======
+import { VendorFindJobComponent } from './vendor-find-job/vendor-find-job.component';
+>>>>>>> c02daeadc20be10e812ba5c996ce611ab3349f06
 
 @NgModule({
   declarations: [
@@ -45,11 +49,15 @@ import { CustomerTrackOrderComponent } from './customer-track-order/customer-tra
     FooterComponent,
     HomepageComponent,
     NotfoundComponent,
+<<<<<<< HEAD
     CustomerProfileComponent,
     CustomerComponent,
     VendorEditProfileComponent,
     VendorProfileComponent,
     CustomerTrackOrderComponent,
+=======
+    VendorFindJobComponent,
+>>>>>>> c02daeadc20be10e812ba5c996ce611ab3349f06
 
   ],
   imports: [
