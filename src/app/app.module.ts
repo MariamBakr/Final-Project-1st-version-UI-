@@ -22,6 +22,8 @@ import { HomePageCarouselComponent } from './home-page-carousel/home-page-carous
 import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { VendorOrdersMarketComponent } from './vendor-orders-market/vendor-orders-market.component';
+import { CustomerMonitorJobsComponent } from './customer-monitor-jobs/customer-monitor-jobs.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     FooterComponent,
     HomepageComponent,
     NotfoundComponent,
+    VendorOrdersMarketComponent,
+    CustomerMonitorJobsComponent,
 
   ],
   imports: [
