@@ -32,6 +32,9 @@ import { VendorProfileComponent } from './vendor-profile/vendor-profile.componen
 import { CustomerTrackOrderComponent } from './customer-track-order/customer-track-order.component';
 import { VendorFindJobComponent } from './vendor-find-job/vendor-find-job.component';
 import { CustomerCreateCustomOrderComponent } from './customer-create-custom-order/customer-create-custom-order.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { MyMarketPageComponent } from './my-market-page/my-market-page.component';
+import { AddToMarketFormComponent } from './add-to-market-form/add-to-market-form.component';
 
 
 @NgModule({
@@ -62,6 +65,9 @@ import { CustomerCreateCustomOrderComponent } from './customer-create-custom-ord
 
     VendorFindJobComponent,
     CustomerCreateCustomOrderComponent,
+    WishlistComponent,
+    MyMarketPageComponent,
+    AddToMarketFormComponent,
 
 
   ],

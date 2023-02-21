@@ -1,0 +1,39 @@
+:root {
+     font-size: 10px !important;
+}
+
+.card1 {
+     position: relative;
+}
+
+.dropbtn {
+     position: absolute;
+     top: 1rem;
+     right: 2rem;
+}
+
+
+
+.mb-0 {
+     margin-bottom: 0 !important;
+}
+
+
+
+.btn-submit:hover {
+     background: #949A5B;
+}
+
+#exampleModal .modal-dialog {
+
+     max-width: 75%;
+     min-height: 15% !important;
+     padding: 20px;
+     width: 870px;
+}
+
+.modal-header,
+.modal-footer {
+     border: 0 none;
+     min-height: auto;
+}

@@ -1,0 +1,15 @@
+.btn-submit {
+     background: #444 none repeat scroll 0 0;
+     border: medium none;
+     box-shadow: 0 0 3px 0 #7c7c7c;
+     color: #fff;
+     font-weight: 500;
+     height: 2.5rem;
+     padding: 0 1rem;
+     text-transform: uppercase;
+}
+
+
+.btn-submit:hover {
+     background: #949A5B;
+}
