@@ -23,6 +23,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { VendorFindJobComponent } from './vendor-find-job/vendor-find-job.component';
+import { CustomerCreateCustomOrderComponent } from './customer-create-custom-order/customer-create-custom-order.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { VendorFindJobComponent } from './vendor-find-job/vendor-find-job.compon
     HomepageComponent,
     NotfoundComponent,
     VendorFindJobComponent,
+    CustomerCreateCustomOrderComponent,
 
   ],
   imports: [

@@ -25,9 +25,6 @@ export class CounterComponent {
     'November',
     'December',
   ];
-  currentTime: any = `${
-    this.months[this.targetDate.getMonth()]
-  } ${this.targetDate.getDate()}, ${this.targetDate.getFullYear()}`;
 
   @ViewChild('weeks', { static: true })
   weeks!: ElementRef;
