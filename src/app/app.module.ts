@@ -22,6 +22,11 @@ import { HomePageCarouselComponent } from './home-page-carousel/home-page-carous
 import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { CustomerProfileComponent } from './customer-edit-profile/customer-profile.component';
+import { CustomerComponent } from './customer/customer.component';
+import { VendorEditProfileComponent } from './vendor-edit-profile/vendor-edit-profile.component';
+import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
+import { CustomerTrackOrderComponent } from './customer-track-order/customer-track-order.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +45,11 @@ import { NotfoundComponent } from './notfound/notfound.component';
     FooterComponent,
     HomepageComponent,
     NotfoundComponent,
+    CustomerProfileComponent,
+    CustomerComponent,
+    VendorEditProfileComponent,
+    VendorProfileComponent,
+    CustomerTrackOrderComponent,
 
   ],
   imports: [
