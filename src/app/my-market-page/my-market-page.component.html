@@ -1,0 +1,262 @@
+<div class="container">
+     <!-- All card -->
+     <div class="row g-2 mb-5">
+          <!-- card1 -->
+          <div class="col-lg-3 col-sm-6 col-md-4 col-xl-3">
+               <div class="card  bg-white Small shadow p-3 card1 de-3">
+                    <!-- dropdown -->
+                    <div class="dropdown dropbtn">
+
+                         <a class="" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuLink" href="#">
+                              <i class="fa-solid fa-ellipsis-vertical"></i>
+                         </a>
+
+                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <li>
+                                   <!-- Button Modal Edit Product -->
+                                   <a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
+                                        <i class="fa-sharp fa-solid fa-pencil"></i>
+                                        Edit</a>
+                              </li>
+
+                              <li>
+                                   <!-- Button Modal Confirmation Delet -->
+                                   <a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">
+                                        <i class="fa-sharp fa-solid fa-trash-can"></i>
+                                        Delet</a>
+
+                              </li>
+                         </ul>
+                    </div>
+
+
+                    <!-- image -->
+                    <img src="https://htmldemo.net/expert/expert/assets/images/product/10_3.webp" class="card-img-top"
+                         alt="...">
+
+
+                    <!-- title -->
+                    <div class="">
+                         <h5 class="card-title">ADOBE PHOTOSHOP TUTS
+                         </h5>
+
+                    </div>
+
+
+                    <!--Description-->
+                    <p class="card-text text-secondary">
+                         Lorem ipsum dolor sit amet,consectetur adipiscing elit. Nam fringilla augue nec est tristique
+                         auctor. Donec non est at
+                         libero...
+                    </p>
+
+
+                    <!-- Quntity -->
+                    <div class="d-flex flex-nowrap ">
+                         <h6 class="card-title">Quntity:</h6>
+                         <h6 class="card-text text-secondary ps-2">10 </h6>
+                    </div>
+
+
+                    <!-- price -->
+                    <div class="d-flex flex-nowrap ">
+                         <h6 class="card-title">price:</h6>
+                         <h6 class="card-text text-secondary ps-2">160 LE</h6>
+                    </div>
+
+
+                    <!-- Material -->
+                    <div class="d-flex flex-nowrap">
+                         <h6 class="card-title">Material:</h6>
+                         <h6 class="card-text text-secondary ps-2">Pottery</h6>
+                    </div>
+
+
+                    <!-- Dimensions -->
+                    <div class="d-flex flex-nowrap">
+                         <h6 class="card-title">Dimensions(L × W × H):</h6>
+                         <h6 class="card-text text-secondary ps-2">200×160×70</h6>
+                    </div>
+
+
+                    <!-- Main Category -->
+                    <div class="d-flex flex-nowrap">
+                         <h6 class="card-title">Main Category:</h6>
+                         <h6 class="card-text text-secondary ps-2">living rooms</h6>
+                    </div>
+
+
+
+                    <!-- Sub Category -->
+                    <div class="d-flex flex-nowrap">
+                         <h6 class="card-title">Sub Category:</h6>
+                         <h6 class="card-text text-secondary ps-2">decor</h6>
+                    </div>
+
+               </div>
+          </div>
+          <!-- card2 -->
+
+          <!-- card3 -->
+
+          <!-- card4 -->
+
+
+     </div>
+</div>
+
+
+
+<!-- Modal Edit Product -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog ">
+          <div class="modal-content">
+               <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                    <!--start form  -->
+                    <div class="add-product-form">
+
+                         <!-- Title Product -->
+                         <div class="pt-2 col m-3">
+                              <label for="exampleFormControlInput1" class="form-label">Title Product</label>
+                              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                         </div>
+
+
+                         <!-- Description -->
+                         <div class="m-3">
+                              <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                         </div>
+
+
+                         <!--Price &&  Quntity -->
+                         <div class="d-flex  justify-content-between m-3">
+                              <!-- Price -->
+                              <div style="width:45%;">
+                                   <label for="exampleFormControlTextarea1" class="form-label">Price</label>
+                                   <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+
+                              </div>
+
+
+
+                              <!-- avialble Quntity -->
+                              <div style="width:45%;">
+                                   <label for="exampleFormControlTextarea1" class="form-label">avialble Quntity</label>
+                                   <input type="number" class="form-control" id="exampleFormControlInput1"
+                                        placeholder="">
+
+                              </div>
+
+                         </div>
+
+                         <!-- Material -->
+                         <div class="m-3">
+                              <label for="exampleFormControlTextarea1" class="form-label">Material</label>
+                              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+
+                         </div>
+
+                         <!-- Dimensions -->
+                         <div class="m-3">
+                              <label for="exampleFormControlTextarea1" class="form-label">Dimensions</label>
+                              <div class="d-flex justify-content-between">
+                                   <!-- W -->
+                                   <input type="text" class="form-control w-25" id="exampleFormControlInput1"
+                                        placeholder="W">
+                                   <!-- H -->
+                                   <input type="text" class="form-control w-25" id="exampleFormControlInput1"
+                                        placeholder="H">
+                                   <!-- L -->
+                                   <input type="text" class="form-control w-25" id="exampleFormControlInput1"
+                                        placeholder="L">
+                              </div>
+
+                         </div>
+
+
+                         <!-- Main Category -->
+                         <div class="m-3">
+                              <label for="exampleFormControlTextarea1" class="form-label">Main Category</label>
+
+                              <select class="form-select" aria-label="Default select example">
+                                   <option selected></option>
+                                   <option value="1">bed rooms</option>
+                                   <option value="2">living rooms</option>
+                                   <option value="3">dinning rooms</option>
+                                   <option value="3">kitchens</option>
+                                   <option value="3">office</option>
+                              </select>
+                         </div>
+
+                         <!-- Sub Category -->
+                         <div class="m-3">
+                              <label for="exampleFormControlTextarea1" class="form-label">Sub Category</label>
+                              <select class="form-select" aria-label="Default select example">
+                                   <option selected></option>
+                                   <option value="1">One</option>
+                                   <option value="2">Two</option>
+                                   <option value="3">Three</option>
+                              </select>
+
+                         </div>
+
+
+                         <!-- image Product -->
+                         <div class="m-3">
+                              <label for="exampleFormControlTextarea1" class="form-label">image Product</label>
+                              <input class="form-control form-control-sm" id="formFileSm" type="file">
+
+
+                         </div>
+
+
+
+                         <!-- Color &&  submit-->
+                         <div class=" m-3 row">
+                              <label for="exampleFormControlTextarea1" class="form-label">Color Product</label>
+
+                              <!-- Color Product -->
+                              <div class=" col-6">
+                                   <input type="color" class="form-control form-control-color" id="exampleColorInput"
+                                        value="#563d7c" title="Choose your color">
+                              </div>
+
+                         </div>
+                    </div>
+                    <!--End form  -->
+
+
+               </div>
+               <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-submit" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary btn-submit">Save changes</button>
+               </div>
+          </div>
+     </div>
+</div>
+
+<!-- Modal Confirmation Delet -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+     <div class="modal-dialog">
+          <div class="modal-content">
+               <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                    <h3>Are you sure to delete the product?</h3>
+               </div>
+               <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-submit" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary btn-submit">OK</button>
+               </div>
+          </div>
+     </div>
+</div>

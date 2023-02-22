@@ -1,0 +1,175 @@
+<div class="container outerContainer mt-5">
+    <div class="row d-flex justify-content-center">
+            <div class="bg-white">
+                <ul class="nav nav-tabs nav-fill" id="myTab">
+                    <li class="nav-item active" role="presentation"> 
+                        <button class="nav-link active" id="step1Tab" data-bs-toggle="tab" data-bs-target="#step1">
+                            Step 1
+                        </button> 
+                    </li>
+                    <li class="nav-item"> 
+                        <button class="nav-link" id="step2Tab" data-bs-toggle="tab" data-bs-target="#step2">
+                            Step 2
+                        </button> 
+                    </li>
+                    <li class="nav-item"> 
+                        <button class="nav-link" id="step3Tab" data-bs-toggle="tab" data-bs-target="#step3">
+                                Step 3
+                        </button> 
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <!-- Step 1: selecting category and subcategory -->
+                    <div class="tab-pane fade active show container" id="step1">
+                        <div class="p-3">
+                            <!-- Main Category -->
+                            <h4> Main Categories:</h4>
+                            <div class="row justify-content-evenly" >
+                                <div class="col-1 text-center cursor" *ngFor="let cat of categories" (click)="showSubCategory(cat.id)">
+                                    <img [src]="cat.img" class="w-100 h-100" >
+                                    <p>{{cat.name}}</p>
+                                </div>
+                            </div>
+                            <!-- Subcategory -->
+                            <h4 class="top" [style.display]="(subcategoryFlag==true)?'block':'none'">Subcategory:</h4>
+                            <div class="row justify-content-evenly">
+                                <div class="col-1 text-center cursor" *ngFor="let cat of subcategoryName" (click)="getSubCategoryId(cat.name)">
+                                    <img src="../../assets/chair1.jpg" class="w-100 h-100" >
+                                    <p>{{cat.name}}</p>
+                                </div>
+                            </div>
+                            <!-- Next Step Button -->
+                            <div class="text-end top">
+                                <button class="btn btn-dark rounded-0" (click)="next()">Next</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <!-- Step 2: filling out the form for the custom order -->
+                    <div class="tab-pane fade" id="step2">
+                        <div class="container mt-3 w-75">
+                           <form #form="ngForm" (submit)="onSubmit()">
+                                <!-- dimensions -->
+                                <div class="mb-3">
+                                    <label for="dimensions" class="form-label">Specify the size</label>
+                                    <input type="text" name="dimensions" class="form-control" id="dimensions" placeholder="Dimensions, measurements, sizing info"  required ngModel #dimensions="ngModel">
+                                    <!-- dimensions error message -->
+                                    <div *ngIf="dimensions.touched && !dimensions.valid" class="text-danger">
+                                        please enter the dimensions!
+                                    </div>
+                                </div>
+                                    
+                                <!-- materials -->
+                                <div class="mb-3">
+                                    <label for="materials" class="form-label">Describe the materials</label>
+                                    <input type="text" name="materials" class="form-control" id="materials" placeholder="Hardwood, platinum, etc." required ngModel #materials="ngModel">
+                                    <!-- materials error message -->
+                                    <div *ngIf="materials.touched && !materials.valid" class="text-danger">
+                                        please enter the materials!
+                                    </div>
+                                </div>
+                                    
+                                <!-- quantity -->
+                                <div class="mb-3">
+                                    <label for="quantity" class="form-label">Quantity</label>
+                                    <input type="number" name="quantity" class="form-control" id="quantity" placeholder="How many items you want?" required ngModel #quantity="ngModel">
+                                    <!-- quantity error message -->
+                                    <div *ngIf="quantity.touched && !quantity.valid" class="text-danger">
+                                        please enter the quantity!
+                                    </div>
+                                </div>
+                                    
+                                <!-- color -->
+                                <div class="mb-3">
+                                    <label for="color" class="form-label">Choose your color</label>
+                                    <input type="color" class="form-control w-25" id="color" placeholder="How many items you want?">
+                                </div>
+
+                                <!-- price -->
+                                <div class="mb-3">
+                                    <label for="price" class="form-label">Your budget range</label>
+                                    <div class="input-group" id="price">
+                                        <span>$ </span>
+                                        <!-- start price -->
+                                        <input type="number" name="startPrice" class="form-control rounded-1 mx-2" required ngModel #startPrice="ngModel">
+                                        <span> to $ </span>
+                                        <!-- end price -->
+                                        <input type="number" name="endPrice" class="form-control rounded-1 mx-2" required ngModel #endPrice="ngModel">
+                                    </div>
+                                    <!-- price error message -->
+                                    <div *ngIf="(startPrice.touched || endPrice.touched) && (!startPrice.valid && !endPrice.valid)" class="text-danger mb-3">
+                                        please enter your budget!
+                                    </div>
+                                </div>
+                                    
+                                <!-- images -->
+                                <div class="mb-3">
+                                    Attach photos or sketches: <input id="fileUpload" type="file" name="FileUpload" [(ngModel)]="images" multiple="true">
+                                    <div class="row ms-2">
+                                        <div class="col-1">
+                                            <!-- <img [src]="sanitizer.bypassSecurityTrustResourceUrl(images)"> -->
+                                            <img [src]="images">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- due date -->
+                                <div class="mb-3">
+                                    <label for="date" class="form-label">Due date:</label>
+                                    <input type="date" name="date" class="form-control" id="date" required ngModel #date="ngModel">
+                                    <!--  date error message -->
+                                    <div *ngIf="date.touched && !date.valid" class="text-danger mb-3">
+                                        please enter the desired delivery date!
+                                    </div>
+                                </div>
+                                    
+                                <!-- description -->
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Tell us any other details</label>
+                                    <textarea class="form-control" name="description" id="description" rows="5" placeholder="Ask us any questios, or tell us about your inspiration" required ngModel #description="ngModel"></textarea>
+                                    <!-- description error message -->
+                                    <div *ngIf="description.touched && !description.valid" class="text-danger mb-3">
+                                        please enter your description!
+                                    </div>
+                                </div>
+                                    
+                                <!-- submit button -->
+                                <div class="mb-3 text-center">
+                                    <button class="btn btn-dark rounded-0" type="submit" [disabled]="!form.valid">Submit</button>
+                                </div>
+                            </form> 
+                        </div>
+                       
+                       <div class="text-end mb-5">
+                        <!-- <button class="btn btn-dark rounded-0 ">Next Step</button> -->
+                        <a class="btn btn-dark rounded-0 me-2" (click)="prev()">Back</a>
+                        <a class="btn btn-dark rounded-0 " (click)="next()">Next</a>
+                    </div>
+                    </div>
+                    <!-- Step 3: displaying order data and confirming the order -->
+                    <div class="tab-pane fade container w-75" id="step3">
+                        <div class="container p-3 mt-4">
+                            <h4 class="fw-normal my-3">Your Order Details:</h4>
+                            <div *ngIf="submitted">
+                                <h5>Category: <span>  {{category}}</span></h5>
+                                <h5>Subcategory: <span> {{subcategory}}</span></h5>
+                                <h5>Dimentions: <span> {{customOrder.dimensions}}</span></h5>
+                                <h5>Matrial: <span> {{customOrder.materials}}</span></h5>
+                                <h5>Quantity: <span> {{customOrder.quantity}}</span></h5>
+                                <h5>Color: <span> {{customOrder.color}}</span></h5>
+                                <h5>Price Budget: FROM: <span> {{customOrder.startPrice}}</span>, TO: <span> {{customOrder.endPrice}}</span></h5>
+                                <h5>Description: <span> {{customOrder.description}}</span></h5>
+                            </div>
+
+                            <div class="text-end">
+                                <button class="btn btn-dark rounded-0 me-2">Back</button>
+                                <button class="btn btn-dark rounded-0 ">Confirm your order</button>
+                            </div>
+                               
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

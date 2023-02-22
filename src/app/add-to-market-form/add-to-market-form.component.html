@@ -1,0 +1,123 @@
+<div class="add-product-form  mb-5 mt-5" style="width:70%;">
+
+     <form (ngSubmit)="submitFormadd(addprodectform)" [formGroup]="addprodectform">
+
+          <!-- Title Product -->
+          <div class="pt-2 col m-3">
+               <label for="Title" class="form-label">Title Product</label>
+               <input formControlName="Title_Product" type="text" class="form-control" id="Title" placeholder="">
+          </div>
+
+
+
+          <!-- Description -->
+          <div class="m-3">
+               <label for="DescriptionProduct" class="form-label">Description</label>
+               <textarea formControlName="Description" class="form-control" id="DescriptionProduct" rows="3"></textarea>
+          </div>
+
+          <!--Price &&  Quntity -->
+          <div class="d-flex  justify-content-between m-3">
+               <!-- Price -->
+               <div style="width:45%;">
+                    <label for="PriceProduct" class="form-label">Price</label>
+                    <input formControlName="Price" type="text" class="form-control" id="PriceProduct" placeholder="">
+
+               </div>
+
+
+
+               <!-- avialble Quntity -->
+               <div style="width:45%;">
+                    <label for="QuntityProduct" class="form-label">avialble Quntity</label>
+                    <input formControlName="avialble_Quntity" type="number" class="form-control" id="QuntityProduct"
+                         placeholder="">
+
+               </div>
+
+          </div>
+
+          <!-- Material -->
+          <div class="m-3">
+               <label for="MaterialProduct" class="form-label">Material</label>
+               <input formControlName="Material" type="text" class="form-control" id="MaterialProduct" placeholder="">
+
+          </div>
+
+          <!-- Dimensions -->
+          <div class="m-3">
+               <label for="DimensionsProduct" class="form-label">Dimensions</label>
+               <div class="d-flex justify-content-between">
+                    <!-- W -->
+                    <input formControlName="DimensionsW" type="text" class="form-control w-25" id="DimensionsProduct"
+                         placeholder="W">
+                    <!-- H -->
+                    <input formControlName="DimensionsH" type="text" class="form-control w-25" id="" placeholder="H">
+                    <!-- L -->
+                    <input formControlName="DimensionsL" type="text" class="form-control w-25" id="" placeholder="L">
+               </div>
+
+          </div>
+
+          <!-- Main Category -->
+          <div class="m-3">
+               <label for="" class="form-label">Main Category</label>
+
+               <select formControlName="Main_Category" class="form-select" aria-label="Default select example"
+                    (change)="select_Main_Category(addprodectform)">
+                    <option selected></option>
+                    <option value="bed_rooms">bed rooms</option>
+                    <option value="living_rooms">living rooms</option>
+                    <option value="dinning_rooms">dinning rooms</option>
+                    <option value="kitchens">kitchens</option>
+                    <option value="office">office</option>
+               </select>
+          </div>
+
+
+          <!-- Sub Category -->
+          <div class="m-3">
+               <label for="" class="form-label">Sub Category</label>
+               <select formControlName="Sub_Category" class="form-select" aria-label="Default select example">
+                    <option selected></option>
+                    <option *ngFor="let x of Sub_Category_Data" value="1">{{x}}</option>
+
+               </select>
+
+          </div>
+
+          <!-- image Product -->
+          <div class="m-3">
+               <label for="imageProduct" class="form-label">image Product</label>
+               <input formControlName="image_Product" class="form-control form-control-sm" id="imageProduct"
+                    type="file">
+          </div>
+
+
+          <!-- Color &&  submit-->
+          <div class="  row">
+               <label for="ColorProduct" class="form-label ms-3">Color Product</label>
+
+               <!-- Color Product -->
+               <div class=" ms-3 col-5">
+                    <input formControlName="Color_Product" type="color" class="form-control form-control-color"
+                         id="ColorProduct" value="#949A5B" title="Choose your color">
+               </div>
+
+               <!-- button submit -->
+               <div class="col-6 position-relative">
+
+                    <div class="position-absolute top-0 end-0 ">
+                         <button type="submit" class="btn btn-submit">Add Product</button>
+                    </div>
+
+               </div>
+
+
+          </div>
+
+
+
+     </form>
+
+</div>

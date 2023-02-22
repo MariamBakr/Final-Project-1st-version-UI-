@@ -1,0 +1,82 @@
+@media (max-width: 576px){
+    .outerContainer{
+        width: 90% !important;
+        margin: 3rem auto !important;
+    }
+    .col-1{
+        width: 30%;
+    }
+    .col-1 img{
+        width: 44.5px !important;
+        height: 108px !important;
+    }
+}
+
+@media (max-width:332px){
+    .col-1{
+        width: 50%;
+    }
+    .outerContainer{
+        width: 90% !important;
+        margin: 0 auto !important;
+    }
+}
+
+@media (max-width:236px){
+    .col-1{
+        width: 100%;
+    }
+}
+
+@media (max-width:308px){
+    form{
+        width: 100%;
+    }
+}
+
+.nav-tabs .nav-link.active {
+    border-color: transparent;
+    background-color: #fff !important;
+    /* color: #9a1550 !important; */
+    border-bottom: 4px solid #e4c6a2 !important
+}
+
+.nav-fill .nav-item .nav-link,
+.nav-justified .nav-item .nav-link {
+    width: 100%;
+    color: #000
+}
+.nav-tabs .nav-link {
+    border-color: #fff !important;
+}
+.nav-tabs .nav-link.active {
+    font-weight: bold
+}
+.nav-link {
+    height: 4rem;
+}
+
+.flight-where-from:after {
+    position: absolute;
+    content: '23';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%
+}
+.row>*{
+    padding: 0rem !important;
+}
+.top{
+    margin-top: 5rem;
+}
+.cursor{
+    cursor: pointer;
+}
+
+/* form validation error */
+input.ng-touched.ng-invalid{
+    border:1px solid red !important;
+}
+textarea.ng-touched.ng-invalid{
+    border:1px solid red !important;
+}
