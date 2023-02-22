@@ -22,6 +22,12 @@ import { HomePageCarouselComponent } from './home-page-carousel/home-page-carous
 import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { VendorHomepageComponent } from './vendor-homepage/vendor-homepage.component';
+import { VendorSidebarComponent } from './vendor-sidebar/vendor-sidebar.component';
+import { VendorJobproposalComponent } from './vendor-jobproposal/vendor-jobproposal.component';
+import { JopdetailscardComponent } from './jopdetailscard/jopdetailscard.component';
+import { CustomerpageForJobdetailsAndVendorsproposalsComponent } from './customerpage-for-jobdetails-and-vendorsproposals/customerpage-for-jobdetails-and-vendorsproposals.component';
+import { VendorProposalSendToCustomerComponent } from './vendor-proposal-send-to-customer/vendor-proposal-send-to-customer.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +46,12 @@ import { NotfoundComponent } from './notfound/notfound.component';
     FooterComponent,
     HomepageComponent,
     NotfoundComponent,
+    VendorHomepageComponent,
+    VendorSidebarComponent,
+    VendorJobproposalComponent,
+    JopdetailscardComponent,
+    CustomerpageForJobdetailsAndVendorsproposalsComponent,
+    VendorProposalSendToCustomerComponent,
 
   ],
   imports: [

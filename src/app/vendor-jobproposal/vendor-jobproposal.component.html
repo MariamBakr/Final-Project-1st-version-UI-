@@ -1,0 +1,51 @@
+<!-- this page contain Jop details came from client & Jop Proposal provid from vendor -->
+
+
+<div>
+    <!-- Jop Details -->
+    <app-jopdetailscard></app-jopdetailscard>
+
+    <!-- Jop Proposal -->
+    <section style=" border-radius:0.5rem; border:1px solid rgba(0, 0, 0, 0.219);" class="m-4 p-4">
+        <!-- job details word -->
+        <h4 class="mb-3 text-center">Job Proposal</h4>
+        <form [formGroup]="job_proposal_form" (ngSubmit)="send_proposal()">
+            <!-- textarea for job proposal -->
+            <div class="mb-4">
+                <label for="job_proposal"><h6 class="fw-bold">Proposal</h6></label>
+                <textarea name="job_proposal"  id="job_proposal" formControlName="job_proposal" cols="90" rows="5" class="form-control" placeholder="Write Your Proposal Here"></textarea>
+                <div *ngIf="job_proposal_form.controls.job_proposal.touched && job_proposal_form.controls.job_proposal.hasError('required')" class="alert alert-danger">Proposal is required</div>
+                <div *ngIf="job_proposal_form.controls.job_proposal.touched && job_proposal_form.controls.job_proposal.hasError('minlength')" class="alert alert-danger">Proposal MinLength must be 100 charachters</div>
+                <div *ngIf="job_proposal_form.controls.job_proposal.touched && job_proposal_form.controls.job_proposal.hasError('maxlength')" class="alert alert-danger">Proposal MaxLength must be 300 charachters</div>
+            </div>
+            <!-- vendor Price offer -->
+            <div class="mb-4 d-flex">
+                <div class="me-5">
+                    <label for="job_deadline"><h6 class="fw-bold">Job Deadline</h6></label>
+                    <input type="date" name="job_deadline" formControlName="job_deadline"  id="job_deadline" class="form-control">
+                    <div *ngIf="job_proposal_form.controls.job_deadline.touched && job_proposal_form.controls.job_deadline.invalid" class="alert alert-danger">Must Set Deadline </div>
+
+                </div>
+                <!-- offered price -->
+                <div class="me-5">
+                    <label for="offered_price"><h6 class="fw-bold">Offered Price</h6></label>
+                    <input type="text" name="offered_price" formControlName="offered_price" id="offered_price" class="form-control" placeholder="Offered Price in EGP">
+                    <div *ngIf="job_proposal_form.controls.offered_price.touched && job_proposal_form.controls.offered_price.invalid" class="alert alert-danger">Must Set Offered Price </div>
+
+                </div>
+                <!-- work Samples -->
+                <div >
+                    <label for="work_samples" class="form-label fw-bold">Work Samples</label>
+                    <input class="form-control" formControlName="work_samples" name="work_samples" type="file" id="work_samples" multiple>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="mb-1 btn btn-success" [disabled]="job_proposal_form.invalid">Send Proposal</button>
+            </div>
+
+        </form>
+
+    </section>
+
+
+</div>

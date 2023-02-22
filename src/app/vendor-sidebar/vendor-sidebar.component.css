@@ -1,0 +1,7 @@
+li:hover {
+    border-radius: 0.3rem;
+    padding: 0.1rem 1rem;
+    transition: all 0.5s;
+    box-shadow: 0.25rem 0.25rem 0.5rem black ;
+    background-color:rgba(153, 152, 152, 0.064);
+}

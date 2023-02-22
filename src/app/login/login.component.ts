@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ShowHidePasswordService } from '../Services/show-hide-password.service';
 
 @Component({
@@ -7,30 +8,36 @@ import { ShowHidePasswordService } from '../Services/show-hide-password.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+  login_form=new FormGroup({
+    email: new FormControl('',[Validators.required,Validators.minLength(3),Validators.email]),
+    password: new FormControl('',[Validators.required,Validators.minLength(6)]),
+   
+
+  })
 type:string='password'
 showEyeSlashIcon:boolean=false
 
   constructor(private _ShowHidePasswordService:ShowHidePasswordService){
     
     }
-// function for test to be removed
-    test(e:any){
-      console.log(e)
-    }
+  //   get password() {
+  //     return this.login_form.get('password');
+  //  }
   // Functions
-    login (loginForm:any){
+    login (){
       console.log("Looged In")
-      console.log(loginForm.value)
+      console.log(this.login_form.value)
       
     }
     
-  show_password(e:any){
+  show_password(){
     console.log("Password Showed Successfully")
     this.type='text'
     this.showEyeSlashIcon=true
   }
 
-  hide_password(e:any){
+  hide_password(){
     console.log("Password Hide Successfully")
     this.type='password'
     this.showEyeSlashIcon=false

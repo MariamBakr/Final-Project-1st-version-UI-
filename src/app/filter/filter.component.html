@@ -1,13 +1,14 @@
 
 <div class="mb-5">
+    <!-- Up div ===> carousel -->
     <div class="w-100 border border-1">
-        <!-- <img style="width: 100vw; height: 60vh;" src="../../assets//pexels-max-vakhtbovych-6438762.jpg" alt="Cover Photo"> -->
         <app-home-page-carousel></app-home-page-carousel>
     </div>
 
+    <!-- Down div ===> filter  -->
     <div class="d-flex justify-content-around">
         <!-- Left section for Filter -->
-        <section class=" mt-5 p-4" style="width:28%;border-radius: 1rem; border: 2px solid rgba(0, 0, 0, 0.158); box-shadow: 8px 5px 10px rgb(157, 153, 153) ;">
+        <section class="left_section_for_filter mt-5 p-4" style="width:28%;border-radius: 1rem; border: 2px solid rgba(0, 0, 0, 0.158); box-shadow: 8px 5px 10px rgb(157, 153, 153) ;">
             <h2 class="mb-3 ms-2">Filter</h2>
             <!-- Category -->
             <div class="accordion mb-3" id="accordionExample" style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
@@ -262,13 +263,52 @@
         
         
         
-        </section>   
+        </section>
+        
+        
+
         <!-- Right section for Cards -->
-        <section class="ms-3 mt-5 border border-1 border-danger p-3" style=" width:65%;">
+        <section class="right_section_for_cards ms-3 mt-5 border border-1 border-danger p-3" style=" width:70%;">
+           <!-- Fast Search by Categories (such as : Bed Rooms , Living Rooms ....etc)  -->
+            <div class="fast_search_by_categories d-flex justify-content-between align-items-center" style="box-shadow: 0.3rem 0.3rem 1rem black  ; padding-top: 1.5rem; margin-bottom: 2rem; border-radius: 1rem;">
+                <!-- Bed Rooms -->
+                <div class="mb-3 me-3  text-center">
+                    <a class="  text-decoration-none text-dark "  href="#">
+                        <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;" src="../../assets/cat_bedroom.webp" alt="Bed Room Photo">
+                        <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Bed Rooms</h4>
+                    </a>
+                </div>
+
+                <!-- Living Rooms -->
+                <div class="mb-3 me-3  text-center" >
+                    <a class="  text-decoration-none text-dark "  href="#">
+                        <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;" src="../../assets/cat_bedroom.webp" alt="Living Room Photo">
+                        <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Living Rooms</h4>
+                    </a>
+                </div>
+
+                <!-- Dinning Rooms -->
+                <div class="mb-3 me-3  text-center" >
+                    <a class="  text-decoration-none text-dark "  href="#">
+                        <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;" src="../../assets/cat_bedroom.webp" alt="Dinning Room Photo">
+                        <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Dinning Rooms</h4>
+                    </a>
+                </div>
+
+                <!-- Kitchens -->
+                <div class="mb-3 me-3  text-center" >
+                    <a class="  text-decoration-none text-dark "  href="#">
+                        <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;" src="../../assets/cat_bedroom.webp" alt="Kitchen Photo">
+                        <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2"> Kitchens</h4>
+                    </a>
+                </div>
+
+           </div>
+           
             <!-- Search Form -->
           <div>
             <form class="d-flex" role="search">
-                <input style="height:6vh;  " class="form-control me-2 bg-dark text-light " type="search" (focus)="hide_hilight($event)" placeholder="Search" aria-label="Search">
+                <input style="height:6vh;  " class="form-control me-2 bg-dark text-light " type="search" (focus)="hide_hilight($event)" placeholder="Search for specific product (Ex. Tv Tables)" aria-label="Search">
                 <button style="height:6vh; padding-top: 0.1rem ;" class="search_btn btn btn-dark text-white" type="submit">Search</button>
             </form>
             

@@ -2,29 +2,33 @@
   <!-- Left Section for login -->
   <section style="width: 35%; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.355); border: 1px solid rgba(0, 0, 0, 0.393);" class="leftSecForLogin p-5 my-5 rounded container">
     <h2 class="text-center">Login</h2>
-    <form #loginForm="ngForm" >
+    <form [formGroup]="login_form" (ngSubmit)="login">
 
 
         <!-- Email address -->
         <div class="mb-3 mt-4">
           <label for="email" class="form-label fw-semibold fs-5">Email address</label>
-          <input ngModel name="email" #email="ngModel" type="email" (change)="test(email)" class=" form-control" id="email" required email>
-          <div  class="alert alert-danger" *ngIf="email.touched && email.invalid">
-            <!-- <div *ngIf="email.errors.email">Email is required</div> -->
+          <input ngModel name="email" type="email" formControlName="email"  class=" form-control" id="email" >
+          <div  class="alert alert-danger" *ngIf="login_form.get('email')?.hasError('required') && login_form.get('email')?.touched">
+            Email is required
           </div>
-          <!-- <div  class="alert alert-danger" *ngIf="email.touched && email.error['email']">Email not valid</div> -->
+          <div class="alert alert-danger" *ngIf="login_form.get('email')?.hasError('email')">
+            Email is invalid
+          </div>
         </div>
 
         <!-- Password -->
         <div class="mb-3">
           <label for="password" class="form-label fw-semibold fs-5">Password</label>
           <div class="d-flex position-relative">
-            <input ngModel name="password" #password="ngModel" [type]="type" class="form-control" id="password" required minlength="6">
-            <button *ngIf="!showEyeSlashIcon" (click)="show_password(password)" class="position-absolute border bg-transparent " style="right: 0rem; height: 2.5rem;"><i class="fa-solid fa-eye"></i></button>
-            <button *ngIf="showEyeSlashIcon" (click)="hide_password(password)" class="position-absolute border bg-transparent " style="right: 0rem; height: 2.5rem;"><i class="fa-solid fa-eye-slash"></i></button>
+            <input ngModel name="password"  [type]="type" class="form-control" formControlName="password" id="password">
+            <button *ngIf="!showEyeSlashIcon" (click)="show_password()" class="position-absolute border bg-transparent " style="right: 0rem; height: 2.5rem;"><i class="fa-solid fa-eye"></i></button>
+            <button *ngIf="showEyeSlashIcon" (click)="hide_password()" class="position-absolute border bg-transparent " style="right: 0rem; height: 2.5rem;"><i class="fa-solid fa-eye-slash"></i></button>
           </div>
-          <!-- <div  class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Password is required</div> -->
-          <!-- <div  class="alert alert-danger" *ngIf="email.touched && email.errors?.minlength">Min. length is 6 characters</div> -->
+          <div  class="alert alert-danger" *ngIf="login_form.controls.password.touched && login_form.get('password')?.hasError('required')">Password is required</div>
+          <div class="alert alert-danger" *ngIf="login_form.get('password')?.hasError('minlength') && login_form.get('password')?.dirty">
+            Password must be at least 6 characters long.
+          </div>
 
         </div>
         <!-- Remind me -->
@@ -40,7 +44,7 @@
         </div>
         <!-- Button -->
         <div class="w-100 text-center">
-          <button  (click)="login(loginForm)" [disabled]="loginForm.invalid" class="w-75 btn mt-2 text-light " style="height: 3rem; background-color: rgb(0, 0, 0);">Login</button>
+          <button  (click)="login()" [disabled]="login_form.invalid" class="w-75 btn mt-2 text-light " style="height: 3rem; background-color: rgb(0, 0, 0);">Login</button>
         </div>
         <!-- haven't an Account -->
         <div class="d-none haventAnAccount mt-3 ">

@@ -16,9 +16,9 @@ export class FilterComponent {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return "<b>Min price:</b> EGP" + value;
+          return "<b>Min:</b> EGP" + value;
         case LabelType.High:
-          return "<b>Max price:</b> EGP" + value;
+          return "<b>Max:</b> EGP" + value;
         default:
           return "EGP" + value;
       }

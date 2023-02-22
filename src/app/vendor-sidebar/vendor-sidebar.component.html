@@ -1,0 +1,28 @@
+<!-- vendor Sidebar -->
+<div style="box-shadow: 0.25rem 0.25rem 0.5rem black;border-radius: 1rem; border: 2px solid rgba(0, 0, 0, 0.267);" >
+    <div style=" background-color: rgba(153, 152, 152, 0.064);" class="text-center py-5">
+        <img class="w-50" src="../../assets/vendor.png" alt="Vendor Image">
+        <h3 class="mt-2">Vendor Name</h3>
+        <div style="left: 15%;" class="position-relative w-50 ms-auto me-auto">
+            <!-- Online -->
+            <div class="d-flex align-items-center" *ngIf="status">
+                <div  class="me-1" style="width: 0.75rem; height: 0.75rem; background-color: green; border-radius: 50%;"></div>
+                <h5  >Online</h5>
+            </div>
+            <!-- Offline -->
+            <div class="d-flex align-items-center" *ngIf="!status" >
+                <div class="me-1" style="width: 0.75rem; height: 0.75rem; background-color: red; border-radius: 50%;"></div>
+                <h5  >Offline</h5>
+            </div>
+        </div>
+    </div>
+    <hr >
+    <div class=" fs-5 my-5  ps-4" >
+        <ul style="list-style: none;" >
+            <li class="fw-semibold ps-1 " style="width: 70%; margin-bottom: 0.5rem; border-bottom: 1px solid black;"><a href="#" class="text-dark text-decoration-none">Profile</a></li>
+            <li class="fw-semibold ps-1 " style="width: 70%; margin-bottom: 0.5rem; border-bottom: 1px solid black;"><a href="#" class="text-dark text-decoration-none">Jobs</a></li>
+            <li class="fw-semibold ps-1 " style="width: 70%; margin-bottom: 0.5rem; border-bottom: 1px solid black;"><a href="#" class="text-dark text-decoration-none">My Market</a></li>
+            <li class="fw-semibold ps-1 " style="width: 70%; margin-bottom: 0.5rem; border-bottom: 1px solid black;"><a href="#" class="text-dark text-decoration-none">Add New Product</a></li>
+        </ul>
+    </div>
+</div>
