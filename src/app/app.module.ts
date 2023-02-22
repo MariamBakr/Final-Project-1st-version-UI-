@@ -41,6 +41,7 @@ import { CustomerCreateCustomOrderComponent } from './customer-create-custom-ord
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { MyMarketPageComponent } from './my-market-page/my-market-page.component';
 import { AddToMarketFormComponent } from './add-to-market-form/add-to-market-form.component';
+import { LayoutHomeComponent } from './layout-home/layout-home.component';
 
 
 @NgModule({
@@ -80,6 +81,7 @@ import { AddToMarketFormComponent } from './add-to-market-form/add-to-market-for
     WishlistComponent,
     MyMarketPageComponent,
     AddToMarketFormComponent,
+    LayoutHomeComponent,
 
 
   ],

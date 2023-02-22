@@ -82,19 +82,22 @@
             </li>
                 <!-- Page -->
             <li class="nav-item">
-                <a class="nav-link text-light" aria-current="page" href="#">PAGE</a>
+                <a class="nav-link text-light" aria-current="page" routerLink="wishlist">WISHLIST</a>
             </li>
                 <!-- Shop -->
             <li class="nav-item">
-                <a class="nav-link text-light" href="#">SHOP</a>
+                <a class="nav-link text-light" href="#">MARKET</a>
             </li>
                 <!-- Blog -->
             <li class="nav-item">
-                <a class="nav-link text-light" href="#">BLOG</a>
+                <a class="nav-link text-light" routerLink="cart">CART</a>
             </li>
                 <!-- Contact -->
             <li class="nav-item">
                 <a class="nav-link text-light" href="#">CONTACT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-light" routerLink="vendor" >Vendor</a>
             </li>
             </ul>
         </div>
@@ -103,9 +106,16 @@
 
       
       <!-- Search , LogIn , Register & LonOut -->
-      <div   class="position-relative" style="right: 1.5rem;">
+      <div   class="position-relative d-flex" style="right: 1.5rem;">
         <!-- Search Icon -->
         <a class="me-5 text-light " style="font-size: 1.3rem;" routerLink="filter"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+         <!-- User image + User Name -->
+        <a class="text-decoration-none text-dark"  style="border:2px solid red" routerLink="client">
+            <div class="d-flex align-items-center">
+                <img class="me-2 " style="width: 5%;" src="../../assets/client.png" alt="Client Profile Photo">
+                <h5 class="text-light">User Name</h5>
+            </div>
+        </a>
         <!-- LogIn , Register & LonOut -->
         <a class=" text-white text-decoration-none me-3 " routerLink="login">Login</a>
         <a class=" text-white text-decoration-none me-3 " routerLink="register">Register</a>
