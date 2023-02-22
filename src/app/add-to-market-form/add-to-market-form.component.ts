@@ -39,7 +39,7 @@ export class AddToMarketFormComponent {
 
   addprodectform: FormGroup = new FormGroup({
     Title_Product: new FormControl(null, [Validators.required]),
-    Description: new FormControl(null, [Validators.required]),
+    Description: new FormControl(null, [Validators.required ,Validators.minLength(100),Validators.maxLength(300)]),
     Price: new FormControl(null, [Validators.required]),
     avialble_Quntity: new FormControl(null, [Validators.required]),
     Material: new FormControl(null, [Validators.required]),
@@ -53,9 +53,12 @@ export class AddToMarketFormComponent {
   })
 
 
-
+  leter: string ="Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit. "
 
   submitFormadd(addprodectform: FormGroup) {
-    console.log(addprodectform.get("Title_Product"));
+    console.log(addprodectform.get("Title_Product")?.getError('required'));
+    console.log(this.leter.length);
+    console.log(addprodectform.get('Description')?.getError('minLength'))
+    console.log(addprodectform.get('Description')?.errors)
   }
 }

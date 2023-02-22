@@ -33,9 +33,20 @@ ul {
 }
 
 
+/*start card header */
+.card-header{
+display: flex;
+     flex-shrink: 0;
+     justify-content: flex-end;
+    padding: 1rem;
+}
+/*End card header */
+
+
+
+
+
 /*   card product  */
-
-
 
 .card-header {
      border: 0 none !important;
@@ -48,8 +59,7 @@ ul {
 .single-product {
      background: #fff none repeat scroll 0 0;
      border: 1px solid #ebebeb;
-     padding-bottom: 25px;
-     /* padding-top: 30px; */
+     padding-bottom: 1rem;
      text-align: center;
      overflow: hidden;
 }
@@ -69,8 +79,7 @@ ul {
 .product-details .ratings ul li {
      color: #949A5B;
      display: inline-block;
-     font-size: 13px;
-     line-height: 21px;
+     font-size: 1.3rem;
 }
 
 .no-rating ul li:last-child {
@@ -79,16 +88,14 @@ ul {
 
 .product-name h3 a {
      color: #323334;
-     font-size: 16px;
-     font-weight: 700;
-     line-height: 20px;
+     font-size: 1.5rem;
+     line-height: 1rem;
      text-transform: initial;
 }
 
 .tooltip-inner {
      background-color: #949A5B;
      color: #FFF;
-     font-weight: 500;
      width: 100px;
      border-radius: 0 0 0 0;
      visibility: visible;
@@ -110,36 +117,35 @@ ul {
 
 .price-box .old-price {
      color: #bbb;
-     font-size: 13px;
+     font-size: 1rem;
      text-decoration: line-through;
 }
 
 .price-box .new-price {
      color: #949A5B;
-     font-size: 14px;
+     font-size: 1rem;
 }
 
+/*start sale-text */
 .product-img span.sale-text {
      background: #949A5B none repeat scroll 0 0;
      border-radius: 100%;
      color: #fff;
-     font-size: 12px;
+     font-size: 1rem;
      font-weight: 500;
-     height: 42px;
-     width: 42px;
-     line-height: 41px;
+     height: 4rem;
+     width: 4rem;
+     line-height:3.8rem;
      position: absolute;
-     right: 25px;
-     top: 15%;
+     right: 5%;
+     top: 2%;
      text-transform: uppercase;
      z-index: 22;
-     /* text-align: center; */
 }
+/*End sale-text */
 
-/* .product-img span.new-sale {
-    background: #7AB681;
-} */
 
+/*Start product-img*/
 .product-img {
      overflow: hidden;
      position: relative;
@@ -167,27 +173,39 @@ ul {
 .single-product:hover .secondary-img {
      opacity: 1;
 }
+/*End product-img*/
 
-.add-action {
+
+/*Start add-action*/
+ .add-action {
+    
      display: block;
      left: 50%;
-     margin-left: -130px;
+     margin-left: -85px;
      opacity: 0;
      position: absolute;
      text-align: center;
      top: 20%;
      transition: all 0.5s ease 0s;
-}
+} 
 
-.single-product:hover .add-action {
+ .single-product:hover .add-action {
      opacity: 1;
      top: 50%;
-}
+} 
 
 .add-action ul li {
      position: relative;
      float: left;
 }
+/*End add-action*/
+
+
+
+
+
+
+
 
 /* a line between icon */
 .add-action ul li::after {
@@ -578,3 +596,6 @@ h3.widget-title-modal {
      background: #0097BD;
      border: 1px solid #0097BD;
 }
+
+
+
