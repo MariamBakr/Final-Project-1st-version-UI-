@@ -42,6 +42,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { MyMarketPageComponent } from './my-market-page/my-market-page.component';
 import { AddToMarketFormComponent } from './add-to-market-form/add-to-market-form.component';
 import { LayoutHomeComponent } from './layout-home/layout-home.component';
+import { CustomerInfoComponent } from './customer-info/customer-info.component';
+import { VendorInfoComponent } from './vendor-info/vendor-info.component';
 
 
 @NgModule({
@@ -82,6 +84,8 @@ import { LayoutHomeComponent } from './layout-home/layout-home.component';
     MyMarketPageComponent,
     AddToMarketFormComponent,
     LayoutHomeComponent,
+    CustomerInfoComponent,
+    VendorInfoComponent,
 
 
   ],

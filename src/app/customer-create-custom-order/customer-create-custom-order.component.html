@@ -1,21 +1,21 @@
-<div class="container outerContainer mt-5">
+<div class="container outerContainer ">
     <div class="row d-flex justify-content-center">
             <div class="bg-white">
                 <ul class="nav nav-tabs nav-fill" id="myTab">
-                    <li class="nav-item active" role="presentation"> 
+                    <li class="nav-item active" role="presentation">
                         <button class="nav-link active" id="step1Tab" data-bs-toggle="tab" data-bs-target="#step1">
                             Step 1
-                        </button> 
+                        </button>
                     </li>
-                    <li class="nav-item"> 
+                    <li class="nav-item">
                         <button class="nav-link" id="step2Tab" data-bs-toggle="tab" data-bs-target="#step2">
                             Step 2
-                        </button> 
+                        </button>
                     </li>
-                    <li class="nav-item"> 
+                    <li class="nav-item">
                         <button class="nav-link" id="step3Tab" data-bs-toggle="tab" data-bs-target="#step3">
                                 Step 3
-                        </button> 
+                        </button>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -42,7 +42,7 @@
                             <div class="text-end top">
                                 <button class="btn btn-dark rounded-0" (click)="next()">Next</button>
                             </div>
-                            
+
                         </div>
                     </div>
                     <!-- Step 2: filling out the form for the custom order -->
@@ -58,7 +58,7 @@
                                         please enter the dimensions!
                                     </div>
                                 </div>
-                                    
+
                                 <!-- materials -->
                                 <div class="mb-3">
                                     <label for="materials" class="form-label">Describe the materials</label>
@@ -68,7 +68,7 @@
                                         please enter the materials!
                                     </div>
                                 </div>
-                                    
+
                                 <!-- quantity -->
                                 <div class="mb-3">
                                     <label for="quantity" class="form-label">Quantity</label>
@@ -78,7 +78,7 @@
                                         please enter the quantity!
                                     </div>
                                 </div>
-                                    
+
                                 <!-- color -->
                                 <div class="mb-3">
                                     <label for="color" class="form-label">Choose your color</label>
@@ -101,7 +101,7 @@
                                         please enter your budget!
                                     </div>
                                 </div>
-                                    
+
                                 <!-- images -->
                                 <div class="mb-3">
                                     Attach photos or sketches: <input id="fileUpload" type="file" name="FileUpload" [(ngModel)]="images" multiple="true">
@@ -122,7 +122,7 @@
                                         please enter the desired delivery date!
                                     </div>
                                 </div>
-                                    
+
                                 <!-- description -->
                                 <div class="mb-3">
                                     <label for="description" class="form-label">Tell us any other details</label>
@@ -132,14 +132,14 @@
                                         please enter your description!
                                     </div>
                                 </div>
-                                    
+
                                 <!-- submit button -->
                                 <div class="mb-3 text-center">
                                     <button class="btn btn-dark rounded-0" type="submit" [disabled]="!form.valid">Submit</button>
                                 </div>
-                            </form> 
+                            </form>
                         </div>
-                       
+
                        <div class="text-end mb-5">
                         <!-- <button class="btn btn-dark rounded-0 ">Next Step</button> -->
                         <a class="btn btn-dark rounded-0 me-2" (click)="prev()">Back</a>
@@ -165,8 +165,8 @@
                                 <button class="btn btn-dark rounded-0 me-2">Back</button>
                                 <button class="btn btn-dark rounded-0 ">Confirm your order</button>
                             </div>
-                               
-                            
+
+
                         </div>
                     </div>
                 </div>
