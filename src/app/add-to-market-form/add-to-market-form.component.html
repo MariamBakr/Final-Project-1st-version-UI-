@@ -28,14 +28,12 @@
                         class="m-0 p-0">Description is required</p>
                         
 
-                    <p *ngIf="addprodectform.get('Description')?.getError('minLength')"
-                       class="m-0 p-0">Description must be at least 100 characters long</p>
+                    <p *ngIf="addprodectform.get('Description')?.hasError('minlength')"
+                       class="m-0 p-0">Description must be at least 100 characters long </p>
                        
 
-                    <p *ngIf="addprodectform.get('Description')?.getError('maxLength')"
+                    <p *ngIf="addprodectform.get('Description')?.getError('maxlength')"
                         class="m-0 p-0">Description must be at Max 300 characters long</p>
-
-
 
                </div>
                <!--End Description Validators -->

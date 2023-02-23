@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-to-market-form',
   templateUrl: './add-to-market-form.component.html',
@@ -49,7 +49,7 @@ export class AddToMarketFormComponent {
     Main_Category: new FormControl(null, [Validators.required]),
     Sub_Category: new FormControl(null, [Validators.required]),
     image_Product: new FormControl(null, [Validators.required]),
-    Color_Product: new FormControl(null, [Validators.required]),
+    Color_Product: new FormArray([new FormControl], [Validators.required]),
   })
 
 
