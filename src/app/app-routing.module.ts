@@ -21,12 +21,13 @@ import { VendorProposalSendToCustomerComponent } from './vendor-proposal-send-to
 import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+
   { path: '', component:LayoutHomeComponent,children:[
     {path:'',redirectTo:'home', pathMatch:'full'},
-    {path:'login',component:LoginComponent},
     {path:'cart',component:CartComponent},
     {path:'wishlist',component:WishlistComponent},
-    {path:'register',component:RegisterComponent},
     { path: 'filter', component: FilterComponent },
     { path: 'client', component:CustomerProfileComponent ,children:[
 

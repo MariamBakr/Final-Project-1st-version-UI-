@@ -2,15 +2,15 @@
 
 
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark " style="height:10vh ;">
+  <nav class="navbar navbar-expand-lg " style="height:10vh ;background-color:#FBF5EC !important; color: black !important;">
     <div class="container-fluid">
 
       <!-- Website_Name + Logo -->
       <div class="position-relative d-flex align-items-center" style="bottom: 0.6rem;">
         <img class="ms-3  rounded-3 position-relative" style="top: 0.5rem; width: 4.5rem;" src="../../assets/BrandLogo.png" alt="">
-        <a  class="navbar-brand position-relative" style="top: 0.6rem; left: 0.6rem; font-size: 1.5rem; color: rgba(0, 208, 0, 0.915);" href="#"><i class="fa-solid fa-i"></i></a>
+        <!-- <a  class="navbar-brand position-relative" style="top: 0.6rem; left: 0.6rem; font-size: 1.5rem; color: rgba(0, 208, 0, 0.915);" href="#"><i class="fa-solid fa-i"></i></a>
         <a  class="navbar-brand position-relative" style="top: 0.8rem; right: 0.2rem; font-size: 1rem; color: rgba(0, 208, 0, 0.915);" href="#"><i class="fa-solid fa-m"></i></a>
-        <a  class="navbar-brand position-relative brandName" style="top: 0.6rem; font-size: 1.5rem; right: 0.7rem;" href="#">Home</a>
+        <a  class="navbar-brand position-relative brandName" style="top: 0.6rem; font-size: 1.5rem; right: 0.7rem;" href="#">Home</a> -->
       </div>
 
       <!-- Home , Products , About , Page , Shop , Blog & Contact -->
@@ -23,11 +23,11 @@
             <ul class="navbar-nav">
                 <!-- Home -->
             <li class="nav-item">
-                <a class="nav-link text-light" aria-current="page" routerLink="/home">HOME</a>
+                <a class="nav-link " aria-current="page" routerLink="/home">HOME</a>
             </li>
                 <!-- Products -->
             <div class="dropdown position-relative">
-                <a style="border-color:transparent !important;" class="products_btn btn text-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a style="border-color:transparent !important;" class="products_btn btn  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Products
                 </a>
                 
@@ -78,26 +78,26 @@
             
                 <!-- About -->
             <li class="nav-item">
-                <a class="nav-link text-light " aria-current="page" href="#">ABOUT</a>
+                <a class="nav-link  " aria-current="page" href="#">ABOUT</a>
             </li>
                 <!-- Page -->
             <li class="nav-item">
-                <a class="nav-link text-light" aria-current="page" routerLink="wishlist">WISHLIST</a>
+                <a class="nav-link " aria-current="page" routerLink="wishlist">WISHLIST</a>
             </li>
                 <!-- Shop -->
             <li class="nav-item">
-                <a class="nav-link text-light" href="#">MARKET</a>
+                <a class="nav-link " href="#">MARKET</a>
             </li>
                 <!-- Blog -->
             <li class="nav-item">
-                <a class="nav-link text-light" routerLink="cart">CART</a>
+                <a class="nav-link " routerLink="cart">CART</a>
             </li>
                 <!-- Contact -->
             <li class="nav-item">
-                <a class="nav-link text-light" href="#">CONTACT</a>
+                <a class="nav-link " href="#">CONTACT</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-light" routerLink="vendor" >Vendor</a>
+                <a class="nav-link " routerLink="vendor" >Vendor</a>
             </li>
             </ul>
         </div>
@@ -108,18 +108,18 @@
       <!-- Search , LogIn , Register & LonOut -->
       <div   class="position-relative d-flex" style="right: 1.5rem;">
         <!-- Search Icon -->
-        <a class="me-5 text-light " style="font-size: 1.3rem;" routerLink="filter"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+        <a class="me-5  " style="font-size: 1.3rem;" routerLink="filter"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
          <!-- User image + User Name -->
         <a class="text-decoration-none text-dark"  style="border:2px solid red" routerLink="client">
             <div class="d-flex align-items-center">
                 <img class="me-2 " style="width: 5%;" src="../../assets/client.png" alt="Client Profile Photo">
-                <h5 class="text-light">User Name</h5>
+                <h5 class="">User Name</h5>
             </div>
         </a>
         <!-- LogIn , Register & LonOut -->
-        <a class=" text-white text-decoration-none me-3 " routerLink="login">Login</a>
-        <a class=" text-white text-decoration-none me-3 " routerLink="register">Register</a>
-        <a class=" text-white text-decoration-none " href="#">Logout</a>    
+        <a class=" text-dark text-decoration-none me-3 " routerLink="login">Login</a>
+        <a class="text-dark  text-decoration-none me-3 " routerLink="register">Register</a>
+        <a class="text-dark  text-decoration-none " href="#">Logout</a>    
       </div>
       
     </div>

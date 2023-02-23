@@ -1,20 +1,46 @@
-<div class="add-product-form  mb-5 mt-5" style="width:70%;">
+<div class="add-product-form  mb-5 mt-5" style="width: 80%;">
 
      <form (ngSubmit)="submitFormadd(addprodectform)" [formGroup]="addprodectform">
 
           <!-- Title Product -->
-          <div class="pt-2 col m-3">
+          <div class="pt-2  m-3">
                <label for="Title" class="form-label">Title Product</label>
                <input formControlName="Title_Product" type="text" class="form-control" id="Title" placeholder="">
+               <div *ngIf="addprodectform.get('Title_Product')?.errors && addprodectform.get('Title_Product')?.touched"
+                    class="alert alert-danger">
+                    <p class="m-0 p-0">
+                         Title is required
+                    </p>
+               </div>
           </div>
-
 
 
           <!-- Description -->
           <div class="m-3">
                <label for="DescriptionProduct" class="form-label">Description</label>
                <textarea formControlName="Description" class="form-control" id="DescriptionProduct" rows="3"></textarea>
+
+               <!--Start Description Validators -->
+               <div *ngIf="addprodectform.get('Description')?.errors && addprodectform.get('Description')?.touched"
+                    class="alert alert-danger">
+
+                    <p *ngIf="addprodectform.get('Description')?.getError('required')"
+                        class="m-0 p-0">Description is required</p>
+                        
+
+                    <p *ngIf="addprodectform.get('Description')?.hasError('minlength')"
+                       class="m-0 p-0">Description must be at least 100 characters long </p>
+                       
+
+                    <p *ngIf="addprodectform.get('Description')?.getError('maxlength')"
+                        class="m-0 p-0">Description must be at Max 300 characters long</p>
+
+               </div>
+               <!--End Description Validators -->
+
           </div>
+
+
 
           <!--Price &&  Quntity -->
           <div class="d-flex  justify-content-between m-3">
@@ -22,7 +48,12 @@
                <div style="width:45%;">
                     <label for="PriceProduct" class="form-label">Price</label>
                     <input formControlName="Price" type="text" class="form-control" id="PriceProduct" placeholder="">
-
+                    <div *ngIf="addprodectform.get('Price')?.errors && addprodectform.get('Price')?.touched"
+                         class="alert alert-danger">
+                         <p class="m-0 p-0">
+                              Price is required
+                         </p>
+                    </div>
                </div>
 
 
@@ -32,6 +63,12 @@
                     <label for="QuntityProduct" class="form-label">avialble Quntity</label>
                     <input formControlName="avialble_Quntity" type="number" class="form-control" id="QuntityProduct"
                          placeholder="">
+                    <div *ngIf="addprodectform.get('avialble_Quntity')?.errors && addprodectform.get('avialble_Quntity')?.touched"
+                         class="alert alert-danger">
+                         <p class="m-0 p-0">
+                              Quntity is required
+                         </p>
+                    </div>
 
                </div>
 
@@ -41,7 +78,12 @@
           <div class="m-3">
                <label for="MaterialProduct" class="form-label">Material</label>
                <input formControlName="Material" type="text" class="form-control" id="MaterialProduct" placeholder="">
-
+               <div *ngIf="addprodectform.get('Material')?.errors && addprodectform.get('Material')?.touched"
+                    class="alert alert-danger">
+                    <p class="m-0 p-0">
+                         Material Product is required
+                    </p>
+               </div>
           </div>
 
           <!-- Dimensions -->
@@ -51,13 +93,47 @@
                     <!-- W -->
                     <input formControlName="DimensionsW" type="text" class="form-control w-25" id="DimensionsProduct"
                          placeholder="W">
+
+
                     <!-- H -->
                     <input formControlName="DimensionsH" type="text" class="form-control w-25" id="" placeholder="H">
+
                     <!-- L -->
                     <input formControlName="DimensionsL" type="text" class="form-control w-25" id="" placeholder="L">
+
                </div>
 
           </div>
+
+          <!--Start Dimensions Validators -->
+          <div class="d-flex justify-content-between m-3">
+               <div *ngIf="addprodectform.get('DimensionsW')?.errors && addprodectform.get('DimensionsW')?.touched"
+                    class="alert alert-danger w-25">
+                    <p class="m-0 p-0">
+                         width Product is required
+                    </p>
+               </div>
+
+
+               <div *ngIf="addprodectform.get('DimensionsH')?.errors && addprodectform.get('DimensionsH')?.touched"
+                    class="alert alert-danger w-25">
+                    <p class="m-0 p-0">
+                         Hight Product is required
+                    </p>
+               </div>
+
+
+               <div *ngIf="addprodectform.get('DimensionsL')?.errors && addprodectform.get('DimensionsL')?.touched"
+                    class="alert alert-danger w-25">
+                    <p class="m-0 p-0">
+                         Length Product is required
+                    </p>
+               </div>
+
+
+          </div>
+          <!--End Dimensions Validators -->
+
 
           <!-- Main Category -->
           <div class="m-3">
@@ -72,6 +148,12 @@
                     <option value="kitchens">kitchens</option>
                     <option value="office">office</option>
                </select>
+               <div *ngIf="addprodectform.get('Main_Category')?.errors && addprodectform.get('Main_Category')?.touched"
+                    class="alert alert-danger">
+                    <p class="m-0 p-0">
+                         Main Category is required
+                    </p>
+               </div>
           </div>
 
 
@@ -83,7 +165,12 @@
                     <option *ngFor="let x of Sub_Category_Data" value="1">{{x}}</option>
 
                </select>
-
+               <div *ngIf="addprodectform.get('Sub_Category')?.errors && addprodectform.get('Sub_Category')?.touched"
+                    class="alert alert-danger">
+                    <p class="m-0 p-0">
+                         Sub Category is required
+                    </p>
+               </div>
           </div>
 
           <!-- image Product -->
@@ -91,24 +178,38 @@
                <label for="imageProduct" class="form-label">image Product</label>
                <input formControlName="image_Product" class="form-control form-control-sm" id="imageProduct"
                     type="file">
+
+               <div *ngIf="addprodectform.get('image_Product')?.errors && addprodectform.get('image_Product')?.touched"
+                    class="alert alert-danger">
+                    <p class="m-0 p-0">
+                         image Product is required
+                    </p>
+               </div>
           </div>
 
 
           <!-- Color &&  submit-->
-          <div class="  row">
+          <div class="  row justify-content-between">
                <label for="ColorProduct" class="form-label ms-3">Color Product</label>
 
                <!-- Color Product -->
-               <div class=" ms-3 col-5">
+               <div class=" ms-3 mb-3 col-5">
                     <input formControlName="Color_Product" type="color" class="form-control form-control-color"
                          id="ColorProduct" value="#949A5B" title="Choose your color">
+
+                    <div *ngIf="addprodectform.get('Color_Product')?.errors && addprodectform.get('Color_Product')?.touched"
+                         class="alert alert-danger">
+                         <p class="m-0 p-0">
+                              Color Product is required
+                         </p>
+                    </div>
                </div>
 
                <!-- button submit -->
-               <div class="col-6 position-relative">
+               <div class="mb-3 me-3 col-6 position-relative">
 
                     <div class="position-absolute top-0 end-0 ">
-                         <button type="submit" class="btn btn-submit">Add Product</button>
+                         <button [disabled]="addprodectform.invalid" type="submit" class="btn btn-submit">Add Product</button>
                     </div>
 
                </div>
@@ -118,6 +219,6 @@
 
 
 
-     </form>
+          <form>
 
-</div>
+               <div>
