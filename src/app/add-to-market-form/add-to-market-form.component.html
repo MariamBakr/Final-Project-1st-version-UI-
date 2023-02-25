@@ -194,9 +194,15 @@
 
                <!-- Color Product -->
                <div class=" ms-3 mb-3 col-5">
-                    <input formControlName="Color_Product" type="color" class="form-control form-control-color"
+                    <input type="color" class="form-control form-control-color"
+                    id="ColorProduct" title="Choose your color">
+               </div>
+               <button class="btn btn-success w-25" (click)="addColor()">Add Another Color</button>
+               <div class=" ms-3 mb-3 col-5" 
+                    formArrayName="Color_Product" *ngFor="let color of addprodectform.get('Color_Product')?.value; let i = index">
+                    <input [formControlName]="i" type="color" class="form-control-color"
                          id="ColorProduct" value="#949A5B" title="Choose your color">
-
+                    
                     <div *ngIf="addprodectform.get('Color_Product')?.errors && addprodectform.get('Color_Product')?.touched"
                          class="alert alert-danger">
                          <p class="m-0 p-0">

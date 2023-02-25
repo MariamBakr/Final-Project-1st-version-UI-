@@ -49,7 +49,7 @@ export class AddToMarketFormComponent {
     Main_Category: new FormControl(null, [Validators.required]),
     Sub_Category: new FormControl(null, [Validators.required]),
     image_Product: new FormControl(null, [Validators.required]),
-    Color_Product: new FormArray([new FormControl], [Validators.required]),
+    Color_Product: new FormArray([]),
   })
 
 
@@ -60,5 +60,10 @@ export class AddToMarketFormComponent {
     console.log(this.leter.length);
     console.log(addprodectform.get('Description')?.getError('minLength'))
     console.log(addprodectform.get('Description')?.errors)
+  }
+
+  addColor(){
+    const control = new FormControl(null,Validators.required);
+    (<FormArray>this.addprodectform.get('Color_Product')).push(control);
   }
 }

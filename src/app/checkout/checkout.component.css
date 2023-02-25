@@ -76,3 +76,8 @@ a:hover{
     color:#e4c7a2 !important;
     text-decoration:none !important;
 }
+
+/* form validation error */
+input.ng-touched.ng-invalid{
+    border:1px solid red !important;
+}
