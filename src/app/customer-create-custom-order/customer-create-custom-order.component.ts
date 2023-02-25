@@ -46,10 +46,10 @@ export class CustomerCreateCustomOrderComponent implements OnInit{
     })
   }
   addImage(){
-    const control = new FormControl(null,Validators.required);
+    const control = new FormControl(null);
     (<FormArray>this.customOrderForm.get('images')).push(control);
   }
-
+////////////////////////////////////////////////
   categoryName:any=[]
   category:string=''
   subcategoryName:any=[]

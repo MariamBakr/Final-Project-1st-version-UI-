@@ -104,12 +104,11 @@
 
                                 <!-- images -->
                                 <div class="mb-3">
-                                    <label for="images" class="form-label">Attach photos or sketches:</label>
-                                    <input class="form-control" type="file" id="images" multiple>
+                                    <label for="images" class="form-label me-2">Attach photos or sketches:</label>
                                     <div formArrayName="images" *ngFor="let color of customOrderForm.get('images')?.value; let i = index">
-                                        <input [formControlName]="i" class="form-control mt-2" type="file" id="img" multiple>
+                                        <input class="form-control mt-2" type="text" id="img" [formControlName]="i">
                                     </div>
-                                    <button class="btn btn-dark w-50 mt-2" (click)="addImage()">Add Another Image</button>
+                                    <button class="btn btn-dark w-lg-50 w-md-50 w-sm-100 mt-2" (click)="addImage()">Add Image</button>
                                     
                                     <div class="row ms-2">
                                         <div class="col-1">
@@ -140,12 +139,12 @@
 
                                 <!-- submit button -->
                                 <div class="mb-3 text-center">
-                                    <button class="btn btn-dark rounded-0" type="submit" [disabled]="!customOrderForm.valid" (click)="next3()">Submit</button>
+                                    <button class="btn btn-dark rounded-0" type="submit" (click)="next3()">Submit</button>
                                 </div>
                             </form>
                         </div>
 
-                       <div class="text-end mb-5">
+                       <div class="text-end mb-5 container">
                         <!-- <button class="btn btn-dark rounded-0 ">Next Step</button> -->
                         <a class="btn btn-dark rounded-0 me-2" (click)="prev2()">Back</a>
                         <a class="btn btn-dark rounded-0" (click)="next3()">Next</a>
