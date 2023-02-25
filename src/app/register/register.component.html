@@ -1,4 +1,4 @@
-<div style="border: 2px solid rgba(0, 0, 0, 0.141); box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.547) ; background-color:rgba(193, 164, 128, 0.223);" class="w-50 p-5 mt-5 rounded container">
+<div style="border: 2px solid rgba(0, 0, 0, 0.141); box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.547) ; background-color:rgba(250, 239, 229, 0.223); width: 70%; margin-top: 6rem;" class=" p-5 rounded container">
 
 
     <!-- Form Title -->
@@ -42,6 +42,44 @@
             
         </div>
 
+
+        <div class="d-flex justify-content-between">
+            <!-- Vendor Or Client -->
+        
+            <div class="mb-2" style="width: 40%; padding: 0.5rem; border-radius: 0.5rem; ">
+                <label for="user" class=" ms-2 form-label fw-semibold fs-5">User</label>
+
+                <div class=" d-flex justify-content-around" style=" border-radius:0.5rem; padding:0.4rem; border: 1px solid rgba(0, 0, 0, 0.337);">
+                    <div style="position: relative; top: 0.3rem;">
+                        <input  name="user" [(ngModel)]="userType" value="client" type="radio" formControlName="user" id="user" >
+        
+                        <label for="user" class=" ms-2 form-label fw-semibold fs-5">User</label>
+                    </div>
+        
+                    <div class="ms-4" style="position: relative; top: 0.3rem;">
+                        <input  name="user" [(ngModel)]="userType" type="radio" value="vendor" formControlName="user" id="vendor"  >
+        
+                        <label for="vendor" class="ms-2 form-label fw-semibold fs-5">Vendor</label>
+                    </div>
+                </div>
+                
+                <div *ngIf="register_form.controls.email.touched && register_form.controls.email.hasError('required')" class="alert alert-danger">Email is required</div>
+                <div *ngIf="register_form.controls.email.touched && register_form.controls.email.hasError('email')" class="alert alert-danger">Your email is not valid</div>
+
+                
+            </div>
+
+            <!-- CNN -->
+            <div *ngIf="userType=='vendor'" class="w-50 mb-3 mt-4">
+                <label for="cn" class="form-label fw-semibold fs-5">CN Number</label>
+                <input  name="cn" type="text" formControlName="cn" class=" form-control" id="cn" >
+                <div *ngIf="register_form.controls.email.touched && register_form.controls.email.hasError('required')" class="alert alert-danger">Email is required</div>
+                <div *ngIf="register_form.controls.email.touched && register_form.controls.email.hasError('email')" class="alert alert-danger">Your email is not valid</div>
+
+                
+            </div>
+        </div>
+
         <!-- Password + ConfirmPassword -->
         <div class="mb-4">
             <!-- Password -->
@@ -74,11 +112,11 @@
         </div>
 
         
-        <button  type="submit" (click)="check_password($event)"  class="w-100 btn text-light" style="height: 3rem; background-color: black;">Create an Account</button>
+        <button  type="submit" [disabled]="register_form.invalid && (register_form.controls.confirmPassword.value==register_form.controls.password.value) " class="w-100 btn text-light" style="height: 3rem; background-color: black;">Create an Account</button>
         <div class="mt-3 justify-content-center d-flex">
             <p class="me-2">Aready have an account ?</p>
             <a class="fw-semibold" routerLink="/login">Login</a>
         </div>
-        <!-- [disabled]="register_form.invalid" -->
+        
       </form>
 </div>
