@@ -80,7 +80,7 @@ export class AddToMarketFormComponent {
 
 
   addColor(){
-    
+
     (<FormArray>this.addprodectform.get('Color_Product')).push(new FormControl(null,[Validators.required])),
 
     (<FormArray>this.addprodectform.get('image_Product')).push(new FormControl(null,[Validators.required]))
@@ -90,5 +90,10 @@ export class AddToMarketFormComponent {
     console.log(target);
     this.Colors.removeAt(target);
     this.images.removeAt(target);
+  }
+
+  addColor(){
+    const control = new FormControl(null,Validators.required);
+    (<FormArray>this.addprodectform.get('Color_Product')).push(control);
   }
 }
