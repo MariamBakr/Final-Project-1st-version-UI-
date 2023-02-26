@@ -92,8 +92,5 @@ export class AddToMarketFormComponent {
     this.images.removeAt(target);
   }
 
-  addColor(){
-    const control = new FormControl(null,Validators.required);
-    (<FormArray>this.addprodectform.get('Color_Product')).push(control);
-  }
+
 }
