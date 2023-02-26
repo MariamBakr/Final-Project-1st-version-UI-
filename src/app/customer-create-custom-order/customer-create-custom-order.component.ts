@@ -42,13 +42,10 @@ export class CustomerCreateCustomOrderComponent implements OnInit{
       'endPrice': new FormControl(null,Validators.required),
       'description': new FormControl(null,Validators.required),
       'date':new FormControl(null,Validators.required),
-      'images':new FormArray([]),
+      'images':new FormControl(null),
     })
   }
-  addImage(){
-    const control = new FormControl(null);
-    (<FormArray>this.customOrderForm.get('images')).push(control);
-  }
+
 ////////////////////////////////////////////////
   categoryName:any=[]
   category:string=''

@@ -82,7 +82,7 @@
                                 <!-- color -->
                                 <div class="mb-3">
                                     <label for="color" class="form-label">Choose your color</label>
-                                    <input type="color" class="form-control w-25" id="color" placeholder="How many items you want?">
+                                    <input type="color" class="form-control w-25" id="color" placeholder="How many items you want?" formControlName="color">
                                 </div>
 
                                 <!-- price -->
@@ -105,16 +105,7 @@
                                 <!-- images -->
                                 <div class="mb-3">
                                     <label for="images" class="form-label me-2">Attach photos or sketches:</label>
-                                    <div formArrayName="images" *ngFor="let color of customOrderForm.get('images')?.value; let i = index">
-                                        <input class="form-control mt-2" type="text" id="img" [formControlName]="i">
-                                    </div>
-                                    <button class="btn btn-dark w-lg-50 w-md-50 w-sm-100 mt-2" (click)="addImage()">Add Image</button>
-                                    
-                                    <div class="row ms-2">
-                                        <div class="col-1">
-                                            <!-- <img [src]="images"> -->
-                                        </div>
-                                    </div>
+                                    <input class="form-control mt-2" type="file" id="img" formControlName="images" multiple>
                                 </div>
 
                                 <!-- due date -->
@@ -139,7 +130,7 @@
 
                                 <!-- submit button -->
                                 <div class="mb-3 text-center">
-                                    <button class="btn btn-dark rounded-0" type="submit" (click)="next3()">Submit</button>
+                                    <button class="btn btn-dark rounded-0" type="submit" [disabled]="customOrderForm.invalid" (click)="next3()">Submit</button>
                                 </div>
                             </form>
                         </div>
