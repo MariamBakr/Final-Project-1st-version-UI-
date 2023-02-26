@@ -36,7 +36,6 @@ export class AddToMarketFormComponent {
   }
 
 
-
   addprodectform: FormGroup = new FormGroup({
     Title_Product: new FormControl(null, [Validators.required]),
     Description: new FormControl(null, [Validators.required ,Validators.minLength(100),Validators.maxLength(300)]),
@@ -48,17 +47,48 @@ export class AddToMarketFormComponent {
     DimensionsL: new FormControl(null, [Validators.required]),
     Main_Category: new FormControl(null, [Validators.required]),
     Sub_Category: new FormControl(null, [Validators.required]),
-    image_Product: new FormControl(null, [Validators.required]),
-    Color_Product: new FormArray([new FormControl], [Validators.required]),
+    // image_Product: new FormControl(null, [Validators.required]),
+
+    Color_Product: new FormArray([
+      new FormControl("",[Validators.required])
+
+    ]),
+
+     image_Product: new FormArray([
+      new FormControl("",[Validators.required])
+
+    ])
   })
 
 
-  leter: string ="Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit. "
+  get Colors() {
+    return this.addprodectform.get('Color_Product') as FormArray;
+  }
+
+
+ get images() {
+    return this.addprodectform.get('image_Product') as FormArray;
+  }
+
 
   submitFormadd(addprodectform: FormGroup) {
     console.log(addprodectform.get("Title_Product")?.getError('required'));
-    console.log(this.leter.length);
     console.log(addprodectform.get('Description')?.getError('minLength'))
     console.log(addprodectform.get('Description')?.errors)
+     console.log(addprodectform.value);
+  }
+
+
+  addColor(){
+    
+    (<FormArray>this.addprodectform.get('Color_Product')).push(new FormControl(null,[Validators.required])),
+
+    (<FormArray>this.addprodectform.get('image_Product')).push(new FormControl(null,[Validators.required]))
+  }
+
+   remove_Color_image(target:any){
+    console.log(target);
+    this.Colors.removeAt(target);
+    this.images.removeAt(target);
   }
 }
