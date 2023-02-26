@@ -1,262 +1,563 @@
 <div class="container">
-     <!-- All card -->
-     <div class="row g-2 mb-5">
-          <!-- card1 -->
-          <div class="col-lg-3 col-sm-6 col-md-4 col-xl-3">
-               <div class="card  bg-white Small shadow p-3 card1 de-3">
-                    <!-- dropdown -->
-                    <div class="dropdown dropbtn">
+  <!-- All card -->
+  <div class="row g-2 mb-5">
+    <!-- card1 -->
+    <div class="col-lg-3 col-sm-6 col-md-4 col-xl-3">
+      <div class="card bg-white Small shadow p-3 card1 de-3">
+        <!-- dropdown -->
+        <div class="dropdown dropbtn">
+          <a
+            class=""
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            id="dropdownMenuLink"
+            href="#"
+          >
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </a>
 
-                         <a class="" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuLink" href="#">
-                              <i class="fa-solid fa-ellipsis-vertical"></i>
-                         </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li>
+              <!-- Button Modal Edit Product -->
+              <a
+                class="dropdown-item"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#EditModal"
+              >
+                <i class="fa-sharp fa-solid fa-pencil"></i>
+                Edit</a
+              >
+            </li>
 
-                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                              <li>
-                                   <!-- Button Modal Edit Product -->
-                                   <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <i class="fa-sharp fa-solid fa-pencil"></i>
-                                        Edit</a>
-                              </li>
+            <li>
+              <!-- Button Modal Confirmation Delet -->
+              <a
+                class="dropdown-item"
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+              >
+                <i class="fa-sharp fa-solid fa-trash-can"></i>
+                Delet</a
+              >
+            </li>
+          </ul>
+        </div>
 
-                              <li>
-                                   <!-- Button Modal Confirmation Delet -->
-                                   <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#staticBackdrop">
-                                        <i class="fa-sharp fa-solid fa-trash-can"></i>
-                                        Delet</a>
-
-                              </li>
-                         </ul>
-                    </div>
-
-
-                    <!-- image -->
-                    <img src="https://htmldemo.net/expert/expert/assets/images/product/10_3.webp" class="card-img-top"
-                         alt="...">
-
-
-                    <!-- title -->
-                    <div class="">
-                         <h5 class="card-title">ADOBE PHOTOSHOP TUTS
-                         </h5>
-
-                    </div>
-
-
-                    <!--Description-->
-                    <p class="card-text text-secondary">
-                         Lorem ipsum dolor sit amet,consectetur adipiscing elit. Nam fringilla augue nec est tristique
-                         auctor. Donec non est at
-                         libero...
-                    </p>
-
-
-                    <!-- Quntity -->
-                    <div class="d-flex flex-nowrap ">
-                         <h6 class="card-title">Quntity:</h6>
-                         <h6 class="card-text text-secondary ps-2">10 </h6>
-                    </div>
-
-
-                    <!-- price -->
-                    <div class="d-flex flex-nowrap ">
-                         <h6 class="card-title">price:</h6>
-                         <h6 class="card-text text-secondary ps-2">160 LE</h6>
-                    </div>
+        <!--Start image carousel-->
+        <div class="mt-4">
+          <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let slide of slides">
+              <ng-template carouselSlide id="slide.id">
+                <img
+                  class="primary-img"
+                  [src]="slide.img"
+                  alt=""
+                />
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
+        </div>
+        <!--End image carousel-->
 
 
-                    <!-- Material -->
-                    <div class="d-flex flex-nowrap">
-                         <h6 class="card-title">Material:</h6>
-                         <h6 class="card-text text-secondary ps-2">Pottery</h6>
-                    </div>
-
-
-                    <!-- Dimensions -->
-                    <div class="d-flex flex-nowrap">
-                         <h6 class="card-title">Dimensions(L × W × H):</h6>
-                         <h6 class="card-text text-secondary ps-2">200×160×70</h6>
-                    </div>
-
-
-                    <!-- Main Category -->
-                    <div class="d-flex flex-nowrap">
-                         <h6 class="card-title">Main Category:</h6>
-                         <h6 class="card-text text-secondary ps-2">living rooms</h6>
-                    </div>
+<!--Start Color carousel-->
+<div class="mt-4">
+  <owl-carousel-o [options]="customOptions1">
+    <ng-container *ngFor="let slide of slides1">
+      <ng-template carouselSlide id="slides1.id">
+        <div class="styleColor" [style.background-color]="'slides1.color'"></div>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>
+<!--End Color carousel-->
 
 
 
-                    <!-- Sub Category -->
-                    <div class="d-flex flex-nowrap">
-                         <h6 class="card-title">Sub Category:</h6>
-                         <h6 class="card-text text-secondary ps-2">decor</h6>
-                    </div>
-
-               </div>
-          </div>
-          <!-- card2 -->
-
-          <!-- card3 -->
-
-          <!-- card4 -->
 
 
-     </div>
+        <!-- title -->
+        <div class="">
+          <h5 class="card-title">ADOBE PHOTOSHOP TUTS</h5>
+        </div>
+
+        <!--Description-->
+        <p class="card-text text-secondary">
+          Lorem ipsum dolor sit amet,consectetur adipiscing elit. Nam fringilla
+          augue nec est tristique auctor. Donec non est at libero...
+        </p>
+
+        <!-- Quntity -->
+        <div class="d-flex flex-nowrap">
+          <h6 class="card-title">Quntity:</h6>
+          <h6 class="card-text text-secondary ps-2">10</h6>
+        </div>
+
+        <!-- price -->
+        <div class="d-flex flex-nowrap">
+          <h6 class="card-title">price:</h6>
+          <h6 class="card-text text-secondary ps-2">160 LE</h6>
+        </div>
+
+        <!-- Material -->
+        <div class="d-flex flex-nowrap">
+          <h6 class="card-title">Material:</h6>
+          <h6 class="card-text text-secondary ps-2">Pottery</h6>
+        </div>
+
+        <!-- Dimensions -->
+        <div class="d-flex flex-nowrap">
+          <h6 class="card-title">Dimensions(L × W × H):</h6>
+          <h6 class="card-text text-secondary ps-2">200×160×70</h6>
+        </div>
+
+        <!-- Main Category -->
+        <div class="d-flex flex-nowrap">
+          <h6 class="card-title">Main Category:</h6>
+          <h6 class="card-text text-secondary ps-2">living rooms</h6>
+        </div>
+
+        <!-- Sub Category -->
+        <div class="d-flex flex-nowrap">
+          <h6 class="card-title">Sub Category:</h6>
+          <h6 class="card-text text-secondary ps-2">decor</h6>
+        </div>
+      </div>
+    </div>
+    <!-- card2 -->
+
+    <!-- card3 -->
+
+    <!-- card4 -->
+  </div>
 </div>
 
-
-
 <!-- Modal Edit Product -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog ">
-          <div class="modal-content">
-               <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-               <div class="modal-body">
-                    <!--start form  -->
-                    <div class="add-product-form">
+<div
+  class="modal fade"
+  id="EditModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!--start form  -->
+        <div class="add-product-form mb-5" style="width: 100%">
+          <form
+            (ngSubmit)="submitFormadd(addprodectform)"
+            [formGroup]="addprodectform"
+          >
+            <!-- Title Product -->
+            <div class="pt-2 m-3">
+              <label for="Title" class="form-label">Title Product</label>
+              <input
+                formControlName="Title_Product"
+                type="text"
+                class="form-control"
+                id="Title"
+                placeholder=""
+              />
+              <div
+                *ngIf="
+                  addprodectform.get('Title_Product')?.errors &&
+                  addprodectform.get('Title_Product')?.touched
+                "
+                class="alert alert-danger"
+              >
+                <p class="m-0 p-0">Title is required</p>
+              </div>
+            </div>
 
-                         <!-- Title Product -->
-                         <div class="pt-2 col m-3">
-                              <label for="exampleFormControlInput1" class="form-label">Title Product</label>
-                              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
-                         </div>
+            <!-- Description -->
+            <div class="m-3">
+              <label for="DescriptionProduct" class="form-label"
+                >Description</label
+              >
+              <textarea
+                formControlName="Description"
+                class="form-control"
+                id="DescriptionProduct"
+                rows="3"
+              ></textarea>
 
+              <!--Start Description Validators -->
+              <div
+                *ngIf="
+                  addprodectform.get('Description')?.errors &&
+                  addprodectform.get('Description')?.touched
+                "
+                class="alert alert-danger"
+              >
+                <p
+                  *ngIf="
+                    addprodectform.get('Description')?.getError('required')
+                  "
+                  class="m-0 p-0"
+                >
+                  Description is required
+                </p>
 
-                         <!-- Description -->
-                         <div class="m-3">
-                              <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                         </div>
+                <p
+                  *ngIf="
+                    addprodectform.get('Description')?.hasError('minlength')
+                  "
+                  class="m-0 p-0"
+                >
+                  Description must be at least 100 characters long
+                </p>
 
+                <p
+                  *ngIf="
+                    addprodectform.get('Description')?.getError('maxlength')
+                  "
+                  class="m-0 p-0"
+                >
+                  Description must be at Max 300 characters long
+                </p>
+              </div>
+              <!--End Description Validators -->
+            </div>
 
-                         <!--Price &&  Quntity -->
-                         <div class="d-flex  justify-content-between m-3">
-                              <!-- Price -->
-                              <div style="width:45%;">
-                                   <label for="exampleFormControlTextarea1" class="form-label">Price</label>
-                                   <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+            <!--Price &&  Quntity -->
+            <div class="d-flex justify-content-between m-3">
+              <!-- Price -->
+              <div style="width: 45%">
+                <label for="PriceProduct" class="form-label">Price</label>
+                <input
+                  formControlName="Price"
+                  type="text"
+                  class="form-control"
+                  id="PriceProduct"
+                  placeholder=""
+                />
+                <div
+                  *ngIf="
+                    addprodectform.get('Price')?.errors &&
+                    addprodectform.get('Price')?.touched
+                  "
+                  class="alert alert-danger"
+                >
+                  <p class="m-0 p-0">Price is required</p>
+                </div>
+              </div>
 
-                              </div>
+              <!-- avialble Quntity -->
+              <div style="width: 45%">
+                <label for="QuntityProduct" class="form-label"
+                  >avialble Quntity</label
+                >
+                <input
+                  formControlName="avialble_Quntity"
+                  type="number"
+                  class="form-control"
+                  id="QuntityProduct"
+                  placeholder=""
+                />
+                <div
+                  *ngIf="
+                    addprodectform.get('avialble_Quntity')?.errors &&
+                    addprodectform.get('avialble_Quntity')?.touched
+                  "
+                  class="alert alert-danger"
+                >
+                  <p class="m-0 p-0">Quntity is required</p>
+                </div>
+              </div>
+            </div>
 
+            <!-- Material -->
+            <div class="m-3">
+              <label for="MaterialProduct" class="form-label">Material</label>
+              <input
+                formControlName="Material"
+                type="text"
+                class="form-control"
+                id="MaterialProduct"
+                placeholder=""
+              />
+              <div
+                *ngIf="
+                  addprodectform.get('Material')?.errors &&
+                  addprodectform.get('Material')?.touched
+                "
+                class="alert alert-danger"
+              >
+                <p class="m-0 p-0">Material Product is required</p>
+              </div>
+            </div>
 
+            <!-- Dimensions -->
+            <div class="m-3">
+              <label for="DimensionsProduct" class="form-label"
+                >Dimensions</label
+              >
+              <div class="d-flex justify-content-between">
+                <!-- W -->
+                <input
+                  formControlName="DimensionsW"
+                  type="text"
+                  class="form-control w-25"
+                  id="DimensionsProduct"
+                  placeholder="W"
+                />
 
-                              <!-- avialble Quntity -->
-                              <div style="width:45%;">
-                                   <label for="exampleFormControlTextarea1" class="form-label">avialble Quntity</label>
-                                   <input type="number" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="">
+                <!-- H -->
+                <input
+                  formControlName="DimensionsH"
+                  type="text"
+                  class="form-control w-25"
+                  id=""
+                  placeholder="H"
+                />
 
-                              </div>
+                <!-- L -->
+                <input
+                  formControlName="DimensionsL"
+                  type="text"
+                  class="form-control w-25"
+                  id=""
+                  placeholder="L"
+                />
+              </div>
+            </div>
 
-                         </div>
+            <!--Start Dimensions Validators -->
+            <div class="d-flex justify-content-between m-3">
+              <div
+                *ngIf="
+                  addprodectform.get('DimensionsW')?.errors &&
+                  addprodectform.get('DimensionsW')?.touched
+                "
+                class="alert alert-danger w-25"
+              >
+                <p class="m-0 p-0">width Product is required</p>
+              </div>
 
-                         <!-- Material -->
-                         <div class="m-3">
-                              <label for="exampleFormControlTextarea1" class="form-label">Material</label>
-                              <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+              <div
+                *ngIf="
+                  addprodectform.get('DimensionsH')?.errors &&
+                  addprodectform.get('DimensionsH')?.touched
+                "
+                class="alert alert-danger w-25"
+              >
+                <p class="m-0 p-0">Hight Product is required</p>
+              </div>
 
-                         </div>
+              <div
+                *ngIf="
+                  addprodectform.get('DimensionsL')?.errors &&
+                  addprodectform.get('DimensionsL')?.touched
+                "
+                class="alert alert-danger w-25"
+              >
+                <p class="m-0 p-0">Length Product is required</p>
+              </div>
+            </div>
+            <!--End Dimensions Validators -->
 
-                         <!-- Dimensions -->
-                         <div class="m-3">
-                              <label for="exampleFormControlTextarea1" class="form-label">Dimensions</label>
-                              <div class="d-flex justify-content-between">
-                                   <!-- W -->
-                                   <input type="text" class="form-control w-25" id="exampleFormControlInput1"
-                                        placeholder="W">
-                                   <!-- H -->
-                                   <input type="text" class="form-control w-25" id="exampleFormControlInput1"
-                                        placeholder="H">
-                                   <!-- L -->
-                                   <input type="text" class="form-control w-25" id="exampleFormControlInput1"
-                                        placeholder="L">
-                              </div>
+            <!-- Main Category -->
+            <div class="m-3">
+              <label for="" class="form-label">Main Category</label>
 
-                         </div>
+              <select
+                formControlName="Main_Category"
+                class="form-select"
+                aria-label="Default select example"
+                (change)="select_Main_Category(addprodectform)"
+              >
+                <option selected></option>
+                <option value="bed_rooms">bed rooms</option>
+                <option value="living_rooms">living rooms</option>
+                <option value="dinning_rooms">dinning rooms</option>
+                <option value="kitchens">kitchens</option>
+                <option value="office">office</option>
+              </select>
+              <div
+                *ngIf="
+                  addprodectform.get('Main_Category')?.errors &&
+                  addprodectform.get('Main_Category')?.touched
+                "
+                class="alert alert-danger"
+              >
+                <p class="m-0 p-0">Main Category is required</p>
+              </div>
+            </div>
 
+            <!-- Sub Category -->
+            <div class="m-3">
+              <label for="" class="form-label">Sub Category</label>
+              <select
+                formControlName="Sub_Category"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected></option>
+                <option *ngFor="let x of Sub_Category_Data" value="1">
+                  {{ x }}
+                </option>
+              </select>
+              <div
+                *ngIf="
+                  addprodectform.get('Sub_Category')?.errors &&
+                  addprodectform.get('Sub_Category')?.touched
+                "
+                class="alert alert-danger"
+              >
+                <p class="m-0 p-0">Sub Category is required</p>
+              </div>
+            </div>
 
-                         <!-- Main Category -->
-                         <div class="m-3">
-                              <label for="exampleFormControlTextarea1" class="form-label">Main Category</label>
+            <!-- color + image -->
+            <div class="row align-items-end">
+              <!-- image Product -->
+              <div class="m-3 col-5" formArrayName="image_Product">
+                <ng-container
+                  *ngFor="let Color_Product of images.controls; index as i"
+                >
+                  <label for="imageProduct" class="form-label"
+                    >image Product #{{ i + 1 }}</label
+                  >
+                  <input
+                    formControlName="image_Product"
+                    type="file"
+                    class="form-control"
+                    id="imageProduct"
+                    value="#949A5B"
+                    title="Choose your color"
+                    formControlName="{{ i }}"
+                  />
+                </ng-container>
 
-                              <select class="form-select" aria-label="Default select example">
-                                   <option selected></option>
-                                   <option value="1">bed rooms</option>
-                                   <option value="2">living rooms</option>
-                                   <option value="3">dinning rooms</option>
-                                   <option value="3">kitchens</option>
-                                   <option value="3">office</option>
-                              </select>
-                         </div>
+                <div
+                  *ngIf="
+                    addprodectform.get('image_Product')?.errors &&
+                    addprodectform.get('image_Product')?.touched
+                  "
+                  class="alert alert-danger"
+                >
+                  <p class="m-0 p-0">image Product is required</p>
+                </div>
+              </div>
 
-                         <!-- Sub Category -->
-                         <div class="m-3">
-                              <label for="exampleFormControlTextarea1" class="form-label">Sub Category</label>
-                              <select class="form-select" aria-label="Default select example">
-                                   <option selected></option>
-                                   <option value="1">One</option>
-                                   <option value="2">Two</option>
-                                   <option value="3">Three</option>
-                              </select>
+              <!-- Color Product -->
+              <div formArrayName="Color_Product" class="ms-3 mb-3 col-5 w-50">
+                <div
+                  *ngFor="let Color_Product of Colors.controls; index as i"
+                  class="row justify-content-between"
+                >
+                  <label for="ColorProduct" class="form-label ms-3"
+                    >Color Product #{{ i + 1 }}</label
+                  >
+                  <input
+                    formControlName="Color_Product"
+                    type="color"
+                    class="form-control form-control-color col-5 ms-4"
+                    id="ColorProduct"
+                    value="#949A5B"
+                    title="Choose your color"
+                    formControlName="{{ i }}"
+                  />
 
-                         </div>
+                  <button
+                    type="button"
+                    class="btn btn-danger col-2"
+                    (click)="remove_Color_image(i)"
+                  >
+                    x
+                  </button>
+                </div>
 
+                <div
+                  *ngIf="
+                    addprodectform.get('Color_Product')?.errors &&
+                    addprodectform.get('Color_Product')?.touched
+                  "
+                  class="alert alert-danger"
+                >
+                  <p class="m-0 p-0">Color Product is required</p>
+                </div>
+              </div>
+            </div>
 
-                         <!-- image Product -->
-                         <div class="m-3">
-                              <label for="exampleFormControlTextarea1" class="form-label">image Product</label>
-                              <input class="form-control form-control-sm" id="formFileSm" type="file">
+            <!--button add-Color-image -->
+            <div class="row justify-content-center">
+              <button
+                class="btn add-Color-image col-5 mt-4"
+                (click)="addColor()"
+              >
+                + add Color and image
+              </button>
+            </div>
 
-
-                         </div>
-
-
-
-                         <!-- Color &&  submit-->
-                         <div class=" m-3 row">
-                              <label for="exampleFormControlTextarea1" class="form-label">Color Product</label>
-
-                              <!-- Color Product -->
-                              <div class=" col-6">
-                                   <input type="color" class="form-control form-control-color" id="exampleColorInput"
-                                        value="#563d7c" title="Choose your color">
-                              </div>
-
-                         </div>
-                    </div>
-                    <!--End form  -->
-
-
-               </div>
-               <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-submit" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-secondary btn-submit">Save changes</button>
-               </div>
-          </div>
-     </div>
+            <form>
+              <div></div>
+            </form>
+          </form>
+        </div>
+        <!--End form  -->
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary btn-submit"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-secondary btn-submit">
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Modal Confirmation Delet -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-     <div class="modal-dialog">
-          <div class="modal-content">
-               <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-               <div class="modal-body">
-                    <h3>Are you sure to delete the product?</h3>
-               </div>
-               <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-submit" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-secondary btn-submit">OK</button>
-               </div>
-          </div>
-     </div>
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <h3>Are you sure to delete the product?</h3>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary btn-submit"
+          data-bs-dismiss="modal"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-secondary btn-submit">OK</button>
+      </div>
+    </div>
+  </div>
 </div>
