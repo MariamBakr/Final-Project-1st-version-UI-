@@ -1,5 +1,5 @@
 <div class="add-product-form mb-5 " style="width: 80%">
-  <form (ngSubmit)="submitFormadd(addprodectform)" [formGroup]="addprodectform">
+  <form  [formGroup]="addprodectform" #form>
     <!-- Title Product -->
     <div class="pt-2 m-3">
       <label for="Title" class="form-label">Title Product</label>
@@ -233,7 +233,7 @@
         aria-label="Default select example"
       >
         <option selected></option>
-        <option *ngFor="let x of Sub_Category_Data" value="1">{{ x }}</option>
+        <option *ngFor="let x of Sub_Category_Data">{{ x }}</option>
       </select>
       <div
         *ngIf="
@@ -256,14 +256,11 @@
   <div class="m-3 col-5" formArrayName="image_Product">
     <ng-container *ngFor="let Color_Product of images.controls; index as i">
       <label for="imageProduct" class="form-label">image Product #{{i+1}}</label>
-      <input formControlName="image_Product" type="file" class="form-control" id="imageProduct" value="#949A5B"
+      <input type="file" class="form-control" name="imageProduct"
         title="Choose your color" formControlName="{{ i }}" />
     </ng-container>
 
-    <div *ngIf="
-            addprodectform.get('image_Product')?.errors &&
-            addprodectform.get('image_Product')?.touched
-          " class="alert alert-danger">
+    <div *ngIf="checkArray()" class="alert alert-danger">
       <p class="m-0 p-0">image Product is required</p>
     </div>
   </div>
@@ -274,7 +271,7 @@
     <div *ngFor="let Color_Product of Colors.controls; index as i" class="row justify-content-between">
       <label for="ColorProduct" class="form-label ms-3">Color Product #{{i+1}}</label>
       <input formControlName="Color_Product" type="color" class="form-control form-control-color col-5 ms-4" id="ColorProduct"
-        value="#949A5B" title="Choose your color" formControlName="{{ i }}" />
+         title="Choose your color" formControlName="{{ i }}" />
 
         <button type="button" class="btn btn-danger col-2" (click)="remove_Color_image(i)"> x </button>
 
@@ -307,7 +304,8 @@
         <button
           [disabled]="addprodectform.invalid"
           type="submit"
-          class="btn btn-submit col-6">
+          class="btn btn-submit col-6"
+          (click)="submitFormadd(form)">
           Add Product
         </button>
       </div>

@@ -45,6 +45,8 @@ import { LayoutHomeComponent } from './layout-home/layout-home.component';
 import { CustomerInfoComponent } from './customer-info/customer-info.component';
 import { VendorInfoComponent } from './vendor-info/vendor-info.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -100,6 +102,7 @@ import { VendorInfoComponent } from './vendor-info/vendor-info.component';
     ReactiveFormsModule,
     FontAwesomeModule,
     NgxSliderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

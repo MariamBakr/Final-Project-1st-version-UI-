@@ -1,15 +1,32 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Observable } from 'rxjs';
+import { VendorProductsService } from '../Services/vendor-products.service';
+import { Products } from '../shared/models/products';
+
 @Component({
   selector: 'app-my-market-page',
   templateUrl: './my-market-page.component.html',
   styleUrls: ['./my-market-page.component.css']
 })
 export class MyMarketPageComponent {
+
+
+
  Sub_Category_Data: string[] = []
 
+ products: Products[]=[];
 
+ constructor(private productsService: VendorProductsService){
+   let productsObservable: Observable<Products[]>
+
+   productsObservable = this.productsService.getAll()
+
+   productsObservable.subscribe((serverProducts)=>{
+     this.products = serverProducts;
+   })
+ }
 
   select_Main_Category(addprodectform: FormGroup) {
     if (addprodectform.value.Main_Category == "living_rooms") {
