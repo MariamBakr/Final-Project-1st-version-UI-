@@ -21,6 +21,7 @@ import { VendorOrdersMarketComponent } from './vendor-orders-market/vendor-order
 import { VendorProposalSendToCustomerComponent } from './vendor-proposal-send-to-customer/vendor-proposal-send-to-customer.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: '', component:LayoutHomeComponent,children:[
     {path:'',redirectTo:'home', pathMatch:'full'},
     {path:'cart',component:CartComponent},
+
     {path:'wishlist',component:WishlistComponent},
     { path: 'filter', component: FilterComponent },
     { path: 'client', component:CustomerProfileComponent ,children:[

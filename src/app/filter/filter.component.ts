@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Options, LabelType } from "@angular-slider/ngx-slider";
+import { FilterService } from '../Services/filter.service';
+import { Observable } from 'rxjs';
+import { Products } from 'src/assets/product';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent {
-
+  products:Products[]=[]
+  constructor(private service:FilterService){}
+  enteredSearchValue:string=""
+  @Output()
+  searchTextChanged:EventEmitter<string>= new EventEmitter<string>()
   // Code for Multi price range
   minValue: number = 1300;
   maxValue: number = 83000;
@@ -32,4 +39,15 @@ export class FilterComponent {
     e.target.style.value="for test to be removed";
     console.log(e.target.style.value);
   }
-}
+ onSearchTextChanged(data:any){
+
+  this.searchTextChanged.emit(this.enteredSearchValue)
+  console.log(data)
+  let d=this.service.searchProduct(data)
+  let productsObservable: Observable<Products[]>
+  productsObservable=this.service.searchProduct(data)
+  productsObservable.subscribe((serverProducts)=>{
+    this.products = serverProducts;
+  console.log(this.products)
+ })
+}}
