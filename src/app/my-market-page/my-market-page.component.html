@@ -2,137 +2,215 @@
   <!-- All card -->
   <div class="row g-2 mb-5">
     <!-- card1 -->
-    <div class="col-lg-3 col-sm-6 col-md-4 col-xl-3">
-      <div class="card bg-white Small shadow p-3 card1 de-3">
-        <!-- dropdown -->
-        <div class="dropdown dropbtn">
-          <a
-            class=""
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            id="dropdownMenuLink"
-            href="#"
-          >
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-          </a>
 
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li>
-              <!-- Button Modal Edit Product -->
-              <a
-                class="dropdown-item"
-                href="#"
-                data-bs-toggle="modal"
-                data-bs-target="#EditModal"
-              >
-                <i class="fa-sharp fa-solid fa-pencil"></i>
-                Edit</a
-              >
-            </li>
+<div class="col-lg-3 col-sm-6 col-md-4 col-xl-3">
+  <div class="card bg-white Small shadow p-3 card1 de-3">
+    <!-- dropdown -->
+    <div class="dropdown dropbtn">
+      <a class="" data-bs-toggle="dropdown" aria-expanded="false" id="dropdownMenuLink" href="#">
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </a>
 
-            <li>
-              <!-- Button Modal Confirmation Delet -->
-              <a
-                class="dropdown-item"
-                href="#"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
-              >
-                <i class="fa-sharp fa-solid fa-trash-can"></i>
-                Delet</a
-              >
-            </li>
-          </ul>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li>
+          <!-- Button Modal Edit Product -->
+          <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#EditModal">
+            <i class="fa-sharp fa-solid fa-pencil"></i>
+            Edit</a>
+        </li>
+
+        <li>
+          <!-- Button Modal Confirmation Delet -->
+          <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <i class="fa-sharp fa-solid fa-trash-can"></i>
+            Delet</a>
+        </li>
+      </ul>
+    </div>
+
+    <!--Start image carousel-->
+    <div class="mt-4">
+      <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let slide of slides">
+          <ng-template carouselSlide id="slide.id">
+            <img class="primary-img " [src]="slide.img" alt="" />
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+    <!--End image carousel-->
+
+
+    <!--Start Color carousel-->
+    <div class="mt-2">
+      <owl-carousel-o [options]="customOptions1">
+        <ng-container *ngFor="let slide of slides12">
+          <ng-template carouselSlide id="slides12.id">
+            <div class="styleColor" [style.background-color]="slide.color"></div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+    <!--End Color carousel-->
+
+    <!-- title -->
+    <div class="mt-5">
+      <h5 class="card-title">ADOBE PHOTOSHOP TUTS</h5>
+    </div>
+
+    <!--Description-->
+    <p class="card-text text-secondary">
+      Lorem ipsum dolor sit amet,consectetur adipiscing elit. Nam fringilla
+      augue nec est tristique auctor. Donec non est at libero...
+    </p>
+
+    <!-- Quntity -->
+    <div class="d-flex flex-nowrap">
+      <h6 class="card-title">Quntity:</h6>
+      <h6 class="card-text text-secondary ps-2">10</h6>
+    </div>
+
+    <!-- price -->
+    <div class="d-flex flex-nowrap">
+      <h6 class="card-title">price:</h6>
+      <h6 class="card-text text-secondary ps-2">160 LE</h6>
+    </div>
+
+    <!-- Material -->
+    <div class="d-flex flex-nowrap">
+      <h6 class="card-title">Material:</h6>
+      <h6 class="card-text text-secondary ps-2">Pottery</h6>
+    </div>
+
+    <!-- Dimensions -->
+    <div class="d-flex flex-nowrap">
+      <h6 class="card-title">Dimensions(L × W × H):</h6>
+      <h6 class="card-text text-secondary ps-2">200×160×70</h6>
+    </div>
+
+    <!-- Main Category -->
+    <div class="d-flex flex-nowrap">
+      <h6 class="card-title">Main Category:</h6>
+      <h6 class="card-text text-secondary ps-2">living rooms</h6>
+    </div>
+
+    <!-- Sub Category -->
+    <div class="d-flex flex-nowrap">
+      <h6 class="card-title">Sub Category:</h6>
+      <h6 class="card-text text-secondary ps-2">decor</h6>
+    </div>
+  </div>
+</div>
+
+
+<!-- ............................... -->
+    <!-- card2 -->
+<section style="border-radius: 0.5rem; border:1px solid rgba(0, 0, 0, 0.219);width: 65%;" class="mx-4 mb-4 p-3">
+
+  <!-- div contain proposal details -->
+  <div class=" mt-4 d-flex justify-content-around">
+    <!-- Proposal Details -->
+    <div class="position-relative" style="top: 1rem; width: 60%;">
+
+      <!-- card details  -->
+      <div class="ms-2">
+
+        <div>
+        <!-- title -->
+          <h6 class="fw-bold">ADOBE PHOTOSHOP TUTS </h6>
+          <!--Description-->
+          <div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati quasi atque natus architecto
+            reprehenderit earum nulla quas.
+          </div>
         </div>
+        <!-- Quntity -->
+        <span class="d-flex align-items-center mt-3">
+          <h6 class="fw-bold">Quntity: </h6>
+          <h6 class="ms-3">10</h6>
+        </span>
+        <!-- price -->
+        <span class="d-flex align-items-center mt-2">
+          <h6 class="fw-bold">price: </h6>
+          <h6 class="ms-3">10000 EGP</h6>
+        </span>
 
+        <!-- Material -->
+        <span class="d-flex align-items-center mt-2">
+          <h6 class="fw-bold">Material:  </h6>
+          <h6 class="ms-3">Pottery</h6>
+        </span>
+
+        <!-- Material -->
+        <span class="d-flex align-items-center mt-2">
+          <h6 class="fw-bold">Dimensions(L × W × H): </h6>
+          <h6 class="ms-3">200×160×70</h6>
+        </span>
+
+<!-- Main Category -->
+<span class="d-flex align-items-center mt-2">
+  <h6 class="fw-bold">Main Category: </h6>
+  <h6 class="ms-3">living rooms</h6>
+</span>
+
+
+<!-- Sub  Category -->
+<span class="d-flex align-items-center mt-2">
+  <h6 class="fw-bold">Sub Category: </h6>
+  <h6 class="ms-3">living rooms1</h6>
+</span>
+      </div>
+
+      <!-- Buttons -->
+      <div class="my-3">
+        <button class="btn btn-success"><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#EditModal">
+          <i class="fa-sharp fa-solid fa-pencil"></i>
+          Edit</a> </button>
+        <button class="ms-4 btn btn-danger"> <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <i class="fa-sharp fa-solid fa-trash-can"></i>
+          Delet</a></button>
+      </div>
+
+    </div>
         <!--Start image carousel-->
-        <div class="mt-4">
+        <div class="" style="width:40%;">
           <owl-carousel-o [options]="customOptions">
             <ng-container *ngFor="let slide of slides">
               <ng-template carouselSlide id="slide.id">
-                <img
-                  class="primary-img"
-                  [src]="slide.img"
-                  alt=""
-                />
+                <img class="primary-img" [src]="slide.img" alt="" style="width:90%;"/>
               </ng-template>
             </ng-container>
           </owl-carousel-o>
-        </div>
-        <!--End image carousel-->
 
 
 <!--Start Color carousel-->
-<div class="mt-4">
+<div class="mt-2">
   <owl-carousel-o [options]="customOptions1">
-    <ng-container *ngFor="let slide of slides1">
-      <ng-template carouselSlide id="slides1.id">
-        <div class="styleColor" [style.background-color]="'slides1.color'"></div>
+    <ng-container *ngFor="let slide of slides12">
+      <ng-template carouselSlide id="slides12.id">
+        <div class="styleColor" [style.background-color]="slide.color"></div>
       </ng-template>
     </ng-container>
   </owl-carousel-o>
 </div>
 <!--End Color carousel-->
 
-
-
-
-
-        <!-- title -->
-        <div class="">
-          <h5 class="card-title">ADOBE PHOTOSHOP TUTS</h5>
         </div>
+        <!--End image carousel-->
 
-        <!--Description-->
-        <p class="card-text text-secondary">
-          Lorem ipsum dolor sit amet,consectetur adipiscing elit. Nam fringilla
-          augue nec est tristique auctor. Donec non est at libero...
-        </p>
-
-        <!-- Quntity -->
-        <div class="d-flex flex-nowrap">
-          <h6 class="card-title">Quntity:</h6>
-          <h6 class="card-text text-secondary ps-2">10</h6>
-        </div>
-
-        <!-- price -->
-        <div class="d-flex flex-nowrap">
-          <h6 class="card-title">price:</h6>
-          <h6 class="card-text text-secondary ps-2">160 LE</h6>
-        </div>
-
-        <!-- Material -->
-        <div class="d-flex flex-nowrap">
-          <h6 class="card-title">Material:</h6>
-          <h6 class="card-text text-secondary ps-2">Pottery</h6>
-        </div>
-
-        <!-- Dimensions -->
-        <div class="d-flex flex-nowrap">
-          <h6 class="card-title">Dimensions(L × W × H):</h6>
-          <h6 class="card-text text-secondary ps-2">200×160×70</h6>
-        </div>
-
-        <!-- Main Category -->
-        <div class="d-flex flex-nowrap">
-          <h6 class="card-title">Main Category:</h6>
-          <h6 class="card-text text-secondary ps-2">living rooms</h6>
-        </div>
-
-        <!-- Sub Category -->
-        <div class="d-flex flex-nowrap">
-          <h6 class="card-title">Sub Category:</h6>
-          <h6 class="card-text text-secondary ps-2">decor</h6>
-        </div>
-      </div>
-    </div>
-    <!-- card2 -->
+  </div>
+</section>
+  <!-- .................................... -->
 
     <!-- card3 -->
 
     <!-- card4 -->
   </div>
 </div>
+
+
+
+
 
 <!-- Modal Edit Product -->
 <div
@@ -561,3 +639,6 @@
     </div>
   </div>
 </div>
+
+
+

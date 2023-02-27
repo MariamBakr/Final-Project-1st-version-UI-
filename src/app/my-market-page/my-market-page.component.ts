@@ -141,28 +141,28 @@ titlec = 'ng-carousel-demo';
     navText: ['', ''],
     responsive: {
       0: {
-        items: 1
+        items: 5
       },
       600: {
-        items: 2
+        items: 5
       },
       740: {
-        items: 3
+        items: 5
       },
       940: {
-        items: 3,
+        items: 5,
         nav: true
       }
     },
     nav: true
   }
 
-  slides1 = [
+  slides12 = [
     { id: 1, color: "#f85707" },
     { id: 2, color: "#f8f807" },
     { id: 3, color: "#33f807" },
-    { id: 4, color: "#07e4f8" }
-
+    { id: 4, color: "#07e4f8" },
+ { id: 3, color: "#1505f4" },
   ];
 
 
