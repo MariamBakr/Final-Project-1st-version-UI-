@@ -45,7 +45,6 @@ import { AddToMarketFormComponent } from './add-to-market-form/add-to-market-for
 import { LayoutHomeComponent } from './layout-home/layout-home.component';
 import { CustomerInfoComponent } from './customer-info/customer-info.component';
 import { VendorInfoComponent } from './vendor-info/vendor-info.component';
-
 import { AdmincategoryComponent } from './admincategory/admincategory.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -107,6 +106,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FontAwesomeModule,
     NgxSliderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
