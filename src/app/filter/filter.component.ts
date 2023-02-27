@@ -2,7 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { Options, LabelType } from "@angular-slider/ngx-slider";
 import { FilterService } from '../Services/filter.service';
 import { Observable } from 'rxjs';
-import { Products } from 'src/assets/product';
+import { Products } from '../shared/models/products';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
