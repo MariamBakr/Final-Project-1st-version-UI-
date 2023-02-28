@@ -77,7 +77,9 @@
                 <label for="taxNumber" class="form-label fw-semibold fs-5">Tax Number</label>
                 <input  name="taxNumber" type="text" formControlName="taxNumber" class=" form-control" id="taxNumber" >
                 <div *ngIf="register_form.controls.taxNumber.touched && register_form.controls.taxNumber.hasError('required')" class="alert alert-danger">Tax number is required</div>
-             
+                <!-- <div *ngIf="register_form.controls.taxNumber.touched && register_form.controls.taxNumber.hasError('minlength')" class="alert alert-danger">Tax number minLength must be more than 6 numbers</div> -->
+                <!-- <div *ngIf="register_form.controls.taxNumber.touched && register_form.controls.taxNumber.hasError('maxlength')" class="alert alert-danger">Tax number maxLength must be more than 10 numbers</div> -->
+
                 
             </div>
         </div>
