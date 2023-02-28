@@ -17,7 +17,8 @@ export class RegisterComponent {
   register_form=new FormGroup({
     f_name:new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(10)]),
     l_name:new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(10)]),
-    cn:new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(10)]),
+    taxNumber:new FormControl(''),
+    // Validators.minLength(6),Validators.maxLength(10)
     email:new FormControl('',[Validators.required,Validators.email]),
     user:new FormControl('',[Validators.required]),
     password:new FormControl('',[Validators.required,Validators.minLength(6)]),
@@ -27,6 +28,22 @@ export class RegisterComponent {
   // user_or_vendor(){
   //   console.log(this.selectValue);
   // }
+
+  addTaxNumberValidation(){
+    //  New solution for register problem
+    if(this.userType=="vendor"){
+      this.register_form.get("taxNumber")?.addValidators([Validators.required])
+      this.register_form.get("taxNumber")?.updateValueAndValidity()
+    }
+    else{
+      this.register_form.get("taxNumber")?.clearValidators() 
+      this.register_form.get("taxNumber")?.updateValueAndValidity()
+    }
+
+    // this.register_form.addControl(["taxNumber"],[Validators.required])
+
+  }
+  
   check_password(e:any){
 e.preventDefault()
     if(this.register_form.value.password  === this.register_form.value.confirmPassword ){
