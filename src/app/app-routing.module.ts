@@ -1,3 +1,4 @@
+import { CheckoutComponent } from './checkout/checkout.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddToMarketFormComponent } from './add-to-market-form/add-to-market-form.component';
@@ -20,6 +21,7 @@ import { VendorOrdersMarketComponent } from './vendor-orders-market/vendor-order
 import { VendorProposalSendToCustomerComponent } from './vendor-proposal-send-to-customer/vendor-proposal-send-to-customer.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -27,6 +29,7 @@ const routes: Routes = [
   { path: '', component:LayoutHomeComponent,children:[
     {path:'',redirectTo:'home', pathMatch:'full'},
     {path:'cart',component:CartComponent},
+
     {path:'wishlist',component:WishlistComponent},
     { path: 'filter', component: FilterComponent },
     { path: 'client', component:CustomerProfileComponent ,children:[
@@ -55,6 +58,7 @@ const routes: Routes = [
      ]},
 
      { path: 'home', component: HomepageComponent },
+     { path: 'checkout', component: CheckoutComponent },
 
   ] },
 

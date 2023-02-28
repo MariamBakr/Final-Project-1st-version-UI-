@@ -1,19 +1,58 @@
-import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { NgForm, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-customer-create-custom-order',
   templateUrl: './customer-create-custom-order.component.html',
   styleUrls: ['./customer-create-custom-order.component.css']
 })
-export class CustomerCreateCustomOrderComponent {
+export class CustomerCreateCustomOrderComponent implements OnInit{
   
+  @ViewChild('step1')
+  step1!: ElementRef;
+  @ViewChild('step2')
+  step2!: ElementRef;
+  @ViewChild('step3')
+  step3!: ElementRef;
+
+  @ViewChild('nav1')
+  nav1!: ElementRef;
+  @ViewChild('nav2')
+  nav2!: ElementRef;
+  @ViewChild('nav3')
+  nav3!: ElementRef;
+
+  @ViewChild('tab1')
+  tab1!: ElementRef;
+  @ViewChild('tab2')
+  tab2!: ElementRef;
+  @ViewChild('tab3')
+  tab3!: ElementRef;
+
+  //form control
+  customOrderForm!: FormGroup;
+
+  ngOnInit(){
+    this.customOrderForm = new FormGroup({
+      'dimensions': new FormControl(null,Validators.required),
+      'materials': new FormControl(null,Validators.required),
+      'quantity': new FormControl(null,Validators.required),
+      'color': new FormControl(null,Validators.required),
+      'startPrice': new FormControl(null,Validators.required),
+      'endPrice': new FormControl(null,Validators.required),
+      'description': new FormControl(null,Validators.required),
+      'date':new FormControl(null,Validators.required),
+      'images':new FormControl(null),
+    })
+  }
+
+////////////////////////////////////////////////
   categoryName:any=[]
   category:string=''
   subcategoryName:any=[]
   subcategory:string=''
   subcategoryFlag:boolean=false
-  images:string=''
+  // images:string=''
   submitted:boolean=false;
 //categories and subcategories list:
   categories = [
@@ -58,13 +97,14 @@ export class CustomerCreateCustomOrderComponent {
     startPrice:0,
     endPrice:0,
     date:'',
-    description:''
+    description:'',
+    images:[]
   };
 
-  @ViewChild('form')
-  customOrderForm!: NgForm;
+  // @ViewChild('form')
+  // customOrderForm!: NgForm;
 
-constructor(public sanitizer: DomSanitizer){}
+// constructor(public sanitizer: DomSanitizer){}
 
 //displaying subcategories
 showSubCategory(id:string){
@@ -92,14 +132,46 @@ getSubCategoryId(name:string){
   //assigning the subcategory name
   this.subcategory=name;
 }
+//navigation for the second Tab
+next2(){
+  this.step2.nativeElement.classList.add('active'); 
+  this.nav2.nativeElement.classList.add('active');
+  this.tab2.nativeElement.classList.add('active','show');
+ 
+  this.step1.nativeElement.classList.remove('active');
+  this.nav1.nativeElement.classList.remove('active');
+  this.tab1.nativeElement.classList.remove('active','show');
 
-next(){
-  console.log("clicked");
-  $('.nav-tabs > .active').next('li').find('button').trigger('click');
+  // console.log("clicked");
+  // $('.nav-tabs > .active').next('li').find('button').trigger('click');
 }
-prev(){
-  console.log("Back")
-  $('.nav-tabs > .active').prev('li').find('button').trigger('click');
+prev2(){
+  this.step1.nativeElement.classList.add('active'); 
+  this.nav1.nativeElement.classList.add('active');
+  this.tab1.nativeElement.classList.add('active','show');
+
+  this.step2.nativeElement.classList.remove('active');
+  this.nav2.nativeElement.classList.remove('active');
+  this.tab2.nativeElement.classList.remove('active','show');
+}
+//navigation for the third Tab
+next3(){
+  this.step3.nativeElement.classList.add('active'); 
+  this.nav3.nativeElement.classList.add('active');
+  this.tab3.nativeElement.classList.add('active','show');
+ 
+  this.step2.nativeElement.classList.remove('active');
+  this.nav2.nativeElement.classList.remove('active');
+  this.tab2.nativeElement.classList.remove('active','show');
+}
+prev3(){
+  this.step2.nativeElement.classList.add('active'); 
+  this.nav2.nativeElement.classList.add('active');
+  this.tab2.nativeElement.classList.add('active','show');
+
+  this.step3.nativeElement.classList.remove('active');
+  this.nav3.nativeElement.classList.remove('active');
+  this.tab3.nativeElement.classList.remove('active','show');  
 }
 
 onSubmit(){
@@ -112,6 +184,10 @@ onSubmit(){
   this.customOrder.endPrice=this.customOrderForm.value.endPrice;
   this.customOrder.date=this.customOrderForm.value.date;
   this.customOrder.description=this.customOrderForm.value.description;
+  this.customOrder.images=this.customOrderForm.value.images;
+
+  console.log(this.customOrderForm)
+  // this.customOrderForm.reset();
 }
 
 }

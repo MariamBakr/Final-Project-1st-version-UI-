@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule , NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
@@ -44,6 +45,8 @@ import { AddToMarketFormComponent } from './add-to-market-form/add-to-market-for
 import { LayoutHomeComponent } from './layout-home/layout-home.component';
 import { CustomerInfoComponent } from './customer-info/customer-info.component';
 import { VendorInfoComponent } from './vendor-info/vendor-info.component';
+import { AdmincategoryComponent } from './admincategory/admincategory.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -86,11 +89,14 @@ import { VendorInfoComponent } from './vendor-info/vendor-info.component';
     LayoutHomeComponent,
     CustomerInfoComponent,
     VendorInfoComponent,
+    AdmincategoryComponent,
 
 
   ],
   imports: [
+
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NgbModule,
     NgbCarouselModule,
@@ -100,6 +106,7 @@ import { VendorInfoComponent } from './vendor-info/vendor-info.component';
     ReactiveFormsModule,
     FontAwesomeModule,
     NgxSliderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

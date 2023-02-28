@@ -2,29 +2,29 @@
     <div class="row d-flex justify-content-center">
             <div class="bg-white">
                 <ul class="nav nav-tabs nav-fill" id="myTab">
-                    <li class="nav-item active" role="presentation">
-                        <button class="nav-link active" id="step1Tab" data-bs-toggle="tab" data-bs-target="#step1">
+                    <li class="nav-item active" role="presentation" #nav1>
+                        <button class="nav-link active" id="step1Tab" data-bs-toggle="tab" data-bs-target="#step1" #step1>
                             Step 1
                         </button>
                     </li>
-                    <li class="nav-item">
-                        <button class="nav-link" id="step2Tab" data-bs-toggle="tab" data-bs-target="#step2">
+                    <li class="nav-item" #nav2>
+                        <button class="nav-link" id="step2Tab" data-bs-toggle="tab" data-bs-target="#step2" #step2>
                             Step 2
                         </button>
                     </li>
-                    <li class="nav-item">
-                        <button class="nav-link" id="step3Tab" data-bs-toggle="tab" data-bs-target="#step3">
+                    <li class="nav-item" #nav3>
+                        <button class="nav-link" id="step3Tab" data-bs-toggle="tab" data-bs-target="#step3" #step3>
                                 Step 3
                         </button>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <!-- Step 1: selecting category and subcategory -->
-                    <div class="tab-pane fade active show container" id="step1">
+                    <div class="tab-pane fade active show container" id="step1" #tab1>
                         <div class="p-3">
                             <!-- Main Category -->
                             <h4> Main Categories:</h4>
-                            <div class="row justify-content-evenly" >
+                            <div class="row justify-content-evenly">
                                 <div class="col-1 text-center cursor" *ngFor="let cat of categories" (click)="showSubCategory(cat.id)">
                                     <img [src]="cat.img" class="w-100 h-100" >
                                     <p>{{cat.name}}</p>
@@ -34,27 +34,27 @@
                             <h4 class="top" [style.display]="(subcategoryFlag==true)?'block':'none'">Subcategory:</h4>
                             <div class="row justify-content-evenly">
                                 <div class="col-1 text-center cursor" *ngFor="let cat of subcategoryName" (click)="getSubCategoryId(cat.name)">
-                                    <img src="../../assets/chair1.jpg" class="w-100 h-100" >
-                                    <p>{{cat.name}}</p>
+                                    <img src="../../assets/chair1.jpg" class="w-100 h-100" (click)="next2()">
+                                    <p (click)="next2()">{{cat.name}}</p>
                                 </div>
                             </div>
                             <!-- Next Step Button -->
                             <div class="text-end top">
-                                <button class="btn btn-dark rounded-0" (click)="next()">Next</button>
+                                <button class="btn btn-dark rounded-0" (click)="next2()">Next</button>
                             </div>
 
                         </div>
                     </div>
                     <!-- Step 2: filling out the form for the custom order -->
-                    <div class="tab-pane fade" id="step2">
+                    <div class="tab-pane fade" id="step2"  #tab2>
                         <div class="container mt-3 w-75">
-                           <form #form="ngForm" (submit)="onSubmit()">
+                           <form [formGroup]="customOrderForm" (submit)="onSubmit()">
                                 <!-- dimensions -->
                                 <div class="mb-3">
                                     <label for="dimensions" class="form-label">Specify the size</label>
-                                    <input type="text" name="dimensions" class="form-control" id="dimensions" placeholder="Dimensions, measurements, sizing info"  required ngModel #dimensions="ngModel">
+                                    <input type="text" name="dimensions" class="form-control" id="dimensions" placeholder="Dimensions, measurements, sizing info"  formControlName="dimensions">
                                     <!-- dimensions error message -->
-                                    <div *ngIf="dimensions.touched && !dimensions.valid" class="text-danger">
+                                    <div *ngIf="customOrderForm.get('dimensions')?.touched && !customOrderForm.get('dimensions')?.valid" class="text-danger">
                                         please enter the dimensions!
                                     </div>
                                 </div>
@@ -62,9 +62,9 @@
                                 <!-- materials -->
                                 <div class="mb-3">
                                     <label for="materials" class="form-label">Describe the materials</label>
-                                    <input type="text" name="materials" class="form-control" id="materials" placeholder="Hardwood, platinum, etc." required ngModel #materials="ngModel">
+                                    <input type="text" name="materials" class="form-control" id="materials" placeholder="Hardwood, platinum, etc." formControlName="materials">
                                     <!-- materials error message -->
-                                    <div *ngIf="materials.touched && !materials.valid" class="text-danger">
+                                    <div *ngIf="customOrderForm.get('materials')?.touched && !customOrderForm.get('materials')?.valid" class="text-danger">
                                         please enter the materials!
                                     </div>
                                 </div>
@@ -72,9 +72,9 @@
                                 <!-- quantity -->
                                 <div class="mb-3">
                                     <label for="quantity" class="form-label">Quantity</label>
-                                    <input type="number" name="quantity" class="form-control" id="quantity" placeholder="How many items you want?" required ngModel #quantity="ngModel">
+                                    <input type="number" name="quantity" class="form-control" id="quantity" placeholder="How many items you want?" formControlName="quantity">
                                     <!-- quantity error message -->
-                                    <div *ngIf="quantity.touched && !quantity.valid" class="text-danger">
+                                    <div *ngIf="customOrderForm.get('quantity')?.touched && !customOrderForm.get('quantity')?.valid" class="text-danger">
                                         please enter the quantity!
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                                 <!-- color -->
                                 <div class="mb-3">
                                     <label for="color" class="form-label">Choose your color</label>
-                                    <input type="color" class="form-control w-25" id="color" placeholder="How many items you want?">
+                                    <input type="color" class="form-control w-25" id="color" placeholder="How many items you want?" formControlName="color">
                                 </div>
 
                                 <!-- price -->
@@ -91,34 +91,29 @@
                                     <div class="input-group" id="price">
                                         <span>$ </span>
                                         <!-- start price -->
-                                        <input type="number" name="startPrice" class="form-control rounded-1 mx-2" required ngModel #startPrice="ngModel">
+                                        <input type="number" name="startPrice" class="form-control rounded-1 mx-2" formControlName="startPrice">
                                         <span> to $ </span>
                                         <!-- end price -->
-                                        <input type="number" name="endPrice" class="form-control rounded-1 mx-2" required ngModel #endPrice="ngModel">
+                                        <input type="number" name="endPrice" class="form-control rounded-1 mx-2" formControlName="endPrice">
                                     </div>
                                     <!-- price error message -->
-                                    <div *ngIf="(startPrice.touched || endPrice.touched) && (!startPrice.valid && !endPrice.valid)" class="text-danger mb-3">
+                                    <div *ngIf="(customOrderForm.get('startPrice')?.touched || customOrderForm.get('endPrice')?.touched) && (!customOrderForm.get('startPrice')?.valid && !customOrderForm.get('endPrice')?.valid)" class="text-danger mb-3">
                                         please enter your budget!
                                     </div>
                                 </div>
 
                                 <!-- images -->
                                 <div class="mb-3">
-                                    Attach photos or sketches: <input id="fileUpload" type="file" name="FileUpload" [(ngModel)]="images" multiple="true">
-                                    <div class="row ms-2">
-                                        <div class="col-1">
-                                            <!-- <img [src]="sanitizer.bypassSecurityTrustResourceUrl(images)"> -->
-                                            <img [src]="images">
-                                        </div>
-                                    </div>
+                                    <label for="images" class="form-label me-2">Attach photos or sketches:</label>
+                                    <input class="form-control mt-2" type="file" id="img" formControlName="images" multiple>
                                 </div>
 
                                 <!-- due date -->
                                 <div class="mb-3">
                                     <label for="date" class="form-label">Due date:</label>
-                                    <input type="date" name="date" class="form-control" id="date" required ngModel #date="ngModel">
+                                    <input type="date" name="date" class="form-control" id="date" formControlName="date">
                                     <!--  date error message -->
-                                    <div *ngIf="date.touched && !date.valid" class="text-danger mb-3">
+                                    <div *ngIf="customOrderForm.get('date')?.touched && !customOrderForm.get('date')?.valid" class="text-danger mb-3">
                                         please enter the desired delivery date!
                                     </div>
                                 </div>
@@ -126,28 +121,28 @@
                                 <!-- description -->
                                 <div class="mb-3">
                                     <label for="description" class="form-label">Tell us any other details</label>
-                                    <textarea class="form-control" name="description" id="description" rows="5" placeholder="Ask us any questios, or tell us about your inspiration" required ngModel #description="ngModel"></textarea>
+                                    <textarea class="form-control" name="description" id="description" rows="5" placeholder="Ask us any questios, or tell us about your inspiration" formControlName="description"></textarea>
                                     <!-- description error message -->
-                                    <div *ngIf="description.touched && !description.valid" class="text-danger mb-3">
+                                    <div *ngIf="customOrderForm.get('description')?.touched && !customOrderForm.get('description')?.valid" class="text-danger mb-3">
                                         please enter your description!
                                     </div>
                                 </div>
 
                                 <!-- submit button -->
                                 <div class="mb-3 text-center">
-                                    <button class="btn btn-dark rounded-0" type="submit" [disabled]="!form.valid">Submit</button>
+                                    <button class="btn btn-dark rounded-0" type="submit" [disabled]="customOrderForm.invalid" (click)="next3()">Submit</button>
                                 </div>
                             </form>
                         </div>
 
-                       <div class="text-end mb-5">
+                       <div class="text-end mb-5 container">
                         <!-- <button class="btn btn-dark rounded-0 ">Next Step</button> -->
-                        <a class="btn btn-dark rounded-0 me-2" (click)="prev()">Back</a>
-                        <a class="btn btn-dark rounded-0 " (click)="next()">Next</a>
+                        <a class="btn btn-dark rounded-0 me-2" (click)="prev2()">Back</a>
+                        <a class="btn btn-dark rounded-0" (click)="next3()">Next</a>
                     </div>
                     </div>
                     <!-- Step 3: displaying order data and confirming the order -->
-                    <div class="tab-pane fade container w-75" id="step3">
+                    <div class="tab-pane fade container w-75" id="step3"  #tab3>
                         <div class="container p-3 mt-4">
                             <h4 class="fw-normal my-3">Your Order Details:</h4>
                             <div *ngIf="submitted">
@@ -162,7 +157,7 @@
                             </div>
 
                             <div class="text-end">
-                                <button class="btn btn-dark rounded-0 me-2">Back</button>
+                                <button class="btn btn-dark rounded-0 me-2" (click)="prev3()">Back</button>
                                 <button class="btn btn-dark rounded-0 ">Confirm your order</button>
                             </div>
 
