@@ -113,7 +113,8 @@ export class RegisterComponent {
         if(response.message ==='success'){
           // navigate to Login Page
           if(response.message==='success'){
-          this._Router.navigate(['./login'])
+            
+            this._Router.navigate(['./login'])
           }
         }
         else{

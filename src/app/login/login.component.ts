@@ -53,9 +53,11 @@ export class LoginComponent {
     next:(response)=>{
       this.isloading=false;
       if(response.message ==='success'){
-        // navigate to Login Page
+        // navigate to Login Page and save data in localstorage then navigate to home
         if(response.message==='success'){
-        this._Router.navigate(['./home'])
+          localStorage.setItem('userToken',response.token)
+          this._userAuthService.saveUserData();
+          this._Router.navigate(['./home'])
         }
       }
       else{

@@ -14,13 +14,12 @@
       </div>
 
       <!-- Home , Products , About , Page , Shop , Blog & Contact -->
-      <div>
-
+      <div style="border:2px solid red; width: 70%;" class="ms-5" >
         <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button> -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
+        <div *ngIf="isLogin" class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ps-5">
                 <!-- Home -->
             <li class="nav-item">
                 <a class="nav-link " aria-current="page" routerLink="/home">HOME</a>
@@ -106,20 +105,20 @@
 
 
       <!-- Search , UserName + Img , LogIn , Register & LonOut -->
-      <div   class="position-relative d-flex" style="width: 30%;  right: 1.5rem;">
+      <div   class="position-relative d-flex justify-content-around align-items-center" style="width: 30%;  right: 1.5rem;">
         <!-- Search Icon -->
-        <a class="me-5 text-dark " style=" font-size: 1.2rem;" routerLink="filter"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
+        <a class="me-5 text-dark " style="border:2px solid red;top: 0.5rem; font-size: 1.2rem;" routerLink="filter"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
         <!-- User image + User Name -->
-        <a class="text-decoration-none text-dark"  style="width: 35% !important; display: inline-block; " routerLink="client">
-            <div class="d-flex align-items-center">
+        <a  class="text-decoration-none text-dark"  style="width: 45% !important; display: inline-block; border:2px solid red " routerLink="client">
+            <div *ngIf="isLogin" class="d-flex align-items-center">
                 <img class="me-2 " style="width: 20%;" src="../../assets/client.png" alt="Client Profile Photo">
                 <h6 class="position-relative" style="top: 0.25rem;">User Name</h6>
             </div>
         </a>
         <!-- LogIn , Register & LonOut -->
-        <a class=" text-dark text-decoration-none me-3 " routerLink="login">Login</a>
-        <a class="text-dark  text-decoration-none me-3 " routerLink="register">Register</a>
-        <a class="text-dark  text-decoration-none " href="#">Logout</a>
+        <a *ngIf="!isLogin" class="fw-semibold text-dark text-decoration-none me-3 " routerLink="login">Login</a>
+        <a *ngIf="!isLogin" class="fw-semibold text-dark  text-decoration-none me-3 " routerLink="register">Register</a>
+        <a *ngIf="isLogin" class="fw-semibold text-dark  text-decoration-none " href="#">Logout</a>
       </div>
 
     </div>
