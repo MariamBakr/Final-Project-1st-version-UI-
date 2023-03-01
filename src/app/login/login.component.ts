@@ -52,13 +52,13 @@ export class LoginComponent {
     this._userAuthService.login(login_form.value).subscribe({
     next:(response)=>{
       this.isloading=false;
-      if(response.message ==='success'){
+      if(response.status ==200){
         // navigate to Login Page and save data in localstorage then navigate to home
-        if(response.message==='success'){
-          localStorage.setItem('userToken',response.token)
-          this._userAuthService.saveUserData();
+        
+          // localStorage.setItem('userToken',response.token)
+          this._userAuthService.saveUserData(response.token,response.userType);
           this._Router.navigate(['./home'])
-        }
+    
       }
       else{
         this.error = response.message;

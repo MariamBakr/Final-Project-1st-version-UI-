@@ -29,7 +29,7 @@ export class RegisterComponent {
     taxNumber:new FormControl(''),
     // Validators.minLength(6),Validators.maxLength(10)
     email:new FormControl('',[Validators.required,Validators.email]),
-    user:new FormControl('',[Validators.required]),
+    userType:new FormControl('',[Validators.required]),
     password:new FormControl('',[Validators.required,Validators.minLength(6)]),
     confirmPassword:new FormControl('',[Validators.required,Validators.minLength(6)]),
   })
@@ -110,13 +110,12 @@ export class RegisterComponent {
       this._userAuthService.register(register_form.value).subscribe({
       next:(response)=>{
         this.isloading=false;
-        if(response.message ==='success'){
+        
           // navigate to Login Page
-          if(response.message==='success'){
+          if(response.status==200){
             
-            this._Router.navigate(['./login'])
+            this._Router.navigate(['/login'])
           }
-        }
         else{
           this.error = response.message;
         }  
