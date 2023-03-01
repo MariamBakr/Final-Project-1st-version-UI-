@@ -118,7 +118,7 @@
         <!-- LogIn , Register & LonOut -->
         <a *ngIf="!isLogin" class="fw-semibold text-dark text-decoration-none me-3 " routerLink="login">Login</a>
         <a *ngIf="!isLogin" class="fw-semibold text-dark  text-decoration-none me-3 " routerLink="register">Register</a>
-        <a *ngIf="isLogin" class="fw-semibold text-dark  text-decoration-none " href="#">Logout</a>
+        <a *ngIf="isLogin" class="fw-semibold text-dark  text-decoration-none " (click)="logOut()">Logout</a>
       </div>
 
     </div>

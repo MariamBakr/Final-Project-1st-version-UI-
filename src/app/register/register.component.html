@@ -54,13 +54,13 @@
         <!-- client -->
                     
                     <div style="position: relative; top: 0.3rem;">
-                        <input  name="user" [(ngModel)]="userType" value="client" checked type="radio" (change)="addTaxNumberValidation()" formControlName="user" id="user" >
+                        <input  name="userType" [(ngModel)]="userType" value="client" checked type="radio" (change)="addTaxNumberValidation()" formControlName="userType" id="client" >
         
-                        <label for="user" class=" ms-2 form-label fw-semibold fs-5">User</label>
+                        <label for="client" class=" ms-2 form-label fw-semibold fs-5">User</label>
                     </div>
         <!-- vendor -->
                     <div class="ms-4" style="position: relative; top: 0.3rem;">
-                        <input  name="user" [(ngModel)]="userType" type="radio" (change)="addTaxNumberValidation()" value="vendor" formControlName="user" id="vendor"  >
+                        <input  name="userType" [(ngModel)]="userType" type="radio" (change)="addTaxNumberValidation()" value="vendor" formControlName="userType" id="vendor"  >
         
                         <label for="vendor" class="ms-2 form-label fw-semibold fs-5">Vendor</label>
                     </div>

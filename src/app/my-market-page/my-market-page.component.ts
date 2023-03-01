@@ -181,5 +181,13 @@ titlec = 'ng-carousel-demo';
   ];
 
 
+  // Delete(productId:string){
+  //    console.log(productId)
+
+  // }
+
+
+
+
 
 }

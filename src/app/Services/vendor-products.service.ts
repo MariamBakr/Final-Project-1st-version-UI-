@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class VendorProductsService {
-
+  // url : string = 'http://localhost:5000/post' nada
   constructor(private http:HttpClient) { }
 
   getAll(): Observable<Products[]> {
@@ -16,22 +16,22 @@ export class VendorProductsService {
   }
 
   addProduct(product:object): Observable<Products[]> {
+    console.log(product)
     return this.http.post<Products[]>(VENDOR_ADD_PRODUCT_URL,product);
   }
 
-  editProduct(): Observable<Products[]> {
-    return this.http.get<Products[]>(VENDOR_EDIT_PRODUCT_URL);
-  }
+  /////////////////////////
 
-  deleteProduct(): Observable<Products[]> {
-    return this.http.get<Products[]>(VENDOR_DELETE_PRODUCT_URL);
-  }
 
-  searchProduct(): Observable<Products[]> {
-    return this.http.get<Products[]>(VENDOR_SEARCH_PRODUCT_URL);
-  }
 
-  filterProduct(): Observable<Products[]> {
-    return this.http.get<Products[]>(VENDOR_FILTER_PRODUCT_URL);
-  }
+  // deleteProduct(product:string): Observable<Products[]>{
+  //   return this.http.delete<Products>(this.url+'/'+id);
+
+  // searchProduct(): Observable<Products[]> {
+  //   return this.http.get<Products[]>(VENDOR_SEARCH_PRODUCT_URL);
+  // }
+
+  // filterProduct(): Observable<Products[]> {
+  //   return this.http.get<Products[]>(VENDOR_FILTER_PRODUCT_URL);
+  // }
 }
