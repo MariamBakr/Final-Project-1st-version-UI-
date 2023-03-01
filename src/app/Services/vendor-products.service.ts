@@ -16,6 +16,7 @@ export class VendorProductsService {
   }
 
   addProduct(product:object): Observable<Products[]> {
+    console.log(product)
     return this.http.post<Products[]>(VENDOR_ADD_PRODUCT_URL,product);
   }
 

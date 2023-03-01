@@ -1,0 +1,40 @@
+
+<div class="container">
+    <!-- Step 1: selecting category and subcategory -->
+
+        <div class="p-3">
+            <!-- Main Category -->
+            <h4> Main Categories:</h4>
+            <div class="row justify-content-evenly">
+                <div class="col-1 text-center cursor" *ngFor="let cat of categories" (click)="showSubCategory(cat._id)">
+                    <img [src]="cat.image" class="w-100 h-100" >
+                    <p>{{cat.name}}</p>
+                </div>
+            </div>
+            <!-- Subcategory -->
+            <h4 class="top" [style.display]="(subcategoryFlag==true)?'block':'none'">Subcategory:</h4>
+            <div class="row justify-content-evenly">
+              <div class="col-1 text-center cursor" *ngFor="let subcat of subcategories" >
+                  <img [src]="subcat.image" class="w-100 h-100" >
+                  <p>{{subcat.name}}</p>
+              </div>
+          </div>
+            <!-- Next Step Button -->
+            <div class="text-end top">
+                <button class="btn btn-dark rounded-0" >Next</button>
+            </div>
+
+        </div>
+
+
+
+  <form  #categ = "ngForm" >
+
+  <label class="form-label" for="customFile">Default file input example</label>
+  <input name="image" (change)="onFilechange($event)" type="file" class="form-control" id="customFile" ngModel>
+
+  <label for="exampleInputname" class="form-label">Category Name</label>
+  <input name="name" (change)="onInputChange($event)" type="text" class="form-control" id="exampleInputname" aria-describedby="name" ngModel>
+  <input (click)="upload()" type = "submit" value = "submit">
+  </form>
+</div>
