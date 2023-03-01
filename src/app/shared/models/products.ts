@@ -12,4 +12,5 @@ export class Products{
     category!:string;
     subcategory!:string;
     overview!:string;
+    _id!: string;
   }
