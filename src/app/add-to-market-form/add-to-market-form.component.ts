@@ -93,15 +93,15 @@ export class AddToMarketFormComponent {
      let formData = new FormData();
      let arr=[]
      //looping on images formArray to append
-     for(let i of form.imageProduct){
-      console.log(i.files[0]);
-      // if(i != null){
-        
-        formData.append('image_Product',i.files[0]);
 
-      // }
-     
-     } 
+     if(this.images.controls.length>1){
+         for(let i of form.imageProduct){
+             formData.append('image_Product',i.files[0]);
+     }
+     }else{
+      formData.append('image_Product',form.imageProduct.files[0]);
+     }
+   
 
     //  formData.append('image_Product',JSON.stringify(arr));
      
