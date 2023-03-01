@@ -45,11 +45,11 @@ name:string=""
     let formdata=new FormData()
      formdata.append('image',image)
      formdata.append('name',name)
-    //  let categoriesObservable: Observable<Categories[]>
-    //  categoriesObservable=this.service.addCategory(formdata)
-    //  categoriesObservable.subscribe((serverCategories)=>{
-    //    this.categories = serverCategories;
-    //  })
+     let categoriesObservable: Observable<Categories>
+     categoriesObservable=this.service.addCategory(formdata)
+     categoriesObservable.subscribe((serverCategories)=>{
+       this.categories = serverCategories;
+     })
   }
   showSubCategory(id:string){
     console.log(id)
@@ -65,6 +65,13 @@ name:string=""
   this.subcategories.name
 
   this.subcategoryFlag=true;
+  }
+  deleteCat(id:string){
+    let categoriesObservable: Observable<Categories>
+    categoriesObservable=this.service.deleteCategory(id)
+    categoriesObservable.subscribe((serverCategories)=>{
+      this.categories = serverCategories;
+    })
   }
 
 }

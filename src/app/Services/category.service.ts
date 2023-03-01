@@ -21,8 +21,14 @@ export class CategoryService {
 
   }
 
-  addCategory(category:object): Observable<Categories[]> {
+  addCategory(category:object): Observable<Categories> {
     console.log(category)
-    return this.http.post<Categories[]>('http://localhost:5000/categories/add',category);
+    return this.http.post<Categories>('http://localhost:5000/categories/add',category);
   }
+
+  deleteCategory(id:string): Observable<Categories> {
+    console.log()
+    return this.http.delete<Categories>(`http://localhost:5000/categories/${id}`);
+  }
+
 }
