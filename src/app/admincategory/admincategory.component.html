@@ -9,6 +9,7 @@
                 <div class="col-1 text-center cursor" *ngFor="let cat of categories" (click)="showSubCategory(cat._id)">
                     <img [src]="cat.image" class="w-100 h-100" >
                     <p>{{cat.name}}</p>
+                    <button (click)="deleteCat(cat._id)" class="btn btn-danger rounded-0" >Delete</button>
                 </div>
             </div>
             <!-- Subcategory -->
@@ -17,6 +18,8 @@
               <div class="col-1 text-center cursor" *ngFor="let subcat of subcategories" >
                   <img [src]="subcat.image" class="w-100 h-100" >
                   <p>{{subcat.name}}</p>
+
+
               </div>
           </div>
             <!-- Next Step Button -->
