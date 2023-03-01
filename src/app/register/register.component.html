@@ -4,9 +4,10 @@
     <!-- Form Title -->
     <h1 class="text-center mt-2 mb-4">Create Your Account</h1>
 
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
 
     <!-- Registration Form -->
-    <form [formGroup]="register_form" (ngSubmit)="register()" >
+    <form [formGroup]="register_form" (ngSubmit)="SubmitRegisterForm(register_form)" >
 
         <!-- User's Full Name ( first + last Name ) -->
         <div class="d-flex justify-content-between ">
@@ -116,7 +117,10 @@
         </div>
 
         
-        <button  type="submit" [disabled]="register_form.invalid   "     class="w-100 btn text-light" style="height: 3rem; background-color: black;">Create an Account</button>
+        <button  type="submit" [disabled]="register_form.invalid   "     class="w-100 btn text-light" style="height: 3rem; background-color: black;">
+        <span *ngIf="!isloading">Create an Account</span>
+        <i *ngIf="isloading" style="color: white;" class="ms-2 fas fa-spinner fa-spin"></i>
+        </button>
         <div class="mt-3 justify-content-center d-flex">
             <p class="me-2">Aready have an account ?</p>
             <a class="fw-semibold" routerLink="/login">Login</a>

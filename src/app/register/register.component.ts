@@ -1,5 +1,8 @@
+// ******************* Imporst *********************
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserAuthService } from './../Services/user-auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -7,13 +10,19 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+
+  // **************** Variables *****************
+
   isVendor:any;
   userType:any;
   type1:string='password'
   type2:string='password'
   showEyeSlashIcon1:boolean=false
   showEyeSlashIcon2:boolean=false
-  
+  error:string='';  
+  isloading:boolean=false;
+
+  //  *********************** Reactive Form *************************
   register_form=new FormGroup({
     f_name:new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(10)]),
     l_name:new FormControl('',[Validators.required,Validators.minLength(3),Validators.maxLength(10)]),
@@ -24,10 +33,18 @@ export class RegisterComponent {
     password:new FormControl('',[Validators.required,Validators.minLength(6)]),
     confirmPassword:new FormControl('',[Validators.required,Validators.minLength(6)]),
   })
-  // Functions
-  // user_or_vendor(){
-  //   console.log(this.selectValue);
-  // }
+
+// *********************** Constructor ****************************** 
+  constructor(private _userAuthService:UserAuthService,private _Router:Router){
+    
+  }
+
+
+
+  // ********************** Functions ******************************
+
+
+  // ............... addTaxNumberValidation function ................
 
   addTaxNumberValidation(){
     //  New solution for register problem
@@ -39,34 +56,28 @@ export class RegisterComponent {
       this.register_form.get("taxNumber")?.clearValidators() 
       this.register_form.get("taxNumber")?.updateValueAndValidity()
     }
-
-    // this.register_form.addControl(["taxNumber"],[Validators.required])
-
   }
-  
+ 
+  // ............... check_password function ................
   check_password(e:any){
-e.preventDefault()
-    if(this.register_form.value.password  === this.register_form.value.confirmPassword ){
-      console.log(true);
-      console.log(this.register_form.value.password);
-      console.log(this.register_form.value.confirmPassword);
-      return true
-    }
-    else{
-      console.log(false);
-      console.log(this.register_form.value.password);
-      console.log(this.register_form.value.confirmPassword);
+      e.preventDefault()
+      if(this.register_form.value.password  === this.register_form.value.confirmPassword ){
+        console.log(true);
+        console.log(this.register_form.value.password);
+        console.log(this.register_form.value.confirmPassword);
+        return true
+      }
+      else{
+        console.log(false);
+        console.log(this.register_form.value.password);
+        console.log(this.register_form.value.confirmPassword);
 
-      return false
-    }
+        return false
+      }
   }
 
-  register(){
-    console.log("Successful Registration")
-    console.log(this.register_form.value)
-    console.log(this.userType)
-  }
 
+  // .............. Show & Hide Passords functions .............
   show_password(){
     console.log("Password Showed Successfully")
     this.type1='text'
@@ -91,7 +102,27 @@ e.preventDefault()
     this.showEyeSlashIcon2=false
   }
 
-  constructor(){
+  // ................... SubmitRegisterForm .............
+  SubmitRegisterForm(register_form:FormGroup):void{
+      this.isloading=true;
+    
+    // console.log(register_form.value);// must be removed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      this._userAuthService.register(register_form.value).subscribe({
+      next:(response)=>{
+        this.isloading=false;
+        if(response.message ==='success'){
+          // navigate to Login Page
+          if(response.message==='success'){
+          this._Router.navigate(['./login'])
+          }
+        }
+        else{
+          this.error = response.message;
+        }  
+      }
+    })
+    // console.log("Succesfull Registration");// must be removed !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     
   }
+  
 }
