@@ -12,8 +12,6 @@ import { Products } from '../shared/models/products';
 })
 export class MyMarketPageComponent {
 
-
-
  Sub_Category_Data: string[] = []
 
  products: Products[]=[];

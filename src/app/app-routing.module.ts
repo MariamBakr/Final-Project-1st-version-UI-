@@ -20,6 +20,7 @@ import { VendorInfoComponent } from './vendor-info/vendor-info.component';
 import { VendorOrdersMarketComponent } from './vendor-orders-market/vendor-orders-market.component';
 import { VendorProposalSendToCustomerComponent } from './vendor-proposal-send-to-customer/vendor-proposal-send-to-customer.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { MyMarketPageComponent } from './my-market-page/my-market-page.component';
 import { RoleGardGuard } from './gard/role-gard.guard';
 
 
@@ -50,7 +51,8 @@ const routes: Routes = [
 
     { path: 'vendor',canActivate:[RoleGardGuard]  ,component:VendorEditProfileComponent,children:[
 
-      {path:'',redirectTo:'vendor-info', pathMatch:'full'},
+      { path: '', redirectTo: 'vendor-info', pathMatch: 'full' },
+      { path: 'myproduct', component:MyMarketPageComponent  },
     {path:'vendor-info',component:VendorInfoComponent},
     {path:'vendor-find-jop',component:VendorFindJobComponent},
     {path:'vendor-orders-market',component:VendorOrdersMarketComponent},
