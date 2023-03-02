@@ -176,14 +176,14 @@
           <owl-carousel-o [options]="customOptions">
             <ng-container *ngFor="let img of prod.images">
               <ng-template carouselSlide id="slide.id">
-                <!-- <img class="primary-img" [src]="img" alt="img" style="width:90%;" /> -->
+                <img class="primary-img" [src]="img" alt="img" style="width:90%;" />
               </ng-template>
             </ng-container>
           </owl-carousel-o>
 
-          <div *ngFor="let img of prod.images">
+          <!-- <div *ngFor="let img of prod.images">
             <img class="primary-img" [src]="img" [alt]="img" style="width:90%;" />
-          </div>
+          </div> -->
 
           <!--Start Color carousel-->
           <div class="mt-2">
@@ -472,10 +472,4 @@
       </div>
     </div>
   </div>
-</div>
-
-
-
-<div *ngFor="let prod of products">
-  <p>{{prod.title}}</p>
 </div>

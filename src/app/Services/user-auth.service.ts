@@ -24,6 +24,9 @@ export class UserAuthService {
 
   // userData:any = new BehaviorSubject(null);
   
+getToken():string{
+  return localStorage.getItem("userToken")??''
+}
 get_logedUser():boolean{
   return localStorage.getItem("userToken")!=null;
 }

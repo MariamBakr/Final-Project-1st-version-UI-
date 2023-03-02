@@ -1,5 +1,9 @@
+import { CartService } from './../Services/cart.service';
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Observable } from 'rxjs';
+import { VendorProductsService } from '../Services/vendor-products.service';
+import { Products } from '../shared/models/products';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -7,6 +11,27 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class CardComponent {
   title = 'ng-carousel-demo';
+
+  products: Products[]=[];
+
+  constructor(private productsService: VendorProductsService, private cartService: CartService){
+    let productsObservable: Observable<Products[]>
+ 
+    productsObservable = this.productsService.getAll()
+ 
+    productsObservable.subscribe((serverProducts)=>{
+      this.products = serverProducts;
+    })
+  }
+ 
+  addToCart(product:object){
+    console.log('clicked')
+    let cartObservable: Observable<boolean>
+    cartObservable=this.cartService.addToCart(product)
+    cartObservable.subscribe((serverProducts)=>{
+      console.log("product in cart")
+    })
+  }
 
   customOptions: OwlOptions = {
     loop: true,
