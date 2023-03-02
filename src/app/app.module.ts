@@ -1,3 +1,4 @@
+import { AuthInterceptor } from './shared/auth.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -46,7 +47,7 @@ import { LayoutHomeComponent } from './layout-home/layout-home.component';
 import { CustomerInfoComponent } from './customer-info/customer-info.component';
 import { VendorInfoComponent } from './vendor-info/vendor-info.component';
 import { AdmincategoryComponent } from './admincategory/admincategory.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
 
 
@@ -110,7 +111,11 @@ import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.c
     NgxSliderModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
