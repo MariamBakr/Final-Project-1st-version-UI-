@@ -190,7 +190,7 @@
             <owl-carousel-o [options]="customOptions1">
               <ng-container *ngFor="let prod of products; let i = index">
                 <ng-template carouselSlide id="slides12.id">
-                  <!-- <div class="styleColor" [style.color]="prod.colors[i]">color</div> -->
+                  <div class="styleColor"  [style.background-color]="prod.colors![i]"></div>
                 </ng-template>
               </ng-container>
             </owl-carousel-o>

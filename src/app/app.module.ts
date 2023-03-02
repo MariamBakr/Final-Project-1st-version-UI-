@@ -48,6 +48,7 @@ import { VendorInfoComponent } from './vendor-info/vendor-info.component';
 import { AdmincategoryComponent } from './admincategory/admincategory.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
+import { MarketComponent } from './market/market.component';
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.c
     VendorInfoComponent,
     AdmincategoryComponent,
     AdminsubcategoryComponent,
+    MarketComponent,
 
 
   ],
