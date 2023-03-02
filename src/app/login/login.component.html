@@ -2,7 +2,9 @@
   <!-- Left Section for login -->
   <section style="width: 35%; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.355); border: 1px solid rgba(0, 0, 0, 0.393);" class="leftSecForLogin p-5 my-5 rounded container">
     <h2 class="text-center">Login</h2>
-    <form [formGroup]="login_form" (ngSubmit)="login">
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+
+    <form [formGroup]="login_form" (ngSubmit)="SubmitLoginForm(login_form)">
 
 
         <!-- Email address -->
@@ -44,7 +46,10 @@
         </div>
         <!-- Button -->
         <div class="w-100 text-center">
-          <button  (click)="login()" [disabled]="login_form.invalid" class="w-75 btn mt-2 text-light " style="height: 3rem; background-color: rgb(0, 0, 0);">Login</button>
+          <button [disabled]="login_form.invalid" class="w-75 btn mt-2 text-light " style="height: 3rem; background-color: rgb(0, 0, 0);">
+            <span *ngIf="!isloading">Login</span>
+            <i *ngIf="isloading" style="color: white;" class="ms-2 fas fa-spinner fa-spin"></i>
+          </button>
         </div>
         <!-- haven't an Account -->
         <div class="d-none haventAnAccount mt-3 ">

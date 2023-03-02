@@ -184,7 +184,7 @@
           <div *ngFor="let img of prod.images">
             <img class="primary-img" [src]="img" [alt]="img" style="width:90%;" />
           </div>
-          
+
           <!--Start Color carousel-->
           <div class="mt-2">
             <owl-carousel-o [options]="customOptions1">
@@ -454,7 +454,7 @@
 </div>
 
 <!-- Modal Confirmation Delet -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div *ngFor="let Prod of products"  class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -468,7 +468,7 @@
         <button type="button" class="btn btn-secondary btn-submit" data-bs-dismiss="modal">
           Close
         </button>
-        <button type="button" class="btn btn-secondary btn-submit">OK</button>
+        <!-- <button (click)="Delete(Prod.id)" type="button" class="btn btn-secondary btn-submit">OK</button> -->
       </div>
     </div>
   </div>
