@@ -257,7 +257,7 @@
     <ng-container *ngFor="let Color_Product of images.controls; index as i">
       <label for="imageProduct" class="form-label">image Product #{{i+1}}</label>
       <input type="file" class="form-control" name="imageProduct"
-        title="Choose your color" formControlName="{{ i }}" />
+        title="Choose your color" formControlName="{{ i }}" accept="image/*"/>
     </ng-container>
 
     <div *ngIf="checkArray()" class="alert alert-danger">

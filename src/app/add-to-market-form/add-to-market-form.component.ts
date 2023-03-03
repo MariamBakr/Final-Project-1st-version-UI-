@@ -3,6 +3,7 @@ import { Products } from './../shared/models/products';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-to-market-form',
@@ -13,7 +14,7 @@ export class AddToMarketFormComponent {
   
 
   products:Products[]=[];
-  constructor(private service:VendorProductsService){}
+  constructor(private service:VendorProductsService,private _Router:Router){}
 
   @ViewChild('form')
   form!: ElementRef;
@@ -93,15 +94,15 @@ export class AddToMarketFormComponent {
      let formData = new FormData();
      let arr=[]
      //looping on images formArray to append
-     for(let i of form.imageProduct){
-      console.log(i.files[0]);
-      // if(i != null){
-        
-        formData.append('image_Product',i.files[0]);
 
-      // }
-     
-     } 
+     if(this.images.controls.length>1){
+         for(let i of form.imageProduct){
+             formData.append('image_Product',i.files[0]);
+     }
+     }else{
+      formData.append('image_Product',form.imageProduct.files[0]);
+     }
+   
 
     //  formData.append('image_Product',JSON.stringify(arr));
      
@@ -130,6 +131,12 @@ export class AddToMarketFormComponent {
      productsObservable=this.service.addProduct(formData)
      productsObservable.subscribe((serverProducts)=>{
        this.products = serverProducts;
+      //  next:(response: { status: number; })=>{
+      //   if(response.status==200){
+          
+      //   }
+      //   this._Router.navigate(['./vendor-info'])
+      //  }
      })
 
     //  addprodectform.reset();

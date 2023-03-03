@@ -23,7 +23,7 @@
 
         <owl-carousel-o [options]="customOptions">
 
-            <ng-container *ngFor="let slide of slides">
+            <ng-container *ngFor="let prod of products">
 
                 <ng-template carouselSlide id="slide.id">
 
@@ -34,7 +34,7 @@
                    
                     <div class="d-flex flex-row justify-content-center move-crad-butn  X">
                         <div class="owl-wrapper">
-                            <div class="owl-item m-5">
+                            <div class="owl-item m-5" >
                     
                                 <div class="single-product">
                     
@@ -54,12 +54,12 @@
                     
                                         <!-- product-name -->
                                         <div class="product-name">
-                                            <h3><a href="#">Fusce aliquam</a></h3>
+                                            <h3><a href="#">{{prod.title}}</a></h3>
                                         </div>
                     
                                         <!-- price-box -->
                                         <div class="price-box">
-                                            <span class="old-price">$170.00</span>
+                                            <span class="old-price">{{prod.price}}</span>
                                             <span class="new-price">$155.00</span>
                                         </div>
                                     </div>
@@ -69,12 +69,12 @@
                     
                                         <span class="sale-text">sale</span>
                     
-                                        <a href="#">
-                                            <img class="primary-img" src="https://htmldemo.net/expert/expert/assets/images/product/1_5.webp"
+                                        <a href="#" *ngFor="let img of prod.images">
+                                            <img class="primary-img" [src]="img"
                                                 alt="">
                     
-                                            <img class="secondary-img"
-                                                src="https://htmldemo.net/expert/expert/assets/images/product/22_1.webp" alt="">
+                                            <!-- <img class="secondary-img"
+                                                src="https://htmldemo.net/expert/expert/assets/images/product/22_1.webp" alt=""> -->
                                         </a>
                     
                                         <div class="add-action">
@@ -126,10 +126,10 @@
                                             </ul>
                                         </div>
                                     </div>
-                    
+                                    
                                     <!-- button -->
                                     <div class="add-to-cart">
-                                        <a href="#">add to cart</a>
+                                        <a routerLink="" (click)="addToCart(prod)">add to cart</a>
                                     </div>
                                 </div>
                     
