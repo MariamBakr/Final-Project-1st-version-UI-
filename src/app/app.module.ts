@@ -1,7 +1,7 @@
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CommonModule } from '@angular/common'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule , NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
@@ -49,6 +49,7 @@ import { VendorInfoComponent } from './vendor-info/vendor-info.component';
 import { AdmincategoryComponent } from './admincategory/admincategory.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -93,7 +94,7 @@ import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.c
     VendorInfoComponent,
     AdmincategoryComponent,
     AdminsubcategoryComponent,
-
+    CartComponent
 
   ],
   imports: [
@@ -109,7 +110,8 @@ import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.c
     ReactiveFormsModule,
     FontAwesomeModule,
     NgxSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

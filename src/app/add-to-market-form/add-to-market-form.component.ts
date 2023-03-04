@@ -1,3 +1,6 @@
+import { CategoryService } from './../Services/category.service';
+import { SubCategories } from './../shared/models/subcategory';
+import { Categories } from './../shared/models/category';
 import { VendorProductsService } from './../Services/vendor-products.service';
 import { Products } from './../shared/models/products';
 import { Component, ElementRef, ViewChild } from '@angular/core';
@@ -14,7 +17,12 @@ export class AddToMarketFormComponent {
   
 
   products:Products[]=[];
-  constructor(private service:VendorProductsService,private _Router:Router){}
+  constructor(private service:VendorProductsService, private catService:CategoryService ,private _Router:Router){
+    this.catService.getCategory().subscribe((data)=>{
+      this.category=data;
+      this.getSubcategory(data.id);
+    })
+  }
 
   @ViewChild('form')
   form!: ElementRef;
@@ -26,7 +34,17 @@ export class AddToMarketFormComponent {
 
   Sub_Category_Data: string[] = []
 
-  
+  category:any;
+  subCategory:any;
+
+
+  getSubcategory(id:string){
+    this.catService.getSubCategoryOfCategory(id).subscribe((data)=>{
+      this.subCategory=data;
+      console.log(data)
+    })
+  }
+
 
   
   select_Main_Category(addprodectform: FormGroup) {
@@ -85,11 +103,6 @@ export class AddToMarketFormComponent {
 
 
   submitFormadd(form:any) {
-    // console.log(addprodectform.get("Title_Product")?.getError('required'));
-    // console.log(addprodectform.get('Description')?.getError('minLength'))
-    // console.log(addprodectform.get('Description')?.errors)
-    //  console.log(addprodectform.value);
-
     //ADDING FORM VALUES INTO FormData
      let formData = new FormData();
      let arr=[]
@@ -102,7 +115,6 @@ export class AddToMarketFormComponent {
      }else{
       formData.append('image_Product',form.imageProduct.files[0]);
      }
-   
 
     //  formData.append('image_Product',JSON.stringify(arr));
      
@@ -127,19 +139,18 @@ export class AddToMarketFormComponent {
     //  console.log(addprodectform.get('image_Product')?.value)
     console.log(formData.get('image_Product'))
      //sending API request on form data 
-     let productsObservable: Observable<Products[]>
-     productsObservable=this.service.addProduct(formData)
-     productsObservable.subscribe((serverProducts)=>{
-       this.products = serverProducts;
-      //  next:(response: { status: number; })=>{
-      //   if(response.status==200){
-          
-      //   }
-      //   this._Router.navigate(['./vendor-info'])
-      //  }
+     let result;
+     this.service.addProduct(formData).subscribe((data)=>{
+       let result = data
+    
      })
-
-    //  addprodectform.reset();
+     if(window.confirm(result)){
+      this.addprodectform.reset();
+      this._Router.navigate(['home'])
+     }else{
+      this.addprodectform.reset();
+     }
+     
   }
 
 
