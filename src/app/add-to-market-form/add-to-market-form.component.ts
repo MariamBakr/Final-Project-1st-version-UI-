@@ -1,6 +1,3 @@
-import { CategoryService } from './../Services/category.service';
-import { SubCategories } from './../shared/models/subcategory';
-import { Categories } from './../shared/models/category';
 import { VendorProductsService } from './../Services/vendor-products.service';
 import { Products } from './../shared/models/products';
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
@@ -24,13 +21,6 @@ export class AddToMarketFormComponent {
  categoryservice=inject(CategoryService )
 text:string=''
   products:Products[]=[];
-<<<<<<< HEAD
-  constructor(private service:VendorProductsService, private catService:CategoryService ,private _Router:Router){
-    this.catService.getCategory().subscribe((data)=>{
-      this.category=data;
-      this.getSubcategory(data.id);
-    })
-=======
   constructor(private service:VendorProductsService,private _Router:Router){
     let categoriesObservable: Observable<Categories>
 
@@ -41,7 +31,6 @@ text:string=''
       console.log(this.categories)
    })
 
->>>>>>> 299538f42fef9664c9b656b42fea2cbc048b0822
   }
 
   @ViewChild('form')
@@ -60,9 +49,16 @@ text:string=''
 
     console.log(this.text);
     let subcategoriesObservable: Observable<SubCategories>
-  
-  
-  
+
+    subcategoriesObservable= this.subcategoryservice.allSubCategory()
+  // console.log(this.text)
+    subcategoriesObservable.subscribe((serverProducts)=>{
+     this.subcategories = serverProducts.data;
+   console.log(this.subcategories)
+   })
+  }
+
+
 
   select_Main_Category(addprodectform: FormGroup) {
 
@@ -105,6 +101,11 @@ text:string=''
 
 
   submitFormadd(form:any) {
+    // console.log(addprodectform.get("Title_Product")?.getError('required'));
+    // console.log(addprodectform.get('Description')?.getError('minLength'))
+    // console.log(addprodectform.get('Description')?.errors)
+    //  console.log(addprodectform.value);
+
     //ADDING FORM VALUES INTO FormData
      let formData = new FormData();
      let arr=[]
@@ -117,6 +118,7 @@ text:string=''
      }else{
       formData.append('image_Product',form.imageProduct.files[0]);
      }
+
 
     //  formData.append('image_Product',JSON.stringify(arr));
 
@@ -153,13 +155,9 @@ text:string=''
       //   this._Router.navigate(['./vendor-info'])
       //  }
      })
-     if(window.confirm(result)){
-      this.addprodectform.reset();
-      this._Router.navigate(['home'])
-     }else{
-      this.addprodectform.reset();
-     }
      
+
+    //  addprodectform.reset();
   }
 
 
