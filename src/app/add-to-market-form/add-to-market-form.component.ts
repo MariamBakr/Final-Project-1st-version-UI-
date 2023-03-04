@@ -30,7 +30,7 @@ text:string=''
      this.categories = serverProducts.data;
       console.log(this.categories)
    })
- 
+
   }
 
   @ViewChild('form')
@@ -139,6 +139,7 @@ text:string=''
      formData.append('DimensionsL',this.addprodectform.get('DimensionsL')?.value)
      formData.append('Main_Category',this.addprodectform.get('Main_Category')?.value)
      formData.append('Sub_Category',this.addprodectform.get('Sub_Category')?.value)
+     formData.append('image_Product',this.addprodectform.get('image_Product')?.value)
 
     //  console.log(addprodectform.get('image_Product')?.value)
     console.log(formData.get('image_Product'))
