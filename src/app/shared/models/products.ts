@@ -5,7 +5,7 @@ export class Products{
     quantity!:number;
     price!:number;
     colors?: Array<string>;
-    dimensions!:number[];
+  dimensions!: { height: number, width: number, length: number };
     rate!: number;
     matrial!: string;
     origins!: string[];

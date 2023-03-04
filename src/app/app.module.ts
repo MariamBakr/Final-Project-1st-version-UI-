@@ -50,8 +50,8 @@ import { AdmincategoryComponent } from './admincategory/admincategory.component'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
 import { MarketComponent } from './market/market.component';
-
-
+import { CommonModule } from '@angular/common';
+import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     FilterComponent,
@@ -95,11 +95,12 @@ import { MarketComponent } from './market/market.component';
     AdmincategoryComponent,
     AdminsubcategoryComponent,
     MarketComponent,
+    CartComponent
 
 
   ],
   imports: [
-
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -112,6 +113,7 @@ import { MarketComponent } from './market/market.component';
     FontAwesomeModule,
     NgxSliderModule,
     HttpClientModule
+    
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
