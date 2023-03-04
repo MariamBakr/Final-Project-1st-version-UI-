@@ -1,4 +1,5 @@
 import { VENDOR_ADD_PRODUCT_URL, VENDOR_EDIT_PRODUCT_URL, VENDOR_DELETE_PRODUCT_URL, VENDOR_SEARCH_PRODUCT_URL, VENDOR_FILTER_PRODUCT_URL, VENDOR_PRODUCTS_URL, VENDOR_PRODUCT_BY_ID_URL, CHECKOUT_URL } from './../shared/constants/urls';
+import { VENDOR_ADD_PRODUCT_URL, VENDOR_EDIT_PRODUCT_URL, VENDOR_DELETE_PRODUCT_URL, VENDOR_SEARCH_PRODUCT_URL, VENDOR_FILTER_PRODUCT_URL, VENDOR_PRODUCTS_URL, VENDOR_URL } from './../shared/constants/urls';
 import { Products } from './../shared/models/products';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -8,7 +9,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class VendorProductsService {
-  // url : string = 'http://localhost:5000/post' nada
+  // url!: string;
+  url : string = 'http://localhost:5000/'
   constructor(private http:HttpClient) { }
 
   getAll(): Observable<Products[]> {
@@ -20,7 +22,15 @@ export class VendorProductsService {
     return this.http.post<Products[]>(VENDOR_ADD_PRODUCT_URL,product);
   }
 
+  getByVendorId():Observable<Products[]>{
+    return this.http.get<Products[]>(VENDOR_URL)
+  }
+
   /////////////////////////
+// delete Product
+deletePostById(id : string) : Observable<Products> {
+  return this.http.delete<Products>(VENDOR_DELETE_PRODUCT_URL+'/'+id);
+}
 
   getProductById(id:string): Observable<Products>{
     return this.http.get<Products>(VENDOR_PRODUCT_BY_ID_URL+'/'+id);
@@ -34,7 +44,7 @@ export class VendorProductsService {
 
 
   // deleteProduct(product:string): Observable<Products[]>{
-  //   return this.http.delete<Products>(this.url+'/'+id);
+  //   return this.http.delete<Products>(VENDOR_DELETE_PRODUCT_URL+'/'+id);
 
   // searchProduct(): Observable<Products[]> {
   //   return this.http.get<Products[]>(VENDOR_SEARCH_PRODUCT_URL);

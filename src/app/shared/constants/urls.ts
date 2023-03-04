@@ -6,6 +6,7 @@ const BASE_URL = "http://localhost:5000/";
 // ****************** PRODUCTS URL ****************************
 
 export const VENDOR_PRODUCTS_URL = BASE_URL + 'vendor/products'
+export const VENDOR_URL = VENDOR_PRODUCTS_URL + '/byId'
 export const VENDOR_ADD_PRODUCT_URL = VENDOR_PRODUCTS_URL + '/add'
 export const VENDOR_EDIT_PRODUCT_URL = VENDOR_PRODUCTS_URL + '/edit'
 export const VENDOR_DELETE_PRODUCT_URL = VENDOR_PRODUCTS_URL + '/delete'

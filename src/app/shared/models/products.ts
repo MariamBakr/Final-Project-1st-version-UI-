@@ -1,7 +1,7 @@
 export class Products{
     id!:string;
     title!:string;
-    images?: string[];
+    images!: string[];
     quantity!:number;
     price!:number;
     colors?: Array<string>;

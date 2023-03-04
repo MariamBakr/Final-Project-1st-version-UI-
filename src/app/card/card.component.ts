@@ -1,3 +1,4 @@
+import { user } from './../shared/models/user';
 import { CartService } from './../Services/cart.service';
 import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
@@ -26,7 +27,7 @@ export class CardComponent {
  
   addToCart(product:object){
     console.log('clicked')
-    let cartObservable: Observable<boolean>
+    let cartObservable: Observable<user>
     cartObservable=this.cartService.addToCart(product)
     cartObservable.subscribe((serverProducts)=>{
       console.log("product in cart")

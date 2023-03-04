@@ -51,13 +51,14 @@ const routes: Routes = [
 
     ] },
 
-
+    
+    {path:'customOrderDetails/:id',canActivate:[RoleGardGuard] ,component:VendorJobproposalComponent},
+    {path:'vendor-find-jop',canActivate:[RoleGardGuard] ,component:VendorFindJobComponent},
     { path: 'vendor',canActivate:[RoleGardGuard]  ,component:VendorEditProfileComponent,children:[
-
       { path: '', redirectTo: 'vendor-info', pathMatch: 'full' },
       { path: 'myproduct', component:MyMarketPageComponent  },
-    {path:'vendor-info',component:VendorInfoComponent},
-    {path:'vendor-find-jop',component:VendorFindJobComponent},
+      {path:'vendor-info',component:VendorInfoComponent},
+      
     {path:'vendor-orders-market',component:VendorOrdersMarketComponent},
     {path:'add-form',component:AddToMarketFormComponent},
 
@@ -75,6 +76,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
