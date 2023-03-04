@@ -24,11 +24,24 @@ export class AddToMarketFormComponent {
  categoryservice=inject(CategoryService )
 text:string=''
   products:Products[]=[];
+<<<<<<< HEAD
   constructor(private service:VendorProductsService, private catService:CategoryService ,private _Router:Router){
     this.catService.getCategory().subscribe((data)=>{
       this.category=data;
       this.getSubcategory(data.id);
     })
+=======
+  constructor(private service:VendorProductsService,private _Router:Router){
+    let categoriesObservable: Observable<Categories>
+
+    categoriesObservable= this.categoryservice.getCategory()
+
+    categoriesObservable.subscribe((serverProducts)=>{
+     this.categories = serverProducts.data;
+      console.log(this.categories)
+   })
+
+>>>>>>> 299538f42fef9664c9b656b42fea2cbc048b0822
   }
 
   @ViewChild('form')
@@ -124,6 +137,7 @@ text:string=''
      formData.append('DimensionsL',this.addprodectform.get('DimensionsL')?.value)
      formData.append('Main_Category',this.addprodectform.get('Main_Category')?.value)
      formData.append('Sub_Category',this.addprodectform.get('Sub_Category')?.value)
+     formData.append('image_Product',this.addprodectform.get('image_Product')?.value)
 
     //  console.log(addprodectform.get('image_Product')?.value)
     console.log(formData.get('image_Product'))
