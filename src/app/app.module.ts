@@ -116,7 +116,8 @@ import { MarketComponent } from './market/market.component';
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass:AuthInterceptor,
-    multi:true
+    multi:true,
+
   }],
   bootstrap: [AppComponent]
 })

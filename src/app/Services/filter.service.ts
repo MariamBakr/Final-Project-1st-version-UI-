@@ -13,4 +13,12 @@ export class FilterService {
 
     return this.http.get<Products[]>(`http://localhost:5000/search?name=${name}`);
   }
+  searchProductbycat(id:string):Observable<Products[]> {
+
+    return this.http.get<Products[]>(`http://localhost:5000/search/cat?id=${id}`);
+  }
+  lowestProduct(): Observable<Products[]> {
+
+    return this.http.get<Products[]>(`http://localhost:5000/search/lowest`);
+  }
 }

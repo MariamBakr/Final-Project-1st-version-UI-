@@ -6,32 +6,91 @@
             <!-- Main Category -->
             <h4> Main Categories:</h4>
             <div class="row justify-content-evenly">
-                <div class="col-1 text-center cursor" *ngFor="let cat of categories" (click)="showSubCategory(cat._id)">
-                    <img [src]="cat.image" class="w-100 h-100" >
+                <div class="col-1 text-center cursor" *ngFor="let cat of categories">
+                    <img  (click)="showSubCategory(cat._id)" [src]="cat.image" class="w-100 h-100" >
                     <p>{{cat.name}}</p>
+                    
+                    <button (click)="showsubcatform()" class="btn btn-sm btn-info rounded-0 " data-bs-toggle="modal" data-bs-target="#exampleModal" >Add Subcategories</button>
+        <button  class="btn btn-warning rounded-0" data-bs-toggle="modal" data-bs-target="#exampleModal3">Edit</button>
+
                     <button (click)="deleteCat(cat._id)" class="btn btn-danger rounded-0" >Delete</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form  #categ2 = "ngForm"  >
+
+                              <label class="form-label" for="customFile">Default file input example</label>
+                              <input name="image" (change)="onFilechange($event)" type="file" class="form-control" id="customFile" ngModel>
+                              <label for="exampleInputname" class="form-label ">SubCategory Name</label>
+                              <input name="name" (change)="onInputChange($event)" type="text" class="form-control" id="exampleInputname" aria-describedby="name" ngModel>
+
+
+                              <input class="btn btn-primary mt-2 ms-5" (click)="add(cat._id)" type = "submit" value = "Save changes">
+
+                              <button type="button" class="btn btn-secondary mt-2" data-bs-dismiss="modal">Cancel</button>
+                              </form>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form  #categ3 = "ngForm"  >
+
+                              <label class="form-label" for="customFile">Default file input example</label>
+                              <input name="image" (change)="onFilechange($event)" type="file" class="form-control" id="customFile" ngModel>
+                              <label for="exampleInputname" class="form-label ">Category Name</label>
+                              <input name="name" (change)="onInputChange($event)" type="text" class="form-control" id="exampleInputname" aria-describedby="name" ngModel>
+
+
+                              <input class="btn btn-primary mt-2 ms-5" (click)="modifyCategory(cat._id)" type = "submit" value = "Save changes">
+
+                              <button type="button" class="btn btn-secondary mt-2" data-bs-dismiss="modal">Cancel</button>
+                              </form>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+
                 </div>
+
+
             </div>
+          <!-- <ng-container *ngIf="subcategoryFlag==true">
+
+                      </ng-container> -->
             <!-- Subcategory -->
-            <h4 class="top" [style.display]="(subcategoryFlag==true)?'block':'none'">Subcategory:</h4>
+            <button (click)="showform()" class="btn btn-sm btn-success rounded-0 " >Add Category</button>
+
+          </div>
+            <!-- <h4 class="top" [style.display]="(subcategoryFlag==true)?'block':'none'">Subcategory:</h4>
             <div class="row justify-content-evenly">
               <div class="col-1 text-center cursor" *ngFor="let subcat of subcategories" >
                   <img [src]="subcat.image" class="w-100 h-100" >
                   <p>{{subcat.name}}</p>
+                  <button (click)="deleteCat(subcat._id)" class="btn btn-danger rounded-0" >Delete</button>
 
-
-              </div>
-          </div>
-            <!-- Next Step Button -->
-            <div class="text-end top">
-                <button class="btn btn-dark rounded-0" >Next</button>
-            </div>
-
-        </div>
+              </div> -->
 
 
 
-  <form  #categ = "ngForm" >
+
+
+  <form  #categ = "ngForm" [style.display]="(categoryformFlag==true)?'block':'none'">
 
   <label class="form-label" for="customFile">Default file input example</label>
   <input name="image" (change)="onFilechange($event)" type="file" class="form-control" id="customFile" ngModel>
@@ -40,4 +99,44 @@
   <input name="name" (change)="onInputChange($event)" type="text" class="form-control" id="exampleInputname" aria-describedby="name" ngModel>
   <input (click)="upload()" type = "submit" value = "submit">
   </form>
+  <ng-container *ngIf="subcategoryFlag==true">
+  <h4 class="top">Subcategory:</h4>
+  <div class="row justify-content-evenly">
+    <div class="col-1 text-center cursor" *ngFor="let subcat of subcategories" >
+        <img [src]="subcat.image" class="w-100 h-100" >
+        <p>{{subcat.name}}</p>
+        <button (click)="getSubCat(subcat._id)" class="btn btn-warning rounded-0" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit</button>
+
+        <button (click)="deleteSubCat(subcat._id)" class="btn btn-danger rounded-0" >Delete</button>
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form  #subcateg = "ngForm"  >
+
+                  <label class="form-label" for="customFile">Default file input example</label>
+                  <input name="image" (change)="onFilechange($event)" type="file" class="form-control" id="customFile" value={{subcat.image}} ngModel>
+                  <label for="exampleInputname" class="form-label ">SubCategory Name</label>
+                  <input name="name" (change)="onInputChange($event)" type="text" class="form-control" id="exampleInputname" value="name"  ngModel>
+
+
+                  <input class="btn btn-primary mt-2 ms-3" (click)="add(subcat._id)" type = "submit" value = "Save changes">
+                <button type="button" class="btn btn-secondary mt-2" data-bs-dismiss="modal">Cancel</button>
+
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+    </div>
+    </div>
+  </ng-container>
+
+
 </div>

@@ -1,58 +1,59 @@
-
 <div class="mb-5">
-    <!-- Up div ===> carousel -->
-    <div class="w-100 border border-1">
-        <app-home-page-carousel></app-home-page-carousel>
-    </div>
+  <!-- Up div ===> carousel -->
+  <div class="w-100 border border-1">
+    <app-home-page-carousel></app-home-page-carousel>
+  </div>
 
-    <!-- Down div ===> filter  -->
-    <div class="d-flex justify-content-around">
-        <!-- Left section for Filter -->
-        <section class="left_section_for_filter mt-5 p-4" style="width:28%;border-radius: 1rem; border: 2px solid rgba(0, 0, 0, 0.158); box-shadow: 8px 5px 10px rgb(157, 153, 153) ;">
-            <h2 class="mb-3 ms-2">Filter</h2>
-            <!-- Category -->
-            <div class="accordion mb-3" id="accordionExample" style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
-                <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#Category">
-                    Category
-                    </button>
-                </h2>
-                <div id="Category" class="accordion-collapse collapse show">
-                    <div class="accordion-body">
+  <!-- Down div ===> filter  -->
+  <div class="d-flex justify-content-around">
+    <!-- Left section for Filter -->
+    <section class="left_section_for_filter mt-5 p-4"
+      style="width:28%;border-radius: 1rem; border: 2px solid rgba(0, 0, 0, 0.158); box-shadow: 8px 5px 10px rgb(157, 153, 153) ;">
+      <h2 class="mb-3 ms-2">Filter</h2>
+      <!-- Category -->
+      <div class="accordion mb-3" id="accordionExample"
+        style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button"
+              data-bs-toggle="collapse" data-bs-target="#Category">
+              Category
+            </button>
+          </h2>
+          <div id="Category" class="accordion-collapse collapse show">
+            <div class="accordion-body">
 
-                        <div class="d-flex">
-                            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                            <div class="d-flex justify-content-between w-50">
-                                <p style="bottom: 0.3rem;" class="ms-2 position-relative">Living Room </p>
-                                <p style="bottom: 0.25rem;" class=" position-relative">(21)</p>
-                            </div>
-                        </div>
-                        <div class="d-flex">
-                            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                            <div class="d-flex justify-content-between w-50">
-                                <p style="bottom: 0.3rem;" class="ms-2 position-relative">Bed Room </p>
-                                <p style="bottom: 0.25rem;" class=" position-relative">(25)</p>
-                            </div>
-                        </div>
-                    </div>
+              <div class="d-flex" *ngFor="let cat of categories ;let index = index">
+                <div class="form-check">
+                  <input class="form-check-input" [ngModel]="selectedIndex === index" type="checkbox" [value]="cat._id"
+                    (change)="onselectchange($event,index)" id="flexCheckDefault">
+                  <label class="form-check-label" for="{{cat.name}}">
+                    {{cat.name}}
+                  </label>
                 </div>
-                </div>
+
+              </div>
+
             </div>
+          </div>
+        </div>
+      </div>
 
 
-            <!-- Price -->
-            <div class="accordion mb-3" id="accordionExample" style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
-                <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#price">
-                    Price
-                    </button>
-                </h2>
-                <div id="price" class="accordion-collapse collapse show">
-                    <div class="accordion-body">
-                        <!-- Min & Max Price -->
-                        <!-- <div class="d-flex justify-content-between">
+      <!-- Price -->
+      <div class="accordion mb-3" id="accordionExample"
+        style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button"
+              data-bs-toggle="collapse" data-bs-target="#price">
+              Price
+            </button>
+          </h2>
+          <div id="price" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+              <!-- Min & Max Price -->
+              <!-- <div class="d-flex justify-content-between">
 
                             <h6 class="text-center">
                                 <p>Min. </p>
@@ -65,256 +66,209 @@
                             </h6>
                         </div> -->
 
-                        <!-- Multi price Range -->
-                        <div>
-                            <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
-                        </div>
+              <!-- Multi price Range -->
+              <div>
+                <ngx-slider (userChange)="price($event)" [(value)]="minValue" [(highValue)]="maxValue" ></ngx-slider>
+              </div>
 
 
 
-                    </div>
-                </div>
-                </div>
             </div>
+          </div>
+        </div>
+      </div>
 
 
-            <!-- Vendors -->
-            <div class="accordion mb-3" id="accordionExample" style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
-                <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#vendors">
-                    Vendors
-                    </button>
-                </h2>
-                <div id="vendors" class="accordion-collapse collapse show">
-                    <div class="accordion-body">
+      <!-- Vendors -->
+      <div class="accordion mb-3" id="accordionExample"
+        style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button"
+              data-bs-toggle="collapse" data-bs-target="#vendors">
+              Vendors
+            </button>
+          </h2>
+          <div id="vendors" class="accordion-collapse collapse show">
+            <div class="accordion-body">
 
-                        <div class="d-flex">
-                            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                            <div class="d-flex justify-content-between w-50">
-                                <p style="bottom: 0.3rem;" class="ms-2 position-relative">Hub Furniture </p>
-                                <!-- <p style="bottom: 0.25rem;" class=" position-relative">(15)</p> -->
-                            </div>
-                        </div>
-
-                        <div class="d-flex">
-                            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                            <div class="d-flex justify-content-between w-50">
-                                <p style="bottom: 0.3rem;" class="ms-2 position-relative">Decorana </p>
-                                <!-- <p style="bottom: 0.25rem;" class=" position-relative">(20)</p> -->
-                            </div>
-                        </div>
-
-                        <div class="d-flex">
-                            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                            <div class="d-flex justify-content-between w-50">
-                                <p style="bottom: 0.3rem;" class="ms-2 position-relative">Homzmart </p>
-                                <!-- <p style="bottom: 0.25rem;" class=" position-relative">(20)</p> -->
-                            </div>
-                        </div>
-
-                    </div>
+              <div class="d-flex">
+                <input class="form-check-input mt-0" type="checkbox" value=""
+                  aria-label="Checkbox for following text input">
+                <div class="d-flex justify-content-between w-50">
+                  <p style="bottom: 0.3rem;" class="ms-2 position-relative">Hub Furniture </p>
+                  <!-- <p style="bottom: 0.25rem;" class=" position-relative">(15)</p> -->
                 </div>
+              </div>
+
+              <div class="d-flex">
+                <input class="form-check-input mt-0" type="checkbox" value=""
+                  aria-label="Checkbox for following text input">
+                <div class="d-flex justify-content-between w-50">
+                  <p style="bottom: 0.3rem;" class="ms-2 position-relative">Decorana </p>
+                  <!-- <p style="bottom: 0.25rem;" class=" position-relative">(20)</p> -->
                 </div>
+              </div>
+
+              <div class="d-flex">
+                <input class="form-check-input mt-0" type="checkbox" value=""
+                  aria-label="Checkbox for following text input">
+                <div class="d-flex justify-content-between w-50">
+                  <p style="bottom: 0.3rem;" class="ms-2 position-relative">Homzmart </p>
+                  <!-- <p style="bottom: 0.25rem;" class=" position-relative">(20)</p> -->
+                </div>
+              </div>
+
             </div>
+          </div>
+        </div>
+      </div>
 
-            <!-- Location -->
-            <div class="accordion mb-3" id="accordionExample" style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
-                <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#location">
-                    Location
-                    </button>
-                </h2>
-                <div id="location" class="accordion-collapse collapse show">
-                    <div class="accordion-body">
 
-                        <div class="d-flex">
-                            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                            <div class="d-flex justify-content-between w-50">
-                                <p style="bottom: 0.3rem;" class="ms-2 position-relative">Egypt </p>
-                                <p style="bottom: 0.25rem;" class=" position-relative">(15)</p>
-                            </div>
-                        </div>
 
-                    </div>
+      <!-- Colors -->
+      <div class="accordion mb-3" id="accordionExample"
+        style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button"
+              data-bs-toggle="collapse" data-bs-target="#colors">
+              Colors
+            </button>
+          </h2>
+          <div id="colors" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+
+              <div *ngFor="let product of products">
+                <!-- red -->
+                <div class="d-flex justify-content-between w-50 mb-1" *ngFor="let color of product.colors ">
+                  <input type="color"  name="head" value="{{color}}">
+                  <label for="{{color}}"></label>
                 </div>
-                </div>
+
+
+
+
+
+              </div>
+
             </div>
-
-
-            <!-- Colors -->
-            <div class="accordion mb-3" id="accordionExample" style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
-                <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#colors">
-                    Colors
-                    </button>
-                </h2>
-                <div id="colors" class="accordion-collapse collapse show">
-                    <div class="accordion-body">
-
-                        <div>
-                            <!-- red -->
-                            <div class="d-flex justify-content-between w-50 mb-1">
-                                <button class="ms-2 bg-transparent border-0">Red</button>
-                                <a href="#" style="border:1px solid black; width:1.5rem; height:1.5rem; border-radius:50%; border-color:rgba(0, 0, 0, 0.368); background-color:red;"></a>
-                            </div>
-                            <!-- red -->
-                            <div class="d-flex justify-content-between w-50">
-                                <button class="ms-2 bg-transparent border-0">White</button>
-                                <a href="#" style="border:1px solid black; width:1.5rem; height:1.5rem; border-radius:50%; border-color:rgba(0, 0, 0, 0.368); background-color:white"></a>
-                            </div>
-                            <!-- red -->
-                            <div class="d-flex justify-content-between w-50">
-                                <button class="ms-2 bg-transparent border-0">Brown</button>
-                                <a href="#" style="border:1px solid black; width:1.5rem; height:1.5rem; border-radius:50%; border-color:rgba(0, 0, 0, 0.368); background-color:brown;"></a>
-                            </div>
-                            <!-- red -->
-                            <div class="d-flex justify-content-between w-50">
-                                <button class="ms-2 bg-transparent border-0">Gray</button>
-                                <a href="#" style="border:1px solid black; width:1.5rem; height:1.5rem; border-radius:50%; border-color:rgba(0, 0, 0, 0.368); background-color:gray;"></a>
-                            </div>
-                            <!-- red -->
-                            <div class="d-flex justify-content-between w-50">
-                                <button class="ms-2 bg-transparent border-0">Beige</button>
-                                <a href="#" style="border:1px solid black; width:1.5rem; height:1.5rem; border-radius:50%; border-color:rgba(0, 0, 0, 0.368); background-color:beige;"></a>
-                            </div>
+          </div>
+        </div>
+      </div>
 
 
 
+      <!-- Style -->
+      <div class="accordion mb-3" id="accordionExample"
+        style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button"
+              data-bs-toggle="collapse" data-bs-target="#style">
+              Style
+            </button>
+          </h2>
+          <div id="style" class="accordion-collapse collapse show">
+            <div class="accordion-body">
 
-                        </div>
+              <div class="d-flex">
+                <input class="form-check-input mt-0" type="checkbox" value=""
+                  aria-label="Checkbox for following text input">
+                <div class="d-flex justify-content-between w-50">
+                  <p style="bottom: 0.3rem;" class="ms-2 position-relative">Modern </p>
+                  <p style="bottom: 0.25rem;" class=" position-relative">(30)</p>
 
-                    </div>
                 </div>
+              </div>
+              <div class="d-flex">
+                <input class="form-check-input mt-0" type="checkbox" value=""
+                  aria-label="Checkbox for following text input">
+                <div class="d-flex justify-content-between w-50">
+                  <p style="bottom: 0.3rem;" class="ms-2 position-relative">Classic </p>
+                  <p style="bottom: 0.25rem;" class=" position-relative">(25)</p>
                 </div>
+              </div>
+              <div class="d-flex ">
+                <input class="form-check-input mt-0" type="checkbox" value=""
+                  aria-label="Checkbox for following text input">
+                <div class="d-flex justify-content-between w-50">
+                  <p style="bottom: 0.3rem;" class="ms-2 position-relative">Contemporary </p>
+                  <p style="bottom: 0.25rem;" class=" position-relative">(25)</p>
+
+                </div>
+              </div>
             </div>
-
-            <!-- Room -->
-            <div class="accordion mb-3" id="accordionExample" style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
-                <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#room">
-                    Room
-                    </button>
-                </h2>
-                <div id="room" class="accordion-collapse collapse show">
-                    <div class="accordion-body">
-
-                        <div class="d-flex">
-                            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                            <div class="d-flex justify-content-between w-50">
-                                <p style="bottom: 0.3rem;" class="ms-2 position-relative">Living Room </p>
-                                <p style="bottom: 0.25rem;" class=" position-relative">(25)</p>
-                            </div>
-                        </div>
-                        <div class="d-flex">
-                            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                            <div class="d-flex justify-content-between w-50">
-                                <p style="bottom: 0.3rem;" class="ms-2 position-relative">Bed Room </p>
-                                <p style="bottom: 0.25rem;" class=" position-relative">(22)</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-
-
-            <!-- Style -->
-            <div class="accordion mb-3" id="accordionExample" style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
-                <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#style">
-                    Style
-                    </button>
-                </h2>
-                <div id="style" class="accordion-collapse collapse show">
-                    <div class="accordion-body">
-
-                        <div class="d-flex">
-                            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                            <div class="d-flex justify-content-between w-50">
-                                <p style="bottom: 0.3rem;" class="ms-2 position-relative">Modern </p>
-                                <p style="bottom: 0.25rem;" class=" position-relative">(30)</p>
-
-                            </div>
-                        </div>
-                        <div class="d-flex">
-                            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                            <div class="d-flex justify-content-between w-50">
-                                <p style="bottom: 0.3rem;" class="ms-2 position-relative">Classic </p>
-                                <p style="bottom: 0.25rem;" class=" position-relative">(25)</p>
-                            </div>
-                        </div>
-                        <div class="d-flex ">
-                            <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
-                            <div class="d-flex justify-content-between w-50">
-                                <p style="bottom: 0.3rem;" class="ms-2 position-relative">Contemporary </p>
-                                <p style="bottom: 0.25rem;" class=" position-relative">(25)</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
+          </div>
+        </div>
+      </div>
 
 
 
-        </section>
+    </section>
 
 
 
-        <!-- Right section for Cards -->
-        <section class="right_section_for_cards ms-3 mt-5 border border-1 border-danger p-3" style=" width:70%;">
-           <!-- Fast Search by Categories (such as : Bed Rooms , Living Rooms ....etc)  -->
-            <div class="fast_search_by_categories d-flex justify-content-between align-items-center" style="box-shadow: 0.3rem 0.3rem 1rem black  ; padding-top: 1.5rem; margin-bottom: 2rem; border-radius: 1rem;">
-                <!-- Bed Rooms -->
-                <div class="mb-3 me-3  text-center">
-                    <a class="  text-decoration-none text-dark "  href="#">
-                        <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;" src="../../assets/cat_bedroom.webp" alt="Bed Room Photo">
-                        <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Bed Rooms</h4>
-                    </a>
-                </div>
+    <!-- Right section for Cards -->
+    <section class="right_section_for_cards ms-3 mt-5 border border-1 border-danger p-3" style=" width:70%;">
+      <!-- Fast Search by Categories (such as : Bed Rooms , Living Rooms ....etc)  -->
+      <div class="fast_search_by_categories d-flex justify-content-between align-items-center"
+        style="box-shadow: 0.3rem 0.3rem 1rem black  ; padding-top: 1.5rem; margin-bottom: 2rem; border-radius: 1rem;">
+        <!-- Bed Rooms -->
+        <div class="mb-3 me-3  text-center">
+          <a class="  text-decoration-none text-dark " href="#">
+            <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;"
+              src="../../assets/cat_bedroom.webp" alt="Bed Room Photo">
+            <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Bed Rooms
+            </h4>
+          </a>
+        </div>
 
-                <!-- Living Rooms -->
-                <div class="mb-3 me-3  text-center" >
-                    <a class="  text-decoration-none text-dark "  href="#">
-                        <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;" src="../../assets/cat_bedroom.webp" alt="Living Room Photo">
-                        <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Living Rooms</h4>
-                    </a>
-                </div>
+        <!-- Living Rooms -->
+        <div class="mb-3 me-3  text-center">
+          <a class="  text-decoration-none text-dark " href="#">
+            <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;"
+              src="../../assets/cat_bedroom.webp" alt="Living Room Photo">
+            <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Living Rooms
+            </h4>
+          </a>
+        </div>
 
-                <!-- Dinning Rooms -->
-                <div class="mb-3 me-3  text-center" >
-                    <a class="  text-decoration-none text-dark "  href="#">
-                        <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;" src="../../assets/cat_bedroom.webp" alt="Dinning Room Photo">
-                        <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Dinning Rooms</h4>
-                    </a>
-                </div>
+        <!-- Dinning Rooms -->
+        <div class="mb-3 me-3  text-center">
+          <a class="  text-decoration-none text-dark " href="#">
+            <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;"
+              src="../../assets/cat_bedroom.webp" alt="Dinning Room Photo">
+            <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Dinning
+              Rooms</h4>
+          </a>
+        </div>
 
-                <!-- Kitchens -->
-                <div class="mb-3 me-3  text-center" >
-                    <a class="  text-decoration-none text-dark "  href="#">
-                        <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;" src="../../assets/cat_bedroom.webp" alt="Kitchen Photo">
-                        <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2"> Kitchens</h4>
-                    </a>
-                </div>
-
-           </div>
-
-            <!-- Search Form -->
-          <div>
-            <form  (ngSubmit) = "onSearchTextChanged(enteredSearchValue)" class="d-flex" role="search">
-                <input [(ngModel)]="enteredSearchValue" name="name" style="height:6vh;  " class="form-control me-2 bg-dark text-light " type="search" (focus)="hide_hilight($event)" placeholder="Search for specific product (Ex. Tv Tables)" aria-label="Search">
-                <input style="height:6vh; padding-top: 0.1rem ;" class="search_btn btn btn-dark text-white" type="submit" value="submit">
-            </form>
+        <!-- Kitchens -->
+        <div class="mb-3 me-3  text-center">
+          <a class="  text-decoration-none text-dark " href="#">
+            <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;"
+              src="../../assets/cat_bedroom.webp" alt="Kitchen Photo">
+            <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2"> Kitchens
+            </h4>
+          </a>
+        </div>
 
       </div>
-        </section>
+
+      <!-- Search Form -->
+      <div>
+        <form (ngSubmit)="onSearchTextChanged(enteredSearchValue)" class="d-flex" role="search">
+          <input [(ngModel)]="enteredSearchValue" name="name" style="height:6vh;  "
+            class="form-control me-2 bg-dark text-light " type="search" (focus)="hide_hilight($event)"
+            placeholder="Search for specific product (Ex. Tv Tables)" aria-label="Search">
+          <input style="height:6vh; padding-top: 0.1rem ;" class="search_btn btn btn-dark text-white" type="submit"
+            value="submit">
+        </form>
+
+      </div>
+    </section>
 
 
-    </div>
+  </div>
 </div>

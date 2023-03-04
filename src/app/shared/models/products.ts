@@ -1,10 +1,10 @@
 export class Products{
     id!:string;
     title!:string;
-    images?: string[];
+    images!: string[];
     quantity!:number;
     price!:number;
-    colors?: Array<string>;
+    colors!: Array<string>;
     dimensions!:number[];
     rate!: number;
     matrial!: string;

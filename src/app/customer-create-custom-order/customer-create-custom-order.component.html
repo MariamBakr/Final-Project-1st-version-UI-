@@ -25,17 +25,17 @@
                             <!-- Main Category -->
                             <h4> Main Categories:</h4>
                             <div class="row justify-content-evenly">
-                                <div class="col-1 text-center cursor" *ngFor="let cat of categories" (click)="showSubCategory(cat.id)">
-                                    <img [src]="cat.img" class="w-100 h-100" >
+                                <div class="col-1 text-center cursor" *ngFor="let cat of categories" (click)="showSubCategory(cat._id)">
+                                    <img [src]="cat.image" class="w-100 h-100" >
                                     <p>{{cat.name}}</p>
                                 </div>
                             </div>
                             <!-- Subcategory -->
                             <h4 class="top" [style.display]="(subcategoryFlag==true)?'block':'none'">Subcategory:</h4>
                             <div class="row justify-content-evenly">
-                                <div class="col-1 text-center cursor" *ngFor="let cat of subcategoryName" (click)="getSubCategoryId(cat.name)">
-                                    <img src="../../assets/chair1.jpg" class="w-100 h-100" (click)="next2()">
-                                    <p (click)="next2()">{{cat.name}}</p>
+                                <div class="col-1 text-center cursor" *ngFor="let subcat of subcategories" (click)="getSubCategoryId(subcat._id)">
+                                    <img  [src]="subcat.image" class="w-100 h-100" (click)="next2()">
+                                    <p (click)="next2()">{{subcat.name}}</p>
                                 </div>
                             </div>
                             <!-- Next Step Button -->
@@ -49,20 +49,33 @@
                     <div class="tab-pane fade" id="step2"  #tab2>
                         <div class="container mt-3 w-75">
                            <form [formGroup]="customOrderForm" (submit)="onSubmit()">
-                                <!-- dimensions -->
-                                <div class="mb-3">
-                                    <label for="dimensions" class="form-label">Specify the size</label>
-                                    <input type="text" name="dimensions" class="form-control" id="dimensions" placeholder="Dimensions, measurements, sizing info"  formControlName="dimensions">
-                                    <!-- dimensions error message -->
+                            <div class="mb-3">
+                              <label for="title" class="form-label">Title</label>
+                              <input type="text" name="title" class="form-control" id="materials" placeholder="Hardwood, platinum, etc." formControlName="title">
+                              <!-- materials error message -->
+                              <div *ngIf="customOrderForm.get('materials')?.touched && !customOrderForm.get('materials')?.valid" class="text-danger">
+                                  please enter the materials!
+                              </div>
+                          </div>
+                                 <div class="mb-3">
+                                    <label for="dimensions" class="form-label">Specify the Width</label>
+                                    <input type="text" name="DimensionsW" class="form-control" id="dimensions" placeholder="Width"  formControlName="DimensionsW">
+                                    <label for="dimensions" class="form-label">Specify the Length</label>
+                                    <input type="text" name="DimensionsL" class="form-control" id="dimensions" placeholder="Length"  formControlName="DimensionsL">
+                                    <label for="dimensions" class="form-label">Specify the Height</label>
+                                    <input type="text" name="DimensionsH" class="form-control" id="dimensions" placeholder="Height"  formControlName="DimensionsH">
+
                                     <div *ngIf="customOrderForm.get('dimensions')?.touched && !customOrderForm.get('dimensions')?.valid" class="text-danger">
                                         please enter the dimensions!
                                     </div>
                                 </div>
 
+
+
                                 <!-- materials -->
                                 <div class="mb-3">
                                     <label for="materials" class="form-label">Describe the materials</label>
-                                    <input type="text" name="materials" class="form-control" id="materials" placeholder="Hardwood, platinum, etc." formControlName="materials">
+                                    <input type="text" name="materials" class="form-control" id="materials" placeholder="Hardwood, platinum, etc." formControlName="Material">
                                     <!-- materials error message -->
                                     <div *ngIf="customOrderForm.get('materials')?.touched && !customOrderForm.get('materials')?.valid" class="text-danger">
                                         please enter the materials!
@@ -72,7 +85,7 @@
                                 <!-- quantity -->
                                 <div class="mb-3">
                                     <label for="quantity" class="form-label">Quantity</label>
-                                    <input type="number" name="quantity" class="form-control" id="quantity" placeholder="How many items you want?" formControlName="quantity">
+                                    <input type="number" name="quantity" class="form-control" id="quantity" placeholder="How many items you want?" formControlName="Quantity">
                                     <!-- quantity error message -->
                                     <div *ngIf="customOrderForm.get('quantity')?.touched && !customOrderForm.get('quantity')?.valid" class="text-danger">
                                         please enter the quantity!
@@ -82,7 +95,7 @@
                                 <!-- color -->
                                 <div class="mb-3">
                                     <label for="color" class="form-label">Choose your color</label>
-                                    <input type="color" class="form-control w-25" id="color" placeholder="How many items you want?" formControlName="color">
+                                    <input type="color" class="form-control w-25" id="color" placeholder="How many items you want?" formControlName="Color_Product">
                                 </div>
 
                                 <!-- price -->
@@ -104,16 +117,19 @@
 
                                 <!-- images -->
                                 <div class="mb-3">
-                                    <label for="images" class="form-label me-2">Attach photos or sketches:</label>
-                                    <input class="form-control mt-2" type="file" id="img" formControlName="images" multiple>
+                                  <ng-container>
+                                    <label for="imageProduct" class="form-label">image</label>
+                                    <input (change)="onFilechange($event)" type="file" class="form-control" name="imageProduct"
+                                       multiple />
+                                  </ng-container>
                                 </div>
 
                                 <!-- due date -->
                                 <div class="mb-3">
                                     <label for="date" class="form-label">Due date:</label>
-                                    <input type="date" name="date" class="form-control" id="date" formControlName="date">
+                                    <input type="date" name="Date" class="form-control" id="date" formControlName="Date">
                                     <!--  date error message -->
-                                    <div *ngIf="customOrderForm.get('date')?.touched && !customOrderForm.get('date')?.valid" class="text-danger mb-3">
+                                    <div *ngIf="customOrderForm.get('Date')?.touched && !customOrderForm.get('Date')?.valid" class="text-danger mb-3">
                                         please enter the desired delivery date!
                                     </div>
                                 </div>
@@ -121,7 +137,7 @@
                                 <!-- description -->
                                 <div class="mb-3">
                                     <label for="description" class="form-label">Tell us any other details</label>
-                                    <textarea class="form-control" name="description" id="description" rows="5" placeholder="Ask us any questios, or tell us about your inspiration" formControlName="description"></textarea>
+                                    <textarea class="form-control" name="description" id="description" rows="5" placeholder="Ask us any questios, or tell us about your inspiration" formControlName="Description"></textarea>
                                     <!-- description error message -->
                                     <div *ngIf="customOrderForm.get('description')?.touched && !customOrderForm.get('description')?.valid" class="text-danger mb-3">
                                         please enter your description!
@@ -130,7 +146,7 @@
 
                                 <!-- submit button -->
                                 <div class="mb-3 text-center">
-                                    <button class="btn btn-dark rounded-0" type="submit" [disabled]="customOrderForm.invalid" (click)="next3()">Submit</button>
+                                    <button class="btn btn-dark rounded-0" type="submit"  (click)="next3()">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -148,7 +164,10 @@
                             <div *ngIf="submitted">
                                 <h5>Category: <span>  {{category}}</span></h5>
                                 <h5>Subcategory: <span> {{subcategory}}</span></h5>
-                                <h5>Dimentions: <span> {{customOrder.dimensions}}</span></h5>
+                                <h5>Length: <span> {{customOrder.dimensionsl}}</span></h5>
+                                <h5>Width: <span> {{customOrder.dimensionsw}}</span></h5>
+                                <h5>Height: <span> {{customOrder.dimensionsh}}</span></h5>
+
                                 <h5>Matrial: <span> {{customOrder.materials}}</span></h5>
                                 <h5>Quantity: <span> {{customOrder.quantity}}</span></h5>
                                 <h5>Color: <span> {{customOrder.color}}</span></h5>
