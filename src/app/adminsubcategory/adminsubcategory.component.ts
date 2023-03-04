@@ -10,8 +10,20 @@ import { Observable } from 'rxjs';
 export class AdminsubcategoryComponent {
   file:string=""
 name:string=""
-  subcategories:SubCategories[]=[]
-  constructor(private service:SubcategoryService){}
+categoryname:string=""
+  subcategories:any
+  
+  private _id: any;
+  constructor(private service:SubcategoryService){
+  //   let subcategoriesObservable: Observable<SubCategories>
+
+  //   subcategoriesObservable= this.service.()
+
+  //   subcategoriesObservable.subscribe((serverSubCategories)=>{
+  //    this.subcategories = serverSubCategories.data;
+  //     console.log(this.subcategories)
+  //  })
+   }
   onFilechange(event: any) {
     console.log(event.target.files[0])
     this.file = event.target.files[0]
@@ -21,18 +33,20 @@ name:string=""
     this.name=event.target.value
     console.log(this.name)
   }
+
   upload(){
    let image=this.file
    let name=this.name
+   let catname=this.categoryname
    console.log(name)
     let formdata=new FormData()
      formdata.append('image',image)
      formdata.append('name',name)
-    //  let subcategoriesObservable: Observable<Categories[]>
-    //  subcategoriesObservable=this.service.addSubCategory(formdata)
-    //  categoriesObservable.subscribe((serverCategories)=>{
-    //    this.categories = serverCategories;
-     //})
+     let subcategoriesObservable: Observable<SubCategories>
+     subcategoriesObservable=this.service.addSubCategory(formdata,catname)
+     subcategoriesObservable.subscribe((serverSubCategories)=>{
+       this.subcategories = serverSubCategories;
+     })
   }
 
 

@@ -29,3 +29,19 @@ export const DELETE_FROM_CART = CART + '/delete-from-cart';
 export const UPDATE_CART = CART + '/update-cart';
 export const EMPTY_CART = CART + '/empty-cart';
 
+
+
+
+// ****************** Custom Order URL ****************************
+
+
+export const CUSTOM_ORDER_URL = BASE_URL + 'getCustomOrder/'
+export const CUSTOM_ORDER_DETAILS_URL = CUSTOM_ORDER_URL + 'customOrderDetails/'
+
+
+// ****************** Proposals URL ****************************
+
+
+export const GET_SPECIFIC_CUSTUMORDER_PROPOSALS_URL = BASE_URL + 'get_proposals'
+export const POST_NEW_CUSTUMORDER_PROPOSAL_URL = BASE_URL + 'proposal/add_proposal'
+

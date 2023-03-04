@@ -3,10 +3,14 @@ import { SubCategories } from './../shared/models/subcategory';
 import { Categories } from './../shared/models/category';
 import { VendorProductsService } from './../Services/vendor-products.service';
 import { Products } from './../shared/models/products';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { SubcategoryService } from '../Services/subcategory.service';
+import { CategoryService } from '../Services/category.service';
+import { Categories } from '../shared/models/category';
+import { SubCategories } from '../shared/models/subcategory';
 
 @Component({
   selector: 'app-add-to-market-form',
@@ -14,8 +18,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-to-market-form.component.css']
 })
 export class AddToMarketFormComponent {
-  
-
+  categories:any
+  subcategories:any
+ subcategoryservice=inject(SubcategoryService )
+ categoryservice=inject(CategoryService )
+text:string=''
   products:Products[]=[];
   constructor(private service:VendorProductsService, private catService:CategoryService ,private _Router:Router){
     this.catService.getCategory().subscribe((data)=>{
@@ -33,37 +40,19 @@ export class AddToMarketFormComponent {
   }
 
   Sub_Category_Data: string[] = []
+  onChange($event: any) {
+    this.text = $event.target.options[$event.target.options.selectedIndex].text;
 
-  category:any;
-  subCategory:any;
+    this.addprodectform.patchValue({ labelText: this.text });
 
-
-  getSubcategory(id:string){
-    this.catService.getSubCategoryOfCategory(id).subscribe((data)=>{
-      this.subCategory=data;
-      console.log(data)
-    })
-  }
-
-
+    console.log(this.text);
+    let subcategoriesObservable: Observable<SubCategories>
   
-  select_Main_Category(addprodectform: FormGroup) {
-    if (addprodectform.value.Main_Category == "living_rooms") {
+  
+  
 
-      this.Sub_Category_Data = ["living_rooms1", "living_rooms2", "living_rooms3", "living_rooms4"]
-    }
-    else if (addprodectform.value.Main_Category == "bed_rooms") {
-      this.Sub_Category_Data = ["bed_rooms1", "bed_rooms2", "bed_rooms3", "bed_rooms4"]
-    }
-    else if (addprodectform.value.Main_Category == "dinning_rooms") {
-      this.Sub_Category_Data = ["dinning rooms1", "dinning rooms2", "dinning rooms3", "dinning rooms4"]
-    }
-    else if (addprodectform.value.Main_Category == "kitchens") {
-      this.Sub_Category_Data = ["kitchen1", "kitchen2", "kitchen3", "kitchen4"]
-    }
-    else if (addprodectform.value.Main_Category == "office") {
-      this.Sub_Category_Data = ["office1", "office2", "office3", "office4"]
-    }
+  select_Main_Category(addprodectform: FormGroup) {
+
 
   }
 
@@ -98,7 +87,7 @@ export class AddToMarketFormComponent {
 
  get images() {
     return this.addprodectform.get('image_Product') as FormArray;
-    
+
   }
 
 
@@ -117,7 +106,7 @@ export class AddToMarketFormComponent {
      }
 
     //  formData.append('image_Product',JSON.stringify(arr));
-     
+
      //looping on colors formArray to append
      for(let i of this.addprodectform.get('Color_Product')?.value){
       if(i != null){
@@ -138,11 +127,17 @@ export class AddToMarketFormComponent {
 
     //  console.log(addprodectform.get('image_Product')?.value)
     console.log(formData.get('image_Product'))
-     //sending API request on form data 
-     let result;
-     this.service.addProduct(formData).subscribe((data)=>{
-       let result = data
-    
+     //sending API request on form data
+     let productsObservable: Observable<Products[]>
+     productsObservable=this.service.addProduct(formData)
+     productsObservable.subscribe((serverProducts)=>{
+       this.products = serverProducts;
+      //  next:(response: { status: number; })=>{
+      //   if(response.status==200){
+
+      //   }
+      //   this._Router.navigate(['./vendor-info'])
+      //  }
      })
      if(window.confirm(result)){
       this.addprodectform.reset();

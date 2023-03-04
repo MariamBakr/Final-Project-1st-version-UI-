@@ -4,8 +4,8 @@ export class Products{
     images!: string[];
     quantity!:number;
     price!:number;
-    colors?: Array<string>;
-    dimensions!:{ height: number, width: number, length: number };
+    colors!: Array<string>;
+    dimensions!:number[];
     rate!: number;
     matrial!: string;
     origins!: string[];

@@ -47,9 +47,14 @@ import { LayoutHomeComponent } from './layout-home/layout-home.component';
 import { CustomerInfoComponent } from './customer-info/customer-info.component';
 import { VendorInfoComponent } from './vendor-info/vendor-info.component';
 import { AdmincategoryComponent } from './admincategory/admincategory.component';
+
+import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for-vendor/custom-order-details-for-vendor.component';
+
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
 import { CartComponent } from './cart/cart.component';
+import { MarketComponent } from './market/market.component';
+
 
 
 @NgModule({
@@ -93,9 +98,15 @@ import { CartComponent } from './cart/cart.component';
     CustomerInfoComponent,
     VendorInfoComponent,
     AdmincategoryComponent,
-    AdminsubcategoryComponent,
-    CartComponent
 
+    VendorJobproposalComponent,
+    CustomOrderDetailsForVendorComponent,
+
+    AdminsubcategoryComponent,
+    CartComponent,
+    MarketComponent,
+
+ 
   ],
   imports: [
 
@@ -116,7 +127,8 @@ import { CartComponent } from './cart/cart.component';
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass:AuthInterceptor,
-    multi:true
+    multi:true,
+
   }],
   bootstrap: [AppComponent]
 })
