@@ -68,7 +68,7 @@
 
               <!-- Multi price Range -->
               <div>
-                <ngx-slider (userChange)="price($event)" [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+                <ngx-slider (userChangeStart)="minprice($event)" (userChangeEnd)="maxprice($event)"  [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
               </div>
 
 
@@ -139,11 +139,11 @@
           <div id="colors" class="accordion-collapse collapse show">
             <div class="accordion-body">
 
-              <div *ngFor="let product of products">
+              <div >
                 <!-- red -->
-                <div class="d-flex justify-content-between w-50 mb-1" *ngFor="let color of product.colors ">
-                  <input type="color"  name="head" value="{{color}}">
-                  <label for="{{color}}"></label>
+                <div class="d-flex justify-content-between w-50 mb-1" *ngFor="let color of colorsarr">
+                  <input *ngFor="let item of color.colors" (click)="colorChange(item)" type="color"  name="head" value="{{item}}">
+                  <!-- <label for="{{item}}"></label> -->
                 </div>
 
 

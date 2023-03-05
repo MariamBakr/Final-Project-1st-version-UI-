@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { cartItem } from '../shared/models/cart';
 
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -59,12 +60,23 @@ export class CartComponent {
   }
   
 
+  // constructor(private router: Router){
+
+  
+  // }
+
   checkOut(){
     this.router.navigate(['/checkout']);
+    
   }
   backToMarket(){
     this.router.navigate(['/home']);
   }
+
+
+
+
+
 // //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 increment(id:string,newQty:number){

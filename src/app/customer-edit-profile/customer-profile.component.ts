@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./customer-profile.component.css']
 })
 export class CustomerProfileComponent {
-
+userType:any;
+constructor(){
+  this.userType=localStorage.getItem("userType")
+}
 }

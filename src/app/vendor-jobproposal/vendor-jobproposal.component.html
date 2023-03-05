@@ -1,13 +1,13 @@
 <!-- this page contain Jop details came from client & Jop Proposal provid from vendor -->
 
 
-<div>
+<div style="margin: 0rem 4rem;">
     <!-- Jop Details -->
-    <section style="border-radius: 0.5rem; border:1px solid rgba(0, 0, 0, 0.219);" class="mx-4 mb-4 p-3" >
+    <section style="border-radius: 0.5rem; border:1px solid rgba(0, 0, 0, 0.219);" class="mx-4 mt-5 mb-4 p-3" >
         <!-- job details word -->
         <h4 class="mb-3 text-center">Job Details</h4>
        <!-- Client image + Client Name -->
-       <a class="text-decoration-none text-dark" href="#">
+       <a class="text-decoration-none text-dark position-relative" style="left: 2rem;" routerLink="/client/info">
            <div class="d-flex align-items-center">
                <img class="me-2" style="width: 5%;" src="../../assets/client.png" alt="Client Profile Photo">
                <h5>Client Name</h5>
@@ -18,7 +18,7 @@
        <!-- div contain job details -->
        <div class=" mt-4 d-flex justify-content-around">
            <!-- order Details -->
-           <div class="position-relative" style="top: 1rem; width: 60%;">
+           <div class="position-relative" style="top: 1rem; width: 60%;" class="p-3">
               
                <!-- job details  -->
                <div class="ms-2">
@@ -53,7 +53,7 @@
                    <!-- Color Code -->
                    <span class="d-flex align-items-center">
                        <h6 class="fw-bold">Color Code: </h6>
-                       <h6 class="ms-2">{{customOrder._doc.colors[0]}}</h6>
+                       <h6 class="ms-2">{{customOrder._doc.colors}}</h6>
                    </span>
                    <!-- Quantity -->
                    <span class="d-flex align-items-center">
@@ -68,10 +68,10 @@
                        <h6 class="ms-2">{{customOrder._doc.price.max}}$</h6>
                    </span>
                    <!-- Client Notes -->
-                   <span>
+                   <!-- <span>
                        <h6 class="fw-bold">Client Notes: </h6>
                        <h6>Lorem ipsum dolor,  natus architecto reprehenderit earum nulla quas. Aut, enim magnam.</h6>
-                   </span>
+                   </span> -->
                </div>
            </div>
            <!-- Expected image for the product -->
