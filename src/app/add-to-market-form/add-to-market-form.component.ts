@@ -155,6 +155,7 @@ text:string=''
       //   this._Router.navigate(['./vendor-info'])
       //  }
      })
+     
 
     //  addprodectform.reset();
   }

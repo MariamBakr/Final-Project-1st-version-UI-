@@ -5,19 +5,20 @@ import { Observable } from 'rxjs';
 import { Products } from '../shared/models/products';
 import { CategoryService } from '../Services/category.service';
 import { Categories } from '../shared/models/category';
+import { Colors } from '../shared/models/colors';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css']
 })
-export class FilterComponent {
+export class FilterComponent implements OnInit {
 
   enteredSearchValue:string=""
   @Output()
-  minValue:any
+  minValue:number=0
   maxValue: number = 83000;
   options: Options = {
-  floor: 1000,
+  floor: 0,
   ceil: 83000,
   translate: (value: number, label: LabelType): string => {
     switch (label) {
@@ -37,8 +38,22 @@ export class FilterComponent {
   subcategories:any
  filterservice= inject(FilterService )
   id: any;
-  checkedcategories:string[]=[]
+  colorsarr:Colors[]=[]
 
+  ngOnInit(): void {
+    let productsObservable: Observable<Products[]>
+    productsObservable=this.filterservice.allProduct()
+    productsObservable.subscribe((serverProducts)=>{
+      this.products = serverProducts;
+    console.log(this.products)})
+
+    let colorsObservable: Observable<Colors[]>
+
+    colorsObservable=this.filterservice.allColors()
+    colorsObservable.subscribe((serverColors)=>{
+      this.colorsarr = serverColors;
+    console.log(this.colorsarr)
+  })}
     constructor(private service:CategoryService){
       let productsObservable: Observable<Products[]>
   productsObservable=this.filterservice.lowestProduct()
@@ -79,21 +94,15 @@ export class FilterComponent {
   console.log(this.products)
  })
 }
-price(event:any){
+minprice(event:any){
   console.log(event.value)
+
 }
-checkCheckBoxvalue(checks: any)
-{
-    if (!this.checkedcategories.includes(checks)) {
-      this.checkedcategories.push(checks);
-    } else {
-      var index = this.checkedcategories.indexOf(checks);
-      if (index > -1) {
-        this.checkedcategories.splice(index, 1);
-      }
+maxprice(event:any){
+  console.log(event.value)
 
+}
 
-}}
       onselectchange(event:any,index:any){
         this.selectedIndex = event.target.checked ? index : undefined;
 
@@ -103,7 +112,20 @@ checkCheckBoxvalue(checks: any)
         productsObservable.subscribe((serverProducts)=>{
           this.products=serverProducts
         console.log(this.products)
-      })}}
+      })}
+
+      colorChange(color:any){
+        color.replace('#','')
+        const des=(color.replace('#',''))
+        let productsObservable: Observable<Products[]>
+
+        productsObservable=this.filterservice.searchProductbycolor(des)
+        productsObservable.subscribe((serverProducts)=>{
+          this.products=serverProducts
+        console.log(this.products)
+      })
+      }
+}
 
 
 
