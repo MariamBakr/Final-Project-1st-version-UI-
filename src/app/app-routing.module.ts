@@ -21,6 +21,8 @@ import { VendorOrdersMarketComponent } from './vendor-orders-market/vendor-order
 import { VendorProposalSendToCustomerComponent } from './vendor-proposal-send-to-customer/vendor-proposal-send-to-customer.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { RoleGardGuard } from './gard/role-gard.guard';
+import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for-vendor/custom-order-details-for-vendor.component';
+import { VendorJobproposalComponent } from './vendor-jobproposal/vendor-jobproposal.component';
 
 
 const routes: Routes = [
@@ -47,12 +49,13 @@ const routes: Routes = [
 
     ] },
 
-
+    
+    {path:'customOrderDetails/:id',canActivate:[RoleGardGuard] ,component:VendorJobproposalComponent},
+    {path:'vendor-find-jop',canActivate:[RoleGardGuard] ,component:VendorFindJobComponent},
     { path: 'vendor',canActivate:[RoleGardGuard]  ,component:VendorEditProfileComponent,children:[
-
       {path:'',redirectTo:'vendor-info', pathMatch:'full'},
-    {path:'vendor-info',component:VendorInfoComponent},
-    {path:'vendor-find-jop',component:VendorFindJobComponent},
+      {path:'vendor-info',component:VendorInfoComponent},
+      
     {path:'vendor-orders-market',component:VendorOrdersMarketComponent},
     {path:'add-form',component:AddToMarketFormComponent},
 
@@ -70,6 +73,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

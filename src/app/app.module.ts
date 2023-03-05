@@ -47,6 +47,7 @@ import { CustomerInfoComponent } from './customer-info/customer-info.component';
 import { VendorInfoComponent } from './vendor-info/vendor-info.component';
 import { AdmincategoryComponent } from './admincategory/admincategory.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for-vendor/custom-order-details-for-vendor.component';
 
 
 @NgModule({
@@ -90,6 +91,8 @@ import { HttpClientModule } from '@angular/common/http';
     CustomerInfoComponent,
     VendorInfoComponent,
     AdmincategoryComponent,
+    VendorJobproposalComponent,
+    CustomOrderDetailsForVendorComponent
 
 
   ],
