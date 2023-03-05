@@ -18,7 +18,7 @@
         <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button> -->
-        <div *ngIf="isLogin" class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div *ngIf="isLogin && userType !='vendor'" class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ps-5">
                 <!-- Home -->
             <li class="nav-item">
@@ -95,24 +95,37 @@
             <li class="nav-item">
                 <a class="nav-link " href="#">CONTACT</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link " routerLink="vendor" >Vendor</a>
-            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link " routerLink="vendor" >Find Job</a>
+            </li> -->
             </ul>
         </div>
       </div>
 
-
+     
+        <ul *ngIf="isLogin && userType =='vendor'" style="width: 15% !important;text-align: center; list-style: none;right: 16rem; top: 0.5rem; font-size: 1.2rem; "  class=" position-relative w-100">
+            <li style="color: black;" class=" fw-semibold nav-item">
+                <a class="nav-link " routerLink="vendor-find-jop" >Find Job</a>
+            </li>
+        </ul>
+        
 
       <!-- Search , UserName + Img , LogIn , Register & LonOut -->
       <div   class="position-relative d-flex justify-content-around align-items-center" style="width: 30%;  right: 1.5rem;">
         <!-- Search Icon -->
         <a class="me-5 text-dark " style="top: 0.5rem; font-size: 1.2rem;" routerLink="filter"><i class="fa-sharp fa-solid fa-magnifying-glass"></i></a>
-        <!-- User image + User Name -->
-        <a  class="text-decoration-none text-dark"  style="width: 45% !important; display: inline-block;" routerLink="client">
+        <!-- User image + User Name Vendor -->
+        <a *ngIf="userType == 'vendor'"  class="text-decoration-none text-dark"  style="width: 45% !important; display: inline-block;" routerLink="vendor">
             <div *ngIf="isLogin" class="d-flex align-items-center">
                 <img class="me-2 " style="width: 20%;" src="../../assets/client.png" alt="Client Profile Photo">
-                <h6 class="position-relative" style="top: 0.25rem;">User Name</h6>
+                <h6 class="position-relative" style="top: 0.25rem;">Welcome {{userName}}</h6>
+            </div>
+        </a>
+        <!-- User image + User Name client -->
+        <a *ngIf="userType == 'client'" class="text-decoration-none text-dark"  style="width: 45% !important; display: inline-block;" routerLink="client">
+            <div *ngIf="isLogin" class="d-flex align-items-center">
+                <img class="me-2 " style="width: 20%;" src="../../assets/client.png" alt="Client Profile Photo">
+                <h6 class="position-relative" style="top: 0.25rem;">Welcome {{userName}}</h6>
             </div>
         </a>
         <!-- LogIn , Register & LonOut -->
@@ -121,6 +134,7 @@
         <a *ngIf="isLogin" style="cursor: pointer;" class="fw-semibold text-dark  text-decoration-none " (click)="logOut()">Logout</a>
       </div>
 
+     
     </div>
 
   </nav>

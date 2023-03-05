@@ -27,28 +27,32 @@ import { VendorJobproposalComponent } from './vendor-jobproposal/vendor-jobpropo
 
 
 const routes: Routes = [
+
+  // ************************* Login + Register *****************
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
+
+  // ************************* Main Componenmt LauOut *****************
+
   { path: '', component:LayoutHomeComponent,children:[
-    {path:'',redirectTo:'home', pathMatch:'full'},
-    {path:'cart',component:CartComponent},
+    // ................... Main LayOut Children ...............
+        {path:'',redirectTo:'home', pathMatch:'full'},
+        {path:'cart',component:CartComponent},
 
-    {path:'wishlist',component:WishlistComponent},
-    { path: 'filter', component: FilterComponent },
-    { path: 'client', component:CustomerProfileComponent ,children:[
-
-      {path:'',redirectTo:'info', pathMatch:'full'},
-      { path: 'purchasehistory', component: PurchaseHistoryComponent },
-      { path: 'custom_orders', component: CustomerMonitorJobsComponent },
-      { path: 'proposals_page', component: VendorProposalSendToCustomerComponent },
-      { path: 'create_orders', component: CustomerCreateCustomOrderComponent },
-      {path:'wishlist',component:WishlistComponent},
-      {path:'info',component:CustomerInfoComponent},
-    {path:'cart',component:CartComponent},
-
-
-    ] },
+        {path:'wishlist',component:WishlistComponent},
+        { path: 'filter', component: FilterComponent },
+        { path: 'client', component:CustomerProfileComponent ,children:[
+            // ................... Client Childrens 
+              {path:'',redirectTo:'info', pathMatch:'full'},
+              { path: 'purchasehistory', component: PurchaseHistoryComponent },
+              { path: 'custom_orders', component: CustomerMonitorJobsComponent },
+              { path: 'proposals_page', component: VendorProposalSendToCustomerComponent },
+              { path: 'create_orders', component: CustomerCreateCustomOrderComponent },
+              {path:'wishlist',component:WishlistComponent},
+              {path:'info',component:CustomerInfoComponent},
+              {path:'cart',component:CartComponent},
+        ] },
 
     
     {path:'customOrderDetails/:id',canActivate:[RoleGardGuard] ,component:VendorJobproposalComponent},
