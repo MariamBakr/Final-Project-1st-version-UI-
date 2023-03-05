@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
   isloading:boolean=false;
   error:string=""
   type:string='password'
@@ -52,11 +51,11 @@ export class LoginComponent {
     this._userAuthService.login(login_form.value).subscribe({
     next:(response)=>{
       this.isloading=false;
+      console.log("aaaaaaaaaaaaaaaaaaaaaa",response.data.f_name);
+      console.log("bbbbbbbbbbbbbbbbbbbbbb",response.data._id);
       if(response.status ==200){
-        // navigate to Login Page and save data in localstorage then navigate to home
         
-          // localStorage.setItem('userToken',response.token)
-          this._userAuthService.saveUserData(response.token,response.userType);
+          this._userAuthService.saveUserData(response.token,response.userType,response.data.f_name,response.data._id);
           this._Router.navigate(['./home'])
     
       }
@@ -67,6 +66,11 @@ export class LoginComponent {
   })
   
 }
+
+
+
+// ......................... Function to get user Name ............
+
   }
   
 

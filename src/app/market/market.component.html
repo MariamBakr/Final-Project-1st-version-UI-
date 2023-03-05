@@ -4,14 +4,6 @@
         <!-- card1 -->
      <div class="p-2 col-md-6 col-sm-6 col-12 col-lg-4 col-xl-3"*ngFor="let prod of products" >
           <div class="card align-items-center bg-white Small shadow card1" >
-     
-     
-               <!-- <div>
-                    <img src="https://htmldemo.net/expert/expert/assets/images/product/22_1.webp"
-                         alt="..." width="100%" height="100%" />
-               </div> -->
-
-
 
 <!--Start image carousel-->
 <div class="" style="width:100%; height:100% ;">
@@ -43,15 +35,15 @@
      
                <div class="card-body">
                     <!-- title -->
-                    <h5 class="card-title text-center">International Software</h5>
+                    <h5 class="card-title text-center">{{prod.title}}</h5>
 
                     <!-- price -->
                     <p class="card-text text-center text-secondary lh-1 CEO pt-3">
-                         Web Developer
+                       {{prod.price}}
                     </p>
                     <!-- button -->
                     <div class="add-to-cart d-flex justify-content-center mb-2">
-                         <a href="#">view details</a>
+                         <a (click)="view_details(prod._id)">view details</a>
                     </div>
      
                </div>

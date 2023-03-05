@@ -14,12 +14,13 @@ export class MyMarketPageComponent {
 
  Sub_Category_Data: string[] = []
 
+
  products: Products[]=[];
 
  constructor(private productsService: VendorProductsService){
    let productsObservable: Observable<Products[]>
 
-   productsObservable = this.productsService.getAll()
+   productsObservable = this.productsService.getByVendorId()
 
    productsObservable.subscribe((serverProducts)=>{
      this.products = serverProducts;

@@ -22,40 +22,49 @@ import { VendorProposalSendToCustomerComponent } from './vendor-proposal-send-to
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { MyMarketPageComponent } from './my-market-page/my-market-page.component';
 import { RoleGardGuard } from './gard/role-gard.guard';
-import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for-vendor/custom-order-details-for-vendor.component';
+import { MarketComponent } from './market/market.component';
+import { SingleProductComponent }from './single-product/single-product.component';
 import { VendorJobproposalComponent } from './vendor-jobproposal/vendor-jobproposal.component';
 
-
 const routes: Routes = [
+
+  // ************************* Login + Register *****************
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
+
+  // ************************* Main Componenmt LauOut *****************
+
   { path: '', component:LayoutHomeComponent,children:[
+
+    // ................... Main LayOut Children ...............
+        {path:'',redirectTo:'home', pathMatch:'full'},
+        {path:'cart',component:CartComponent},
     {path:'',redirectTo:'home', pathMatch:'full'},
-    {path:'cart',component:CartComponent},
+    { path: 'cart', component: CartComponent },
+    { path: 'market', component: MarketComponent },
+    { path: 'single-product/:id', component: SingleProductComponent },
 
-    {path:'wishlist',component:WishlistComponent},
-    { path: 'filter', component: FilterComponent },
-    { path: 'client', component:CustomerProfileComponent ,children:[
-
-      {path:'',redirectTo:'info', pathMatch:'full'},
-      { path: 'purchasehistory', component: PurchaseHistoryComponent },
-      { path: 'custom_orders', component: CustomerMonitorJobsComponent },
-      { path: 'proposals_page', component: VendorProposalSendToCustomerComponent },
-      { path: 'create_orders', component: CustomerCreateCustomOrderComponent },
-      {path:'wishlist',component:WishlistComponent},
-      {path:'info',component:CustomerInfoComponent},
-    {path:'cart',component:CartComponent},
-
-
-    ] },
+        {path:'wishlist',component:WishlistComponent},
+        { path: 'filter', component: FilterComponent },
+        { path: 'client', component:CustomerProfileComponent ,children:[
+            // ................... Client Childrens 
+              {path:'',redirectTo:'info', pathMatch:'full'},
+              { path: 'purchasehistory', component: PurchaseHistoryComponent },
+              { path: 'custom_orders', component: CustomerMonitorJobsComponent },
+              { path: 'proposals_page', component: VendorProposalSendToCustomerComponent },
+              { path: 'create_orders', component: CustomerCreateCustomOrderComponent },
+              {path:'wishlist',component:WishlistComponent},
+              {path:'info',component:CustomerInfoComponent},
+              {path:'cart',component:CartComponent},
+        ] },
 
     
     {path:'customOrderDetails/:id',canActivate:[RoleGardGuard] ,component:VendorJobproposalComponent},
     {path:'vendor-find-jop',canActivate:[RoleGardGuard] ,component:VendorFindJobComponent},
     { path: 'vendor',canActivate:[RoleGardGuard]  ,component:VendorEditProfileComponent,children:[
       { path: '', redirectTo: 'vendor-info', pathMatch: 'full' },
-      { path: 'myproduct', component:MyMarketPageComponent  },
+      { path: 'mymarket', component:MyMarketPageComponent  },
       {path:'vendor-info',component:VendorInfoComponent},
       
     {path:'vendor-orders-market',component:VendorOrdersMarketComponent},

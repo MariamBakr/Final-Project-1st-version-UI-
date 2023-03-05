@@ -40,9 +40,15 @@ export class VendorJobproposalComponent implements OnInit {
           // this.category=response.data.category.name;
           // this.subCategory=response.data.subCategory.name;
           // console.log(response.data._doc.description);
-          // console.log(response.data._doc.images[0]);
+          console.log(response.data._doc.colors);
+          console.log(response.data._doc.quantity);
+          console.log(response.data._doc.price.min);
+          console.log(response.data._doc.price.max);
+          console.log(response.data._doc.images[0]);
           // this.customOrder=response.data._doc;
           this.customOrder=response.data;
+          // console.log(this.customOrder._doc.images[0]);
+          console.log(this.customOrder);
         }
       })
   }

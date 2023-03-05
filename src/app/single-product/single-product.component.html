@@ -13,25 +13,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     <!-- first  -->
-    <div  style="background-color: #FBF5EC;" class="container">
+    <div  style="background-color: #FBF5EC;" class="container" >
         <div class="row">
             <!-- Slide Show -->
-            <div   class="col-md-5">
+            <div   class="col-md-5" >
 
-                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel" >
                     <div class="carousel-inner">
-                      <div class="carousel-item active" data-bs-interval="10000">
-                        <img src="../../assets/chair3.jpg" class="d-block w-100" alt="...">
+                      <div *ngFor="let img of prdoduct!.images" class="carousel-item active" data-bs-interval="10000" >
+                        <img [src]="img" class="d-block w-100" alt="...">
 
                       </div>
-                      <div class="carousel-item" data-bs-interval="2000">
+                      <!-- <div class="carousel-item" data-bs-interval="2000">
                         <img src="../../assets/chair2.jpg" class="d-block w-100" alt="...">
 
                       </div>
                       <div class="carousel-item">
                         <img src="../../assets/chair1.jpg" class="d-block w-100" alt="...">
 
-                      </div>
+                      </div> -->
+
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -56,8 +57,8 @@
                         <span class=" m-3 badge text-bg-light">NEW</span><br>
 
 
-                      <h2 class="card-title">Armchair</h2><br>
-                      <p class ="fs-2" >$ 50.25</p>
+                      <h2 class="card-title">{{prdoduct!.title}}</h2><br>
+                      <p class ="fs-2" >$ {{prdoduct!.price}}</p>
 
                       <div class = "product-rating">
                         <span><i style="color: goldenrod;" class = "fas fa-star"></i></span>
@@ -70,7 +71,7 @@
 
                     <h2 class="card-title">Description</h2><br>
 
-                     <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias recusandae </p>
+                     <p class="card-text">{{prdoduct!.overview}} </p>
                       <a href="#"  style="background-color: #798545;" class="btn">Add to cart</a>
                     </div>
                   </div>
@@ -93,26 +94,31 @@
 
             <div class="  col-md-2">
 
-                <p class="fs-6 fw-semibold" >Use</p>
+                <p class="fs-6 fw-semibold" >matrial</p>
                 <p class="fs-6 fw-semibold">Applications</p>
                 <p class="fs-6 fw-semibold">Characteristics</p>
                 <p class="fs-6 fw-semibold">Sizes</p>
 
             </div>
             <div class="col-md-5">
-                <p class="fs-6  fw-semibold" >: Interior</p>
+                <p class="fs-6  fw-semibold" >: {{prdoduct!.matrial}}</p>
                 <p class="fs-6   fw-semibold">: Residential furniture</p>
                 <p class="fs-6 fw-semibold">: Danish design, choice of materials and finishes</p>
-                <p class="fs-6   fw-semibold ">: Height: 74 cm | Width: 97 cm | Depth: 78 cm | Seating height: 39 cm | Armrest height: 74½ cm | Maximum weight load: 125 kg</p>
+                <p class="fs-6   fw-semibold ">: Height: {{prdoduct!.dimensions.height}} cm | Width:{{prdoduct!.dimensions.width}} cm | Depth: {{prdoduct!.dimensions.length}} cm </p>
             </div>
 
 
             </div>
             </div>
 
+
+
+
+            
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
 </html>
+

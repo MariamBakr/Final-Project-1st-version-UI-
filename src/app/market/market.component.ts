@@ -3,6 +3,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Observable } from 'rxjs';
 import { Products } from '../shared/models/products';
 import { VendorProductsService } from '../Services/vendor-products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-market',
@@ -12,7 +13,7 @@ import { VendorProductsService } from '../Services/vendor-products.service';
 export class MarketComponent {
 
   products: Products[] = [];
-  constructor(private productsService: VendorProductsService) {
+  constructor(private productsService: VendorProductsService, private router: Router,) {
     let productsObservable: Observable<Products[]>
 
     productsObservable = this.productsService.getAll()
@@ -24,8 +25,10 @@ export class MarketComponent {
   }
 
 
-
-
+  view_details(id:string) {
+    this.router.navigate(['/single-product', id ]);
+  }
+ 
 
 
   // image_Product
