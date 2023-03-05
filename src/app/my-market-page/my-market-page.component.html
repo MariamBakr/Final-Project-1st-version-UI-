@@ -21,7 +21,7 @@
 
             <li>
               <!-- Button Modal Confirmation Delet -->
-              <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <a  class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <i class="fa-sharp fa-solid fa-trash-can"></i>
                 Delet</a>
             </li>
@@ -164,7 +164,7 @@
                 data-bs-target="#EditModal">
                 <i class="fa-sharp fa-solid fa-pencil"></i>
                 Edit</a> </button>
-            <button class="ms-4 btn btn-danger"> <a class="dropdown-item" href="#" data-bs-toggle="modal"
+            <button (click)="setdeleteproductId(prod._id)"  class="ms-4 btn btn-danger"> <a class="dropdown-item" href="#" data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop">
                 <i class="fa-sharp fa-solid fa-trash-can"></i>
                 Delet</a></button>
@@ -176,21 +176,21 @@
           <owl-carousel-o [options]="customOptions">
             <ng-container *ngFor="let img of prod.images">
               <ng-template carouselSlide id="slide.id">
-                <!-- <img class="primary-img" [src]="img" alt="img" style="width:90%;" /> -->
+                <img class="primary-img" [src]="img" alt="img" style="width:90%;" />
               </ng-template>
             </ng-container>
           </owl-carousel-o>
 
-          <div *ngFor="let img of prod.images">
+          <!-- <div *ngFor="let img of prod.images">
             <img class="primary-img" [src]="img" [alt]="img" style="width:90%;" />
-          </div>
-          
+          </div> -->
+
           <!--Start Color carousel-->
           <div class="mt-2">
             <owl-carousel-o [options]="customOptions1">
               <ng-container *ngFor="let prod of products; let i = index">
                 <ng-template carouselSlide id="slides12.id">
-                  <!-- <div class="styleColor" [style.color]="prod.colors[i]">color</div> -->
+                  <div class="styleColor"  [style.background-color]="prod.colors![i]"></div>
                 </ng-template>
               </ng-container>
             </owl-carousel-o>
@@ -445,16 +445,16 @@
         <button type="button" class="btn btn-secondary btn-submit" data-bs-dismiss="modal">
           Close
         </button>
-        <button type="button" class="btn btn-secondary btn-submit">
+        <!-- <button  (click)="Edit()" type="button" class="btn btn-secondary btn-submit">
           Save changes
-        </button>
+        </button> -->
       </div>
     </div>
   </div>
 </div>
 
 <!-- Modal Confirmation Delet -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div   class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -468,14 +468,8 @@
         <button type="button" class="btn btn-secondary btn-submit" data-bs-dismiss="modal">
           Close
         </button>
-        <button type="button" class="btn btn-secondary btn-submit">OK</button>
+        <button (click)="Delete()" type="button" class="btn btn-secondary btn-submit">OK</button>
       </div>
     </div>
   </div>
-</div>
-
-
-
-<div *ngFor="let prod of products">
-  <p>{{prod.title}}</p>
 </div>

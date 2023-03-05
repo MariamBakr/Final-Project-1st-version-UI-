@@ -1,3 +1,4 @@
+import { AuthInterceptor } from './shared/auth.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -46,8 +47,13 @@ import { LayoutHomeComponent } from './layout-home/layout-home.component';
 import { CustomerInfoComponent } from './customer-info/customer-info.component';
 import { VendorInfoComponent } from './vendor-info/vendor-info.component';
 import { AdmincategoryComponent } from './admincategory/admincategory.component';
-import { HttpClientModule } from '@angular/common/http';
+
 import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for-vendor/custom-order-details-for-vendor.component';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
+import { MarketComponent } from './market/market.component';
+
 
 
 @NgModule({
@@ -91,10 +97,14 @@ import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for
     CustomerInfoComponent,
     VendorInfoComponent,
     AdmincategoryComponent,
+
     VendorJobproposalComponent,
-    CustomOrderDetailsForVendorComponent
+    CustomOrderDetailsForVendorComponent,
 
+    AdminsubcategoryComponent,
+    MarketComponent,
 
+ 
   ],
   imports: [
 
@@ -111,7 +121,12 @@ import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for
     NgxSliderModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true,
+
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

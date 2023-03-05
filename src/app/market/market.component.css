@@ -1,0 +1,44 @@
+ .CEO {
+      margin-top: -0.3rem;
+ }
+
+ .card1 {
+      position: relative;
+ }
+
+ .dropbtn {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+ }
+
+ /* add-to-cart */
+
+ .add-to-cart a:hover {
+      color: #949A5B;
+      border-color: #949A5B;
+ }
+
+ .add-to-cart a {
+      border: 2px solid #d7d7d7;
+      color: #b0b0b0;
+      /* display: inline-block; */
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 6px 20px;
+      text-decoration: none;
+      text-transform: uppercase;
+ }
+
+  /* Start image carousel height */
+ .market-hight{
+     height: 20rem !important;
+ }
+
+
+ /* Start Color carousel */
+ .styleColor {
+      width: 3vh;
+      height: 3vh;
+
+ }

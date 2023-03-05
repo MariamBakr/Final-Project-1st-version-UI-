@@ -12,8 +12,6 @@ import { Products } from '../shared/models/products';
 })
 export class MyMarketPageComponent {
 
-
-
  Sub_Category_Data: string[] = []
 
  products: Products[]=[];
@@ -181,6 +179,66 @@ titlec = 'ng-carousel-demo';
     { id: 4, color: "#07e4f8" },
  { id: 3, color: "#1505f4" },
   ];
+
+
+////////// Delete /////////
+   deleteproductId=""
+   setdeleteproductId(productId:string){
+     this.deleteproductId=productId
+
+   }
+Delete() {
+  this.productsService.deletePostById(this.deleteproductId).subscribe((resultData: any)=>
+  {
+      console.log(resultData);
+      alert("Student Deletedddd")
+      this.productsService.getAll().subscribe((resultData: any)=>{
+        this.products=resultData
+      }
+
+  )
+    })
+  }
+
+
+  // Edite(productId:string)
+  // {
+  //  FormGroup = new FormGroup({
+  //     Title_Product: new FormControl(null, [Validators.required]),
+  //     Description: new FormControl(null, [Validators.required ,Validators.minLength(100),Validators.maxLength(300)]),
+  //     Price: new FormControl(null, [Validators.required]),
+  //     avialble_Quntity: new FormControl(null, [Validators.required]),
+  //     Material: new FormControl(null, [Validators.required]),
+  //     DimensionsW: new FormControl(null, [Validators.required]),
+  //     DimensionsH: new FormControl(null, [Validators.required]),
+  //     DimensionsL: new FormControl(null, [Validators.required]),
+  //     Main_Category: new FormControl(null, [Validators.required]),
+  //     Sub_Category: new FormControl(null, [Validators.required]),
+
+  // EditDetails()
+  // {
+  //   let Data = {
+  //     "title"    : this.title,
+  //     "images"   : this.images,
+  //     "quantity" : this.quantity,
+  //     "price"    : this.price,
+  //     "dimensions"  : this.dimensions,
+  //     "matrial"     : this.matrial,
+  //     "category"    : this.category,
+  //     "subcategory" : this.subcategory,
+  //     "colors"      : this.colors,
+  //     "overview"    : this.overview,
+
+
+  //   };
+
+    // this.http.patch("http://localhost:5000/products/edit"+ "/"+this.productId,Data).subscribe((resultData: any)=>
+    // {
+    //     console.log(resultData);
+    //     alert("product Updateddd")
+    //     this.getAllProduct();
+
+    //
 
 
 
