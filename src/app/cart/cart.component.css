@@ -81,3 +81,9 @@ thead{
   .d-flex{
     flex-wrap: wrap !important;
   } 
+
+  .img-fluid{
+    width:7rem;
+    height: 7rem;
+  }
+  

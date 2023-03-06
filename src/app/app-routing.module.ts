@@ -22,9 +22,9 @@ import { VendorProposalSendToCustomerComponent } from './vendor-proposal-send-to
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { MyMarketPageComponent } from './my-market-page/my-market-page.component';
 import { RoleGardGuard } from './gard/role-gard.guard';
-import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for-vendor/custom-order-details-for-vendor.component';
+import { MarketComponent } from './market/market.component';
+import { SingleProductComponent }from './single-product/single-product.component';
 import { VendorJobproposalComponent } from './vendor-jobproposal/vendor-jobproposal.component';
-
 
 const routes: Routes = [
 
@@ -36,9 +36,14 @@ const routes: Routes = [
   // ************************* Main Componenmt LauOut *****************
 
   { path: '', component:LayoutHomeComponent,children:[
+
     // ................... Main LayOut Children ...............
         {path:'',redirectTo:'home', pathMatch:'full'},
         {path:'cart',component:CartComponent},
+    {path:'',redirectTo:'home', pathMatch:'full'},
+    { path: 'cart', component: CartComponent },
+    { path: 'market', component: MarketComponent },
+    { path: 'single-product/:id', component: SingleProductComponent },
 
         {path:'wishlist',component:WishlistComponent},
         { path: 'filter', component: FilterComponent },

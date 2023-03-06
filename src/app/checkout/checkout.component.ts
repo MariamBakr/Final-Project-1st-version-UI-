@@ -33,6 +33,12 @@ export class CheckoutComponent implements OnInit{
       'email' : new FormControl('marwa@gmail.com', [Validators.required, Validators.email]),
       'addInfo' : new FormControl(null)
     })
+    
+    
+
+
+
+
   }
 
   onSubmit(){

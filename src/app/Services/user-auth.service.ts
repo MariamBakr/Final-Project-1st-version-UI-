@@ -58,6 +58,10 @@ get_logedUser():boolean{
   return this._HttpClient.post(USER_UPDATE_DATA_URL,userData);
  } 
 
+
+
+ 
+
  logOut(){
   localStorage.removeItem('userToken');
   localStorage.removeItem('userType');

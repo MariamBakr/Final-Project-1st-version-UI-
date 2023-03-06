@@ -13,23 +13,23 @@ import { Categories } from '../shared/models/category';
 export class FilterComponent {
 
   enteredSearchValue:string=""
-  //@Output()
+  @Output()
   minValue:any
   maxValue: number = 83000;
-//   options: Options = {
-//   floor: this.minValue,
-//   ceil: 83000,
-//   translate: (value: number, label: LabelType): string => {
-//     switch (label) {
-//       case LabelType.Low:
-//         return "<b>Min:</b> EGP" + value;
-//       case LabelType.High:
-//         return "<b>Max:</b> EGP" + value;
-//       default:
-//         return "EGP" + value;
-//     }
-//   }
-// };
+  options: Options = {
+  floor: 1000,
+  ceil: 83000,
+  translate: (value: number, label: LabelType): string => {
+    switch (label) {
+      case LabelType.Low:
+        return "<b>Min:</b> EGP" + value;
+      case LabelType.High:
+        return "<b>Max:</b> EGP" + value;
+      default:
+        return "EGP" + value;
+    }
+  }
+};
   searchTextChanged:EventEmitter<string>= new EventEmitter<string>()
   products:Products[]=[]
   categories:any
@@ -44,7 +44,7 @@ export class FilterComponent {
   productsObservable=this.filterservice.lowestProduct()
   productsObservable.subscribe((serverProducts)=>{
     //this.minValue= serverProducts;
-    this.minValue=(serverProducts[0].price)
+    this.options.floor=(serverProducts[0].price)
  })
       let categoriesObservable: Observable<Categories>
 

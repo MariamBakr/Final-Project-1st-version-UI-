@@ -1,4 +1,4 @@
-import { VENDOR_ADD_PRODUCT_URL, VENDOR_EDIT_PRODUCT_URL, VENDOR_DELETE_PRODUCT_URL, VENDOR_SEARCH_PRODUCT_URL, VENDOR_FILTER_PRODUCT_URL, VENDOR_PRODUCTS_URL } from './../shared/constants/urls';
+import { VENDOR_ADD_PRODUCT_URL, VENDOR_DELETE_PRODUCT_URL, VENDOR_PRODUCTS_URL, VENDOR_URL, CHECKOUT_URL, VENDOR_BY_ID_URL } from './../shared/constants/urls';
 import { Products } from './../shared/models/products';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -21,16 +21,25 @@ export class VendorProductsService {
     return this.http.post<Products[]>(VENDOR_ADD_PRODUCT_URL,product);
   }
 
+  getByVendorId():Observable<Products[]>{
+    return this.http.get<Products[]>(VENDOR_URL)
+  }
+
   /////////////////////////
 // delete Product
 deletePostById(id : string) : Observable<Products> {
   return this.http.delete<Products>(VENDOR_DELETE_PRODUCT_URL+'/'+id);
 }
 
-// update Product
-// updateProduct(id : string) : Observable<Products[]> {
-//   return this.http.put<Products[]>(VENDOR_EDIT_PRODUCT_URL+'/'+id);
-// }
+getProductById(id:string): Observable<Products>{
+  return this.http.get<Products>(VENDOR_BY_ID_URL +'/'+id);
+}
+
+
+
+  checkout(id: string): Observable<Products[]> {
+    return this.http.get<Products[]>(CHECKOUT_URL + '/' + id);
+  }
 
 
   // deleteProduct(product:string): Observable<Products[]>{

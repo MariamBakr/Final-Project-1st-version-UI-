@@ -1,7 +1,7 @@
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CommonModule } from '@angular/common'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule , NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
@@ -53,9 +53,7 @@ import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
 import { MarketComponent } from './market/market.component';
-
-
-
+import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     FilterComponent,
@@ -102,12 +100,14 @@ import { MarketComponent } from './market/market.component';
     CustomOrderDetailsForVendorComponent,
 
     AdminsubcategoryComponent,
+    CartComponent,
     MarketComponent,
+    CartComponent
 
  
   ],
   imports: [
-
+    CommonModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
