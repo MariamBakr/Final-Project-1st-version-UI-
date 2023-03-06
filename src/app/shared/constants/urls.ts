@@ -74,8 +74,8 @@ export const EMPTY_CART = CART + '/empty-cart';
 // ****** Custom Order URL **********
 
 
-export const CUSTOM_ORDER_URL = BASE_URL + 'getCustomOrder/'
-export const CUSTOM_ORDER_DETAILS_URL = CUSTOM_ORDER_URL + 'customOrderDetails/'
+export const CUSTOM_ORDER_URL = BASE_URL + 'customOrder/'
+export const CUSTOM_ORDER_DETAILS_URL = CUSTOM_ORDER_URL + 'Details/'
 
 
 // ****** Proposals URL **********
