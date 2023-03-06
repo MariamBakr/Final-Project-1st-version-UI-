@@ -64,7 +64,7 @@ const routes: Routes = [
     {path:'vendor-find-jop',canActivate:[RoleGardGuard] ,component:VendorFindJobComponent},
     { path: 'vendor',canActivate:[RoleGardGuard]  ,component:VendorEditProfileComponent,children:[
       { path: '', redirectTo: 'vendor-info', pathMatch: 'full' },
-      { path: 'myproduct', component:MyMarketPageComponent  },
+      { path: 'mymarket', component:MyMarketPageComponent  },
       {path:'vendor-info',component:VendorInfoComponent},
       
     {path:'vendor-orders-market',component:VendorOrdersMarketComponent},
