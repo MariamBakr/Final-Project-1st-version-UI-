@@ -57,6 +57,7 @@ export const VENDOR_FILTER_PRODUCT_URL = VENDOR_PRODUCTS_URL + '/filter'
 export const USER_URL = BASE_URL + 'users'
 
 export const USER_REGISTER_URL = USER_URL + '/register'
+export const GET_CLIENT_NAME_URL = USER_URL + '/get_clientName'
 export const USER_LOGIN_URL = USER_URL + '/login'
 export const USER_UPDATE_DATA_URL = USER_URL + '/update'
 
@@ -81,7 +82,7 @@ export const CUSTOM_ORDER_DETAILS_URL = CUSTOM_ORDER_URL + 'Details/'
 // ****** Proposals URL **********
 
 
-export const GET_SPECIFIC_CUSTUMORDER_PROPOSALS_URL = BASE_URL + 'get_proposals'
+// export const GET_SPECIFIC_CUSTUMORDER_PROPOSALS_URL = BASE_URL + 'get_proposals'
 export const POST_NEW_CUSTUMORDER_PROPOSAL_URL = BASE_URL + 'proposal/add_proposal'
 
 //  ****************** CHECKOUT URL **************************
