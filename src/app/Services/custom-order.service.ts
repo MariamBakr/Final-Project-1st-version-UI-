@@ -10,7 +10,7 @@ export class CustomOrderService {
 
   constructor(private _HttpClient:HttpClient) { }
 
-  getCustomOrderDetails_by_id(id:String){
-    return this._HttpClient.get<apiResults>(CUSTOM_ORDER_DETAILS_URL+id);
+  getCustomOrderDetails_by_id(customOrderId:String){
+    return this._HttpClient.get<apiResults>(CUSTOM_ORDER_DETAILS_URL+customOrderId);
   }
 }

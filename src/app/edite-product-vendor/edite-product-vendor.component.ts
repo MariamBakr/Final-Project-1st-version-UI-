@@ -1,38 +1,21 @@
-import { VendorProductsService } from './../Services/vendor-products.service';
-import { Products } from './../shared/models/products';
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { VendorProductsService } from '../Services/vendor-products.service';
+import { Products } from '../shared/models/products';
 import { Router } from '@angular/router';
-import { SubcategoryService } from '../Services/subcategory.service';
-import { CategoryService } from '../Services/category.service';
-import { Categories } from '../shared/models/category';
-import { SubCategories } from '../shared/models/subcategory';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+
+
 
 @Component({
-  selector: 'app-add-to-market-form',
-  templateUrl: './add-to-market-form.component.html',
-  styleUrls: ['./add-to-market-form.component.css']
+  selector: 'app-edite-product-vendor',
+  templateUrl: './edite-product-vendor.component.html',
+  styleUrls: ['./edite-product-vendor.component.css']
 })
-export class AddToMarketFormComponent {
-  categories:any
-  id:any
-  subcategories:any
- subcategoryservice=inject(SubcategoryService )
- categoryservice=inject(CategoryService )
-text:string=''
+export class EditeProductVendorComponent {
+
   products:Products[]=[];
-  constructor(private service:VendorProductsService,private _Router:Router){
-    let categoriesObservable: Observable<Categories>
-
-    categoriesObservable= this.categoryservice.getCategory()
-
-    categoriesObservable.subscribe((serverProducts)=>{
-     this.categories = serverProducts.data;
-      console.log(this.categories)
-   })
-
-  }
+  constructor(private service:VendorProductsService,private _Router:Router){}
 
   @ViewChild('form')
   form!: ElementRef;
@@ -43,27 +26,27 @@ text:string=''
   }
 
   Sub_Category_Data: string[] = []
-  onChange($event: any) {
-    this.text = $event.target.options[$event.target.options.selectedIndex].text;
-    this.id = $event.target.options[$event.target.options.selectedIndex].value;
 
-    this.addprodectform.patchValue({ labelText: this.text });
-
-    console.log(this.id);
-    let subcategoriesObservable: Observable<SubCategories>
-
-    subcategoriesObservable= this.subcategoryservice.allSubCategoryof(this.id)
-  // console.log(this.text)
-    subcategoriesObservable.subscribe((serverProducts)=>{
-     this.subcategories = serverProducts.data;
-   console.log(this.subcategories)
-   })
-  }
 
 
 
   select_Main_Category(addprodectform: FormGroup) {
+    if (addprodectform.value.Main_Category == "living_rooms") {
 
+      this.Sub_Category_Data = ["living_rooms1", "living_rooms2", "living_rooms3", "living_rooms4"]
+    }
+    else if (addprodectform.value.Main_Category == "bed_rooms") {
+      this.Sub_Category_Data = ["bed_rooms1", "bed_rooms2", "bed_rooms3", "bed_rooms4"]
+    }
+    else if (addprodectform.value.Main_Category == "dinning_rooms") {
+      this.Sub_Category_Data = ["dinning rooms1", "dinning rooms2", "dinning rooms3", "dinning rooms4"]
+    }
+    else if (addprodectform.value.Main_Category == "kitchens") {
+      this.Sub_Category_Data = ["kitchen1", "kitchen2", "kitchen3", "kitchen4"]
+    }
+    else if (addprodectform.value.Main_Category == "office") {
+      this.Sub_Category_Data = ["office1", "office2", "office3", "office4"]
+    }
 
   }
 
@@ -141,7 +124,6 @@ text:string=''
      formData.append('DimensionsL',this.addprodectform.get('DimensionsL')?.value)
      formData.append('Main_Category',this.addprodectform.get('Main_Category')?.value)
      formData.append('Sub_Category',this.addprodectform.get('Sub_Category')?.value)
-     formData.append('image_Product',this.addprodectform.get('image_Product')?.value)
 
     //  console.log(addprodectform.get('image_Product')?.value)
     console.log(formData.get('image_Product'))
@@ -157,7 +139,6 @@ text:string=''
       //   this._Router.navigate(['./vendor-info'])
       //  }
      })
-
 
     //  addprodectform.reset();
   }
@@ -189,4 +170,37 @@ text:string=''
     })
     return isValid;
   }
+
+
+
+
+
+
+
 }
+
+
+/////////////////////////////////
+
+// updateprodectform: FormGroup = new FormGroup({
+//   updated_Title: new FormControl(null, [Validators.required]),
+//   updated_Description: new FormControl(null, [Validators.required ,Validators.minLength(100),Validators.maxLength(300)]),
+//   updated_Price: new FormControl(null, [Validators.required]),
+//   updated_Quntity: new FormControl(null, [Validators.required]),
+//   updated_Material: new FormControl(null, [Validators.required]),
+//   updated_DimensionsW: new FormControl(null, [Validators.required]),
+//   updated_DimensionsH: new FormControl(null, [Validators.required]),
+//   updated_DimensionsL: new FormControl(null, [Validators.required]),
+//   updated_MainCategory: new FormControl(null, [Validators.required]),
+//   updated_SubCategory: new FormControl(null, [Validators.required])
+
+// }
+
+// this.productsService.updateProductById(this.updateProductById).subscribe((resultData: any)=>
+//   {
+//       console.log(resultData);
+//       alert("Product Updated")
+//       this.productsService.getAll().subscribe((resultData: any)=>{
+//         this.products=resultData
+//       }
+//   }

@@ -69,6 +69,8 @@ export class CartComponent {
     this.router.navigate(['/checkout']);
     
   }
+
+  
   backToMarket(){
     this.router.navigate(['/home']);
   }

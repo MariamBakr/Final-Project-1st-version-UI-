@@ -53,7 +53,11 @@ import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
 import { MarketComponent } from './market/market.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { EditeProductVendorComponent } from './edite-product-vendor/edite-product-vendor.component';
 import { CartComponent } from './cart/cart.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     FilterComponent,
@@ -98,13 +102,13 @@ import { CartComponent } from './cart/cart.component';
 
     VendorJobproposalComponent,
     CustomOrderDetailsForVendorComponent,
-
+    EditeProductVendorComponent,
     AdminsubcategoryComponent,
     CartComponent,
     MarketComponent,
     CartComponent
 
- 
+
   ],
   imports: [
     CommonModule,
@@ -112,6 +116,7 @@ import { CartComponent } from './cart/cart.component';
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
+    NgxPaginationModule,
     NgbCarouselModule,
     CarouselModule,
     BrowserAnimationsModule,
@@ -119,7 +124,8 @@ import { CartComponent } from './cart/cart.component';
     ReactiveFormsModule,
     FontAwesomeModule,
     NgxSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPayPalModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
