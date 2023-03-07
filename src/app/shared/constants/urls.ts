@@ -44,6 +44,7 @@ const BASE_URL = "http://localhost:5000/";
 
 export const VENDOR_PRODUCTS_URL = BASE_URL + 'vendor/products'
 
+
 export const VENDOR_URL = VENDOR_PRODUCTS_URL + '/byId'
 export const VENDOR_BY_ID_URL = VENDOR_PRODUCTS_URL + '/productbyId'
 export const VENDOR_ADD_PRODUCT_URL = VENDOR_PRODUCTS_URL + '/add'
@@ -86,4 +87,5 @@ export const GET_SPECIFIC_CUSTUMORDER_PROPOSALS_URL = BASE_URL + 'get_proposals'
 export const POST_NEW_CUSTUMORDER_PROPOSAL_URL = BASE_URL + 'proposal/add_proposal'
 
 // ****************** CHECKOUT URL **************************
-export const CHECKOUT_URL = BASE_URL + 'checkout'
+export const VENDOR_PRODUCT_BY_ID_URL = USER_URL + 'order'
+export const CHECKOUT_URL = USER_URL + 'CHECKPAYMENT'

@@ -1,6 +1,6 @@
-import { VENDOR_ADD_PRODUCT_URL, VENDOR_DELETE_PRODUCT_URL, VENDOR_PRODUCTS_URL, VENDOR_URL, CHECKOUT_URL, VENDOR_BY_ID_URL } from './../shared/constants/urls';
+import { VENDOR_ADD_PRODUCT_URL, VENDOR_DELETE_PRODUCT_URL, VENDOR_PRODUCTS_URL, VENDOR_URL, CHECKOUT_URL, VENDOR_BY_ID_URL, VENDOR_PRODUCT_BY_ID_URL } from './../shared/constants/urls';
 
-import { VENDOR_ADD_PRODUCT_URL, VENDOR_DELETE_PRODUCT_URL, VENDOR_SEARCH_PRODUCT_URL, VENDOR_FILTER_PRODUCT_URL, VENDOR_PRODUCTS_URL, VENDOR_URL, CHECKOUT_URL, VENDOR_BY_ID_URL } from './../shared/constants/urls';
+
 import { Products } from './../shared/models/products';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';

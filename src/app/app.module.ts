@@ -57,6 +57,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import { EditeProductVendorComponent } from './edite-product-vendor/edite-product-vendor.component';
 import { CartComponent } from './cart/cart.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     FilterComponent,
@@ -101,7 +102,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
     VendorJobproposalComponent,
     CustomOrderDetailsForVendorComponent,
-
+    EditeProductVendorComponent,
     AdminsubcategoryComponent,
     CartComponent,
     MarketComponent,

@@ -49,7 +49,7 @@
         <!-- data inputs -->
         <div class="col-lg-6 col-md-12 col-sm-12">
             <!-- .......................... -->
-            <form [formGroup]="checkOutForm">
+            <form>
                 <div class="col-12">
                     <h3 class="fw-normal mt-3">BILLING DETAILS</h3>
                     <div class="title-border mb-4"></div>
@@ -89,7 +89,7 @@
                         <label for="town" class="form-label">Town/City <span class="text-danger">*</span></label>
                         <select class="form-control mb-3" id="town" formControlName="town">
                             <option value="">Choose City</option>
-                            <option *ngFor="let city of city" [ngValue]="city">{{ city }}</option>
+                            <option *ngFor="let city of city" >{{ city }}</option>
                         </select>
                         <!-- error message -->
                         <div
