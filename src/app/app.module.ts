@@ -50,6 +50,7 @@ import { AdmincategoryComponent } from './admincategory/admincategory.component'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
 import { MarketComponent } from './market/market.component';
+import { EditeProductVendorComponent } from './edite-product-vendor/edite-product-vendor.component';
 
 
 @NgModule({
@@ -95,6 +96,7 @@ import { MarketComponent } from './market/market.component';
     AdmincategoryComponent,
     AdminsubcategoryComponent,
     MarketComponent,
+    EditeProductVendorComponent,
 
 
   ],

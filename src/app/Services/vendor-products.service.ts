@@ -28,9 +28,9 @@ deletePostById(id : string) : Observable<Products> {
 }
 
 // update Product
-// updateProduct(id : string) : Observable<Products[]> {
-//   return this.http.put<Products[]>(VENDOR_EDIT_PRODUCT_URL+'/'+id);
-// }
+updateProductById(id : string) : Observable<Products[]> {
+  return this.http.put<Products[]>(VENDOR_EDIT_PRODUCT_URL+'/'+id);
+}
 
 
   // deleteProduct(product:string): Observable<Products[]>{
