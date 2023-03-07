@@ -54,8 +54,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
 import { CartComponent } from './cart/cart.component';
 import { MarketComponent } from './market/market.component';
-import { CommonModule } from '@angular/common';
-import { CartComponent } from './cart/cart.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 @NgModule({
   declarations: [
     FilterComponent,
@@ -104,7 +103,7 @@ import { CartComponent } from './cart/cart.component';
     AdminsubcategoryComponent,
     CartComponent,
     MarketComponent,
-    CartComponent
+    CartComponent,
 
  
   ],
@@ -121,7 +120,8 @@ import { CartComponent } from './cart/cart.component';
     ReactiveFormsModule,
     FontAwesomeModule,
     NgxSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPayPalModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

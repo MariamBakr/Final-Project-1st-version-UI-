@@ -60,15 +60,14 @@ export class CartComponent {
   }
   
 
-  constructor(private router: Router){
-
-  
-  }
+ 
 
   checkOut(){
     this.router.navigate(['/checkout']);
     
   }
+
+  
   backToMarket(){
     this.router.navigate(['/home']);
   }

@@ -24,6 +24,7 @@ import { MyMarketPageComponent } from './my-market-page/my-market-page.component
 import { RoleGardGuard } from './gard/role-gard.guard';
 import { MarketComponent } from './market/market.component';
 import { SingleProductComponent }from './single-product/single-product.component';
+import { VendorJobproposalComponent } from './vendor-jobproposal/vendor-jobproposal.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

@@ -48,7 +48,8 @@
 
         <!-- data inputs -->
         <div class="col-lg-6 col-md-12 col-sm-12">
-            <form [formGroup]="checkOutForm" (submit)="onSubmit()">
+            <!-- .......................... -->
+            <form [formGroup]="checkOutForm">
                 <div class="col-12">
                     <h3 class="fw-normal mt-3">BILLING DETAILS</h3>
                     <div class="title-border mb-4"></div>
@@ -57,33 +58,29 @@
                     <!-- First Name -->
                     <div class="col-6 INPUT">
                         <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control rounded-0" id="firstName" formControlName="firstName">
+                        <input type="text" class="form-control rounded-0" id="firstName" disabled>
                         <!-- error message -->
-                        <div *ngIf="!checkOutForm.get('firstName')?.valid && checkOutForm.get('firstName')?.touched">
-                            <p class="text-danger">please enter your name!</p>
-                        </div>
+
                     </div>
                     <!-- Last Name -->
                     <div class="col-6 INPUT">
                         <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control rounded-0" id="lastName" formControlName="lastName">
-                        <!-- error message -->
-                        <div *ngIf="!checkOutForm.get('lastName')?.valid && checkOutForm.get('lastName')?.touched">
-                            <p class="text-danger">please enter your name!</p>
-                        </div>
+                        <input type="text" class="form-control rounded-0" id="lastName" disabled>
+
+
                     </div>
                 </div>
-                <!-- Address -->
+                <!-- st -->
                 <div formGroupName="address">
                     <div class="mb-3">
                         <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
                         <input type="text" class="form-control rounded-0 mb-4" id="address" placeholder="street address"
-                            formControlName="streetAddress">
+                            formControlName="street">
                         <input type="text" class="form-control rounded-0" id="address"
-                            placeholder="Apartment, suite, unit, etc. (optional)" formControlName="apartmentAddress">
+                            placeholder="Apartment, suite, unit, etc. (optional)" formControlName="apartment">
                         <!-- error message -->
                         <div
-                            *ngIf="!checkOutForm.get('address.streetAddress')?.valid && checkOutForm.get('address.streetAddress')?.touched">
+                            *ngIf="!checkOutForm.get('address.street')?.valid && checkOutForm.get('address.street')?.touched">
                             <p class="text-danger">please enter your address!</p>
                         </div>
                     </div>
@@ -95,7 +92,8 @@
                             <option *ngFor="let city of city" [ngValue]="city">{{ city }}</option>
                         </select>
                         <!-- error message -->
-                        <div *ngIf="(!checkOutForm.get('address.town')?.valid && checkOutForm.get('address.town')?.touched)">
+                        <div
+                            *ngIf="(!checkOutForm.get('address.town')?.valid && checkOutForm.get('address.town')?.touched)">
                             <p class="text-danger">please enter your city!</p>
                         </div>
                     </div>
@@ -147,6 +145,7 @@
                 </div>
 
             </form>
+            <!-- ........................................... -->
         </div>
         <!-- checkout details -->
         <div class="col-lg-5 col-md-12 col-sm-12 ">
@@ -156,27 +155,41 @@
                         <h4 class="fw-normal">PRODUCT</h4>
                     </th>
                     <th class="text-end">
-                        <h4 class="fw-normal">TOTAL</h4>
+                        <h4 class="fw-normal text-end">SUBTOTAL</h4>
                     </th>
+
                 </thead>
+
+
                 <tbody>
-                    <tr class="border-bottom align-items-center my-3">
-                        <td class="">Crackle Plates</td>
-                        <td class="text-end">$44</td>
-                    </tr>
-                    <tr class="border-bottom">
-                        <td class="">
-                            <h4 class="fw-normal">SUBTOTAL</h4>
+
+
+                    <tr class="border-bottom align-items-center my-3" *ngFor="let data of prod.products ">
+
+                        <td class="">{{data.product.title}}
+
                         </td>
-                        <td class="text-end">$44</td>
+
+                        <td class="text-end">{{data.subTotal}} </td>
+
                     </tr>
-                    <tr class="">
-                        <td class="">
-                            <h4 class="fw-normal">TOTAL</h4>
+
+
+                    <tr class="border-bottom align-items-center ">
+                        <td class=""><h4>
+                            Total price
+                        </h4>
                         </td>
-                        <td class="text-end">$44</td>
+                      
+                        <td class="text-end">
+                            <h4>{{prod.Total_price}}
+                            </h4>
+                        </td>
                     </tr>
+
+
                 </tbody>
+
             </table>
             <h5 class="fw-normal mb-4">CHECK PAYMENT</h5>
             <p class="text-muted">Please send a check to Store Name, Store Street, Store Town, Store State / County,
@@ -195,9 +208,20 @@
             </div>
 
             <div class="mt-4 text-end">
-                <button class="btn btn-dark rounded-0" (click)="onSubmit()">PROCEED TO PAYPAL</button>
+                <button class="btn btn-dark rounded-0 mb-5" (click)="onSubmit()">PROCEED TO PAYPAL</button>
+                <!-- [disabled]="checkOutForm.invalid" -->
             </div>
 
+            <!-- paypal -->
+
+            <!-- <div id="paypal-button"></div> -->
+            <div *ngIf="showPaypal">
+                <div id="paypal-button"></div>
+            </div>
+            
+
+
+          
         </div>
     </div>
 </div>
