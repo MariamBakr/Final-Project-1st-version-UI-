@@ -36,7 +36,7 @@
 
 
 <!-- Button trigger modal -->
-<button  style="background-color: #798545;" type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button *ngIf="userType !='vendor'"  style="background-color: #798545;" type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal">
     Edit Profile
   </button>
 
@@ -126,7 +126,7 @@
             </div>
           </div>
         </div>
-        <div class="card mb-4 mb-lg-0">
+        <div *ngIf="userType !='vendor'" class="card mb-4 mb-lg-0">
           <div class="card-body p-0">
             <div class="list-group">
              <!-- for router links -->

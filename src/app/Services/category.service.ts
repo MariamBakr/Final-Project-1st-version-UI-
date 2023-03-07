@@ -20,11 +20,23 @@ export class CategoryService {
     return this.http.get<SubCategories>(`http://localhost:5000/subcategories/cat/${id}`)
 
   }
+  getSubCategoryOfCategoryname(name:string): Observable<SubCategories> {
+    console.log(name)
+    //console.log(this.http.get<Categories>(`http://localhost:5000/subcategories/cat/${name}`))
+    return this.http.get<SubCategories>(`http://localhost:5000/subcategories/${name}`)
+
+  }
 
   addCategory(category:object): Observable<Categories> {
     console.log(category)
     return this.http.post<Categories>('http://localhost:5000/categories/add',category);
   }
+
+  editCategory(category:object,id:string): Observable<Categories> {
+    console.log(category)
+    return this.http.put<Categories>(`http://localhost:5000/categories/${id}`,category);
+  }
+
 
   deleteCategory(id:string): Observable<Categories> {
     console.log()

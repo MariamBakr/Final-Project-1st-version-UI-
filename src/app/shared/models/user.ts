@@ -10,5 +10,6 @@ export class user{
     state?:string;
     zip?:number;
     taxNumber?:number;
+    cart?:object[]
     
   }

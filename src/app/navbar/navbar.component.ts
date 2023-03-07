@@ -1,5 +1,7 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { UserAuthService } from './../Services/user-auth.service';
+import { user } from './../shared/models/user';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,6 +9,8 @@ import { UserAuthService } from './../Services/user-auth.service';
 })
 export class NavbarComponent implements OnInit, OnChanges {
   isLogin:boolean=false;
+  userType:string="";
+  userName:any;
   constructor(private _userAuthService:UserAuthService){
     this._userAuthService.isUserLoged.subscribe({
       next:(data)=>
@@ -14,6 +18,8 @@ export class NavbarComponent implements OnInit, OnChanges {
         this.isLogin=data;
     }
   })
+  this.userType=this._userAuthService.userType.value
+  // console.log(this.userType);
   }
 
 
@@ -30,19 +36,7 @@ export class NavbarComponent implements OnInit, OnChanges {
 
 
   ngOnInit(): void {
-    // this._userAuthService['userData'].subscribe({
-    //   next:()=>
-    //   {
-    //     if(this._userAuthService['userData'].getValue()!=null)
-    //     {
-    //       this.isLogin=true;
-    //     }
-    //     else
-    //     {
-    //       this.isLogin=false;
-    //     }
-    //   }
-    // })
+this.userName=localStorage.getItem("userName")
   }
   
 
