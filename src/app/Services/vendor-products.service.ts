@@ -41,7 +41,7 @@ deletePostById(id : string) : Observable<Products> {
 
 
   checkout(): Observable<Order> {
-    return this.http.get<Order>(CHECKOUT_URL);
+    return this.http.get<Order>(VENDOR_PRODUCT_BY_ID_URL);
   }
 
   
