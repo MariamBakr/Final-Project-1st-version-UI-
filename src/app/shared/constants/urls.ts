@@ -1,3 +1,4 @@
+
 // // ****************** BASE URL ****************************
 
 // const BASE_URL = "http://localhost:5000/";
@@ -86,3 +87,20 @@ export const POST_NEW_CUSTUMORDER_PROPOSAL_URL = BASE_URL + 'proposal/add_propos
 
 //  ****************** CHECKOUT URL **************************
 export const CHECKOUT_URL = BASE_URL + 'checkout'
+
+
+// ****************** Proposals **********************/
+
+export const PROPOSAL_URL = BASE_URL + 'orderProposals'
+export const ACCEPT_PROPOSAL_URL = PROPOSAL_URL + '/accept'
+export const REJECT_PROPOSAL_URL = PROPOSAL_URL + '/reject'
+export const DISPALY_PROPOSAL_URL = PROPOSAL_URL + '/display'
+export const DISPALY_VENDOR_URL = PROPOSAL_URL + '/vendor'
+export const DISPALY_CLIENT_URL = PROPOSAL_URL + '/client'
+
+
+// ****************** Wishlist **********************/
+
+export const WISHLIST_URL = BASE_URL + 'wishlist'
+export const ADD_TO_WISHLIST_URL = WISHLIST_URL + '/add'
+export const REMOVE_FROM_WISHLIST_URL = WISHLIST_URL + '/remove'

@@ -6,7 +6,7 @@
    <a class="text-decoration-none text-dark" href="#">
        <div class="d-flex align-items-center">
            <img class="me-2" style="width: 5%;" src="../../assets/client.png" alt="Client Profile Photo">
-           <h5>Client Name</h5>
+           <h5>{{client?.f_name}} {{client?.l_name}}</h5>
        </div>
    </a>
    <!-- ............................... -->
@@ -23,56 +23,61 @@
                    <!-- Main Category -->
                    <span class="d-flex align-items-center">
                        <h6 class="fw-bold">Main Category: </h6>
-                       <h6 class="ms-2">Bed Rooms</h6>
+                       <h6 class="ms-2">{{order?.categoryname}}</h6>
                    </span>
                    <!-- ٍSub Category -->
                    <span class="position-relative d-flex align-items-center" style="right: 4rem;">
                        <h6 class="fw-bold">Sub Category: </h6>
-                       <h6 class="ms-2">Bed</h6>
+                       <h6 class="ms-2">{{order?.subcategoryname}}</h6>
                    </span>
                </div>
                <!-- Description -->
                <span>
+                    <h6 class="fw-bold">Name: </h6>
+                    <h6>{{order?.name}}</h6>
+                </span>
+               <!-- Description -->
+               <span>
                    <h6 class="fw-bold">Description: </h6>
-                   <h6>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati quasi atque natus architecto reprehenderit earum nulla quas. Aut, enim magnam.</h6>
+                   <h6>{{order?.description}}</h6>
                </span>
                <!-- Material -->
                <span class="d-flex align-items-center">
                    <h6 class="fw-bold">Material: </h6>
-                   <h6 class="ms-2">MDF Wood</h6>
+                   <h6 class="ms-2">{{order?.material}}</h6>
                </span>
                <!-- Dimensions -->
                <span class="d-flex align-items-center">
                    <h6 class="fw-bold">Dimensions (L x W x H): </h6>
-                   <h6 class="ms-2">200 x 160 x 70 </h6>
+                   <h6 class="ms-2">{{order?.dimensions.length}} X{{order?.dimensions.width}} </h6>
                </span>
                <!-- Color Code -->
                <span class="d-flex align-items-center">
                    <h6 class="fw-bold">Color Code: </h6>
-                   <h6 class="ms-2">#f58f69a</h6>
+                   <h6 class="ms-2">{{order?.color}}</h6>
                </span>
                <!-- Quantity -->
                <span class="d-flex align-items-center">
                    <h6 class="fw-bold">Quantity: </h6>
-                   <h6 class="ms-2">4</h6>
+                   <h6 class="ms-2">{{order?.quantity}}</h6>
                </span>
                <!-- Budget -->
                <span class="d-flex align-items-center">
                    <h6 class="fw-bold">Price Range: </h6>
-                   <h6 class="ms-2">30$</h6>
+                   <h6 class="ms-2">{{order?.price.min | currency}}</h6>
                    <h6 class="ms-2">to</h6>
-                   <h6 class="ms-2">50$</h6>
+                   <h6 class="ms-2">{{order?.price.max | currency}}</h6>
                </span>
                <!-- Client Notes -->
-               <span>
+               <!-- <span>
                    <h6 class="fw-bold">Client Notes: </h6>
                    <h6>Lorem ipsum dolor,  natus architecto reprehenderit earum nulla quas. Aut, enim magnam.</h6>
-               </span>
+               </span> -->
            </div>
        </div>
        <!-- Expected image for the product -->
-       <div class="text-center " style="width:35%;">
-           <img class="w-100" style="border-radius:0.5rem;" src="../../assets/cat_bedroom.webp" alt="job Photo">
+       <div class="text-center " style="width:35%;" *ngFor="let img of order?.images">
+           <img class="w-100" style="border-radius:0.5rem;" [src]="img" alt="job Photo">
            <p class="mt-1 fw-semibold">Expected Product</p>
        </div>
    </div>

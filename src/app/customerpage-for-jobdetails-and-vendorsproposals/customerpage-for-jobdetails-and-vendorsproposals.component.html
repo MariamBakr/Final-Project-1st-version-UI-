@@ -1,73 +1,133 @@
-<div class="d-flex justify-content-between m-5">
-    <app-vendor-sidebar class="w-25"></app-vendor-sidebar>
+<div class="d-flex justify-content-between">
+    <!-- <app-vendor-sidebar class="w-25"></app-vendor-sidebar> -->
     <div class="w-75">
-        <app-jopdetailscard></app-jopdetailscard>
+        <app-jopdetailscard [order]="order" [client]="client"></app-jopdetailscard>
         <!-- filter by price and due date -->
-        <div>
+        <!-- <div>
             <select name="" (change)="sort()" id="" [(ngModel)]="value">
                 <option value="0">Filter Proposals By</option>
                 <option value='deadline'>Due Date</option>
                 <option value='price'>Price</option>
             </select>
-        </div>
+        </div> -->
         <div>
-            <h3 class="text-center w-50 py-2" style="border: 2px solid rgba(0, 0, 0, 0.158); border-radius: 0.5rem; margin-left: auto; margin-right: auto;">All Vendors Proposals</h3>
+            <h3 class="text-center w-50 py-2"
+                style="border: 2px solid rgba(0, 0, 0, 0.158); border-radius: 0.5rem; margin-left: auto; margin-right: auto;">
+                All Vendors Proposals</h3>
             <!-- ******************************* -->
-            <section *ngFor="let proposal of arr" style="border-radius: 0.5rem; border:1px solid rgba(0, 0, 0, 0.219);" class="mx-4 mb-4 p-3" >
-    
+            <section style="border-radius: 0.5rem; border:1px solid rgba(0, 0, 0, 0.219);" class="mx-4 mb-4 p-3"
+                *ngFor="let prop of proposals">
+
                 <!-- Vendor image + Vendor Name -->
-                <a class="text-decoration-none text-dark" href="#">
+                <a class="text-decoration-none text-dark" style="cursor: pointer;" (click)="displayVendor(prop.userId)" >
                     <div class="d-flex align-items-center">
                         <img class="me-2" style="width: 5%;" src="../../assets/client.png" alt="Client Profile Photo">
-                        <h5>Vendor Name</h5>
+                        <h5>{{prop.userFirstName}} {{prop.userLastName}}</h5>
                     </div>
                 </a>
                 <!-- ............................... -->
-             
+
                 <!-- div contain proposal details -->
                 <div class=" mt-4 d-flex justify-content-around">
                     <!-- Proposal Details -->
                     <div class="position-relative" style="top: 1rem; width: 65%;">
-                       
+
                         <!-- Proposal details  -->
                         <div class="ms-2">
                             <!-- Description -->
                             <div>
-                                 <h6 class="fw-bold">Propodal Description: </h6>
-                                 <div>
-                                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati quasi atque natus architecto reprehenderit earum nulla quas. Aut, enim magnam Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati quasi atque natus architecto reprehenderit earum nulla quas. Aut, enim magnam Lorem 
-                                 </div>
+                                <h6 class="fw-bold">Proposal Description: </h6>
+                                <div>
+                                    {{prop.job_proposal}}
+                                </div>
                             </div>
                             <!-- DealLine -->
                             <span class="d-flex align-items-center mt-3">
                                 <h6 class="fw-bold">DealLine: </h6>
-                                <h6 class="ms-3">sdfsdf</h6>
+                                <h6 class="ms-3">{{prop.job_deadline}}</h6>
                             </span>
                             <!-- Total Coast -->
                             <span class="d-flex align-items-center mt-2">
                                 <h6 class="fw-bold">Total Coast: </h6>
-                                <h6 class="ms-3">arr[0].price</h6>
+                                <h6 class="ms-3">{{prop.offered_price}}</h6>
                             </span>
                         </div>
-             
+
                         <!-- Buttons -->
-                        <div class="my-3">
-                         <button class="btn btn-success"> Accept Proposal</button>
-                         <button class="ms-4 btn btn-danger"> Reject Proposal</button>
+                        <!-- <div class="my-3" [hidden]="order.isclosed == true">
+                         <button class="btn btn-success" [disabled]="prop.status!='pending'" (click)="acceptProposal(prop.userId,prop.customOrderId)"> Accept Proposal</button>
+                         <button class="ms-4 btn btn-danger" [disabled]="prop.status =='canceled'" (click)="rejectProposal(prop.userId,prop.customOrderId)"> Reject Proposal</button>
+                        </div> -->
+
+                        <!--------------------------  Accepting  ------------->
+                        <div class="modal fade" id="accept" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Accepting proposal</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to accept this proposal from {{prop.userId}}?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal" data-backdrop="false">Close</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" data-backdrop="false"
+                                            (click)="acceptProposal(prop.userId,prop.customOrderId)">Accept</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+                         <!--------------------------  Rejection  ------------->
+                         <div class="modal fade" id="reject" tabindex="-1" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                         <div class="modal-dialog modal-dialog-centered">
+                             <div class="modal-content">
+                                 <div class="modal-header">
+                                     <h5 class="modal-title" id="exampleModalLabel">Rejecting proposal</h5>
+                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                         aria-label="Close"></button>
+                                 </div>
+                                 <div class="modal-body">
+                                     Are you sure you want to reject this proposal from {{prop.userId}}?
+                                 </div>
+                                 <div class="modal-footer">
+                                     <button type="button" class="btn btn-secondary"
+                                         data-bs-dismiss="modal" data-backdrop="false">Close</button>
+                                     <button type="button" class="btn btn-danger"
+                                     (click)="rejectProposal(prop.userId,prop.customOrderId)" data-dismiss="modal" data-backdrop="false">Reject</button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+
+                     <!-- buttons  -->
+                        <div class="my-3" [hidden]="order.isclosed == true">
+                            <!-- accept button -->
+                            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#accept"
+                                [disabled]="prop.status!='pending'"> Accept Proposal</button>
+                            <!-- reject button -->
+                            <button class="ms-4 btn btn-danger" data-bs-toggle="modal" data-bs-target="#reject" 
+                                [disabled]="prop.status =='rejected'"> Reject Proposal</button>
+                        </div>
+
                     </div>
                     <!-- Expected image for the product -->
-                    <div class="text-center " style="width:35%;">
-                        <img  style="width: 70%; border-radius:0.5rem;" src="../../assets/cat_bedroom.webp" alt="job Photo">
+                    <div class="text-center " style="width:35%;" *ngFor="let img of prop.work_samples">
+                        <img style="width: 70%; border-radius:0.5rem;" [src]="img" alt="img">
                         <p class="mt-1 fw-semibold">Expected Product</p>
                     </div>
                 </div>
                 <!-- .................................... -->
-             
-                
-             </section>
+
+
+            </section>
             <!-- *************************** -->
-            
+
             <!-- <app-vendor-proposal-send-to-customer *ngFor="let item of arr"></app-vendor-proposal-send-to-customer> -->
         </div>
 

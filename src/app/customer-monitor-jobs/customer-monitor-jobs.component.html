@@ -1,37 +1,37 @@
 <div class="container">
   <div class="row mt-2">
-    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 " >
-      <div class="card border-light shadow p-1 bg-white rounded-0 mb-3 h-100 ">
-        <div style="justify-content: center;" class="card-body p-3 ">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-2" *ngFor="let prop of proposals">
+      <div class="card border-light shadow p-1 bg-white rounded-0 mb-3 h-100 " >
+        <div style="justify-content: center;" class="card-body p-3" >
 
-          <div class=" ">
-            <img class="ms-1 float-end" src="../assets/pexels-nugroho-wahyu-3097112.jpg" width="300">
+          <div class="" *ngFor="let img of prop.images">
+            <img class="ms-1 float-end" src="{{img}}" width="300">
 
           </div>
 
           <div class=" ">
-            <span class=" fs-6 fw-bold ">Title : </span>
-            <span class=" fs-6 "> Chair Table</span>
+            <span class=" fs-6 fw-bold ">Title :</span>
+            <span class=" fs-6 ">{{prop.name}}</span>
           </div>
 
           <div class=" mt-3 ">
             <span class=" fs-6 fw-bold ">Description : </span>
-            <span class=" fs-6 "> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
+            <span class=" fs-6 ">  {{prop.description}}</span>
           </div>
           <div class=" mt-3 ">
             <span class=" fs-6 fw-bold ">Material : </span>
-            <span class=" fs-6 "> 4 Sep 2019</span>
+            <span class=" fs-6 ">{{prop.material}}</span>
           </div>
           <div class=" mt-3 ">
             <span class=" fs-6 fw-bold ">Dimensions(L X W X H) : </span>
-            <span class=" fs-6 "> 4 Sep 2019</span>
+            <span class=" fs-6 ">{{prop.dimensions.length}} X {{prop.dimensions.width}}</span>
           </div>
 
 
           <div class="text-center">
-            <button  type="button" class="btn btn-outline-secondary  mt-4 ">Track Order</button>
+            <button  type="button" class="btn btn-outline-secondary  mt-4 " *ngIf="prop.isclosed == true">Track Order</button>
 
-            <a routerLink="/client/proposals_page" type="button" class="ms-3 btn btn-outline-secondary mt-4 ">See Proposals</a>
+            <a routerLink="/client/proposals_page" type="button" class="ms-3 btn btn-outline-secondary mt-4" *ngIf="prop.isclosed == false" (click)="seeProposals(prop._id)">See Proposals</a>
           </div>
 
         </div>
