@@ -52,9 +52,10 @@ import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
-import { CartComponent } from './cart/cart.component';
 import { MarketComponent } from './market/market.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { EditeProductVendorComponent } from './edite-product-vendor/edite-product-vendor.component';
+import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     FilterComponent,
@@ -103,9 +104,9 @@ import { NgxPayPalModule } from 'ngx-paypal';
     AdminsubcategoryComponent,
     CartComponent,
     MarketComponent,
-    CartComponent,
+    CartComponent
 
- 
+
   ],
   imports: [
     CommonModule,

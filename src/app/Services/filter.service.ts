@@ -17,8 +17,20 @@ export class FilterService {
 
     return this.http.get<Products[]>(`http://localhost:5000/search/cat?id=${id}`);
   }
+  searchProductbycolor(color:string):Observable<Products[]> {
+     console.log(color)
+    return this.http.get<Products[]>(`http://localhost:5000/search/n/${color}`);
+  }
   lowestProduct(): Observable<Products[]> {
 
     return this.http.get<Products[]>(`http://localhost:5000/search/lowest`);
+  }
+  allColors(): Observable<Products[]> {
+
+    return this.http.get<Products[]>(`http://localhost:5000/search/allcolors`);
+  }
+  allProduct(): Observable<Products[]> {
+
+    return this.http.get<Products[]>(`http://localhost:5000/search/all`);
   }
 }
