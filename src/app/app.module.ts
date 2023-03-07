@@ -54,6 +54,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
 import { MarketComponent } from './market/market.component';
 import { CartComponent } from './cart/cart.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     FilterComponent,
@@ -104,7 +105,7 @@ import { CartComponent } from './cart/cart.component';
     MarketComponent,
     CartComponent
 
- 
+
   ],
   imports: [
     CommonModule,
@@ -112,6 +113,7 @@ import { CartComponent } from './cart/cart.component';
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
+    NgxPaginationModule,
     NgbCarouselModule,
     CarouselModule,
     BrowserAnimationsModule,

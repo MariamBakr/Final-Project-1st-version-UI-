@@ -48,7 +48,7 @@
                     <!-- Step 2: filling out the form for the custom order -->
                     <div class="tab-pane fade" id="step2"  #tab2>
                         <div class="container mt-3 w-75">
-                           <form [formGroup]="customOrderForm" (submit)="onSubmit()">
+                           <form [formGroup]="customOrderForm" >
                             <div class="mb-3">
                               <label for="title" class="form-label">Title</label>
                               <input type="text" name="title" class="form-control" id="materials" placeholder="Hardwood, platinum, etc." formControlName="title">
@@ -145,9 +145,7 @@
                                 </div>
 
                                 <!-- submit button -->
-                                <div class="mb-3 text-center">
-                                    <button class="btn btn-dark rounded-0" type="submit"  (click)="next3()">Submit</button>
-                                </div>
+
                             </form>
                         </div>
 
@@ -162,8 +160,9 @@
                         <div class="container p-3 mt-4">
                             <h4 class="fw-normal my-3">Your Order Details:</h4>
                             <div *ngIf="submitted">
-                                <h5>Category: <span>  {{category}}</span></h5>
-                                <h5>Subcategory: <span> {{subcategory}}</span></h5>
+                              <h5>Title: <span>  {{customOrder.title}}</span></h5>
+
+
                                 <h5>Length: <span> {{customOrder.dimensionsl}}</span></h5>
                                 <h5>Width: <span> {{customOrder.dimensionsw}}</span></h5>
                                 <h5>Height: <span> {{customOrder.dimensionsh}}</span></h5>
@@ -177,7 +176,7 @@
 
                             <div class="text-end">
                                 <button class="btn btn-dark rounded-0 me-2" (click)="prev3()">Back</button>
-                                <button class="btn btn-dark rounded-0 ">Confirm your order</button>
+                                <button (click)="onSubmit()" type="submit" class="btn btn-dark rounded-0 ">Confirm your order</button>
                             </div>
 
 

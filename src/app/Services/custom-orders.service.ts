@@ -12,7 +12,7 @@ export class CustomOrdersService {
   constructor(private http:HttpClient) { }
   addCustomOrder(customOrder:object): Observable<CustomOrder> {
     console.log(customOrder)
-    return this.http.post<CustomOrder>('http://localhost:5000/custom',customOrder);
+    return this.http.post<CustomOrder>('http://localhost:5000/custom/c',customOrder);
   }
 
 }
