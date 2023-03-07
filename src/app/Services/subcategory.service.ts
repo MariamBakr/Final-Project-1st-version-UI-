@@ -30,4 +30,8 @@ export class SubcategoryService {
     return this.http.get<SubCategories>(`http://localhost:5000/subcategories`)
 
   }
+  allSubCategoryof(id:string): Observable<SubCategories>{
+    return this.http.get<SubCategories>(`http://localhost:5000/subcategories/cat/${id}`)
+
+  }
 }

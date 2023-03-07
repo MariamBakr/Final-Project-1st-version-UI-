@@ -68,7 +68,7 @@
 
               <!-- Multi price Range -->
               <div>
-                <ngx-slider (userChangeStart)="minprice($event)" (userChangeEnd)="maxprice($event)"  [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+                <ngx-slider (userChange)="press(minValue,maxValue)" (userChangeStart)="minprice($event)" (userChangeEnd)="maxprice($event)"  [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
               </div>
 
 
@@ -92,32 +92,16 @@
           <div id="vendors" class="accordion-collapse collapse show">
             <div class="accordion-body">
 
-              <div class="d-flex">
-                <input class="form-check-input mt-0" type="checkbox" value=""
+              <div class="d-flex" *ngFor="let vendor of vendors ;let v = index" >
+                <input [ngModel]="selectedv === v" (change)="onvendorchange($event,v)" class="form-check-input mt-0" type="checkbox"  value="{{vendor._id}}"
                   aria-label="Checkbox for following text input">
                 <div class="d-flex justify-content-between w-50">
-                  <p style="bottom: 0.3rem;" class="ms-2 position-relative">Hub Furniture </p>
+                  <p style="bottom: 0.3rem;" class="ms-2 position-relative" > {{vendor.f_name}}</p>
                   <!-- <p style="bottom: 0.25rem;" class=" position-relative">(15)</p> -->
                 </div>
               </div>
 
-              <div class="d-flex">
-                <input class="form-check-input mt-0" type="checkbox" value=""
-                  aria-label="Checkbox for following text input">
-                <div class="d-flex justify-content-between w-50">
-                  <p style="bottom: 0.3rem;" class="ms-2 position-relative">Decorana </p>
-                  <!-- <p style="bottom: 0.25rem;" class=" position-relative">(20)</p> -->
-                </div>
-              </div>
 
-              <div class="d-flex">
-                <input class="form-check-input mt-0" type="checkbox" value=""
-                  aria-label="Checkbox for following text input">
-                <div class="d-flex justify-content-between w-50">
-                  <p style="bottom: 0.3rem;" class="ms-2 position-relative">Homzmart </p>
-                  <!-- <p style="bottom: 0.25rem;" class=" position-relative">(20)</p> -->
-                </div>
-              </div>
 
             </div>
           </div>
@@ -142,7 +126,7 @@
               <div >
                 <!-- red -->
                 <div class="d-flex justify-content-between w-50 mb-1" *ngFor="let color of colorsarr">
-                  <input *ngFor="let item of color.colors" (click)="colorChange(item)" type="color"  name="head" value="{{item}}">
+                  <input *ngFor="let item of color" (click)="colorChange(item)" type="color"  name="head" value="{{item}}">
                   <!-- <label for="{{item}}"></label> -->
                 </div>
 
@@ -215,44 +199,18 @@
       <div class="fast_search_by_categories d-flex justify-content-between align-items-center"
         style="box-shadow: 0.3rem 0.3rem 1rem black  ; padding-top: 1.5rem; margin-bottom: 2rem; border-radius: 1rem;">
         <!-- Bed Rooms -->
-        <div class="mb-3 me-3  text-center">
+        <div class="mb-3 me-3  text-center"*ngFor="let cat of categories ;let c = index" >
           <a class="  text-decoration-none text-dark " href="#">
             <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;"
               src="../../assets/cat_bedroom.webp" alt="Bed Room Photo">
             <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Bed Rooms
             </h4>
+
           </a>
+
         </div>
 
-        <!-- Living Rooms -->
-        <div class="mb-3 me-3  text-center">
-          <a class="  text-decoration-none text-dark " href="#">
-            <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;"
-              src="../../assets/cat_bedroom.webp" alt="Living Room Photo">
-            <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Living Rooms
-            </h4>
-          </a>
-        </div>
 
-        <!-- Dinning Rooms -->
-        <div class="mb-3 me-3  text-center">
-          <a class="  text-decoration-none text-dark " href="#">
-            <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;"
-              src="../../assets/cat_bedroom.webp" alt="Dinning Room Photo">
-            <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Dinning
-              Rooms</h4>
-          </a>
-        </div>
-
-        <!-- Kitchens -->
-        <div class="mb-3 me-3  text-center">
-          <a class="  text-decoration-none text-dark " href="#">
-            <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;"
-              src="../../assets/cat_bedroom.webp" alt="Kitchen Photo">
-            <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2"> Kitchens
-            </h4>
-          </a>
-        </div>
 
       </div>
 
@@ -267,8 +225,84 @@
         </form>
 
       </div>
-    </section>
+      <div class="row staff-grid-row">
+        <!-- card1 -->
+     <div class="p-2 col-md-6 col-sm-6 col-12 col-lg-4 col-xl-4"*ngFor="let item of products | paginate: { id: 'some_id',
+     itemsPerPage: 12,
+     currentPage: page,
+     totalItems: total }" >
+          <div class="card align-items-center bg-white Small shadow card1" >
+
+<!--Start image carousel-->
+<div class="" style="width:100%; height:100% ;">
+     <owl-carousel-o >
+          <ng-container *ngFor="let img of item.images">
+               <ng-template carouselSlide id="slide.id">
+                    <img class="primary-img   market-hight" [src]="img" alt="img"  />
+               </ng-template>
+          </ng-container>
+     </owl-carousel-o>
 
 
-  </div>
+     <!--Start Color carousel-->
+     <div class="mt-2">
+          <owl-carousel-o >
+               <ng-container *ngFor="let cl of item.colors; let i = index">
+                    <ng-template carouselSlide id="slides12.id">
+                         <div class="styleColor" [style.background-color]="cl"></div>
+                    </ng-template>
+               </ng-container>
+          </owl-carousel-o>
+     </div>
+     <!--End Color carousel-->
+
 </div>
+<!--End image carousel-->
+
+
+
+               <div class="card-body">
+                    <!-- title -->
+                    <h5 class="card-title text-center">{{item.title}}</h5>
+
+                    <!-- price -->
+                    <p class="card-text text-center text-secondary lh-1 CEO pt-3">
+                       {{item.price}}
+                    </p>
+                    <!-- button -->
+                    <div class="add-to-cart d-flex justify-content-center mb-2">
+                         <a >view details</a>
+                         <!-- (click)="view_details(item._id)" -->
+                    </div>
+
+               </div>
+          </div>
+     </div>
+        <!-- card2 -->
+
+
+
+
+
+      </div>
+<div >
+  <pagination-controls  id="some_id"
+  (pageChange)="pageChanged($event)"
+ >
+</pagination-controls>
+</div>
+</section>
+ <!-- <div class="single-product" *ngFor="let item of products | paginate: { id: 'some_id',
+                       itemsPerPage: 10,
+                       currentPage: page,
+                       totalItems: total }"> -->
+
+</div>
+
+
+      <!-- <app-single-product></app-single-product> -->
+
+
+
+
+

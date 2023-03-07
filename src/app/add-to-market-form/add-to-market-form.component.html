@@ -206,8 +206,8 @@
         aria-label="Default select example"
         (change)="select_Main_Category(addprodectform)"
         (change)="onChange($event)" >
-        
-        <!-- <option *ngFor="let cat of categories" value="{{cat.name}}">{{cat.name}}</option> -->
+
+         <option *ngFor="let cat of categories" value="{{cat._id}}">{{cat.name}}</option>
 
       </select>
       <div
@@ -230,7 +230,7 @@
         aria-label="Default select example"
       >
         <option selected></option>
-        <option value="{{subcat.name}}" *ngFor="let subcat of subcategories">{{subcat.name }}</option>
+        <option value="{{subcat.name}}" *ngFor="let subcat of subcategories">{{subcat.name}}</option>
       </select>
       <div
         *ngIf="

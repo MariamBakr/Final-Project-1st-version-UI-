@@ -16,6 +16,7 @@ import { SubCategories } from '../shared/models/subcategory';
 })
 export class AddToMarketFormComponent {
   categories:any
+  id:any
   subcategories:any
  subcategoryservice=inject(SubcategoryService )
  categoryservice=inject(CategoryService )
@@ -44,13 +45,14 @@ text:string=''
   Sub_Category_Data: string[] = []
   onChange($event: any) {
     this.text = $event.target.options[$event.target.options.selectedIndex].text;
+    this.id = $event.target.options[$event.target.options.selectedIndex].value;
 
     this.addprodectform.patchValue({ labelText: this.text });
 
-    console.log(this.text);
+    console.log(this.id);
     let subcategoriesObservable: Observable<SubCategories>
 
-    subcategoriesObservable= this.subcategoryservice.allSubCategory()
+    subcategoriesObservable= this.subcategoryservice.allSubCategoryof(this.id)
   // console.log(this.text)
     subcategoriesObservable.subscribe((serverProducts)=>{
      this.subcategories = serverProducts.data;
@@ -155,7 +157,7 @@ text:string=''
       //   this._Router.navigate(['./vendor-info'])
       //  }
      })
-     
+
 
     //  addprodectform.reset();
   }
