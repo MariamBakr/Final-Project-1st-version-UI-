@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-ActivatedRoute
+import { CustomerTrackOrderService } from './../Services/customer-track-order.service';
 @Component({
   selector: 'app-customertrackorder',
   templateUrl: './customertrackorder.component.html',
@@ -23,7 +22,8 @@ export class CustomertrackorderComponent {
   ////////////////////////////////////////////////////
 
   dateNow = new Date();
-  dDay = new Date('Oct 30 2023 00:00:00');
+  dDay = new Date();
+  // dDay = new Date('');
   hoursInADay = 24;
   minutesInAnHour = 60;
   SecondsInAMinute  = 60;
@@ -31,14 +31,30 @@ export class CustomertrackorderComponent {
   timeDifference: number=0;
   daysToDday: number=0;
   id:string='';
+  dateline:string=""
+ 
 
-constructor(){
-  console.log(this.dDay);
+constructor(private _CustomerTrackOrderService:CustomerTrackOrderService){
+  
+  // console.log(this.dDay);
 }
   
     ngOnInit(): void {
+this._CustomerTrackOrderService.reciveDate().subscribe({
+  next:(date)=>{
+this.dateline=date
+console.log(this.dateline);
+this.dateline=this.dateline.concat(" ","00:00:00")
+console.log(this.dateline);
+this.dDay = new Date(this.dateline);
+console.log(this.dDay);
+}
+})
 
-      // this.id=String(this..snapshot.paramMap.get("id"))
+// console.log(typeof(dDay));
+console.log(this.dDay);
+
+      
       setInterval(() => {
         this.timeDifference = this.dDay.getTime() - new  Date().getTime();
 
@@ -46,7 +62,7 @@ constructor(){
 
 
 
-        
+
         this.getTimeDifference(this.timeDifference);
       },1000)
     }
