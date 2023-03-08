@@ -70,12 +70,12 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Are you sure you want to accept this proposal from {{prop.userId}}?
+                                        Are you sure you want to accept this proposal from {{prop.userFirstName}} {{prop.userLastName}}?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal" data-backdrop="false">Close</button>
-                                        <button type="button" class="btn btn-success" data-dismiss="modal" data-backdrop="false"
+                                        <button type="button" class="btn btn-success" data-bs-dismiss="modal"
                                             (click)="acceptProposal(prop.userId,prop.customOrderId)">Accept</button>
                                     </div>
                                 </div>
@@ -93,13 +93,13 @@
                                          aria-label="Close"></button>
                                  </div>
                                  <div class="modal-body">
-                                     Are you sure you want to reject this proposal from {{prop.userId}}?
+                                     Are you sure you want to reject this proposal from {{prop.userFirstName}} {{prop.userLastName}}?
                                  </div>
                                  <div class="modal-footer">
                                      <button type="button" class="btn btn-secondary"
                                          data-bs-dismiss="modal" data-backdrop="false">Close</button>
                                      <button type="button" class="btn btn-danger"
-                                     (click)="rejectProposal(prop.userId,prop.customOrderId)" data-dismiss="modal" data-backdrop="false">Reject</button>
+                                     (click)="rejectProposal(prop.userId,prop.customOrderId)" data-bs-dismiss="modal">Reject</button>
                                  </div>
                              </div>
                          </div>

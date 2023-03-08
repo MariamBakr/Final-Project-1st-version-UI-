@@ -32,21 +32,23 @@
           <td>
             <div class="d-flex align-items-center">
               <div style="background-color: #eef1f8; height: 7rem;" *ngFor="let photo of item.product.images"></div>
-                <img class="mt-1 mx-1 img-fluid" src="{{item.product.images[0]}}">
-              </div>
+              <img class="mt-1 mx-1 img-fluid" src="{{item.product.images[0]}}">
+            </div>
 
-              <div class="ms-3">
-                <p class="mb-1">{{item.product.title}}</p>
-              </div>
-            
+            <div class="ms-3">
+              <p class="mb-1">{{item.product.title}}</p>
+            </div>
+
           </td>
           <td>{{item.product.price | currency}}</td>
           <!-- <td><input class="form-control text-center" style="width: 4rem;" type="number" [value]="prod.quantity" name="quantity"></td> -->
           <td>
             <div class="d-flex align-items-center">
-              <button style="width:0.7rem;" class="btn btn-dark fw-bold rounded-5 text-center" (click)="increment(item.product._id,item.product.quantity)">+</button>
+              <button style="width:0.7rem;" class="btn btn-dark fw-bold rounded-5 text-center"
+                (click)="increment(item.product._id,item.product.quantity)">+</button>
               <h5 class="fw-normal px-2">{{item.product.quantity}}</h5>
-              <button style="width:0.7rem;" class="btn btn-dark fw-bold rounded-5 text-center" (click)="decrement(item.product._id,item.product.quantity)">-</button>
+              <button style="width:0.7rem;" class="btn btn-dark fw-bold rounded-5 text-center"
+                (click)="decrement(item.product._id,item.product.quantity)">-</button>
             </div>
           </td>
           <td>{{item.subTotal}}</td>
@@ -89,3 +91,40 @@
       <p class="fw-bold">{{number}}</p>
       <button style="width:0.7rem;" class="btn btn-dark fs-4 rounded-5 text-center" (click)="decrement()">-</button>
   </div> -->
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-backdrop="false">Close</button>
+  <button type="button" class="btn btn-success" data-dismiss="modal" data-backdrop="false"
+    >Accept</button>
+</div>
+
+
+<!-- </div> -->
+
+<!--------------------------  Rejection  ------------->
+<div class="modal fade" id="reject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Rejecting proposal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to reject this proposal from ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-backdrop="false">Close</button>
+        <button type="button" class="btn btn-danger" 
+          data-dismiss="modal" data-backdrop="false">Reject</button>
+      </div>
+  
+
+<!-- buttons  -->
+<div class="my-3" >
+  <!-- accept button -->
+  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#accept" >
+    Accept Proposal</button>
+  <!-- reject button -->
+  <button class="ms-4 btn btn-danger" data-bs-toggle="modal" data-bs-target="#reject"
+    > Reject Proposal</button>
+</div>
