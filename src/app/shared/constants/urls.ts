@@ -62,6 +62,7 @@ export const USER_REGISTER_URL = USER_URL + '/register'
 export const GET_CLIENT_NAME_URL = USER_URL + '/get_clientName'
 export const USER_LOGIN_URL = USER_URL + '/login'
 export const USER_UPDATE_DATA_URL = USER_URL + '/update'
+export const USER_GET_DATA_URL = USER_URL + '/user'
 
 // ****** CART URL **********
 
