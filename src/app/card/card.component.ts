@@ -1,3 +1,4 @@
+import { WishlistService } from './../Services/wishlist.service';
 import { user } from './../shared/models/user';
 import { CartService } from './../Services/cart.service';
 import { Component } from '@angular/core';
@@ -15,7 +16,7 @@ export class CardComponent {
 
   products: Products[]=[];
 
-  constructor(private productsService: VendorProductsService, private cartService: CartService){
+  constructor(private productsService: VendorProductsService, private cartService: CartService, private listService: WishlistService){
     let productsObservable: Observable<Products[]>
  
     productsObservable = this.productsService.getAll()
@@ -31,6 +32,12 @@ export class CardComponent {
     cartObservable=this.cartService.addToCart(product)
     cartObservable.subscribe((serverProducts)=>{
       console.log("product in cart")
+    })
+  }
+
+  addToWishlist(product:object){
+    this.listService.addToList(product).subscribe((data)=>{
+      console.log(data)
     })
   }
 
