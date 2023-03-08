@@ -106,3 +106,9 @@ export const DISPALY_CLIENT_URL = PROPOSAL_URL + '/client'
 export const WISHLIST_URL = BASE_URL + 'wishlist'
 export const ADD_TO_WISHLIST_URL = WISHLIST_URL + '/add'
 export const REMOVE_FROM_WISHLIST_URL = WISHLIST_URL + '/remove'
+
+// ****************** Wishlist **********************/
+
+export const CLIENT_ORDER_HISTORY_URL = BASE_URL + 'clientHistory'
+
+
