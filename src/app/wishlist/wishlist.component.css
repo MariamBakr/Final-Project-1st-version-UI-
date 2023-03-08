@@ -150,6 +150,7 @@ display: flex;
      overflow: hidden;
      position: relative;
      width: 100%;
+     
 }
 
 .product-img>a {
@@ -159,6 +160,9 @@ display: flex;
 .primary-img {
      display: inline-block;
      width: 100%;
+     margin-bottom: 1rem;
+     /* width: 30vh; */
+     height: 30vh;
 }
 
 .secondary-img {

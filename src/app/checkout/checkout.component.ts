@@ -1,11 +1,12 @@
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Component, OnInit,AfterContentChecked } from '@angular/core';
+import { Component, OnInit,AfterContentChecked, AfterViewChecked } from '@angular/core';
 import { VendorProductsService } from '../Services/vendor-products.service';
 
 import { Order } from '../shared/models/order';
 import { Router } from '@angular/router';
 import { CHECKService } from '../Services/check.service';
-
+import { render } from 'creditcardpayments/creditCardPayments';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 declare let paypal:any ;
 @Component({
@@ -13,8 +14,11 @@ declare let paypal:any ;
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent implements OnInit {
- 
+export class CheckoutComponent implements OnInit, AfterViewChecked {
+  addscript: Boolean = false;
+  finalAmount: number =0;
+
+
   city: any = ['Cairo', 'Alexandria', 'Giza', 'Shubra el-Khema',
     'Port Said', 'Suez', 'El Mahalla el Kubra', 'El Mansoura',
     'Tanta', 'Asyut', 'Fayoum', 'Zagazig', 'Ismailia', 'Khusus', 'Aswan',
@@ -31,9 +35,73 @@ export class CheckoutComponent implements OnInit {
     this._VendorProductsService.checkout().subscribe((data) => {
       console.log(data);
       this.prod = data as Order;
-    })
+    });
+
+    // New paypal
+//     render({
+//       id:'#mypaypalButton',
+//       currency: 'USD',
+//       // value: `${this.prod.Total_price}`,
+//       // value: '100.00',
+//       value: `this.finalAmount`,
+//       onApprove:(details)=>{
+//         alert("transaction successfull")
+//       }
+// });
+        
+  }
+
+
+  //start New New paypal
+ 
+  paypalConfig = {
+    evn: 'sandbox',
+    client: {
+      sandbox: 'EDgbGQXh_zlKfs9HarvTgkwxLtPwLV2Lpz7HbODk483mikWisbJ0yV8GRSNxO7_Kfre9goEpnETUVFn8',
+      production: 'demo_production_client_id'
+    },
+    commit: true,
+    payment: (data: any, action: any) => {
+      return action.payment.create({
+        payment: {
+          transactions: [
+            { amount: { total: this.finalAmount, currency: 'USD' } }
+          ]
+        }
+      });
+    },
+    onAuthorize: (data: any, action: any) => {
+      return action.payment.execute().then(function () {
+        // Show a confirmation message to the buyer
+        window.alert('Thank you for your purchase!');
+      });
+    }
+  };
+
+  ngAfterViewChecked(): void {
+    if (!this.addscript) {
+      this.addPaypalScript().then(() => {
+        paypal.Button.render(this.paypalConfig, '#paypal_checkout_btn')
+      })
+    }
 
   }
+  
+
+  addPaypalScript() {
+    this.addscript = true;
+    return new Promise<any>((resolve, reject) => {
+      let scripttagElement=document.createElement('script');
+      scripttagElement.src='https://www.paypalobjects.com/api/checkout.js';
+      scripttagElement.onload = resolve;
+      document.body.appendChild(scripttagElement);
+    })
+  }
+
+//end New New paypal
+
+
+
   fisNam: string = localStorage.getItem("userName") ?? ""
  
 
@@ -52,17 +120,16 @@ export class CheckoutComponent implements OnInit {
       'addInfo': new FormControl("")
     })
 
-// ******************
-    // finalAmount:number = this.prod.Total_price;
-// ******************
-    // paypal payment
-    
+    console.log('ngOnInit Total_price', this.prod.Total_price)
+
+
+        //  paypal
     paypal.Button.render({
       // Configure environment
       env: 'sandbox',
       client: {
-        sandbox: 'AYaM7aU8l4AS202Db34oombPcN4SCUBPLdxWyWfw-G53PR4WDs7QR_yQaUH7LbT_l37BRANFiak_CGtK',
-        production: 'demo_production_client_id'
+        sandbox: 'sb-0gg3i25220040@business.example.com',
+        production: 'demo_production_client_idAYaM7aU8l4AS202Db34oombPcN4SCUBPLdxWyWfw-G53PR4WDs7QR_yQaUH7LbT_l37BRANFiak_CGtK'
       },
       // Customize button (optional)
       locale: 'en_US',
@@ -78,24 +145,17 @@ export class CheckoutComponent implements OnInit {
       // Set up a payment
       payment: function (data: any, actions: any) {
         return actions.payment.create({
-          transactions: [{
-            amount: {
-              // total: this.prod.Total_price,
-              total: "10.0",
-              currency: 'USD'
-            }
-          }]
+          transactions: [{ amount: { total: this.finalAmount, currency: 'USD' } }]
         });
       },
       // Execute the payment
-      onAuthorize: function (data:any, actions:any) {
+      onAuthorize: function (data: any, actions: any) {
         return actions.payment.execute().then(function () {
           // Show a confirmation message to the buyer
           window.alert('Thank you for your purchase!');
         });
       }
     }, '#paypal-button');
-   
 
    
   }
@@ -105,18 +165,23 @@ export class CheckoutComponent implements OnInit {
 
 
 
-showPaypal:boolean=false;
-  onSubmit() { 
-    
+  showPaypal: boolean = false;
+  onSubmit() {
+
     console.log(this.checkOutForm.value)
-    this._CHECKService.CHECK_PAYMENT(this.checkOutForm.value).subscribe((data)=>{
-   
-      this.showPaypal = true 
+    this._CHECKService.CHECK_PAYMENT(this.checkOutForm.value).subscribe((data) => {
+      this.showPaypal = true
       console.log(data)
-      console.log('showPaypal', this.showPaypal )
+      console.log('showPaypal', this.showPaypal)
     })
-   
+
   }
+
+
+
+
 
 
 }
+
+

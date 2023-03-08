@@ -18,10 +18,11 @@ export class CHECKService {
     console.log("--------------------------------")
     console.log('Data:'+Data.lastName)
     return this.http.post<any>(CHECKOUT_URL, Data);
+    // return this.http.get<any>('http://localhost:5000/vendor/products/empty')
     
   }
 
-
+ 
 
 
  
