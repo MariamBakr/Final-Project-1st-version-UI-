@@ -35,6 +35,10 @@
               <img class="mt-1 mx-1 img-fluid" src="{{item.product.images[0]}}">
             </div>
 
+
+                <div class="d-flex  ">
+                  <p class="mb-1 text-center mt-1">{{item.product.title}}</p>
+                </div>
 <!----------------------------------- modal for removing product ------------------------------------>
 <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
@@ -84,19 +88,19 @@ aria-hidden="true">
 
 
 
-            <div class="ms-3">
+            <!-- <div class="ms-3">
               <p class="mb-1">{{item.product.title}}</p>
-            </div>
+            </div> -->
 
           </td>
           <td>{{item.product.price | currency}}</td>
           <!-- <td><input class="form-control text-center" style="width: 4rem;" type="number" [value]="prod.quantity" name="quantity"></td> -->
           <td>
-            <div class="d-flex align-items-center">
-              <button style="width:0.7rem;" class="btn btn-dark fw-bold rounded-5 text-center"
+            <div class="d-flex align-items-center justify-content-center" >
+              <button style="width:2.7rem;" class="btn btn-dark fw-bold rounded-5 text-center"
                 (click)="increment(item.product._id,item.product.quantity)">+</button>
               <h5 class="fw-normal px-2">{{item.product.quantity}}</h5>
-              <button style="width:0.7rem;" class="btn btn-dark fw-bold rounded-5 text-center"
+              <button style="width:2.7rem;" class="btn btn-dark fw-bold rounded-5 text-center"
                 (click)="decrement(item.product._id,item.product.quantity)">-</button>
             </div>
           </td>

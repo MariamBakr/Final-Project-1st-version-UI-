@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 export class WishlistComponent implements OnInit{
 
   wishlistProducts:any
-  constructor(private service: WishlistService, private router: Router){}
-  constructor(private service:WishlistService, private cartService:CartService){}
+ 
+  constructor(private service: WishlistService, private cartService: CartService, private router: Router){}
 
   ngOnInit(): void {
     this.service.getAllForClient().subscribe((data)=>{
