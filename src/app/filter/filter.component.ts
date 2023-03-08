@@ -6,6 +6,7 @@ import { Products } from '../shared/models/products';
 import { CategoryService } from '../Services/category.service';
 import { Categories } from '../shared/models/category';
 import { Colors ,Vendors} from '../shared/models/colors';
+import { filteration } from '../shared/models/filteration';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
@@ -34,16 +35,18 @@ export class FilterComponent implements OnInit {
 };
   searchTextChanged:EventEmitter<string>= new EventEmitter<string>()
   products:any
+  n:string[]=[]
   page:any=1
   total:any
+  elem:string=''
   categories:any
-filteration:any={}
+filteration:filteration=new filteration
   selectedIndex:any
   subcategories:any
  filterservice= inject(FilterService )
   id: any;
   colorsarr:any
-  newcolorsarr:any
+   newcolorsarr:any
   vendors:Vendors[]=[]
   selectedv: any;
   ngOnInit(): void {
@@ -56,13 +59,6 @@ filteration:any={}
   }
     constructor(private service:CategoryService){
 
-        //let productsObservable: Observable<Products[]>
-    //    this.filterservice.allProduct().subscribe((serverProducts)=>{
-    //     this.products = serverProducts;
-    //     this.total=this.products.length
-    //     // this.page=1
-    //    console.log(this.products)
-    // })
 
         // console.log(this.products)
 
@@ -71,20 +67,25 @@ filteration:any={}
 
         this.filterservice.allColors().subscribe({
           next:(serverColors)=>{
-            this.colorsarr = serverColors;
+
             this.colorsarr = serverColors;
 
-        function removeDuplicates(colorsarr: any) {
-          let unique:any = [];
-          colorsarr.forEach((element:[]) => {
-              if (!unique.includes(element)) {
-                  unique.push(element);
-              }
-          });
-          return unique;
-      }
-      console.log(removeDuplicates(this.colorsarr))
-      console.log(this.colorsarr)
+          //   var printArray = function(arr:any) {
+
+
+          for(let i = 0; i < this.colorsarr.length;i++){
+
+
+            for(let j = 0; j <  this.colorsarr[i].length; j++){
+              this.elem=this.colorsarr[i][j]
+              this.n.push(this.elem)
+            }
+        }
+          console.log(this.n)
+
+          //console.log(printArray(this.colorsarr));
+
+      //console.log(this.colorsarr)
 
             // for (let index = 0; index < this.colorsarr.length; index++) {
             //   //console.log(this.colorsarr[index].colors)
@@ -166,8 +167,8 @@ press(min:number,max:number){
  console.log(max)
  this.minValue=min
  this.maxValue=max
- this.filteration.min=this.minValue
- this.filteration.max=this.maxValue
+ this.filteration.minValue=this.minValue
+ this.filteration.maxValue=this.maxValue
 
   productsObservable=this.filterservice.searchp(this.filteration)
   productsObservable.subscribe((serverProducts)=>{
@@ -180,7 +181,7 @@ press(min:number,max:number){
 
       onselectchange(event:any,index:any){
         this.selectedIndex = event.target.checked ? index : undefined;
-        this.filteration.cat=event.target.value
+        this.filteration.catid=event.target.value
 
         //let productsObservable: Observable<Products[]>
 //const name=event.target.value.toLowerCase()

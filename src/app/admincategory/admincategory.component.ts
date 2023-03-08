@@ -17,7 +17,7 @@ export class AdmincategoryComponent  {
 file:string=""
 name:string=""
 categoryname:string=""
-
+catid:string=''
   categories:any
   subcategories:any
  subcategoryservice=inject(SubcategoryService )
@@ -36,8 +36,9 @@ categoryname:string=""
    showform(){
     this.categoryformFlag=true;
    }
-   showsubcatform(){
+   showsubcatform(id:string){
     this.subcatformFlag=true;
+    this.catid=id
    }
 
   onFilechange(event: any) {
@@ -97,15 +98,15 @@ categoryname:string=""
       this.categories = serverCategories;
     })
   }
-  add(id:string){
+  add(){
     let image=this.file
     let name=this.name
-    console.log(id)
+    console.log(this.catid)
      let formdata=new FormData()
       formdata.append('image',image)
       formdata.append('name',name)
       let subcategoriesObservable: Observable<SubCategories>
-      subcategoriesObservable=this.subcategoryservice.createSubCategory(formdata,id)
+      subcategoriesObservable=this.subcategoryservice.createSubCategory(formdata,this.catid)
       subcategoriesObservable.subscribe((serverSubCategories)=>{
         this.subcategories = serverSubCategories;
       })
