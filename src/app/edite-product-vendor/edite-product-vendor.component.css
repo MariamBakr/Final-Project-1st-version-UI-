@@ -1,0 +1,43 @@
+.add-product-form{
+  margin: 0 auto;
+  background: hwb(34 64% 11% / 0.346) none repeat scroll 0 0;
+   border: 1px solid #ebebeb;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.btn-submit {
+  background: #444 none repeat scroll 0 0;
+  border: medium none;
+  box-shadow: 0 0 3px 0 #7c7c7c;
+  color: #fff;
+  font-weight: 500;
+  height: 2.5rem;
+  padding: 0 1rem;
+  text-transform: uppercase;
+
+
+}
+
+.form-control-color {
+width: 20% !important;
+}
+
+.btn-submit:hover {
+  background: #949A5B;
+}
+.add-Color-image:hover {
+background: #949A5B;
+color: white !important;
+}
+
+.add-Color-image  {
+border: 2px solid #d7d7d7;
+color: #b0b0b0;
+display: inline-block;
+font-size: 1rem;
+font-weight: 600;
+padding: 6px 20px;
+text-decoration: none;
+text-transform: uppercase;
+}

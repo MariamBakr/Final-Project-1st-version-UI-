@@ -53,6 +53,7 @@ import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
 import { MarketComponent } from './market/market.component';
+import { EditeProductVendorComponent } from './edite-product-vendor/edite-product-vendor.component';
 import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
@@ -102,9 +103,10 @@ import { CartComponent } from './cart/cart.component';
     AdminsubcategoryComponent,
     CartComponent,
     MarketComponent,
+    EditeProductVendorComponent,
     CartComponent
 
- 
+
   ],
   imports: [
     CommonModule,
