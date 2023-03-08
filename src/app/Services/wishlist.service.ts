@@ -9,17 +9,17 @@ import { apiResults } from '../shared/models/apiResults';
 })
 export class WishlistService {
 
-  constructor(private http:HttpClient, private service:WishlistService) { }
+  constructor(private http:HttpClient) { }
 
   getAllForClient():Observable<apiResults>{
     return this.http.get<apiResults>(WISHLIST_URL)
   }
 
-  addToList(prodId:string):Observable<string>{
-    return this.http.get<string>(ADD_TO_WISHLIST_URL+'/'+prodId)
+  addToList(product:object):Observable<apiResults>{
+    return this.http.post<apiResults>(ADD_TO_WISHLIST_URL,product)
   }
 
   removeFromList(prodId:string):Observable<apiResults>{
-    return this.http.get<apiResults>(REMOVE_FROM_WISHLIST_URL+'/'+prodId)
+    return this.http.delete<apiResults>(REMOVE_FROM_WISHLIST_URL+'/'+prodId)
   }
 }

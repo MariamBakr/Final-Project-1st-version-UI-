@@ -80,13 +80,13 @@
                                         <div class="add-action">
                                             <ul>
                                                 <!-- tooltip 1 -->
-                                                <li class="heart">
+                                                <li class="heart" (click)="addToWishlist(prod)">
                                                     <div id="tooltip1" role="tooltip">
                                                         ADD To Wishlist
                                                         <div id="arrow1" data-popper-arrow></div>
                                                     </div>
                     
-                                                    <a href="#" id="ankr1" aria-describedby="tooltip">
+                                                    <a id="ankr1" aria-describedby="tooltip" style="cursor: pointer;">
                                                         <i class="fa-regular fa-heart"></i>
                                                     </a>
                                                 </li>
