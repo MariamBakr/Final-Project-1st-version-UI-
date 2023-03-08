@@ -58,6 +58,8 @@ import { EditeProductVendorComponent } from './edite-product-vendor/edite-produc
 import { CartComponent } from './cart/cart.component';
 import { CustomertrackorderComponent } from './customertrackorder/customertrackorder.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -107,7 +109,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     EditeProductVendorComponent,
     CartComponent,
     CustomertrackorderComponent,
-    CartComponent
+    CartComponent,
+    AboutUsComponent,
+    ContactUsComponent
 
 
   ],
