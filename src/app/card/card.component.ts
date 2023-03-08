@@ -6,6 +6,8 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Observable } from 'rxjs';
 import { VendorProductsService } from '../Services/vendor-products.service';
 import { Products } from '../shared/models/products';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -16,7 +18,7 @@ export class CardComponent {
 
   products: Products[]=[];
 
-  constructor(private productsService: VendorProductsService, private cartService: CartService, private listService: WishlistService){
+  constructor(private productsService: VendorProductsService, private cartService: CartService, private listService: WishlistService, private router: Router){
     let productsObservable: Observable<Products[]>
  
     productsObservable = this.productsService.getAll()
@@ -38,6 +40,16 @@ export class CardComponent {
       console.log(data)
     })
   }
+
+
+  view_details(id: string) {
+    this.router.navigate(['/single-product', id]);
+  }
+
+
+
+
+
 
   customOptions: OwlOptions = {
     loop: true,

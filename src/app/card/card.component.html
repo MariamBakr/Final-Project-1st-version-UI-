@@ -95,15 +95,15 @@
                                                 <li class="refresh">
                     
                     
-                                                    <div id="tooltip2" role="tooltip">
-                                                        Compare
+                                                    <div id="tooltip2" role="tooltip" (click)="view_details(prod._id)">
+                                                        View Details
                                                         <div id="arrow2" data-popper-arrow></div>
                                                     </div>
                     
                     
-                                                    <a href="#" data-bs-tooltip="tooltip" aria-label="Compare"
+                                                    <a (click)="view_details(prod._id)"  href="#" data-bs-tooltip="tooltip" aria-label="Compare"
                                                         data-bs-original-title="Compare">
-                                                        <i class="fa fa-refresh"></i>
+                                                        <i  class="fa fa-refresh"></i>
                                                     </a>
                                                 </li>
                     
@@ -113,7 +113,7 @@
                                                 <!-- tooltip 3 -->
                                                 <li class="quickview eye" routerLink="/market">
                                                     <div id="tooltip3" role="tooltip" routerLink="/market">
-                                                        Quick view
+                                                         view Market
                                                         <div id="arrow3" data-popper-arrow></div>
                                                     </div>
                     

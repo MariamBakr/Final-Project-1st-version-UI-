@@ -3,6 +3,7 @@ import { WishlistService } from './../Services/wishlist.service';
 import { Component, OnInit } from '@angular/core';
 import { user } from '../shared/models/user';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-wishlist',
@@ -12,7 +13,8 @@ import { Observable } from 'rxjs';
 export class WishlistComponent implements OnInit{
 
   wishlistProducts:any
-  constructor(private service:WishlistService, private cartService:CartService){}
+ 
+  constructor(private service: WishlistService, private cartService: CartService, private router: Router){}
 
   ngOnInit(): void {
     this.service.getAllForClient().subscribe((data)=>{
@@ -38,4 +40,12 @@ export class WishlistComponent implements OnInit{
       this.getAll()
     })
   }
+
+
+  view_details(id: string) {
+    this.router.navigate(['/single-product', id]);
+  }
+
+
+
 }

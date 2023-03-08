@@ -229,7 +229,9 @@ ul {
 .primary-img {
     display: inline-block;
     width: 100% !important;
-    height: 90% !important;
+    height: 30vh;
+    padding-bottom: 1rem !important;;
+    /* height: 90% !important; */
 }
 
 .secondary-img {
