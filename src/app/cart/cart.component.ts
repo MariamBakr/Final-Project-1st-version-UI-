@@ -91,7 +91,7 @@ increment(id:string,newQty:number){
 
 decrement(id:string,newQty:number){
   let num=--newQty;
-  if(num > 1){
+  if(num >= 1){
     this.service.UpdateCart(num,id).subscribe((data)=>{
       console.log(data)
       this.getAll()
