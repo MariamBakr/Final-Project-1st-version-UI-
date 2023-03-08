@@ -39,6 +39,7 @@ export class CounterComponent implements OnInit{
 
    getTimeDifference (timeDifference:number) {
     this.seconds.nativeElement.innerText = Math.floor((timeDifference) / (this.milliSecondsInASecond) % this.SecondsInAMinute);
+    // console.log(this.seconds.nativeElement.innerText);
     this.minutes.nativeElement.innerText = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour) % this.SecondsInAMinute);
     this.hours.nativeElement.innerText = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute) % this.hoursInADay);
     this.days.nativeElement.innerText = Math.floor(((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute * this.hoursInADay))%7);

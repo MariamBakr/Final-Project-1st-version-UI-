@@ -27,6 +27,7 @@ import { RoleGardGuard } from './gard/role-gard.guard';
 import { MarketComponent } from './market/market.component';
 import { SingleProductComponent }from './single-product/single-product.component';
 import { VendorJobproposalComponent } from './vendor-jobproposal/vendor-jobproposal.component';
+import { CustomertrackorderComponent } from './customertrackorder/customertrackorder.component';
 
 const routes: Routes = [
 
@@ -53,7 +54,10 @@ const routes: Routes = [
             // ................... Client Childrens 
               {path:'',redirectTo:'info', pathMatch:'full'},
               { path: 'purchasehistory', component: PurchaseHistoryComponent },
-              { path: 'custom_orders', component: CustomerMonitorJobsComponent },
+              { path: 'custom_orders', component: CustomerMonitorJobsComponent,children:[
+              { path: 'trackOrder', component: CustomertrackorderComponent },
+
+              ] },
               { path: 'proposals_page', component: VendorProposalSendToCustomerComponent },
               { path: 'create_orders', component: CustomerCreateCustomOrderComponent },
               {path:'wishlist',component:WishlistComponent},
@@ -90,6 +94,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

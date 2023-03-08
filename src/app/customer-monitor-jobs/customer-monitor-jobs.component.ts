@@ -12,6 +12,7 @@ export class CustomerMonitorJobsComponent {
   proposals:any
 
   constructor(private service:ProposalService, private router:Router){
+    console.log("asdasdasd");
     this.service.getAllOrders().subscribe((data)=>{
       this.proposals = data.data;
     })
@@ -19,6 +20,10 @@ export class CustomerMonitorJobsComponent {
 
   seeProposals(id:string){
     this.router.navigate(['client/proposals',id])
+  }
+
+  goToCustomerTrackOrder(id:string){
+    this.router.navigate(['client/trackOrder',id])
   }
 
 }
