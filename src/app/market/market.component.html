@@ -1,59 +1,98 @@
 <div class="container">
-      <!-- All card -->
-      <div class="row staff-grid-row">
-        <!-- card1 -->
-     <div class="p-2 col-md-6 col-sm-6 col-12 col-lg-4 col-xl-3"*ngFor="let prod of products" >
-          <div class="card align-items-center bg-white Small shadow card1" >
+     <!-- All card -->
+     <div class="row staff-grid-row">
+          <!-- card1 -->
+          <div class="p-2 col-md-6 col-sm-6 col-12 col-lg-4 col-xl-3" *ngFor="let prod of products">
+               <div class="card align-items-center bg-white Small shadow card1">
 
-<!--Start image carousel-->
-<div class="" style="width:100%; height:100% ;">
-     <owl-carousel-o [options]="customOptions">
-          <ng-container *ngFor="let img of prod.images">
-               <ng-template carouselSlide id="slide.id">
-                    <img class="primary-img   market-hight" [src]="img" alt="img"  />
-               </ng-template>
-          </ng-container>
-     </owl-carousel-o>
+                    <!--Start image carousel-->
+                    <!-- <div class="" style="width:100%; height:100% ;">
+                         <owl-carousel-o [options]="customOptions">
+                              <ng-container *ngFor="let img of prod.images">
+                                   <ng-template carouselSlide id="slide.id">
+                                        <img class="primary-img   market-hight" [src]="img" alt="img" />
+                                   </ng-template>
+                              </ng-container>
+                         </owl-carousel-o>
 
-    
-     <!--Start Color carousel-->
-     <div class="mt-2">
-          <owl-carousel-o [options]="customOptions1">
-               <ng-container *ngFor="let cl of prod.colors; let i = index">
-                    <ng-template carouselSlide id="slides12.id">
-                         <div class="styleColor" [style.background-color]="cl"></div>
-                    </ng-template>
-               </ng-container>
-          </owl-carousel-o>
-     </div>
-     <!--End Color carousel-->
+                         </div> -->
 
-</div>
-<!--End image carousel-->
+                         <!-- Slide Show -->
+                         
+                              <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                                   <div class="carousel-inner" >
+                                        <div style="width:100%; height:100% ;" *ngFor="let img of prod.images" class="carousel-item active" data-bs-interval="10000">
+                                             <img [src]="img" class="d-block w-100 market-hight" alt="...">
+                         
+                                        </div>
+                                     
+                                   </div>
+                                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                                        data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                   </button>
+                                   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                                        data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                   </button>
+                              </div>
+                        
+                         
+                         <!-- end of slide show -->
 
 
-     
-               <div class="card-body">
-                    <!-- title -->
-                    <h5 class="card-title text-center">{{prod.title}}</h5>
 
-                    <!-- price -->
-                    <p class="card-text text-center text-secondary lh-1 CEO pt-3">
-                       {{prod.price}}
-                    </p>
-                    <!-- button -->
-                    <div class="add-to-cart d-flex justify-content-center mb-2">
-                         <a (click)="view_details(prod._id)">view details</a>
+
+                         <!--Start Color carousel-->
+                         <!-- <div class="mt-2">
+                              <owl-carousel-o [options]="customOptions1">
+                                   <ng-container *ngFor="let cl of prod.colors; let i = index">
+                                        <ng-template carouselSlide id="slides12.id">
+                                             <div class="styleColor" [style.background-color]="cl"></div>
+                                        </ng-template>
+                                   </ng-container>
+                              </owl-carousel-o>
+                         </div> -->
+                         <!--End Color carousel-->
+
+                         <!--start Color static-->
+                         <div class=" d-flex justify-content-center backcolor " style="width:100%; height:100% ;">
+
+                              <div *ngFor="let cl of prod.colors; let i = index" class="m-2 styleColor " [style.background-color]="cl"></div>
+                              
+                         </div>
+                         <!--End Color static-->
+                        
+
+                  
+                    <!--End image carousel-->
+
+                   
+
+
+                    <div class="card-body ">
+                         <!-- title -->
+                         <h5 class="card-title text-center">{{prod.title}}</h5>
+
+                         <!-- price -->
+                         <p class="card-text text-center text-secondary lh-1 CEO pt-3">
+                              {{prod.price}}
+                         </p>
+                         <!-- button -->
+                         <div class="add-to-cart d-flex justify-content-center mb-2">
+                              <a (click)="view_details(prod._id)">view details</a>
+                         </div>
+
                     </div>
-     
                </div>
           </div>
+          <!-- card2 -->
+
+
+
+
+
      </div>
-        <!-- card2 -->
-   
-  
-
-  
-
-      </div>
-    </div>
+</div>

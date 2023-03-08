@@ -53,9 +53,12 @@ import { CustomOrderDetailsForVendorComponent } from './custom-order-details-for
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.component';
 import { MarketComponent } from './market/market.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 import { EditeProductVendorComponent } from './edite-product-vendor/edite-product-vendor.component';
 import { CartComponent } from './cart/cart.component';
 import { CustomertrackorderComponent } from './customertrackorder/customertrackorder.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 @NgModule({
   declarations: [
     FilterComponent,
@@ -100,13 +103,14 @@ import { CustomertrackorderComponent } from './customertrackorder/customertracko
 
     VendorJobproposalComponent,
     CustomOrderDetailsForVendorComponent,
-
+    EditeProductVendorComponent,
     AdminsubcategoryComponent,
     CartComponent,
     MarketComponent,
     EditeProductVendorComponent,
     CartComponent,
-    CustomertrackorderComponent
+    CustomertrackorderComponent,
+    CartComponent
 
 
   ],
@@ -116,6 +120,7 @@ import { CustomertrackorderComponent } from './customertrackorder/customertracko
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
+    NgxPaginationModule,
     NgbCarouselModule,
     CarouselModule,
     BrowserAnimationsModule,
@@ -123,7 +128,8 @@ import { CustomertrackorderComponent } from './customertrackorder/customertracko
     ReactiveFormsModule,
     FontAwesomeModule,
     NgxSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPayPalModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

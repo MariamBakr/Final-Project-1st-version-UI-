@@ -9,7 +9,7 @@
             <div class="card-body text-center">
               <img src="../../assets/client.png" alt="avatar"
                 class="rounded-circle img-fluid" style="width: 150px;">
-              <h5 class="my-3">Vendor Name</h5>
+              <h5 class="my-3">{{user.f_name}} {{user.l_name}}</h5>
               <p class="text-muted mb-1">Product Manger @ </p>
               <div class = "Vendor-rating">
                   <span><i style="color: goldenrod;" class = "fas fa-star"></i></span>
@@ -24,12 +24,12 @@
 
 
   <!-- Button trigger modal for edit profile -->
-   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+   <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Edit Profile
-    </button>
+    </button> -->
 
                                       <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
@@ -108,7 +108,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   <!-- <button type="button" class="btn btn-outline-primary ms-1">Show</button> -->
         </div>
@@ -120,11 +120,11 @@
             <div class="card-body p-0">
               <div class="list-group">
                <!-- for router links -->
-                <a   class="list-group-item list-group-item-action" routerLink="vendor-info">My Profile</a>
-                <a  class="list-group-item list-group-item-action" routerLink="vendor-find-jop">My Jops</a>
-                <a  class="list-group-item list-group-item-action" routerLink="vendor-orders-market">My Market</a>
-                <a class="list-group-item list-group-item-action " routerLink="add-form">Add New Product</a>
-                <a class="list-group-item list-group-item-action " routerLink="myproduct"> My Product</a>
+                <a   class="list-group-item list-group-item-action" routerLink="">Info</a>
+                <!-- <a  class="list-group-item list-group-item-action" routerLink="vendor-find-jop">My Jops</a> -->
+                <a  class="list-group-item list-group-item-action" routerLink="vendor-orders-market">Products</a>
+                <!-- <a class="list-group-item list-group-item-action " routerLink="add-form">Add New Product</a> -->
+                <!-- <a class="list-group-item list-group-item-action " routerLink="myproduct"> My Product</a> -->
               </div>
             </div>
           </div>
@@ -135,7 +135,73 @@
         <!-- For router outlet -->
         <div class="col-lg-8">
 
-            
+          <div   class="card mb-4">
+            <div  class="card-body">
+                            <div class="row ">
+                              <div class="col-sm-3">
+                                <p class="mb-0">Full Name</p>
+                              </div>
+                              <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{user.f_name}} {{user.l_name}}</p>
+                              </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <p class="mb-0">Email</p>
+                              </div>
+                              <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{user.email}}</p>
+                              </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <p class="mb-0">Phone</p>
+                              </div>
+                              <div class="col-sm-9">
+                                <p class="text-muted mb-0">(097) 234-5678</p>
+                              </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <p class="mb-0">Mobile</p>
+                              </div>
+                              <div class="col-sm-9">
+                                <p class="text-muted mb-0">(098) 765-4321</p>
+                              </div>
+                            </div>
+                            <hr>
+        
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <p class="mb-0">Tax number </p>
+                              </div>
+                              <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{user.taxNumber}}</p>
+                              </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <p class="mb-0">Address</p>
+                              </div>
+                              <div class="col-sm-9">
+                                <p class="text-muted mb-0">Bay Area</p>
+                              </div>
+                            </div>
+        
+                            <div class="row">
+                                <div class="col-sm-3">
+                                  <p class="mb-0"></p>
+                                </div>
+                                <div class="col-sm-9">
+                                  <p class="text-muted mb-0">San Francisco, CA</p>
+                                </div>
+                              </div>
+            </div>
+            </div>
             <router-outlet></router-outlet>
           </div>
 

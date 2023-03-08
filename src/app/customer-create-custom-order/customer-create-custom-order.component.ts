@@ -97,6 +97,8 @@ constructor(private service:CategoryService){
     dimensionsl:'',
     dimensionsh:'',
 title:'',
+category:'',
+subcategory:'',
     materials:'',
     quantity:0,
     color:'',
@@ -117,13 +119,10 @@ showSubCategory(id:string){
   this.category=id
   console.log(id)
   let subcategoriesObservable: Observable<SubCategories>
-
   subcategoriesObservable= this.service.getSubCategoryOfCategory(id)
-
   subcategoriesObservable.subscribe((serverProducts)=>{
-   this.subcategories = serverProducts.data;
-
- })
+  this.subcategories = serverProducts.data;
+})
 
 
 
@@ -143,6 +142,7 @@ onFilechange(event: any) {
 }
 //navigation for the second Tab
 next2(){
+
   this.step2.nativeElement.classList.add('active');
   this.nav2.nativeElement.classList.add('active');
   this.tab2.nativeElement.classList.add('active','show');
@@ -165,6 +165,21 @@ prev2(){
 }
 //navigation for the third Tab
 next3(){
+this.submitted=true
+
+this.customOrder.title=this.customOrderForm.value.title;
+
+this.customOrder.dimensionsl=this.customOrderForm.value.DimensionsL;
+this.customOrder.dimensionsh=this.customOrderForm.value.DimensionsH;
+this.customOrder.dimensionsw=this.customOrderForm.value.DimensionsW;
+this.customOrder.materials=this.customOrderForm.value.Material;
+this.customOrder.quantity=this.customOrderForm.value.Quantity;
+this.customOrder.color=this.customOrderForm.value.Color_Product;
+this.customOrder.startPrice=this.customOrderForm.value.startPrice;
+this.customOrder.endPrice=this.customOrderForm.value.endPrice;
+this.customOrder.date=this.customOrderForm.value.Date;
+this.customOrder.description=this.customOrderForm.value.Description;
+this.customOrder.images=this.images
   this.step3.nativeElement.classList.add('active');
   this.nav3.nativeElement.classList.add('active');
   this.tab3.nativeElement.classList.add('active','show');
@@ -172,6 +187,8 @@ next3(){
   this.step2.nativeElement.classList.remove('active');
   this.nav2.nativeElement.classList.remove('active');
   this.tab2.nativeElement.classList.remove('active','show');
+
+  console.log(this.customOrderForm.value.Color_Product)
 }
 prev3(){
   this.step2.nativeElement.classList.add('active');
@@ -185,13 +202,12 @@ prev3(){
 
 onSubmit(){
 
-  this.submitted=true;
+
   this.customOrder.title=this.customOrderForm.value.title;
 
   this.customOrder.dimensionsl=this.customOrderForm.value.DimensionsL;
   this.customOrder.dimensionsh=this.customOrderForm.value.DimensionsH;
   this.customOrder.dimensionsw=this.customOrderForm.value.DimensionsW;
-
   this.customOrder.materials=this.customOrderForm.value.Material;
   this.customOrder.quantity=this.customOrderForm.value.Quantity;
   this.customOrder.color=this.customOrderForm.value.Color_Product;
@@ -201,7 +217,7 @@ onSubmit(){
   this.customOrder.description=this.customOrderForm.value.Description;
   this.customOrder.images=this.images
 
-  console.log(this.customOrderForm.value.color)
+  const c=this.customOrderForm.value.Color_Product.replace('#','')
   // this.customOrderForm.reset();
 
   let formdata=new FormData()
@@ -215,7 +231,7 @@ onSubmit(){
    formdata.append('duedate',this.customOrderForm.value.Date)
    formdata.append('min',this.customOrderForm.value.endPrice)
    formdata.append('max',this.customOrderForm.value.startPrice)
-   formdata.append('Color_Product',this.customOrderForm.value.Color_Produc)
+   formdata.append('Color_Product',c)
    formdata.append('quantity',this.customOrderForm.value.Quantity)
    formdata.append('DimensionsL',this.customOrderForm.value.DimensionsL)
    formdata.append('DimensionsW',this.customOrderForm.value.DimensionsW)
@@ -226,7 +242,7 @@ onSubmit(){
    formdata.append('subcategoryid',this.subcategory)
 
 
-
+console.log(formdata)
 
   let customOrdersObservable: Observable<CustomOrder>
   customOrdersObservable=this.customorderservice.addCustomOrder(formdata)

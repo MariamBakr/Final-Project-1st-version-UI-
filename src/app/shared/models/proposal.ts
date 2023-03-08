@@ -1,8 +1,15 @@
 export class Proposal{
-    vendorId!:string;
-    description!:string;
-    images!:[];
-    deadline!:string;
-    status!:boolean;
-    offeredPrice!:number;
+  job_proposal!:string;
+  job_deadline!:string;
+  offered_price!:number;
+  userId!:string;
+  customOrderId!:string;
+  work_samples!:[];
+  status!:boolean;
   }
+  
+
+
+
+
+

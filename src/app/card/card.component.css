@@ -215,6 +215,7 @@ ul {
     overflow: hidden;
     position: relative;
     width: 100%;
+  
 }
 
 .product-img>a {
@@ -223,7 +224,8 @@ ul {
 
 .primary-img {
     display: inline-block;
-    width: 100%;
+    width: 100% !important;
+    height: 90% !important;
 }
 
 .secondary-img {
@@ -232,7 +234,8 @@ ul {
     position: absolute;
     top: 0;
     transition: all 0.3s ease 0s;
-    width: 100%;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .single-product:hover .secondary-img {

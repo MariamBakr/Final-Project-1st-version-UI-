@@ -20,7 +20,6 @@ export class AuthInterceptor implements HttpInterceptor {
       headers: request.headers.set('authorization', `bearer ${this.auth.getToken()}`)
     }
     )
-    console.log(res)
     return next.handle(res);
   }
 }

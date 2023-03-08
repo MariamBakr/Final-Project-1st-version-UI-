@@ -1,3 +1,5 @@
+import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
+import { CustomerpageForJobdetailsAndVendorsproposalsComponent } from './customerpage-for-jobdetails-and-vendorsproposals/customerpage-for-jobdetails-and-vendorsproposals.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -61,7 +63,11 @@ const routes: Routes = [
               {path:'wishlist',component:WishlistComponent},
               {path:'info',component:CustomerInfoComponent},
               {path:'cart',component:CartComponent},
+              {path:'proposals/:id',component:CustomerpageForJobdetailsAndVendorsproposalsComponent},
         ] },
+        {path:'vendorProfile/:id',component:VendorProfileComponent,children:[
+          // {path:'',redirectTo:'vendorProfile/:id',pathMatch:'full'}
+        ]},
 
     
     {path:'customOrderDetails/:id',canActivate:[RoleGardGuard] ,component:VendorJobproposalComponent},

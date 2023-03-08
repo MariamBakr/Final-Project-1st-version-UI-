@@ -49,7 +49,7 @@
               <button style="width:0.7rem;" class="btn btn-dark fw-bold rounded-5 text-center" (click)="decrement(item.product._id,item.product.quantity)">-</button>
             </div>
           </td>
-          <td>$44.00</td>
+          <td>{{item.subTotal}}</td>
           <td>
             <button type="button" class="close bg-danger border border-danger rounded-5" aria-label="Close"
               style="color:white" (click)="delete(item.product._id)">
