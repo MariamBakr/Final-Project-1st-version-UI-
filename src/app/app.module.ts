@@ -84,13 +84,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     VendorProposalSendToCustomerComponent,
     VendorOrdersMarketComponent,
     CustomerMonitorJobsComponent,
-
     CustomerProfileComponent,
     CustomerComponent,
     VendorEditProfileComponent,
     VendorProfileComponent,
     CustomerTrackOrderComponent,
-
     VendorFindJobComponent,
     CustomerCreateCustomOrderComponent,
     WishlistComponent,
@@ -100,7 +98,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CustomerInfoComponent,
     VendorInfoComponent,
     AdmincategoryComponent,
-
     VendorJobproposalComponent,
     CustomOrderDetailsForVendorComponent,
     EditeProductVendorComponent,
@@ -115,7 +112,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 
   ],
   imports: [
-    CommonModule,
+    CommonModule,  
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
