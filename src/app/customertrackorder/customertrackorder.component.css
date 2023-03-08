@@ -1,0 +1,61 @@
+
+@media(max-width:880px){
+    #back{
+        height:40rem !important;
+        background-size:cover !important;
+    }
+    #front{
+        height:40rem !important;
+    }
+
+}
+
+@media (max-width:530px){
+    #back{
+        height:50rem !important;
+        background-size:cover !important;
+    }
+    #front{
+        height:50rem !important;
+    }
+
+}
+
+@media (max-width:345px){
+    #back{
+        height:70rem !important;
+        background-size:cover !important;
+    }
+    #front{
+        height:70rem !important;
+    }
+}
+
+
+#back{
+    background-image: url("../../assets/countdown_bg.jpg");
+    background-size: 100% 100%;
+    height: 35rem;
+}
+
+#front{
+    background-color: rgba(8, 8, 8, 0.539);
+    height: 35rem;
+    /* font-family:sans-serif; */
+}
+
+.block{
+    background-color: #f2f2f2b8;
+}
+
+.t{
+    font-size: 2.5rem;
+    font-weight: light;
+}
+
+.btn{
+    background-color: #e4c6a2;
+}
+.row{
+    margin:0 0;
+}

@@ -55,6 +55,7 @@ import { AdminsubcategoryComponent } from './adminsubcategory/adminsubcategory.c
 import { MarketComponent } from './market/market.component';
 import { EditeProductVendorComponent } from './edite-product-vendor/edite-product-vendor.component';
 import { CartComponent } from './cart/cart.component';
+import { CustomertrackorderComponent } from './customertrackorder/customertrackorder.component';
 @NgModule({
   declarations: [
     FilterComponent,
@@ -104,7 +105,8 @@ import { CartComponent } from './cart/cart.component';
     CartComponent,
     MarketComponent,
     EditeProductVendorComponent,
-    CartComponent
+    CartComponent,
+    CustomertrackorderComponent
 
 
   ],
