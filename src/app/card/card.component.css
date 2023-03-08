@@ -110,7 +110,7 @@ ul {
 .product-details .ratings ul li {
     color: #949A5B;
     display: inline-block;
-    font-size: 13px;
+    font-size: 1.5rem;
     line-height: 21px;
 }
 
@@ -120,7 +120,7 @@ ul {
 
 .product-name h3 a {
     color: #323334;
-    font-size: 16px;
+    font-size: 2rem;
     font-weight: 700;
     line-height: 20px;
     text-transform: initial;
@@ -130,7 +130,7 @@ ul {
     background-color: #949A5B;
     color: #FFF;
     font-weight: 500;
-    width: 100px;
+    width: 150px;
     border-radius: 0 0 0 0;
     visibility: visible;
     z-index: 1030;
@@ -145,19 +145,20 @@ ul {
 }
 
 .price-box span {
+   
     font-weight: normal;
     margin: 0 5px;
 }
 
 .price-box .old-price {
     color: #bbb;
-    font-size: 13px;
+    font-size: 1.5rem;
     text-decoration: line-through;
 }
 
 .price-box .new-price {
     color: #949A5B;
-    font-size: 14px;
+    font-size: 1.5rem;
 }
 
 /*start sale-text */
@@ -214,9 +215,12 @@ ul {
 .product-img {
     overflow: hidden;
     position: relative;
-    width: 100%;
+    width: 30vh;
+    height: 30vh;
   
 }
+/* Start Color carousel */
+
 
 .product-img>a {
     display: block;

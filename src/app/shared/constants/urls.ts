@@ -90,7 +90,7 @@ export const POST_NEW_CUSTUMORDER_PROPOSAL_URL = BASE_URL + 'proposal/add_propos
 // ****************** CHECKOUT URL **************************
 
 export const VENDOR_PRODUCT_BY_ID_URL = USER_URL + '/order'
-export const CHECKOUT_URL = USER_URL + 'CHECKPAYMENT'
+export const CHECKOUT_URL = USER_URL + '/CHECKPAYMENT'
 
 // ****************** Proposals **********************/
 

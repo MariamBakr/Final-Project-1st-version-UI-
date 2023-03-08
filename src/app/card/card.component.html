@@ -42,7 +42,7 @@
                                     <div class="product-details">
                     
                                         <!-- star -->
-                                        <div class="ratings no-rating row">
+                                        <div class="ratings no-rating row ">
                                             <ul>
                                                 <li><i class="fa-solid fa-star"></i></li>
                                                 <li><i class="fa-solid fa-star"></i></li>
@@ -53,14 +53,15 @@
                                         </div>
                     
                                         <!-- product-name -->
-                                        <div class="product-name">
+                                        <div class="product-name pt-3">
                                             <h3><a href="#">{{prod.title}}</a></h3>
                                         </div>
                     
                                         <!-- price-box -->
-                                        <div class="price-box">
-                                            <span class="old-price">{{prod.price}}</span>
-                                            <span class="new-price">$155.00</span>
+                                        <div class="price-box ">
+                                            <!-- <span class="old-price">$155.00</span> -->
+                                            <span class="new-price">{{prod.price}}</span>
+                                            
                                         </div>
                                     </div>
                     
@@ -69,8 +70,8 @@
                     
                                         <span class="sale-text">sale</span>
                     
-                                        <a href="#" *ngFor="let img of prod.images">
-                                            <img  class="primary-img" [src]="img"
+                                        <a href="#" >
+                                            <img  class="primary-img" [src]="prod.images[0]"
                                                 alt="">
                     
                                             <!-- <img  class="secondary-img"
@@ -110,8 +111,8 @@
                                                 <!-- Button trigger modal -->
                     
                                                 <!-- tooltip 3 -->
-                                                <li class="quickview eye">
-                                                    <div id="tooltip3" role="tooltip">
+                                                <li class="quickview eye" routerLink="/market">
+                                                    <div id="tooltip3" role="tooltip" routerLink="/market">
                                                         Quick view
                                                         <div id="arrow3" data-popper-arrow></div>
                                                     </div>
@@ -119,7 +120,7 @@
                     
                     
                     
-                                                    <a href="#" title="Quick view" data-bs-toggle="modal" data-bs-target="#productModal">
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#productModal">
                                                         <i class="fa fa-eye"></i>
                                                     </a>
                                                 </li>
@@ -129,7 +130,7 @@
                                     
                                     <!-- button -->
                                     <div class="add-to-cart">
-                                        <a routerLink="" (click)="addToCart(prod)">add to cart</a>
+                                        <a routerLink="" (click)="addToCart(prod)">Add to cart</a>
                                     </div>
                                 </div>
                     

@@ -40,6 +40,7 @@ export class CardComponent {
     touchDrag: false,
     pullDrag: false,
     dots: false,
+    // stagePadding:-3.2,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {
@@ -50,7 +51,7 @@ export class CardComponent {
         items: 2
       },
       740: {
-        items: 3
+        items: 2
       },
       940: {
         items: 3,
