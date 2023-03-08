@@ -30,9 +30,7 @@ export class CardComponent {
  
   addToCart(product:object){
     console.log('clicked')
-    let cartObservable: Observable<user>
-    cartObservable=this.cartService.addToCart(product)
-    cartObservable.subscribe((serverProducts)=>{
+    this.cartService.addToCart(product).subscribe((data)=>{
       console.log("product in cart")
     })
   }

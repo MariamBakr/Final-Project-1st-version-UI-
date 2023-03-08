@@ -4,7 +4,8 @@ import { Proposal } from './../shared/models/proposal';
 import { ProposalService } from './../Services/proposal.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import * as bootstrap from "bootstrap";
+import * as $ from 'jquery';
 @Component({
   selector: 'app-customerpage-for-jobdetails-and-vendorsproposals',
   templateUrl: './customerpage-for-jobdetails-and-vendorsproposals.component.html',
@@ -52,16 +53,17 @@ export class CustomerpageForJobdetailsAndVendorsproposalsComponent implements On
         this.router.navigate(['client/custom_orders'])
     })
     //to remove modal backdrop (overlay)
-    $('.modal-backdrop').remove()
-    $(document.body).removeClass("modal-open");
+    // $('.modal-backdrop').remove()
+    // $(document.body).removeClass("modal-open");
+    // $('#accept').modal('hide');
   }
 
   rejectProposal(userId:string,customOrder:string){
     this.service.rejectProposal(userId,customOrder).subscribe((data)=>{
         this.getAll()
     })
-    $('.modal-backdrop').remove()
-    $(document.body).removeClass("modal-open");
+    // $('.modal-backdrop').remove()
+    // $(document.body).removeClass("modal-open");
 
   }
 

@@ -40,23 +40,17 @@ export class CartComponent {
   }
 
   delete(id:string){
-    if(window.confirm("Are you sure you want to delete this product from your cart?")){
        this.service.deleteFromCart(id).subscribe((data)=>{
         this.products = data;
         this.getAll()
-       },(err)=>{
-        console.log(err)
-       }
-    )
-    }
+    
+    })
   }
 
   emptyCart(){
-    if(window.confirm("Are you sure you want to empty your cart?")){
       this.service.emptyCart().subscribe((data)=>{
             this.getAll();
-        })
-      }
+        })  
   }
   
 
@@ -91,7 +85,7 @@ increment(id:string,newQty:number){
 
 decrement(id:string,newQty:number){
   let num=--newQty;
-  if(num > 1){
+  if(num >= 1){
     this.service.UpdateCart(num,id).subscribe((data)=>{
       console.log(data)
       this.getAll()

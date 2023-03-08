@@ -56,7 +56,10 @@ import { MarketComponent } from './market/market.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { EditeProductVendorComponent } from './edite-product-vendor/edite-product-vendor.component';
 import { CartComponent } from './cart/cart.component';
+import { CustomertrackorderComponent } from './customertrackorder/customertrackorder.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -83,13 +86,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     VendorProposalSendToCustomerComponent,
     VendorOrdersMarketComponent,
     CustomerMonitorJobsComponent,
-
     CustomerProfileComponent,
     CustomerComponent,
     VendorEditProfileComponent,
     VendorProfileComponent,
     CustomerTrackOrderComponent,
-
     VendorFindJobComponent,
     CustomerCreateCustomOrderComponent,
     WishlistComponent,
@@ -99,19 +100,23 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CustomerInfoComponent,
     VendorInfoComponent,
     AdmincategoryComponent,
-
     VendorJobproposalComponent,
     CustomOrderDetailsForVendorComponent,
     EditeProductVendorComponent,
     AdminsubcategoryComponent,
     CartComponent,
     MarketComponent,
-    CartComponent
+    EditeProductVendorComponent,
+    CartComponent,
+    CustomertrackorderComponent,
+    CartComponent,
+    AboutUsComponent,
+    ContactUsComponent
 
 
   ],
   imports: [
-    CommonModule,
+    CommonModule,  
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

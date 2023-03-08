@@ -29,9 +29,7 @@ export class SingleProductComponent implements OnInit  {
   addToCart(product: object) {
     console.log('clicked')
     console.log(product)
-    let cartObservable: Observable<user>
-    cartObservable = this.cartService.addToCart(product)
-    cartObservable.subscribe((serverProducts) => {
+    this.cartService.addToCart(product).subscribe((data) => {
       console.log("product in cart")
     })}
 

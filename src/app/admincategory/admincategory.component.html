@@ -9,8 +9,8 @@
                 <div class="col-1 text-center cursor" *ngFor="let cat of categories">
                     <img  (click)="showSubCategory(cat._id)" [src]="cat.image" class="w-100 h-100" >
                     <p>{{cat.name}}</p>
-                    
-                    <button (click)="showsubcatform()" class="btn btn-sm btn-info rounded-0 " data-bs-toggle="modal" data-bs-target="#exampleModal" >Add Subcategories</button>
+
+                    <button (click)="showsubcatform(cat._id)" class="btn btn-sm btn-info rounded-0 " data-bs-toggle="modal" data-bs-target="#exampleModal" >Add Subcategories</button>
         <button  class="btn btn-warning rounded-0" data-bs-toggle="modal" data-bs-target="#exampleModal3">Edit</button>
 
                     <button (click)="deleteCat(cat._id)" class="btn btn-danger rounded-0" >Delete</button>
@@ -30,7 +30,7 @@
                               <input name="name" (change)="onInputChange($event)" type="text" class="form-control" id="exampleInputname" aria-describedby="name" ngModel>
 
 
-                              <input class="btn btn-primary mt-2 ms-5" (click)="add(cat._id)" type = "submit" value = "Save changes">
+                              <input class="btn btn-primary mt-2 ms-5" (click)="add()" type = "submit" value = "Save changes">
 
                               <button type="button" class="btn btn-secondary mt-2" data-bs-dismiss="modal">Cancel</button>
                               </form>
@@ -124,7 +124,7 @@
                   <input name="name" (change)="onInputChange($event)" type="text" class="form-control" id="exampleInputname" value="name"  ngModel>
 
 
-                  <input class="btn btn-primary mt-2 ms-3" (click)="add(subcat._id)" type = "submit" value = "Save changes">
+                  <input class="btn btn-primary mt-2 ms-3" (click)="add()" type = "submit" value = "Save changes">
                 <button type="button" class="btn btn-secondary mt-2" data-bs-dismiss="modal">Cancel</button>
 
                 </form>

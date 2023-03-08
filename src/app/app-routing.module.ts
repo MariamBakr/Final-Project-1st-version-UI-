@@ -1,3 +1,5 @@
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
 import { CustomerpageForJobdetailsAndVendorsproposalsComponent } from './customerpage-for-jobdetails-and-vendorsproposals/customerpage-for-jobdetails-and-vendorsproposals.component';
 import { CheckoutComponent } from './checkout/checkout.component';
@@ -27,6 +29,7 @@ import { RoleGardGuard } from './gard/role-gard.guard';
 import { MarketComponent } from './market/market.component';
 import { SingleProductComponent }from './single-product/single-product.component';
 import { VendorJobproposalComponent } from './vendor-jobproposal/vendor-jobproposal.component';
+import { CustomertrackorderComponent } from './customertrackorder/customertrackorder.component';
 
 const routes: Routes = [
 
@@ -53,7 +56,14 @@ const routes: Routes = [
             // ................... Client Childrens 
               {path:'',redirectTo:'info', pathMatch:'full'},
               { path: 'purchasehistory', component: PurchaseHistoryComponent },
-              { path: 'custom_orders', component: CustomerMonitorJobsComponent },
+              { path: 'custom_orders', component: CustomerMonitorJobsComponent,children:[
+
+              // { path: 'trackOrder', component: CustomertrackorderComponent },
+
+              
+            ]},
+            { path: 'trackOrder', component: CustomertrackorderComponent },
+              { path: 'trackOrder', component: CustomertrackorderComponent },
               { path: 'proposals_page', component: VendorProposalSendToCustomerComponent },
               { path: 'create_orders', component: CustomerCreateCustomOrderComponent },
               {path:'wishlist',component:WishlistComponent},
@@ -77,7 +87,8 @@ const routes: Routes = [
     {path:'add-form',component:AddToMarketFormComponent},
 
      ]},
-
+     { path: 'contact', component: ContactUsComponent },
+     { path: 'about', component: AboutUsComponent },
      { path: 'home', component: HomepageComponent },
      { path: 'checkout', component: CheckoutComponent },
 
@@ -90,6 +101,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule { }

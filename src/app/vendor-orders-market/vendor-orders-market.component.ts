@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./vendor-orders-market.component.css']
 })
 export class VendorOrdersMarketComponent {
+orders:any;
 
+constructor(){
+  
+}
 }
