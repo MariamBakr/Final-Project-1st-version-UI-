@@ -1,3 +1,5 @@
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
 import { CustomerpageForJobdetailsAndVendorsproposalsComponent } from './customerpage-for-jobdetails-and-vendorsproposals/customerpage-for-jobdetails-and-vendorsproposals.component';
 import { CheckoutComponent } from './checkout/checkout.component';
@@ -81,7 +83,8 @@ const routes: Routes = [
     {path:'add-form',component:AddToMarketFormComponent},
 
      ]},
-
+     { path: 'contact', component: ContactUsComponent },
+     { path: 'about', component: AboutUsComponent },
      { path: 'home', component: HomepageComponent },
      { path: 'checkout', component: CheckoutComponent },
 
