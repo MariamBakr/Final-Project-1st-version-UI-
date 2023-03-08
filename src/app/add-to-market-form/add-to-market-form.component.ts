@@ -144,7 +144,7 @@ text:string=''
      formData.append('image_Product',this.addprodectform.get('image_Product')?.value)
 
     //  console.log(addprodectform.get('image_Product')?.value)
-    console.log(formData.get('image_Product'))
+    console.log(this.addprodectform.get('Color_Product')?.value)
      //sending API request on form data
      let productsObservable: Observable<Products[]>
      productsObservable=this.service.addProduct(formData)

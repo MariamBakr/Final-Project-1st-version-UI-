@@ -1,5 +1,5 @@
 <div class="container ">
-<div class="row row staff-grid-row  g-4 justify-content-between mt-4">
+<div class="row row staff-grid-row  g-4 justify-content-center mt-4">
 <!-- 1 -->
 <div class="owl-wrapper col-md-6 col-sm-6  col-lg-4 col-xl-4 " *ngFor="let prod of wishlistProducts">
      <div class="owl-item" >
@@ -44,10 +44,11 @@
 
                          <span class="sale-text">sale</span>
 
-                         <a href="#" *ngFor="let img of prod.images">
+                         <a href="#">
                               <img class="primary-img"
-                                   [src]="img" alt="">
+                                   [src]="prod.images[0]" alt="">
 
+                                   <!--  *ngFor="let img of prod.images" -->
                               <!-- <img class="secondary-img"
                                    [src]="img" alt=""> -->
                          </a>
@@ -55,13 +56,20 @@
                          
 
                     <!-- button -->
-                    <div class="add-to-cart">
-                         <a (click)="addToCart(prod)">add to cart</a>
+                    
+                    <div class="d-flex justify-content-evenly align-items-end">
+                        
+                         <div class="add-to-cart poenter">
+                              <a (click)="addToCart(prod)">add to cart</a>
+                         </div>
+
+                         <div class="add-to-cart mt-1 poenter">
+                              <a  (click)="view_details(prod._id)"  >View Details</a>
+                         </div>
                     </div>
-                    <div class="add-to-cart mt-1">
-                         <a >View Details</a>
-                    </div>
-               </div>
+                    
+               
+                    
           </div>
      </div>
 

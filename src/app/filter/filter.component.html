@@ -120,15 +120,16 @@
               Colors
             </button>
           </h2>
-          <div id="colors" class="accordion-collapse collapse show">
-            <div class="accordion-body">
+          <div id="colors" class="accordion-collapse collapse show ">
+            <div class="accordion-body  d-flex"  *ngFor="let cl of n">
 
-              <div >
+
                 <!-- red -->
-                <div class="d-flex justify-content-between w-50 mb-1" *ngFor="let color of colorsarr">
-                  <input *ngFor="let item of color" (click)="colorChange(item)" type="color"  name="head" value="{{item}}">
+
+                 <div class="styleColor  rounded-circle"(click)="colorChange(cl)"  [style.background-color]="cl"></div>
+                  <!-- <input *ngFor="let item of color" (change)="colorChange(item)" type="color"  name="head" value="{{item}}"> -->
                   <!-- <label for="{{item}}"></label> -->
-                </div>
+
 
 
 
@@ -139,12 +140,12 @@
             </div>
           </div>
         </div>
-      </div>
+
 
 
 
       <!-- Style -->
-      <div class="accordion mb-3" id="accordionExample"
+      <!-- <div class="accordion mb-3" id="accordionExample"
         style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
@@ -185,7 +186,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
 
@@ -200,13 +201,13 @@
         style="box-shadow: 0.3rem 0.3rem 1rem black  ; padding-top: 1.5rem; margin-bottom: 2rem; border-radius: 1rem;">
         <!-- Bed Rooms -->
         <div class="mb-3 me-3  text-center"*ngFor="let cat of categories ;let c = index" >
-          <a class="  text-decoration-none text-dark " href="#">
+
             <img style="border-radius: 0.5rem; box-shadow: 0.25rem 0.25rem 0.4rem rgba(59, 41, 41, 0.574); width: 75%;"
-              src="../../assets/cat_bedroom.webp" alt="Bed Room Photo">
-            <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">Bed Rooms
+              src="{{cat.image}}" alt="Bed Room Photo">
+            <h4 style=" width: 95%; margin-left: auto; margin-right: auto;" class="category_room_name mt-2">{{cat.name}}
             </h4>
 
-          </a>
+
 
         </div>
 
@@ -225,6 +226,7 @@
         </form>
 
       </div>
+
       <div class="row staff-grid-row">
         <!-- card1 -->
      <div class="p-2 col-md-6 col-sm-6 col-12 col-lg-4 col-xl-4"*ngFor="let item of products | paginate: { id: 'some_id',
@@ -234,15 +236,16 @@
           <div class="card align-items-center bg-white Small shadow card1" >
 
 <!--Start image carousel-->
-<div class="" style="width:100%; height:100% ;">
-     <owl-carousel-o >
-          <ng-container *ngFor="let img of item.images">
-               <ng-template carouselSlide id="slide.id">
-                    <img class="primary-img   market-hight" [src]="img" alt="img"  />
-               </ng-template>
-          </ng-container>
-     </owl-carousel-o>
 
+<div class="carousel carousel-dark slide" style="width:100%; height:100% ;">
+
+  <div class="carousel-inner" >
+    <div style="width:100%; height:100% ;" *ngFor="let img of item.images" class="carousel-item active" data-bs-interval="10000">
+         <img [src]="img" class="d-block w-100 market-hight" alt="...">
+
+    </div>
+
+  </div>
 
      <!--Start Color carousel-->
      <div class="mt-2">
