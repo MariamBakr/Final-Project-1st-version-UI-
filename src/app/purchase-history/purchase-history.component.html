@@ -1,33 +1,66 @@
 <div class="container">
 
   <div class="row mt-2">
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" >
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" *ngFor="let order of orders">
       <div class="card border-light shadow p-1 bg-white rounded-0 mb-3 h-100">
-        <div class="card-body p-3 ">
-          <div class="col-12 text-center">
-            <img class="me-3 " src="../assets/pexels-huseyn-kamaladdin-667838.jpg" width="250">
-            <p class="mt-3 text-sm fw-bold ">Order no : #2348957</p>
+        <p class="mt-3 text-sm fw-bold text-center">Order no : {{order._id | slice:0:6}}</p>
+        <div class="card-body p-3 " *ngFor="let product of order.products"> 
+          <div class="col-12 text-center" *ngFor="let img of product.product.images">
+            
+            <img class="me-3 " [src]="img" width="250">
+            
           </div>
           <div class="col-12 mt-3 ">
-            <span class=" fs-6 fw-bold ">Placed on : </span>
-            <span class=" fs-6 "> 4 Sep 2019</span>
+            <span class=" fs-6 fw-bold ">Product Name: </span>
+            <span class=" fs-6 ">{{product.product.title}}</span>
+          </div>
+          <div class="col-12  ">
+            <span class=" fs-6 fw-bold ">Product Price: </span>
+            <span class=" fs-6 ">{{product.product.price}}</span>
+          </div>
+          <div class="col-12">
+            <span class=" fs-6 fw-bold ">Quantity: </span>
+            <span class=" fs-6 ">{{product.product.quantity}}</span>
+          </div>
+          <div class="col-12">
+            <span class=" fs-6 fw-bold ">Address: </span>
+            <span class=" fs-6 ">{{order.address.country}},{{order.address.town}},{{order.address.street}},{{order.address.apartment}}</span>
+          </div>
+          <div class="col-12 mt-3">
+            <span class=" fs-6 fw-bold ">subTotal: </span>
+            <span class=" fs-6 ">{{product.subTotal}}</span>
+          </div>
+          <!-- <div class="col-12">
+            <span class=" fs-6 fw-bold ">Product Name: </span>
+            <span class=" fs-6 ">{{product.product.title}}</span>
           </div>
           <div class="row ">
             <div class="col-12">
-              <p class=" mt-1 text-muted ">Expected on 23 June</p>
+              <p class=" fw-bold">Quantity: {{product.product.quantity}}</p>
             </div>
-            <div class="text-center">
+            <div class="col-12">
+              <div class="col-12">
+                <p class="fw-bold ">Address: {{order.address.country}},{{order.address.town}},{{order.address.street}},{{order.address.apartment}}</p>
+              </div>
+              <p class="fw-bold ">subTotal: {{product.subTotal}}</p> -->
+            </div>
+            <hr>
+            <div class="col-12 p-2 text-center">
+              <span class=" fs-6 fw-bold ">Order Total Price: </span>
+              <span class=" fs-6 ">{{order.Total_price}}</span>
+            </div>
+            <!-- <div class="text-center">
               <p class="badge bg-danger  mb-2 ">Pending</p>
             </div>
             <div class="text-center col-12 mt-1">
               <button type="button" class="btn btn-outline-secondary m-2">View Details</button>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
     </div>
 
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" >
+    <!-- <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" >
       <div class="card border-light shadow p-1 bg-white rounded-0 mb-3 h-100">
         <div class="card-body p-3 ">
           <div class="col-12 text-center">
@@ -85,11 +118,11 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> 
 
+      
 
-    </div>
-
+    </div>-->
 
 
 

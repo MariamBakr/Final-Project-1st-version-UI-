@@ -13,7 +13,7 @@
                 <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel" >
                     <div class="carousel-inner">
                       <div *ngFor="let img of prdoduct!.images" class="carousel-item active" data-bs-interval="10000" >
-                        <img [src]="img" class="d-block w-100" alt="...">
+                        <img [src]="img" class="d-block w-100 h-100" alt="...">
 
                       </div>
 
@@ -95,15 +95,19 @@
             <div class="  col-md-2">
 
                 <p class="fs-6 fw-semibold" >matrial</p>
-                <p class="fs-6 fw-semibold">Applications</p>
-                <p class="fs-6 fw-semibold">Characteristics</p>
+                <p class="fs-6 fw-semibold">category
+</p>
+                <p class="fs-6 fw-semibold">subcategory</p>
+                <p class="fs-6 fw-semibold">quantity
+</p>
                 <p class="fs-6 fw-semibold">Sizes</p>
 
             </div>
             <div class="col-md-5">
                 <p class="fs-6  fw-semibold" >: {{prdoduct!.matrial}}</p>
-                <p class="fs-6   fw-semibold">: Residential furniture</p>
-                <p class="fs-6 fw-semibold">: Danish design, choice of materials and finishes</p>
+                <p class="fs-6   fw-semibold">: {{prdoduct!.category}}</p>
+                <p class="fs-6 fw-semibold">: {{prdoduct!.subcategory}}</p>
+                <p class="fs-6 fw-semibold">: {{prdoduct!.quantity}}</p>
                 <p class="fs-6   fw-semibold ">: Height: {{prdoduct!.dimensions.height}} cm | Width:{{prdoduct!.dimensions.width}} cm | Depth: {{prdoduct!.dimensions.length}} cm </p>
             </div>
 

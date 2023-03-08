@@ -17,8 +17,8 @@ export class CartService {
     return this.http.get<cartItem[]>(CART);
   }
 
-  addToCart(product:object): Observable<user> {
-    return this.http.post<user>(ADD_TO_CART,product);
+  addToCart(product:object): Observable<string> {
+    return this.http.post<string>(ADD_TO_CART,product);
   }
 
   deleteFromCart(id:string): Observable<cartItem[]>{
