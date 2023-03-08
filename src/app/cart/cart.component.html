@@ -35,6 +35,55 @@
               <img class="mt-1 mx-1 img-fluid" src="{{item.product.images[0]}}">
             </div>
 
+<!----------------------------------- modal for removing product ------------------------------------>
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Removing product</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to remove this product from your cart?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal" data-backdrop="false">Close</button>
+            <button type="button" class="btn btn-danger"
+             data-bs-dismiss="modal" (click)="delete(item.product._id)">Remove</button>
+        </div>
+    </div>
+</div>
+</div>
+<!-- end of modal -->
+<!----------------------------------- modal for clearing cartt ------------------------------------>
+<div class="modal fade" id="clear" tabindex="-1" aria-labelledby="clear"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="clear">Clear cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Are you sure you want to empty your cart?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal" data-backdrop="false">Close</button>
+            <button type="button" class="btn btn-danger"
+             data-bs-dismiss="modal" (click)="emptyCart()">Clear</button>
+        </div>
+    </div>
+</div>
+</div>
+<!-- end of modal -->
+
+
+
             <div class="ms-3">
               <p class="mb-1">{{item.product.title}}</p>
             </div>
@@ -54,7 +103,7 @@
           <td>{{item.subTotal}}</td>
           <td>
             <button type="button" class="close bg-danger border border-danger rounded-5" aria-label="Close"
-              style="color:white" (click)="delete(item.product._id)">
+              style="color:white" data-bs-toggle="modal" data-bs-target="#delete" >
               <span>&times;</span>
             </button>
           </td>
@@ -67,7 +116,7 @@
     <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12">
       <div class="col-12 text-start">
         <button class="btn btn-light col-xl-5 col-lg-6 col-md-6 col-sm-12 rounded-0 border-dark me-5 cartBtn"
-          (click)="emptyCart()">CLEAR SHOPPING CART</button>
+        data-bs-toggle="modal" data-bs-target="#clear">CLEAR SHOPPING CART</button>
         <button class="btn btn-light col-xl-5 col-lg-6 col-md-6 col-sm-12 rounded-0 border-dark cartBtn"
           (click)="backToMarket()">UPDATE SHOPPING CART</button>
       </div>
@@ -84,47 +133,3 @@
 
 
 <!-- /////////////////////////////////////////////////////////////////////////////////////////// -->
-
-
-<!-- <div class="d-flex align-items-center">
-      <button style="width:0.7rem;" class="btn btn-dark fs-4 rounded-5 text-center" (click)="increment()">+</button>
-      <p class="fw-bold">{{number}}</p>
-      <button style="width:0.7rem;" class="btn btn-dark fs-4 rounded-5 text-center" (click)="decrement()">-</button>
-  </div> -->
-
-<div class="modal-footer">
-  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-backdrop="false">Close</button>
-  <button type="button" class="btn btn-success" data-dismiss="modal" data-backdrop="false"
-    >Accept</button>
-</div>
-
-
-<!-- </div> -->
-
-<!--------------------------  Rejection  ------------->
-<div class="modal fade" id="reject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Rejecting proposal</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to reject this proposal from ?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-backdrop="false">Close</button>
-        <button type="button" class="btn btn-danger" 
-          data-dismiss="modal" data-backdrop="false">Reject</button>
-      </div>
-  
-
-<!-- buttons  -->
-<div class="my-3" >
-  <!-- accept button -->
-  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#accept" >
-    Accept Proposal</button>
-  <!-- reject button -->
-  <button class="ms-4 btn btn-danger" data-bs-toggle="modal" data-bs-target="#reject"
-    > Reject Proposal</button>
-</div>
