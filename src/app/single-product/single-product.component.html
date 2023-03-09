@@ -2,7 +2,7 @@
 
 
       <div style="background-color: #FBF5EC;" class=" container">
-   
+
 
     <!-- first  -->
     <div  style="background-color: #FBF5EC;" class="container mt-5" >
@@ -30,9 +30,9 @@
 
                     <!--start Color static-->
                     <div class=" d-flex justify-content-center backcolor " >
-                    
+
                       <div style="width:1.5rem; height: 1.5rem;" *ngFor="let cl of prdoduct!.colors; let i = index" class="m-2 styleColor " [style.background-color]="cl"></div>
-                    
+
                     </div>
                     <!--End Color static-->
 
@@ -42,7 +42,7 @@
             <!-- end of slide show -->
 
 
-          
+
 
 
 
@@ -72,7 +72,18 @@
                     <h2 class="card-title">Description</h2><br>
 
                      <p class="card-text">{{prdoduct!.overview}} </p>
-                      <a  (click)="addToCart(prdoduct!)" style=" background-color: #798545;" class="btn">Add to cart</a>
+
+                     <div class="d-flex ">
+                       
+                      <a style=" background-color: #798545; color: white;" class=" btn m-2 text-center poenter"
+                        (click)="addToCart(prdoduct!)">Add to cart</a>
+
+                        <a style=" background-color: #798545; color: white;" class=" btn m-2 text-center poenter"
+                          (click)="addToWishlist(prdoduct!)">Add To Wishlist</a>
+
+                     </div>
+                    
+
                     </div>
                   </div>
 
@@ -105,8 +116,8 @@
             </div>
             <div class="col-md-5">
                 <p class="fs-6  fw-semibold" >: {{prdoduct!.matrial}}</p>
-                <p class="fs-6   fw-semibold">: {{prdoduct!.category}}</p>
-                <p class="fs-6 fw-semibold">: {{prdoduct!.subcategory}}</p>
+                <p class="fs-6   fw-semibold">: {{catname}}</p>
+                <p class="fs-6 fw-semibold">: {{subcatname}}</p>
                 <p class="fs-6 fw-semibold">: {{prdoduct!.quantity}}</p>
                 <p class="fs-6   fw-semibold ">: Height: {{prdoduct!.dimensions.height}} cm | Width:{{prdoduct!.dimensions.width}} cm | Depth: {{prdoduct!.dimensions.length}} cm </p>
             </div>
@@ -118,7 +129,7 @@
 
 
 
-            
+
 
   </div>
 
