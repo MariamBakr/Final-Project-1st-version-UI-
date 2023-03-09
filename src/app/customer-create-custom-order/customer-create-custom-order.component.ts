@@ -2,13 +2,13 @@ import { Component, ViewChild, ElementRef, OnInit ,inject} from '@angular/core';
 import { NgForm, FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Categories } from 'src/app/shared/models/category';
-import { SubCategories } from 'src/app/shared/models/subcategory';
 import { SubcategoryService } from '../Services/subcategory.service';;
 import { Observable } from 'rxjs';
 import { CategoryService } from '../Services/category.service';
 import { CustomOrdersService } from '../Services/custom-orders.service';
+import { SubCategories } from '../shared/models/subcategory';
 import { CustomOrder } from '../shared/models/customOrder';
-@Component({
+@Component({ 
   selector: 'app-customer-create-custom-order',
   templateUrl: './customer-create-custom-order.component.html',
   styleUrls: ['./customer-create-custom-order.component.css']

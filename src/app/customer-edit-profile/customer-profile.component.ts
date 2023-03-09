@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class CustomerProfileComponent {
 userType:any;
-constructor(){
+userName:any=localStorage.getItem("userName");
+
+constructor(){ 
   this.userType=localStorage.getItem("userType")
 }
 }

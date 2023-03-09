@@ -13,6 +13,7 @@ export class PurchaseHistoryComponent implements OnInit{
   constructor(private service:OrdersHistoryService){}
 
   ngOnInit(): void {
+   
     this.service.getAllOrders().subscribe((data)=>{
       this.orders=data
       

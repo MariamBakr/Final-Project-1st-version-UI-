@@ -29,7 +29,7 @@
 
 
           <div class="text-center">
-            <a   class="btn btn-outline-secondary  mt-4 " (click)="goToCustomerTrackOrder(prop._id)">Track Order</a>
+            <a *ngIf="prop.isclosed == true"  class="btn btn-outline-secondary  mt-4 " (click)="goToCustomerTrackOrder(prop._id)">Track Order</a>
 
             <a routerLink="/client/proposals_page" type="button" class="ms-3 btn btn-outline-secondary mt-4" *ngIf="prop.isclosed == false" (click)="seeProposals(prop._id)">See Proposals</a>
           </div>

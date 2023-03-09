@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./vendor-edit-profile.component.css']
 })
 export class VendorEditProfileComponent {
-
+userName:any=localStorage.getItem("userName");
 }

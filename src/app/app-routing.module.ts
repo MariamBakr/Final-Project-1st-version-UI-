@@ -75,7 +75,7 @@ const routes: Routes = [
           // {path:'',redirectTo:'vendorProfile/:id',pathMatch:'full'}
         ]},
 
-    
+    //  **************** Vendor *************************
     {path:'customOrderDetails/:id',canActivate:[RoleGardGuard] ,component:VendorJobproposalComponent},
     {path:'vendor-find-jop',canActivate:[RoleGardGuard] ,component:VendorFindJobComponent},
     { path: 'vendor',canActivate:[RoleGardGuard]  ,component:VendorEditProfileComponent,children:[

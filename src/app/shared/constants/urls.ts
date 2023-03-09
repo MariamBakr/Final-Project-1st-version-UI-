@@ -78,8 +78,8 @@ export const EMPTY_CART = CART + '/empty-cart';
 // ****** Custom Order URL **********
 
 
-export const CUSTOM_ORDER_URL = BASE_URL + 'getCustomOrder/'
-export const CUSTOM_ORDER_DETAILS_URL = CUSTOM_ORDER_URL + 'customOrderDetails/'
+export const CUSTOM_ORDER_URL = BASE_URL + 'customOrder/'
+export const CUSTOM_ORDER_DETAILS_URL = CUSTOM_ORDER_URL + 'details/'
 
 
 // ****** Proposals URL **********
@@ -91,6 +91,7 @@ export const POST_NEW_CUSTUMORDER_PROPOSAL_URL = BASE_URL + 'proposal/add_propos
 // ****************** CHECKOUT URL **************************
 
 export const VENDOR_PRODUCT_BY_ID_URL = USER_URL + '/order'
+export const VENDOR_CHECKOUT_PAYPAL_URL = USER_URL + '/CHECKOUTpaypal'
 export const CHECKOUT_URL = USER_URL + '/CHECKPAYMENT'
 
 // ****************** Proposals **********************/
@@ -111,5 +112,7 @@ export const REMOVE_FROM_WISHLIST_URL = WISHLIST_URL + '/remove'
 // ****************** Wishlist **********************/
 
 export const CLIENT_ORDER_HISTORY_URL = BASE_URL + 'clientHistory'
+export const VENDOR_ORDER_HISTORY_URL = BASE_URL + 'vendor/orders'
+VENDOR_ORDER_HISTORY_URL
 
 
