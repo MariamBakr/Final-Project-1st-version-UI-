@@ -1,0 +1,104 @@
+<div class="container">
+
+    <div class="row ">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" *ngFor="let prop of proposals">
+        <div class="card border-light shadow p-1 bg-white rounded-0 mb-2 h-100">
+          <p class="mt-3 text-sm fw-bold text-center">Job no : {{prop.customOrderId | slice:0:6}}</p>
+          <div class="card-body p-3  "> 
+            <div class="col-12 text-center">
+              
+              <img class="me-3 " [src]="prop.work_samples[0]" width="250">
+              
+            </div>
+            <div class="col-12 mt-3 ">
+              <span class=" fs-6 fw-bold ">Description: </span>
+              <span class=" fs-6 ">{{prop.job_proposal}}</span>
+            </div>
+            <div class="col-12 mt-3 ">
+              <span class=" fs-6 fw-bold ">Offered Price: </span>
+              <span class=" fs-6 ">{{prop.offered_price}}</span>
+            </div>
+            <div class="col-12 mt-3">
+              <span class=" fs-6 fw-bold ">Status: </span>
+              <span class=" fs-6 ">{{prop.status}}</span>
+            </div>
+       
+              </div>
+              <hr>
+              <div class="col-12 p-2 text-center">
+                <button class="btn" [class.btn-success]="prop.status=='accepted'" [class.btn-danger]="prop.status=='rejected'" [class.btn-primary]="prop.status=='pending'" [disabled]="prop.status=='rejected'" (click)="details(prop.customOrderId)">Details</button> 
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" >
+        <div class="card border-light shadow p-1 bg-white rounded-0 mb-3 h-100">
+          <div class="card-body p-3 ">
+            <div class="col-12 text-center">
+              <img class="me-3 " src="../assets/pexels-nugroho-wahyu-3097112.jpg" width="250">
+              <p class="mt-3 text-sm fw-bold ">Order no : #2348957</p>
+            </div>
+            <div class="col-12 mt-3 ">
+              <span class=" fs-6 fw-bold ">Placed on : </span>
+              <span class=" fs-6 "> 4 Sep 2019</span>
+            </div>
+            <div class="row ">
+              <div class="col-12">
+                <p class=" mt-1 text-muted ">Expected on 23 June</p>
+              </div>
+              <div class="text-center">
+                <p class="badge bg-success  mb-2 ">Delivered</p>
+              </div>
+              <div class="text-center col-12 mt-1">
+                <button type="button" class="btn btn-outline-secondary m-2">View Details</button>
+  
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                Review Order
+              </button>
+                <div class="modal fade"  id="exampleModal" tabindex="-1" aria-
+                labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content" style="background-color: #FBF5EC;">
+                    <div class="modal-header ">
+                      <img src="../../assets/BrandLogo.png" style="width: 80px;">
+                      <h5 class="modal-title text-center ms-2" id="exampleModalLabel">We would love yo hear you feedback!</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"
+                     aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body ">
+                     <p>Lorem ipsum dolor sit amet, consectetur elit?</p>
+                     <ngb-rating [max]="5"></ngb-rating>
+                     <p>Lorem ipsum dolor sit amet, consectetur elit?</p>
+                     <ngb-rating [max]="5"></ngb-rating>
+                     <p>Lorem ipsum dolor sit amet, consectetur elit?</p>
+                     <ngb-rating [max]="5"></ngb-rating>
+                     <p>Lorem ipsum dolor sit amet, consectetur elit?</p>
+                     <ngb-rating [max]="5"></ngb-rating>
+                     <p>Lorem ipsum dolor sit amet, consectetur elit?</p>
+                     <ngb-rating [max]="5"></ngb-rating>
+                    </div>
+                    <div class="modal-footer text-center">
+                      <button type="button" class="btn btn-outline-secondary text-center " data-bs-
+                     dismiss="modal">Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              </div>
+            </div>
+          </div>
+        </div> 
+  
+        
+  
+      </div>-->
+  
+  
+  
+  
+  

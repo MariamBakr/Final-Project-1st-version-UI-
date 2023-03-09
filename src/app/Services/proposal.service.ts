@@ -1,5 +1,5 @@
 import { user } from './../shared/models/user';
-import { DISPALY_PROPOSAL_URL, ACCEPT_PROPOSAL_URL, REJECT_PROPOSAL_URL, DISPALY_VENDOR_URL, GET_ALL_JOBS, GET_JOB_BY_CATID } from './../shared/constants/urls';
+import { DISPALY_PROPOSAL_URL, ACCEPT_PROPOSAL_URL, REJECT_PROPOSAL_URL, DISPALY_VENDOR_URL, GET_ALL_JOBS, GET_JOB_BY_CATID, GET_VENDOR_JOPS } from './../shared/constants/urls';
 import { apiResults } from './../shared/models/apiResults';
 import { CustomOrder } from './../shared/models/customOrder';
 import { HttpClient } from '@angular/common/http';
@@ -45,7 +45,7 @@ export class ProposalService {
     return this.http.get<CustomOrder[]>(GET_JOB_BY_CATID+'/'+catId)
   }
 
- 
-
-  
+  getProposals():Observable<any[]>{
+    return this.http.get<any[]>(GET_VENDOR_JOPS)
+  }
 }

@@ -1,3 +1,4 @@
+import { VendorJopsComponent } from './vendor-jops/vendor-jops.component';
 import { CustomerSecondProfileComponent } from './customer-second-profile/customer-second-profile.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -72,11 +73,12 @@ const routes: Routes = [
     
     {path:'customOrderDetails/:id',canActivate:[RoleGardGuard] ,component:VendorJobproposalComponent},
     {path:'vendor-find-jop',canActivate:[RoleGardGuard] ,component:VendorFindJobComponent},
+    {path:'vendor-proposals',canActivate:[RoleGardGuard] ,component:VendorJopsComponent},
     { path: 'vendor',canActivate:[RoleGardGuard]  ,component:VendorEditProfileComponent,children:[
       { path: '', redirectTo: 'vendor-info', pathMatch: 'full' },
       { path: 'mymarket', component:MyMarketPageComponent  },
       {path:'vendor-info',component:VendorInfoComponent},
-      
+      {path:'vendor-proposals',component:VendorJopsComponent},
     {path:'vendor-orders-market',component:VendorOrdersMarketComponent},
     {path:'add-form',component:AddToMarketFormComponent},
 
