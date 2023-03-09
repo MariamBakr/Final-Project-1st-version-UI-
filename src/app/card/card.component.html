@@ -74,8 +74,8 @@
                                             <img  class="primary-img" [src]="prod.images[0]"
                                                 alt="">
                     
-                                            <!-- <img  class="secondary-img"
-                                                src="https://htmldemo.net/expert/expert/assets/images/product/22_1.webp" alt=""> -->
+                                            <img  class="secondary-img"
+                                                [src]="prod.images[1]" alt="">
                                         </a>
                     
                                         <div class="add-action">
@@ -101,7 +101,7 @@
                                                     </div>
                     
                     
-                                                    <a (click)="view_details(prod._id)"  href="#" data-bs-tooltip="tooltip" aria-label="Compare"
+                                                    <a (click)="view_details(prod._id)" data-bs-tooltip="tooltip" aria-label="Compare"
                                                         data-bs-original-title="Compare">
                                                         <i  class="fa fa-refresh"></i>
                                                     </a>
@@ -129,7 +129,7 @@
                                     </div>
                                     
                                     <!-- button -->
-                                    <div class="add-to-cart">
+                                    <div class="add-to-cart mt-3">
                                         <a routerLink="" (click)="addToCart(prod)">Add to cart</a>
                                     </div>
                                 </div>

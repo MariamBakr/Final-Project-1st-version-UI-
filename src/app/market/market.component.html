@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
      <!-- All card -->
      <div class="row staff-grid-row">
           <!-- card1 -->
@@ -6,7 +6,7 @@
                <div class="card align-items-center bg-white Small shadow card1">
 
                     <!--Start image carousel-->
-                    <!-- <div class="" style="width:100%; height:100% ;">
+                    <div class="" style="width:100%; height:100% ;">
                          <owl-carousel-o [options]="customOptions">
                               <ng-container *ngFor="let img of prod.images">
                                    <ng-template carouselSlide id="slide.id">
@@ -15,11 +15,11 @@
                               </ng-container>
                          </owl-carousel-o>
 
-                         </div> -->
+                         </div>
 
                          <!-- Slide Show -->
                          
-                              <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                              <!-- <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                                    <div class="carousel-inner" >
                                         <div style="width:100%; height:100% ;" *ngFor="let img of prod.images" class="carousel-item active" data-bs-interval="10000">
                                              <img [src]="img" class="d-block w-100 market-hight" alt="...">
@@ -38,7 +38,7 @@
                                         <span class="visually-hidden">Next</span>
                                    </button>
                               </div>
-                        
+                        -->
                          
                          <!-- end of slide show -->
 
@@ -78,11 +78,12 @@
 
                          <!-- price -->
                          <p class="card-text text-center text-secondary lh-1 CEO pt-3">
-                              {{prod.price}}
+                         price:  {{prod.price}}
                          </p>
                          <!-- button -->
-                         <div class="add-to-cart d-flex justify-content-center mb-2">
-                              <a (click)="view_details(prod._id)">view details</a>
+                         <div class="add-to-cart d-flex justify-content-center mb-2 ">
+                              <a class="m-2 text-center poenter" (click)="view_details(prod._id)">view details</a>
+                              <a class="m-2 text-center poenter" (click)="addToWishlist(prod)">Add To Wishlist</a>
                          </div>
 
                     </div>

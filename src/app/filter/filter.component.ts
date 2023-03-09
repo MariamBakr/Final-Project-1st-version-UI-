@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output,OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, Output,OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Options, LabelType } from "@angular-slider/ngx-slider";
 import { FilterService } from '../Services/filter.service';
 import { Observable } from 'rxjs';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 
 import { Colors ,Vendors} from '../shared/models/colors';
 import { filteration } from '../shared/models/filteration';
+import { style } from '@angular/animations';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
@@ -16,6 +17,10 @@ import { filteration } from '../shared/models/filteration';
 })
 export class FilterComponent implements OnInit {
 
+  @ViewChild('mySidebar')
+  mySidebar!: ElementRef;
+  @ViewChild('main')
+  main!: ElementRef;
   enteredSearchValue:string=""
   @Output()
   minValue:number=0
@@ -38,6 +43,8 @@ export class FilterComponent implements OnInit {
   searchTextChanged:EventEmitter<string>= new EventEmitter<string>()
   products:any
   n:string[]=[]
+  clicked:boolean=false
+  fontsize:any
   page:any=1
   total:any
   elem:string=''
@@ -200,7 +207,9 @@ view_details(id:string) {
           this.page=1
         console.log(this.products)
       })}
-
+      // openNav() {
+      //   style({width:})
+      // }
       colorChange(color:any){
         color.replace('#','')
         const des=(color.replace('#',''))

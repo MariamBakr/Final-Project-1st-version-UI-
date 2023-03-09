@@ -11,6 +11,8 @@ export class Products{
     origins!: string[];
     category!:string;
     subcategory!:string;
+    catname!:any;
+subcatname!:string
     overview!:string;
     _id!: string;
   }

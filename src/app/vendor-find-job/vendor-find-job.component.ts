@@ -1,5 +1,7 @@
+import { ProposalService } from './../Services/proposal.service';
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-vendor-find-job',
@@ -9,6 +11,9 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 
 export class VendorFindJobComponent implements OnInit{
   
+  constructor(private service:ProposalService, private activatedRoute:ActivatedRoute, private router:Router, private propService:ProposalService){}
+
+  orders:any
   jobCard:any=[]
   categoryName:any=[]
   subcategoryName:any=[]
@@ -156,9 +161,17 @@ export class VendorFindJobComponent implements OnInit{
     ]
 
     ngOnInit(){
-      //displaying all jobs 
-      this.jobCard=this.Jobs;
-      
+      this.service.getAllJobs().subscribe((data)=>{
+        console.log(data)
+        this.orders = data;
+        // for(let i of data){
+        //   this.propService.displayVendor()
+        // }
+      })
+    }
+
+    displayClient(clientID:string){
+      this.router.navigate(['/clientProfile',clientID])
     }
 
     showSubCategory(id:string){

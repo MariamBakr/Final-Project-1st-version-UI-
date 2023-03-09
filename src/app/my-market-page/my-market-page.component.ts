@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Observable } from 'rxjs';
 import { VendorProductsService } from '../Services/vendor-products.service';
 import { Products } from '../shared/models/products';
+import { CategoryService } from '../Services/category.service';
 
 @Component({
   selector: 'app-my-market-page',
@@ -11,10 +12,10 @@ import { Products } from '../shared/models/products';
   styleUrls: ['./my-market-page.component.css']
 })
 export class MyMarketPageComponent {
-
+  categoryservice=inject(CategoryService )
  Sub_Category_Data: string[] = []
-
-
+catname:string[]=[]
+subcatname:string[]=[]
  products: Products[]=[];
 
  constructor(private productsService: VendorProductsService){
@@ -24,7 +25,17 @@ export class MyMarketPageComponent {
 
    productsObservable.subscribe((serverProducts)=>{
      this.products = serverProducts;
+     for (let index = 0; index < this.products.length; index++) {
+      this.categoryservice.getcategorybyid(this.products[index].category).subscribe((servercatnames:any)=>{
+        this.catname.push(servercatnames.data)})
+        this.categoryservice.getsubcategorybyid(this.products[index].subcategory).subscribe((servercatnames:any)=>{
+          console.log(servercatnames.data)
+          this.subcatname.push(servercatnames.data)
+      })
+  }
+
    })
+
  }
 
   select_Main_Category(addprodectform: FormGroup) {
@@ -202,7 +213,7 @@ Delete() {
   }
 
 
-  
+
 
 
 

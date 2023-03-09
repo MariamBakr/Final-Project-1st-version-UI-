@@ -116,3 +116,8 @@ export const VENDOR_ORDER_HISTORY_URL = BASE_URL + 'vendor/orders'
 VENDOR_ORDER_HISTORY_URL
 
 
+// ****************** Jobs **********************/
+
+export const GET_ALL_JOBS = BASE_URL + 'jobs'
+export const GET_JOB_BY_CATID = GET_ALL_JOBS + '/catid'
+export const GET_VENDOR_JOPS = GET_ALL_JOBS + '/vendorJobs'

@@ -57,8 +57,8 @@ export class CheckoutComponent implements OnInit, AfterViewChecked {
   paypalConfig = {
     evn: 'sandbox',
     client: {
-      sandbox: 'EDgbGQXh_zlKfs9HarvTgkwxLtPwLV2Lpz7HbODk483mikWisbJ0yV8GRSNxO7_Kfre9goEpnETUVFn8',
-      production: 'demo_production_client_id'
+      sandbox: 'sb-krfyx25240214@business.example.com',
+      production: 'Ad3x6aWFIdNQBpXCBr7Jl4WY8bGzvbsqh1T4c_MUlA35tpoo6PXmcuEx10qKNBTjDYF0Y8sEGD_oGDyu'
     },
     commit: true,
     payment: (data: any, action: any) => {
@@ -128,8 +128,8 @@ export class CheckoutComponent implements OnInit, AfterViewChecked {
       // Configure environment
       env: 'sandbox',
       client: {
-        sandbox: 'sb-0gg3i25220040@business.example.com',
-        production: 'demo_production_client_idAYaM7aU8l4AS202Db34oombPcN4SCUBPLdxWyWfw-G53PR4WDs7QR_yQaUH7LbT_l37BRANFiak_CGtK'
+        sandbox: 'sb-krfyx25240214@business.example.com',
+        production: 'Ad3x6aWFIdNQBpXCBr7Jl4WY8bGzvbsqh1T4c_MUlA35tpoo6PXmcuEx10qKNBTjDYF0Y8sEGD_oGDyu'
       },
       // Customize button (optional)
       locale: 'en_US',

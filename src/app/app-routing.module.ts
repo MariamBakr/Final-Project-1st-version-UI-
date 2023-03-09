@@ -1,3 +1,5 @@
+import { VendorJopsComponent } from './vendor-jops/vendor-jops.component';
+import { CustomerSecondProfileComponent } from './customer-second-profile/customer-second-profile.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
@@ -56,12 +58,7 @@ const routes: Routes = [
             // ................... Client Childrens 
               {path:'',redirectTo:'info', pathMatch:'full'},
               { path: 'purchasehistory', component: PurchaseHistoryComponent },
-              { path: 'custom_orders', component: CustomerMonitorJobsComponent,children:[
-
-              // { path: 'trackOrder', component: CustomertrackorderComponent },
-
-              
-            ]},
+              { path: 'custom_orders', component: CustomerMonitorJobsComponent},
             { path: 'trackOrder', component: CustomertrackorderComponent },
               { path: 'trackOrder', component: CustomertrackorderComponent },
               { path: 'proposals_page', component: VendorProposalSendToCustomerComponent },
@@ -76,13 +73,17 @@ const routes: Routes = [
         ]},
 
     //  **************** Vendor *************************
+        {path:'vendorProfile/:id',component:VendorProfileComponent},
+        {path:'clientProfile/:id',component:CustomerSecondProfileComponent},
+    
     {path:'customOrderDetails/:id',canActivate:[RoleGardGuard] ,component:VendorJobproposalComponent},
     {path:'vendor-find-jop',canActivate:[RoleGardGuard] ,component:VendorFindJobComponent},
+    {path:'vendor-proposals',canActivate:[RoleGardGuard] ,component:VendorJopsComponent},
     { path: 'vendor',canActivate:[RoleGardGuard]  ,component:VendorEditProfileComponent,children:[
       { path: '', redirectTo: 'vendor-info', pathMatch: 'full' },
       { path: 'mymarket', component:MyMarketPageComponent  },
       {path:'vendor-info',component:VendorInfoComponent},
-      
+      {path:'vendor-proposals',component:VendorJopsComponent},
     {path:'vendor-orders-market',component:VendorOrdersMarketComponent},
     {path:'add-form',component:AddToMarketFormComponent},
 
