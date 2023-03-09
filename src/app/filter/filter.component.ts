@@ -6,6 +6,7 @@ import { Products } from '../shared/models/products';
 import { CategoryService } from '../Services/category.service';
 import { Categories } from '../shared/models/category';
 import { Router } from '@angular/router';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 import { Colors ,Vendors} from '../shared/models/colors';
 import { filteration } from '../shared/models/filteration';
@@ -25,10 +26,10 @@ export class FilterComponent implements OnInit {
   @Output()
   minValue:number=0
 
-  maxValue: number = 3000;
+  maxValue: number = 50000;
   options: Options = {
   floor: 0,
-  ceil: 3000,
+  ceil: 50000,
   translate: (value: number, label: LabelType): string => {
     switch (label) {
       case LabelType.Low:
@@ -58,7 +59,31 @@ filteration:filteration=new filteration
    newcolorsarr:any
   vendors:Vendors[]=[]
   selectedv: any;
-
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 3,
+        nav: true
+      }
+    },
+    nav: true
+  }
   ngOnInit(): void {
     this.filterservice.allProduct().subscribe((serverProducts)=>{
       this.products = serverProducts;
@@ -223,6 +248,7 @@ this.filterservice.searchp(this.filteration).subscribe((serverProducts: any)=>{
       })
       }
 }
+
 
 
 
