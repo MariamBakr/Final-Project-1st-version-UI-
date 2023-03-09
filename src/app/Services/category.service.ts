@@ -42,5 +42,12 @@ export class CategoryService {
     console.log()
     return this.http.delete<Categories>(`http://localhost:5000/categories/${id}`);
   }
+  getcategorybyid(id:string){
+    return this.http.get(`http://localhost:5000/categories/pag/${id}`);
+
+  }
+  getsubcategorybyid(id:string){
+    return this.http.get(`http://localhost:5000/subcategories/pag/${id}`);
+  }
 
 }
