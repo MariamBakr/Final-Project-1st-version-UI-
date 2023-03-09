@@ -55,9 +55,13 @@ const routes: Routes = [
               {path:'',redirectTo:'info', pathMatch:'full'},
               { path: 'purchasehistory', component: PurchaseHistoryComponent },
               { path: 'custom_orders', component: CustomerMonitorJobsComponent,children:[
-              { path: 'trackOrder', component: CustomertrackorderComponent },
 
-              ] },
+              // { path: 'trackOrder', component: CustomertrackorderComponent },
+
+              
+            ]},
+            { path: 'trackOrder', component: CustomertrackorderComponent },
+              { path: 'trackOrder', component: CustomertrackorderComponent },
               { path: 'proposals_page', component: VendorProposalSendToCustomerComponent },
               { path: 'create_orders', component: CustomerCreateCustomOrderComponent },
               {path:'wishlist',component:WishlistComponent},
