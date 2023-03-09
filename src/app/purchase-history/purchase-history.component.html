@@ -1,13 +1,13 @@
 <div class="container">
 
-  <div class="row mt-2">
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6" *ngFor="let order of orders">
-      <div class="card border-light shadow p-1 bg-white rounded-0 mb-3 h-100">
+  <div class="row ">
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-2" *ngFor="let order of orders">
+      <div class="card border-light shadow p-1 bg-white rounded-0 mb-2 h-100">
         <p class="mt-3 text-sm fw-bold text-center">Order no : {{order._id | slice:0:6}}</p>
-        <div class="card-body p-3 " *ngFor="let product of order.products"> 
-          <div class="col-12 text-center" *ngFor="let img of product.product.images">
+        <div class="card-body p-3  " *ngFor="let product of order.products"> 
+          <div class="col-12 text-center">
             
-            <img class="me-3 " [src]="img" width="250">
+            <img class="me-3 " [src]="product.product.images[0]" width="250">
             
           </div>
           <div class="col-12 mt-3 ">
@@ -24,11 +24,11 @@
           </div>
           <div class="col-12">
             <span class=" fs-6 fw-bold ">Address: </span>
-            <span class=" fs-6 ">{{order.address.country}},{{order.address.town}},{{order.address.street}},{{order.address.apartment}}</span>
+            <span class=" fs-6 ">{{order.address.apartment}}, {{order.address.street}}, {{order.address.town}}</span>
           </div>
           <div class="col-12 mt-3">
             <span class=" fs-6 fw-bold ">subTotal: </span>
-            <span class=" fs-6 ">{{product.subTotal}}</span>
+            <span class=" fs-6 fw-bold">{{product.subTotal}}</span>
           </div>
           <!-- <div class="col-12">
             <span class=" fs-6 fw-bold ">Product Name: </span>
@@ -47,7 +47,7 @@
             <hr>
             <div class="col-12 p-2 text-center">
               <span class=" fs-6 fw-bold ">Order Total Price: </span>
-              <span class=" fs-6 ">{{order.Total_price}}</span>
+              <span class=" fs-6 fw-bold">{{order.Total_price}}</span>
             </div>
             <!-- <div class="text-center">
               <p class="badge bg-danger  mb-2 ">Pending</p>

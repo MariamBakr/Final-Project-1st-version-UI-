@@ -40,23 +40,17 @@ export class CartComponent {
   }
 
   delete(id:string){
-    if(window.confirm("Are you sure you want to delete this product from your cart?")){
        this.service.deleteFromCart(id).subscribe((data)=>{
         this.products = data;
         this.getAll()
-       },(err)=>{
-        console.log(err)
-       }
-    )
-    }
+    
+    })
   }
 
   emptyCart(){
-    if(window.confirm("Are you sure you want to empty your cart?")){
       this.service.emptyCart().subscribe((data)=>{
             this.getAll();
-        })
-      }
+        })  
   }
   
 
