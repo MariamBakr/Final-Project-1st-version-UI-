@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Products } from '../shared/models/products';
 import { VendorProductsService } from '../Services/vendor-products.service';
 import { Router } from '@angular/router';
+import { WishlistService } from '../Services/wishlist.service';
 
 @Component({
   selector: 'app-market',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 export class MarketComponent {
 
   products: Products[] = [];
-  constructor(private productsService: VendorProductsService, private router: Router,) {
+  constructor(private productsService: VendorProductsService, private router: Router, private listService: WishlistService) {
     let productsObservable: Observable<Products[]>
 
     productsObservable = this.productsService.getAll()
@@ -30,6 +31,11 @@ export class MarketComponent {
   }
  
 
+  addToWishlist(product: object) {
+    this.listService.addToList(product).subscribe((data) => {
+      console.log(data)
+    })
+  }
 
   // image_Product
   title = 'ng-carousel-demo';
