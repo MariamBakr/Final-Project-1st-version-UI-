@@ -1,3 +1,4 @@
+import { CustomerSecondProfileComponent } from './customer-second-profile/customer-second-profile.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { VendorProfileComponent } from './vendor-profile/vendor-profile.component';
@@ -67,6 +68,7 @@ const routes: Routes = [
               {path:'proposals/:id',component:CustomerpageForJobdetailsAndVendorsproposalsComponent},
         ] },
         {path:'vendorProfile/:id',component:VendorProfileComponent},
+        {path:'clientProfile/:id',component:CustomerSecondProfileComponent},
     
     {path:'customOrderDetails/:id',canActivate:[RoleGardGuard] ,component:VendorJobproposalComponent},
     {path:'vendor-find-jop',canActivate:[RoleGardGuard] ,component:VendorFindJobComponent},
