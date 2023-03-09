@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { Products } from '../shared/models/products';
 import { CategoryService } from '../Services/category.service';
 import { Categories } from '../shared/models/category';
+import { Router } from '@angular/router';
+
 import { Colors ,Vendors} from '../shared/models/colors';
 import { filteration } from '../shared/models/filteration';
 @Component({
@@ -49,6 +51,7 @@ filteration:filteration=new filteration
    newcolorsarr:any
   vendors:Vendors[]=[]
   selectedv: any;
+
   ngOnInit(): void {
     this.filterservice.allProduct().subscribe((serverProducts)=>{
       this.products = serverProducts;
@@ -57,7 +60,7 @@ filteration:filteration=new filteration
      console.log(this.products)
   })
   }
-    constructor(private service:CategoryService){
+    constructor(private service:CategoryService, private router: Router){
 
 
         // console.log(this.products)
@@ -93,13 +96,6 @@ filteration:filteration=new filteration
 
             // }
 
-
-            let productsObservable: Observable<Products[]>
-        productsObservable=this.filterservice.lowestProduct()
-        productsObservable.subscribe((serverProducts)=>{
-          //this.minValue= serverProducts;
-
-       })
             let categoriesObservable: Observable<Categories>
 
             categoriesObservable= this.service.getCategory()
@@ -112,9 +108,7 @@ filteration:filteration=new filteration
           }
 
 
-          //Array.from(new Set(this.colorsarr[0].colors));
-          ///console.log(Array)
-        //console.log(this.colorsarr[0].colors)
+
       })
 
       let vendorsObservable: Observable<Vendors[]>
@@ -145,7 +139,8 @@ filteration:filteration=new filteration
   let d=this.filterservice.searchProduct(data)
 this.filterservice.searchProduct(data).subscribe((serverProducts: any)=>{
     this.products = serverProducts.data;
-    this.page=this.products.length
+      this.total=this.products.length
+
   console.log(this.products)
  })
 }
@@ -173,21 +168,25 @@ press(min:number,max:number){
   productsObservable=this.filterservice.searchp(this.filteration)
   productsObservable.subscribe((serverProducts)=>{
     this.products=serverProducts
-    this.page=this.products.length
+    this.total=this.products.length
+
   console.log(this.products)
 })}
 
 
-
+view_details(id:string) {
+  this.router.navigate(['/single-product', id ]);
+}
       onselectchange(event:any,index:any){
         this.selectedIndex = event.target.checked ? index : undefined;
         this.filteration.catid=event.target.value
-
+        this.page=1
         //let productsObservable: Observable<Products[]>
 //const name=event.target.value.toLowerCase()
         this.filterservice.searchp(this.filteration).subscribe((serverProducts: any)=>{
           this.products=serverProducts
-          this.page=this.products.length
+          this.total=this.products.length
+
         console.log(this.products)
       })}
       onvendorchange(event:any,v:any){
@@ -197,7 +196,8 @@ press(min:number,max:number){
         //console.log(event.target.value)
        this.filterservice.searchp(this.filteration).subscribe((serverProducts: any)=>{
           this.products=serverProducts
-          this.page=this.products.length
+          this.total=this.products.length
+          this.page=1
         console.log(this.products)
       })}
 
@@ -208,7 +208,8 @@ press(min:number,max:number){
 
 this.filterservice.searchp(this.filteration).subscribe((serverProducts: any)=>{
           this.products=serverProducts
-          this.page=this.products.length
+          this.total=this.products.length
+          this.page=1
         console.log(this.products)
       })
       }

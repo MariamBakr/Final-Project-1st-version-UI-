@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { USER_REGISTER_URL,USER_LOGIN_URL,USER_UPDATE_DATA_URL,GET_CLIENT_NAME_URL} from './../shared/constants/urls';
+import { USER_REGISTER_URL,USER_LOGIN_URL,USER_UPDATE_DATA_URL,GET_CLIENT_NAME_URL, USER_GET_DATA_URL} from './../shared/constants/urls';
 import { Router } from '@angular/router';
+import { user } from '../shared/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -63,6 +64,9 @@ get_logedUser():boolean{
   return this._HttpClient.post(USER_UPDATE_DATA_URL,userData);
  } 
 
+ getUser():Observable<any>{
+  return this._HttpClient.get<any>(USER_GET_DATA_URL);
+ }
 
 
  

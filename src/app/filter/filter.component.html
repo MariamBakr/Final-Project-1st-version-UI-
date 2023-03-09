@@ -7,12 +7,12 @@
   <!-- Down div ===> filter  -->
   <div class="d-flex justify-content-around">
     <!-- Left section for Filter -->
-    <section class="left_section_for_filter mt-5 p-4"
-      style="width:28%;border-radius: 1rem; border: 2px solid rgba(0, 0, 0, 0.158); box-shadow: 8px 5px 10px rgb(157, 153, 153) ;">
+    <section class="left_section_for_filter mt-5 p-4 shadow"
+      style="width:28%;border-radius: 1rem;">
       <h2 class="mb-3 ms-2">Filter</h2>
       <!-- Category -->
-      <div class="accordion mb-3" id="accordionExample"
-        style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
+      <div class="accordion mb-3 shadow" id="accordionExample"
+        style="border-radius:0.5rem ; ">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button"
@@ -41,8 +41,8 @@
 
 
       <!-- Price -->
-      <div class="accordion mb-3" id="accordionExample"
-        style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
+      <div class="accordion mb-3 shadow" id="accordionExample"
+        style="border-radius:0.5rem ; ">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button"
@@ -80,8 +80,8 @@
 
 
       <!-- Vendors -->
-      <div class="accordion mb-3" id="accordionExample"
-        style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
+      <div class="accordion mb-3 shadow" id="accordionExample"
+        style="border-radius:0.5rem ; ">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button"
@@ -111,8 +111,8 @@
 
 
       <!-- Colors -->
-      <div class="accordion mb-3" id="accordionExample"
-        style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
+      <div class="accordion mb-3 shadow" id="accordionExample"
+        style="border-radius:0.5rem ; ">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button"
@@ -120,8 +120,8 @@
               Colors
             </button>
           </h2>
-          <div id="colors" class="accordion-collapse collapse show ">
-            <div class="accordion-body  d-flex"  *ngFor="let cl of n">
+          <div id="colors" class="  d-flex row accordion-collapse collapse show ">
+            <div class="accordion-body col-sm-1 col-md-1 col-lg-1 col-xl-1"  *ngFor="let cl of n">
 
 
                 <!-- red -->
@@ -143,62 +143,15 @@
 
 
 
-
-      <!-- Style -->
-      <!-- <div class="accordion mb-3" id="accordionExample"
-        style="border-radius:0.5rem ; box-shadow: 5px 5px 5px rgb(157, 153, 153) ;">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button style="background-color: white !important; " class="accordion-button fw-semibold" type="button"
-              data-bs-toggle="collapse" data-bs-target="#style">
-              Style
-            </button>
-          </h2>
-          <div id="style" class="accordion-collapse collapse show">
-            <div class="accordion-body">
-
-              <div class="d-flex">
-                <input class="form-check-input mt-0" type="checkbox" value=""
-                  aria-label="Checkbox for following text input">
-                <div class="d-flex justify-content-between w-50">
-                  <p style="bottom: 0.3rem;" class="ms-2 position-relative">Modern </p>
-                  <p style="bottom: 0.25rem;" class=" position-relative">(30)</p>
-
-                </div>
-              </div>
-              <div class="d-flex">
-                <input class="form-check-input mt-0" type="checkbox" value=""
-                  aria-label="Checkbox for following text input">
-                <div class="d-flex justify-content-between w-50">
-                  <p style="bottom: 0.3rem;" class="ms-2 position-relative">Classic </p>
-                  <p style="bottom: 0.25rem;" class=" position-relative">(25)</p>
-                </div>
-              </div>
-              <div class="d-flex ">
-                <input class="form-check-input mt-0" type="checkbox" value=""
-                  aria-label="Checkbox for following text input">
-                <div class="d-flex justify-content-between w-50">
-                  <p style="bottom: 0.3rem;" class="ms-2 position-relative">Contemporary </p>
-                  <p style="bottom: 0.25rem;" class=" position-relative">(25)</p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
-
-
     </section>
 
 
 
     <!-- Right section for Cards -->
-    <section class="right_section_for_cards ms-3 mt-5 border border-1 border-danger p-3" style=" width:70%;">
+    <section class="right_section_for_cards ms-3 mt-5  p-3" style=" width:85%;">
       <!-- Fast Search by Categories (such as : Bed Rooms , Living Rooms ....etc)  -->
-      <div class="fast_search_by_categories d-flex justify-content-between align-items-center"
-        style="box-shadow: 0.3rem 0.3rem 1rem black  ; padding-top: 1.5rem; margin-bottom: 2rem; border-radius: 1rem;">
+      <div class="fast_search_by_categories d-flex justify-content-between align-items-center shadow"
+        style=" padding-top: 1.5rem; margin-bottom: 2rem; border-radius: 1rem;">
         <!-- Bed Rooms -->
         <div class="mb-3 me-3  text-center"*ngFor="let cat of categories ;let c = index" >
 
@@ -217,7 +170,7 @@
 
       <!-- Search Form -->
       <div>
-        <form (ngSubmit)="onSearchTextChanged(enteredSearchValue)" class="d-flex" role="search">
+        <form (ngSubmit)="onSearchTextChanged(enteredSearchValue)" class="d-flex mt-3 mb-4" role="search">
           <input [(ngModel)]="enteredSearchValue" name="name" style="height:6vh;  "
             class="form-control me-2 bg-dark text-light " type="search" (focus)="hide_hilight($event)"
             placeholder="Search for specific product (Ex. Tv Tables)" aria-label="Search">
@@ -230,7 +183,7 @@
       <div class="row staff-grid-row">
         <!-- card1 -->
      <div class="p-2 col-md-6 col-sm-6 col-12 col-lg-4 col-xl-4"*ngFor="let item of products | paginate: { id: 'some_id',
-     itemsPerPage: 12,
+     itemsPerPage: 5,
      currentPage: page,
      totalItems: total }" >
           <div class="card align-items-center bg-white Small shadow card1" >
@@ -240,7 +193,7 @@
 <div class="carousel carousel-dark slide" style="width:100%; height:100% ;">
 
   <div class="carousel-inner" >
-    <div style="width:100%; height:100% ;" *ngFor="let img of item.images" class="carousel-item active" data-bs-interval="10000">
+    <div style="width:100%; height:100% ;" *ngFor="let img of item.images;let index=index" class="carousel-item active" data-bs-interval="10000">
          <img [src]="img" class="d-block w-100 market-hight" alt="...">
 
     </div>
@@ -248,14 +201,14 @@
   </div>
 
      <!--Start Color carousel-->
-     <div class="mt-2">
-          <owl-carousel-o >
-               <ng-container *ngFor="let cl of item.colors; let i = index">
-                    <ng-template carouselSlide id="slides12.id">
-                         <div class="styleColor" [style.background-color]="cl"></div>
-                    </ng-template>
-               </ng-container>
-          </owl-carousel-o>
+     <div class="mt-2 ">
+          <div class="d-flex justify-content-center text-center">
+               <div   *ngFor="let cl of item.colors; let i = index">
+                    <div class=" text-center " carouselSlide id="slides12.id">
+                         <div class="ms-2  styleColor rounded-circle" [style.background-color]="cl"></div>
+                    </div>
+               </div>
+          </div>
      </div>
      <!--End Color carousel-->
 
@@ -270,35 +223,27 @@
 
                     <!-- price -->
                     <p class="card-text text-center text-secondary lh-1 CEO pt-3">
-                       {{item.price}}
+                       {{item.price}} LE
                     </p>
                     <!-- button -->
                     <div class="add-to-cart d-flex justify-content-center mb-2">
-                         <a >view details</a>
-                         <!-- (click)="view_details(item._id)" -->
+                         <a type="button" (click)="view_details(item._id)">view details</a>
+
                     </div>
 
                </div>
           </div>
      </div>
-        <!-- card2 -->
-
-
-
-
 
       </div>
-<div >
+<div class="text-center" >
   <pagination-controls  id="some_id"
   (pageChange)="pageChanged($event)"
  >
 </pagination-controls>
 </div>
 </section>
- <!-- <div class="single-product" *ngFor="let item of products | paginate: { id: 'some_id',
-                       itemsPerPage: 10,
-                       currentPage: page,
-                       totalItems: total }"> -->
+
 
 </div>
 

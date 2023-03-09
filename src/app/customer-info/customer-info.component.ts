@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserAuthService } from '../Services/user-auth.service';
 
 @Component({
   selector: 'app-customer-info',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class CustomerInfoComponent {
 
+  client:any
+  constructor(private service: UserAuthService){}
+
+  ngOnInit() {
+    this.service.getUser().subscribe((data) => {
+      this.client = data;
+      console.log(this.client)
+    });
+  }
 }
