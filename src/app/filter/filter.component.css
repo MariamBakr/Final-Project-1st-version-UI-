@@ -1,30 +1,8 @@
-@media (max-width : 1000px ){
-    .left_section_for_filter {
-        display: none;
-    }
-    .right_section_for_cards{
-        width: 100% !important;
-    }
-}
 
-
-@media (max-width : 400px ){
-    .fast_search_by_categories {
-
-        /* flex-wrap: wrap !important; */
-    }
-    .category_room_name{
-        display: none;
-    }
-
-}
 .CEO {
   margin-top: -0.3rem;
 }
 
-.card1 {
-  position: relative;
-}
 
 .dropbtn {
   position: absolute;
@@ -49,7 +27,10 @@
   text-decoration: none;
   text-transform: uppercase;
 }
+.backcolor {
+  background-color: #d8d6d3;
 
+}
 /* Start image carousel height */
 .market-hight{
  height: 20rem !important;
@@ -61,4 +42,29 @@
   width: 4vh;
   height: 4vh;
 
+}
+#main {
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+.changed{
+  width:250px;
 }

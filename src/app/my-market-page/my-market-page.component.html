@@ -1,21 +1,21 @@
 <div class="container">
   <!-- All card -->
-  <div class="row g-2 mb-5">
+  <div  class="row g-2 mb-5">
     <!-- card1 -->
 
-    
+
 
     <!-- ............................... -->
     <!-- card2 -->
-    <section style="border-radius: 0.5rem; border:1px solid rgba(0, 0, 0, 0.219);width: 65%;" class="mx-4 mb-4 p-3"  *ngFor="let prod of products">
+    <section  style="border-radius: 0.5rem; border:1px solid rgba(0, 0, 0, 0.219);width: 65%;" class="mx-4 mb-4 p-3"  *ngFor="let prod of products;let index=index" >
 
       <!-- div contain proposal details -->
       <div class=" mt-4 d-flex justify-content-around" >
         <!-- Proposal Details -->
-        <div class="position-relative" style="top: 1rem; width: 60%;" >
+        <div  class="position-relative" style="top: 1rem; width: 60%;" >
 
           <!-- card details  -->
-          <div class="ms-2">
+          <div class="ms-2"  >
 
             <div>
               <!-- title -->
@@ -47,16 +47,16 @@
             </span>
 
             <!-- Main Category -->
-            <span class="d-flex align-items-center mt-2">
+            <span  class="d-flex align-items-center mt-2">
               <h6 class="fw-bold">Main Category: </h6>
-              <h6 class="ms-3">{{prod.category}}</h6>
+              <h6 class="ms-3">{{catname[index]}}</h6>
             </span>
 
 
             <!-- Sub  Category -->
             <span class="d-flex align-items-center mt-2">
               <h6 class="fw-bold">Sub Category: </h6>
-              <h6 class="ms-3">{{prod.subcategory}}</h6>
+              <h6 class="ms-3">{{subcatname[index]}}</h6>
             </span>
           </div>
 
@@ -103,12 +103,14 @@
         <!--End image carousel-->
 
       </div>
+
     </section>
     <!-- .................................... -->
 
     <!-- card3 -->
 
     <!-- card4 -->
+
   </div>
 </div>
 

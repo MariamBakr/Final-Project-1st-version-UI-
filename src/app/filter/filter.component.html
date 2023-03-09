@@ -5,11 +5,14 @@
   </div>
 
   <!-- Down div ===> filter  -->
-  <div class="d-flex justify-content-around">
+
+  <div class="d-flex row">
+
     <!-- Left section for Filter -->
-    <section class="left_section_for_filter mt-5 p-4 shadow"
-      style="width:28%;border-radius: 1rem;">
-      <h2 class="mb-3 ms-2">Filter</h2>
+    <section   class="col-sm-3 col-md-3 col-lg-2 col-xl-2 left_section_for_filter mt-5 p-3 shadow"
+     >
+
+     <h5  class="mb-3 ms-2">Filter</h5>
       <!-- Category -->
       <div class="accordion mb-3 shadow" id="accordionExample"
         style="border-radius:0.5rem ; ">
@@ -52,21 +55,8 @@
           </h2>
           <div id="price" class="accordion-collapse collapse show">
             <div class="accordion-body">
-              <!-- Min & Max Price -->
-              <!-- <div class="d-flex justify-content-between">
 
-                            <h6 class="text-center">
-                                <p>Min. </p>
-                                <span class="position-relative badge bg-secondary">EGP&nbsp;1,300</span>
-                            </h6>
 
-                            <h6 class="text-center">
-                                <p>Max. </p>
-                                <span class="position-relative badge bg-secondary">EGP&nbsp;83,000</span>
-                            </h6>
-                        </div> -->
-
-              <!-- Multi price Range -->
               <div>
                 <ngx-slider (userChange)="press(minValue,maxValue)" (userChangeStart)="minprice($event)" (userChangeEnd)="maxprice($event)"  [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
               </div>
@@ -101,14 +91,10 @@
                 </div>
               </div>
 
-
-
             </div>
           </div>
         </div>
       </div>
-
-
 
       <!-- Colors -->
       <div class="accordion mb-3 shadow" id="accordionExample"
@@ -123,32 +109,21 @@
           <div id="colors" class="  d-flex row accordion-collapse collapse show ">
             <div class="accordion-body col-sm-1 col-md-1 col-lg-1 col-xl-1"  *ngFor="let cl of n">
 
-
-                <!-- red -->
-
                  <div class="styleColor  rounded-circle"(click)="colorChange(cl)"  [style.background-color]="cl"></div>
                   <!-- <input *ngFor="let item of color" (change)="colorChange(item)" type="color"  name="head" value="{{item}}"> -->
                   <!-- <label for="{{item}}"></label> -->
-
-
-
-
-
-
               </div>
 
             </div>
           </div>
         </div>
 
-
-
     </section>
 
 
 
     <!-- Right section for Cards -->
-    <section class="right_section_for_cards ms-3 mt-5  p-3" style=" width:85%;">
+    <section class="col-sm-10 col-md-10 col-lg-10 col-xl-10 mt-5  p-2">
       <!-- Fast Search by Categories (such as : Bed Rooms , Living Rooms ....etc)  -->
       <div class="fast_search_by_categories d-flex justify-content-between align-items-center shadow"
         style=" padding-top: 1.5rem; margin-bottom: 2rem; border-radius: 1rem;">
@@ -182,18 +157,18 @@
 
       <div class="row staff-grid-row">
         <!-- card1 -->
-     <div class="p-2 col-md-6 col-sm-6 col-12 col-lg-4 col-xl-4"*ngFor="let item of products | paginate: { id: 'some_id',
+     <div class="col-md-12 col-sm-12 col-lg-4 col-xl-4"*ngFor="let item of products | paginate: { id: 'some_id',
      itemsPerPage: 5,
      currentPage: page,
      totalItems: total }" >
-          <div class="card align-items-center bg-white Small shadow card1" >
+          <div class="card  bg-white Small shadow card1 h-100" >
 
 <!--Start image carousel-->
 
-<div class="carousel carousel-dark slide" style="width:100%; height:100% ;">
+<div class="carousel carousel-dark slide">
 
   <div class="carousel-inner" >
-    <div style="width:100%; height:100% ;" *ngFor="let img of item.images;let index=index" class="carousel-item active" data-bs-interval="10000">
+    <div  *ngFor="let img of item.images;let index=index" class="carousel-item active" data-bs-interval="10000">
          <img [src]="img" class="d-block w-100 market-hight" alt="...">
 
     </div>
@@ -202,10 +177,10 @@
 
      <!--Start Color carousel-->
      <div class="mt-2 ">
-          <div class="d-flex justify-content-center text-center">
+          <div class="d-flex justify-content-center text-center backcolor">
                <div   *ngFor="let cl of item.colors; let i = index">
                     <div class=" text-center " carouselSlide id="slides12.id">
-                         <div class="ms-2  styleColor rounded-circle" [style.background-color]="cl"></div>
+                         <div class="ms-2  styleColor " [style.background-color]="cl"></div>
                     </div>
                </div>
           </div>
@@ -245,6 +220,7 @@
 </section>
 
 
+</div>
 </div>
 
 
