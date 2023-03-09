@@ -54,13 +54,13 @@ export class VendorJobproposalComponent implements OnInit {
           this.subCategory=response.data.subCategory.name;
 
           
-          console.log("description=",response.data._doc.description);
-          console.log("colors=",response.data._doc.colors);
-          console.log("quantity=",response.data._doc.quantity);
-          console.log("price.min=",response.data._doc.price.min);
-          console.log("price.max=",response.data._doc.price.max);
-          console.log("images[0]=",response.data._doc.images[0]);
-          console.log("clientID=",response.data._doc.clientID);
+          // console.log("description=",response.data._doc.description);
+          // console.log("colors=",response.data._doc.colors);
+          // console.log("quantity=",response.data._doc.quantity);
+          // console.log("price.min=",response.data._doc.price.min);
+          // console.log("price.max=",response.data._doc.price.max);
+          // console.log("images[0]=",response.data._doc.images[0]);
+          // console.log("clientID=",response.data._doc.clientID);
           // this.customOrder=response.data._doc;
           this.customOrder=response.data;
           // console.log(this.customOrder._doc.images[0]);

@@ -208,16 +208,18 @@
             </div>
 
             <div class="mt-4 text-end">
-                <button class="btn btn-dark rounded-0 mb-5" (click)="onSubmit()">PROCEED TO PAYPAL</button>
+                <button class="btn btn-dark rounded-0 mb-5" (click)="onSubmit()">PROCEED ORDER</button>
                 <!-- [disabled]="checkOutForm.invalid" -->
             </div>
 
             <!-- paypal -->
-            <input type="'number" [(ngModel)]="finalAmount" [value]="prod.Total_price" >
+            <!-- <input type="'number" [(ngModel)]="finalAmount" [value]="prod.Total_price" > -->
             <!-- <div id="paypal_checkout_btn"></div> -->
 
 
             <div id="paypal-button"></div>
+
+            <button class="btn btn-outline-success " (click)="confirmOrder()">CASH ON DELIVERY</button>
 
             <!-- <div *ngIf="showPaypal">
                 <div id="paypal-button"></div>

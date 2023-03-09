@@ -60,6 +60,8 @@ import { CustomertrackorderComponent } from './customertrackorder/customertracko
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CustomerSecondProfileComponent } from './customer-second-profile/customer-second-profile.component';
+import { VendorJopsComponent } from './vendor-jops/vendor-jops.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +113,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     CustomertrackorderComponent,
     CartComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    CustomerSecondProfileComponent,
+    VendorJopsComponent
 
 
   ],

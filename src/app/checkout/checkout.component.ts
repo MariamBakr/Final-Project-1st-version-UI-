@@ -179,7 +179,13 @@ export class CheckoutComponent implements OnInit, AfterViewChecked {
 
 
 
-
+  confirmOrder(){
+    this._CHECKService.CHECKOUT_PAYMENT().subscribe({
+      next:(response)=>{
+        console.log(response);
+      }
+    })
+  }
 
 
 }
