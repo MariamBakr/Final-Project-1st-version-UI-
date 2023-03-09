@@ -1,8 +1,8 @@
 <!-- ////////////////////// owl carousel /////////////// -->
 
-<div class="container my-2">
+<!-- <div class="container my-2"> -->
     <!-- category Carousel -->
-    <owl-carousel-o [options]="customOptions" style="padding-bottom: 0px !important;">
+    <!-- <owl-carousel-o [options]="customOptions" style="padding-bottom: 0px !important;">
         <ng-container *ngFor="let cat of categories">
             <ng-template carouselSlide [id]="cat.id" >
                 <div class="row justify-content-center bg-dark text-white border border-5"  >
@@ -15,10 +15,10 @@
                 </div>
             </ng-template>
         </ng-container>
-    </owl-carousel-o>
+    </owl-carousel-o> -->
 
     <!-- subCategory Carousel -->
-    <owl-carousel-o [options]="customOptions">
+    <!-- <owl-carousel-o [options]="customOptions">
         <ng-container *ngFor="let sub of subcategoryName">
             <ng-template carouselSlide [id]="sub.id">
                 <div class="row justify-content-center align-middle bg-dark text-white border border-5">
@@ -34,37 +34,37 @@
     </owl-carousel-o>
 
 
-</div>
+</div> -->
 
 <!-- ///////////////////////////// double cards ///////////////////////////////////// -->
 
 <div class="container mt-5">
     <div class="row justify-content-evenly" >
         <!-- client info -->
-        <div class="col-5 shadow p-3 mb-5 bg-body rounded cards" *ngFor="let job of jobCard">
+        <div class="col-5 shadow p-3 mb-5 bg-body rounded cards" *ngFor="let job of orders">
             <div class="row ">
-                <img [src]="job.clientImg" class="col-3 img-circle mt-3 ms-3">
+                <img src="../../assets/client.png" class="col-3 img-circle mt-3 ms-3">
                 <div class="col-6 clientData">
                     <div class="row mt-4">
                         <h5 class="col-6 mb-0 clientName">{{job.clientName}}</h5>
-                        <a href="#" class="text-decoration-none">See Profile</a>
+                        <a routerLink="" class="text-decoration-none" (click)="displayClient(job.clientID)">See Profile</a>
                     </div>
                 </div>
             </div>
             <!-- job info -->
             <div class="row mt-4 justify-content-evenly">
-                <h3 class="ms-3">{{job.category}} <i class="fa-solid fa-arrow-right"></i> {{job.subCategory}}</h3>
+                <h3 class="ms-3">{{job.categoryname}} <i class="fa-solid fa-arrow-right"></i> {{job.subcategoryname}}</h3>
                 <div class="col-6 mt-3 jobDescription">
-                    <p id="jobDescription"> {{job.jobDescription.length>18? job.jobDescription.substring(0,70).concat( " ...more"):job.jobDescription}}</p>
-                    <h4>Price: {{job.jobPrice}}</h4>
-                    <h4>Status: <i class="fa-solid fa-power-off" [style.color]="(job.status=='available')?'green':'red'"></i></h4>
+                    <p id="jobDescription"> {{job.description.length>18? job.jobDescription.substring(0,70).concat( " ...more"):job.description}}</p>
+                    <h4>Price: from {{job.price.min}} EGP to {{job.price.min}} EGP</h4>
+                    <h4>Status: <i class="fa-solid fa-power-off" [style.color]="(job.isclosed==false)?'green':'red'"></i></h4>
                 </div>
-                <div class="col-5 mt-0 jobImage" style="height:10rem">
-                    <img [src]="job.jobImage" class="pb-5 " style="width: 7rem !important; height: 10rem !important;">
+                <div class="col-5 mt-0 jobImage" style="height:10rem" *ngFor="let img of job.images">
+                    <img [src]="img" class="pb-5 " style="width: 7rem !important; height: 10rem !important;">
                 </div>
                     
                 <div class="text-center mb-3 SeeDetailsBtn">
-                    <a class="btn btn-dark rounded-0 mt-3" routerLink="/customOrderDetails/{{job.id}}">See Details</a>
+                    <button class="btn btn-dark rounded-0 mt-3" routerLink="/customOrderDetails/{{job._id}}" [disabled]="job.isclosed==true">See Details</button>
                 </div>
             </div>
         </div>

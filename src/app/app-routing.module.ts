@@ -56,12 +56,7 @@ const routes: Routes = [
             // ................... Client Childrens 
               {path:'',redirectTo:'info', pathMatch:'full'},
               { path: 'purchasehistory', component: PurchaseHistoryComponent },
-              { path: 'custom_orders', component: CustomerMonitorJobsComponent,children:[
-
-              // { path: 'trackOrder', component: CustomertrackorderComponent },
-
-              
-            ]},
+              { path: 'custom_orders', component: CustomerMonitorJobsComponent},
             { path: 'trackOrder', component: CustomertrackorderComponent },
               { path: 'trackOrder', component: CustomertrackorderComponent },
               { path: 'proposals_page', component: VendorProposalSendToCustomerComponent },
@@ -71,10 +66,7 @@ const routes: Routes = [
               {path:'cart',component:CartComponent},
               {path:'proposals/:id',component:CustomerpageForJobdetailsAndVendorsproposalsComponent},
         ] },
-        {path:'vendorProfile/:id',component:VendorProfileComponent,children:[
-          // {path:'',redirectTo:'vendorProfile/:id',pathMatch:'full'}
-        ]},
-
+        {path:'vendorProfile/:id',component:VendorProfileComponent},
     
     {path:'customOrderDetails/:id',canActivate:[RoleGardGuard] ,component:VendorJobproposalComponent},
     {path:'vendor-find-jop',canActivate:[RoleGardGuard] ,component:VendorFindJobComponent},

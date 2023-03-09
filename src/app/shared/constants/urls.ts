@@ -113,3 +113,7 @@ export const REMOVE_FROM_WISHLIST_URL = WISHLIST_URL + '/remove'
 export const CLIENT_ORDER_HISTORY_URL = BASE_URL + 'clientHistory'
 
 
+// ****************** Jobs **********************/
+
+export const GET_ALL_JOBS = BASE_URL + 'jobs'
+export const GET_JOB_BY_CATID = GET_ALL_JOBS + '/catid'
