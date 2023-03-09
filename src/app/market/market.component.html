@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
      <!-- All card -->
      <div class="row staff-grid-row">
           <!-- card1 -->
@@ -38,7 +38,7 @@
                                         <span class="visually-hidden">Next</span>
                                    </button>
                               </div>
-                        
+                       
                          
                          <!-- end of slide show -->
 
@@ -78,11 +78,12 @@
 
                          <!-- price -->
                          <p class="card-text text-center text-secondary lh-1 CEO pt-3">
-                              {{prod.price}}
+                         price:  {{prod.price}}
                          </p>
                          <!-- button -->
-                         <div class="add-to-cart d-flex justify-content-center mb-2">
-                              <a (click)="view_details(prod._id)">view details</a>
+                         <div class="add-to-cart d-flex justify-content-center mb-2 ">
+                              <a class="m-2 text-center poenter" (click)="view_details(prod._id)">view details</a>
+                              <a class="m-2 text-center poenter" (click)="addToWishlist(prod)">Add To Wishlist</a>
                          </div>
 
                     </div>

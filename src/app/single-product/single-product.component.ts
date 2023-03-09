@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CartService } from '../Services/cart.service';
 import { VendorProductsService } from '../Services/vendor-products.service';
+import { WishlistService } from '../Services/wishlist.service';
 import { Products } from '../shared/models/products';
 import { user } from '../shared/models/user';
 
@@ -12,7 +13,7 @@ import { user } from '../shared/models/user';
   styleUrls: ['./single-product.component.css']
 })
 export class SingleProductComponent implements OnInit  {
-  constructor(private activatedRoute: ActivatedRoute, private service: VendorProductsService, private cartService: CartService){}
+  constructor(private activatedRoute: ActivatedRoute, private service: VendorProductsService, private cartService: CartService, private listService: WishlistService){}
   prdId:string='';
   prdoduct:Products|undefined
   
@@ -33,7 +34,11 @@ export class SingleProductComponent implements OnInit  {
       console.log("product in cart")
     })}
 
-
+  addToWishlist(product: object) {
+    this.listService.addToList(product).subscribe((data) => {
+      console.log(data)
+    })
+  }
 
 
 }

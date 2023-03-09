@@ -72,7 +72,18 @@
                     <h2 class="card-title">Description</h2><br>
 
                      <p class="card-text">{{prdoduct!.overview}} </p>
-                      <a  (click)="addToCart(prdoduct!)" style=" background-color: #798545;" class="btn">Add to cart</a>
+
+                     <div class="d-flex ">
+                       
+                      <a style=" background-color: #798545; color: white;" class=" btn m-2 text-center poenter"
+                        (click)="addToCart(prdoduct!)">Add to cart</a>
+
+                        <a style=" background-color: #798545; color: white;" class=" btn m-2 text-center poenter"
+                          (click)="addToWishlist(prdoduct!)">Add To Wishlist</a>
+
+                     </div>
+                    
+
                     </div>
                   </div>
 
